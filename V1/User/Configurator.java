@@ -2,6 +2,7 @@ package User;
 
 import org.json.JSONObject;
 import Client.Client;
+import java.util.*;
 
 public class Configurator extends User
 {
