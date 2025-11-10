@@ -9,16 +9,16 @@ public abstract class User
 	private static final String ERROR_SERVER = "\nERRORE! Non è stato possibile comunicare col server";
 	private static final String ERROR_SERVER_COMMUNICATION = "Errore, non è stato possibile cambiare la password";
 	
-    String userName;
-	String cityOfResidence;
-	int birthYear;
-	String roleTitle;
-	String userID;
-    String password;
-	String organization;
+    protected String userName;
+	protected String cityOfResidence;
+	protected int birthYear;
+	protected String roleTitle;
+	protected String userID;
+    protected String password;
+	protected String organization;
 
 	// metodo per creare nuova password
-	public boolean set_new_password ()
+	protected boolean set_new_password ()
 	{
 		String tmpPassword = UserTui.getPasswordFromUser (GET_DATA_PASSWORD);
 		Client.getInstance().edit_password(tmpPassword);
