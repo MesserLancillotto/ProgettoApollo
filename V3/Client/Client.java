@@ -142,7 +142,12 @@ public final class Client
         this.body = new SetDisponibilityRequest(event, time);
         this.comunicationType = ComunicationType.SET_DISPONIBILITY;
     }
-
+    
+    public void delete_place(String city, String address)
+    {
+        this.body = new DeletePlaceRequest(city, address);
+        this.comunicationType = ComunicationType.DELETE_PLACE;
+    }
 // -----------------------------------------------------------------------
 
     public String make_server_request() {
