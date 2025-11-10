@@ -165,6 +165,13 @@ class ServerAPI extends Thread
                         userPassword, 
                         dictionary.getString("target")
                     ).handleRequest();
+                case SET_DISPONIBILITY:
+                    return new SetDisponibilityEngine(
+                        userID, 
+                        userPassword,
+                        dictionary.getString("event"),
+                        dictionary.getInt("time")
+                    ).handleRequest();
             }
         } catch(Exception e)
         {
