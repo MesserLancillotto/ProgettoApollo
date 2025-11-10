@@ -148,6 +148,16 @@ public final class Client
         this.body = new DeletePlaceRequest(city, address);
         this.comunicationType = ComunicationType.DELETE_PLACE;
     }
+
+    public void set_voluntary_to_event(
+        String event,
+        String targetID,
+        int time
+    ) {
+        this.body = new SetVoluntaryToEventRequest(event, targetID, time);
+        this.comunicationType = ComunicationType.SET_VOLUNTARY_TO_EVENT;
+    }
+
 // -----------------------------------------------------------------------
 
     public String make_server_request() {
