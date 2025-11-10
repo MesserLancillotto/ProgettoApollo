@@ -9,7 +9,18 @@ public class Server
 {
     public static void main(String [] args) 
     {
-            ServerAPI api = new ServerAPI();
-            api.start(); 
+        while(true)
+        {
+            try
+            (
+                ServerAPI api = new ServerAPI();
+            ) {
+                api.start();
+            } catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+             
     }
 }

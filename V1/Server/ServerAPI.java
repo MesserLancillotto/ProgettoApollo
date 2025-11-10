@@ -73,46 +73,15 @@ class ServerAPI extends Thread
             dictionary.remove("userPassword");
             switch(comunicationType)
             {
-                case EDIT_EVENT:
-                    Map<String, Object> map = new HashMap<String, Object>();
-                    for(String key : dictionary.keySet())
-                    {
-                        map.put(key, dictionary.get(key));
-                    }
-                    map.remove("requestType");
-                    return new EditEventEngine(
+                case SET_NEW_ORGANIZATION:
+                    JSONArray territoriesArray = dictionary.getJSONArray("territoriesOfCompetence");
+                    ArrayList<String> territories = new ArrayList<>();
+                    territoriesArray.forEach(item -> territories.add((String)item));
+                    return new SetNewOrganizationEngine(
                         userID,
                         userPassword,
-                        map
-                    ).handleRequest();
-                case EDIT_PASSWORD:
-                    return new EditPasswordEngine(
-                        userID, 
-                        userPassword,
-                        dictionary.getString("newPassword")
-                    ).handleRequest();
-                case GET_EVENT:
-                    filters = new HashMap<String, Object>();
-                    for(String key : dictionary.keySet())
-                    {
-                        filters.put(key, dictionary.get(key));
-                    }
-                    return new GetEventEngine(
-                        filters
-                    ).handleRequest();
-                case GET_USER_DATA:
-                    return new GetUserDataEngine(
-                        userID, 
-                        userPassword, 
-                        dictionary.getString("target")
-                    ).handleRequest();
-                case SET_CLOSED_DAYS:
-                    return new SetClosedDaysEngine(
-                        userID, 
-                        userPassword,
-                        dictionary.getInt("startDate"),
-                        dictionary.getInt("endDate"),
-                        dictionary.getString("organization")
+                        dictionary.getString("organizationName"),
+                        territories
                     ).handleRequest();
                 case SET_NEW_EVENT:
                     return new SetNewEventEngine(
@@ -135,15 +104,13 @@ class ServerAPI extends Thread
                         getIntegerArrayListFromJSON(dictionary.getJSONArray("startHour")),
                         getIntegerArrayListFromJSON(dictionary.getJSONArray("duration"))
                     ).handleRequest();
-                case SET_NEW_ORGANIZATION:
-                    JSONArray territoriesArray = dictionary.getJSONArray("territoriesOfCompetence");
-                    ArrayList<String> territories = new ArrayList<>();
-                    territoriesArray.forEach(item -> territories.add((String)item));
-                    return new SetNewOrganizationEngine(
-                        userID,
+                case SET_CLOSED_DAYS:
+                    return new SetClosedDaysEngine(
+                        userID, 
                         userPassword,
-                        dictionary.getString("organizationName"),
-                        territories
+                        dictionary.getInt("startDate"),
+                        dictionary.getInt("endDate"),
+                        dictionary.getString("organization")
                     ).handleRequest();
                 case SET_NEW_USER:
                     return new SetNewUserEngine(
@@ -154,6 +121,49 @@ class ServerAPI extends Thread
                         dictionary.getString("cityOfResidence"),
                         dictionary.getInt("birthYear"),
                         UserRoleTitle.USER
+                    ).handleRequest();
+                case EDIT_EVENT:
+                    Map<String, Object> map = new HashMap<String, Object>();
+                    for(String key : dictionary.keySet())
+                    {
+                        map.put(key, dictionary.get(key));
+                    }
+                    map.remove("requestType");
+                    return new EditEventEngine(
+                        userID,
+                        userPassword,
+                        map
+                    ).handleRequest();
+                case EDIT_PASSWORD:
+                    return new EditPasswordEngine(
+                        userID, 
+                        userPassword,
+                        dictionary.getString("newPassword")
+                    ).handleRequest();
+                case GET_VOLUNTARIES:
+                    for (String key : json.keySet()) 
+                    {
+                       this.filters.put(key, json.get(key));
+                    }
+                    return new GetVoluntariesEngine(
+                        userID, 
+                        userPassword,
+                        filters
+                    ).handleRequest();
+                case GET_EVENT:
+                    filters = new HashMap<String, Object>();
+                    for(String key : dictionary.keySet())
+                    {
+                        filters.put(key, dictionary.get(key));
+                    }
+                    return new GetEventEngine(
+                        filters
+                    ).handleRequest();
+                case GET_USER_DATA:
+                    return new GetUserDataEngine(
+                        userID, 
+                        userPassword, 
+                        dictionary.getString("target")
                     ).handleRequest();
             }
         } catch(Exception e)
