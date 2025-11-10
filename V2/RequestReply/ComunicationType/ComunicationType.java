@@ -11,8 +11,5 @@ public enum ComunicationType
     GET_VOLUNTARIES,
     GET_EVENT,
     GET_USER_DATA,
-
     SET_DISPONIBILITY
-
-
 }

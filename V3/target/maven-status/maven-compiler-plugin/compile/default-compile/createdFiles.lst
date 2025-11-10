@@ -15,6 +15,7 @@ User/UserMenu.class
 User/UserLogin.class
 User/ConfMenuGenericOptions.class
 User/StateOfVisit.class
+Server/Engine/DaemonEngine.class
 RequestReply/Request/GetEventRequest.class
 Server/Engine/EditPasswordEngine.class
 User/UserTui.class
@@ -37,6 +38,7 @@ RequestReply/Reply/SetNewEventReply.class
 User/UserTui$1.class
 Server/Engine/GetUserDataEngine.class
 User/ConfMenuPlaceMenu.class
+RequestReply/Request/DeletePlaceRequest.class
 Server/Engine/EditEventEngine.class
 RequestReply/Request/GetUserDataRequest.class
 RequestReply/Reply/ReplyType.class
@@ -46,6 +48,7 @@ RequestReply/Reply/SetNewOrganizationReply.class
 Server/Engine/SetDisponibilityEngine.class
 RequestReply/Request/SetNewOrganizationRequest.class
 Client/Client.class
+RequestReply/Reply/DeletePlaceReply.class
 RequestReply/Request/GetVoluntariesRequest.class
 RequestReply/UserRoleTitle/UserRoleTitleStringConverter.class
 Server/Engine/GetEventEngine.class
@@ -64,3 +67,4 @@ RequestReply/Reply/GetUserDataReply.class
 RequestReply/Reply/GetVoluntarieReply.class
 Server/Server.class
 User/DataManager.class
+Server/Engine/DeletePlaceEngine.class
