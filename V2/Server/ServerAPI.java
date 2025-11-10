@@ -186,8 +186,6 @@ class ServerAPI extends Thread
         handleUserRequest();
     }
 
-    // helper
-
     private static ArrayList<String> getStringArrayListFromJSON(JSONArray jsonArray) {
         ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i < jsonArray.length(); i++) {
