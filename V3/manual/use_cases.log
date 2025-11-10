@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.10.17)  10 NOV 2025 20:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.10.17)  10 NOV 2025 21:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -162,27 +162,29 @@ Underfull \hbox (badness 7486) in paragraph at lines 308--308
 
 [3]
 
-[4] (./use_cases.aux)
+[4]
+
+[5] (./use_cases.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 1930 strings out of 475171
- 34244 string characters out of 5767094
+ 1931 strings out of 475171
+ 34252 string characters out of 5767094
  443734 words of memory out of 5000000
- 24985 multiletter control sequences out of 15000+600000
+ 24986 multiletter control sequences out of 15000+600000
  559610 words of font info for 39 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,11n,50p,211b,540s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 37i,11n,50p,243b,540s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on use_cases.pdf (4 pages, 50077 bytes).
+Output written on use_cases.pdf (5 pages, 51870 bytes).
 PDF statistics:
- 32 PDF objects out of 1000 (max. 8388607)
- 19 compressed objects within 1 object stream
+ 35 PDF objects out of 1000 (max. 8388607)
+ 21 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

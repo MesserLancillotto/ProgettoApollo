@@ -310,6 +310,92 @@
 
 \vspace{1em}
 
+\begin{center}
+    \begin{tabularx}{\textwidth}{|l || X|} 
+    \hline
+    Nome caso & Modificare tipo di visita permesso ai volontari \\
+    \hline\hline
+    Attore & Configuratore \\
+    \hline
+    Scenario principale & 
+    \begin{minipage}[t]{\linewidth}
+    \vspace{0.1em}
+    \begin{enumerate}[leftmargin=*, nosep, topsep=0.5em, itemsep=0.3em]
+        \item Precondizioni: il configuratore elenca i tipi di visita da aggiungere a quelli che il volontario può compiere, e quelli che non può più 
+        \item Postcondizioni: il programma modifica la tabella dei permessi, cancella la disponibilità per le visite del tipo rimosso e qualora un volontario non possa più fare nessun tipo di visita, viene rimosso dal sistema
+    \end{enumerate}
+    \vspace{0.3em}
+    \end{minipage} \\
+    \hline
+    \end{tabularx}
+\end{center}
 
+\vspace{1em}
+
+\begin{center}
+    \begin{tabularx}{\textwidth}{|l || X|} 
+    \hline
+    Nome caso & Rimozione di un luogo dalle visite \\
+    \hline\hline
+    Attore & Configuratore \\
+    \hline
+    Scenario principale & 
+    \begin{minipage}[t]{\linewidth}
+    \vspace{0.1em}
+    \begin{enumerate}[leftmargin=*, nosep, topsep=0.5em, itemsep=0.3em]
+        \item Precondizioni: il configuratore indica un luogo con città ed indirizzo 
+        \item Postcondizioni: il programma elimina ogni visita che si sarebbe svolto in quel posto 
+    \end{enumerate}
+    \vspace{0.3em}
+    \end{minipage} \\
+    \hline
+    \end{tabularx}
+\end{center}
+
+\vspace{1em}
+
+\begin{center}
+    \begin{tabularx}{\textwidth}{|l || X|} 
+    \hline
+    Nome caso & Rimozione di volontario \\
+    \hline\hline
+    Attore & Configuratore \\
+    \hline
+    Scenario principale & 
+    \begin{minipage}[t]{\linewidth}
+    \vspace{0.1em}
+    \begin{enumerate}[leftmargin=*, nosep, topsep=0.5em, itemsep=0.3em]
+        \item Precondizioni: il configuratore indica un volontario 
+        \item Postcondizioni: il programma elimina il volontario dal sistema (account, disponibilità, permessi, ...)
+    \end{enumerate}
+    \vspace{0.3em}
+    \end{minipage} \\
+    \hline
+    \end{tabularx}
+\end{center}
+
+\vspace{1em}
+
+\begin{center}
+    \begin{tabularx}{\textwidth}{|l || X|} 
+    \hline
+    Nome caso & Rimozione di un tipo di visita da un luogo \\
+    \hline\hline
+    Attore & Configuratore \\
+    \hline
+    Scenario principale & 
+    \begin{minipage}[t]{\linewidth}
+    \vspace{0.1em}
+    \begin{enumerate}[leftmargin=*, nosep, topsep=0.5em, itemsep=0.3em]
+        \item Precondizioni: il configuratore indica un luogo con città ed indirizzo ed un tipo di visita 
+        \item Postcondizioni: il programma elimina ogni visita di quel tipo che si sarebbe svolto in quel posto 
+    \end{enumerate}
+    \vspace{0.3em}
+    \end{minipage} \\
+    \hline
+    \end{tabularx}
+\end{center}
+
+\vspace{1em}
 
 \end{document}
