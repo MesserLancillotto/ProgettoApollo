@@ -1,64 +1,64 @@
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Request/GetEventRequest.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/UserFirstAccessCreator.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Request/Request.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/Server/Engine/SetNewUserEngine.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/UserLogin.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Reply/SetNewEventReply.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Reply/GetEventReply.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/Server/Engine/EditPasswordEngine.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/UserMenu.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/Server/Engine/SetDisponibilityEngine.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/Voluntary.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/Server/Engine/SetClosedDaysEngine.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Request/SetClosedDaysRequest.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Reply/ReplyType.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Reply/SetNewUserReply.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/Place.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/Server/Server.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/Configurator.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Request/SetNewOrganizationRequest.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/DataManagerPeriod.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/ComunicationType/ComunicationTypeStringConverter.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Reply/SetDisponibilityReply.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/DataManager.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/UserTui.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/Client/Client.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/Server/Engine/GetEventEngine.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/User.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Request/GetVoluntariesRequest.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Request/SetNewEventRequest.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/UserRoleTitle/UserRoleTitleStringConverter.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Reply/GetUserDataReply.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/DayOfWeek.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/JSONObjectCreator.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/ConfiguratorMenu.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/UserRoleTitle/UserRoleTitle.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Request/EditAllowedVisitFromVoluntaryRequest.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/ComunicationType/ComunicationType.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/ConfMenuGenericOptions.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/UserCreator.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/Server/Engine/EditEventEngine.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Request/EditEventRequest.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Reply/EditPasswordReply.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/Server/Engine/GetVoluntariesEngine.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/JSONObjectMethod.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Reply/SetNewOrganizationReply.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Reply/SetClosedDaysReply.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/Server/Engine/GetUserDataEngine.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/Server/ServerAPI.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Request/SetDisponibilityRequest.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Reply/EditEventReply.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Request/EditPasswordRequest.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Reply/GetVoluntarieReply.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/ConfMenuVoluntaryMenu.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/Server/Engine/SetNewEventEngine.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/Server/Engine/SetNewOrganizationEngine.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/VoluntaryMenu.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Request/GetUserDataRequest.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/ConfMenuPlaceMenu.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/Server/Engine/Engine.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Request/RequestType.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/Client/Client_test.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/StateOfVisit.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/User/DataManagerDisponibility.java
-/Users/alessandrolucchese/Inge del sw/Ti prego/ProgettoApollo/V2/RequestReply/Request/SetNewUserRequest.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Request/Request.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/UserRoleTitle/UserRoleTitle.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Request/SetNewOrganizationRequest.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Request/EditPasswordRequest.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/DataManagerPeriod.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/UserTui.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/ConfiguratorMenu.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/ConfMenuVoluntaryMenu.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/User.java
+/home/lancillotto/documents/ProgettoApollo/V2/Server/Engine/SetNewUserEngine.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/ConfMenuPlaceMenu.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Reply/ReplyType.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/ComunicationType/ComunicationType.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Request/GetUserDataRequest.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/UserRoleTitle/UserRoleTitleStringConverter.java
+/home/lancillotto/documents/ProgettoApollo/V2/Server/Server.java
+/home/lancillotto/documents/ProgettoApollo/V2/Server/Engine/Engine.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/Voluntary.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Request/EditEventRequest.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Reply/EditEventReply.java
+/home/lancillotto/documents/ProgettoApollo/V2/Client/Client.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Reply/GetEventReply.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Reply/EditPasswordReply.java
+/home/lancillotto/documents/ProgettoApollo/V2/Server/Engine/SetClosedDaysEngine.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Request/SetDisponibilityRequest.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/DayOfWeek.java
+/home/lancillotto/documents/ProgettoApollo/V2/Server/Engine/EditEventEngine.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Reply/SetDisponibilityReply.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/DataManagerDisponibility.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Request/GetEventRequest.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/JSONObjectCreator.java
+/home/lancillotto/documents/ProgettoApollo/V2/Server/Engine/GetUserDataEngine.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/Configurator.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Reply/SetNewUserReply.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Request/SetNewEventRequest.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Reply/GetUserDataReply.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/UserLogin.java
+/home/lancillotto/documents/ProgettoApollo/V2/Server/Engine/SetDisponibilityEngine.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Request/GetVoluntariesRequest.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Reply/SetNewOrganizationReply.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/UserCreator.java
+/home/lancillotto/documents/ProgettoApollo/V2/Server/Engine/EditPasswordEngine.java
+/home/lancillotto/documents/ProgettoApollo/V2/Server/Engine/GetVoluntariesEngine.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Reply/SetClosedDaysReply.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Reply/GetVoluntarieReply.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/StateOfVisit.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/JSONObjectMethod.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/UserFirstAccessCreator.java
+/home/lancillotto/documents/ProgettoApollo/V2/Server/Engine/SetNewOrganizationEngine.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/UserMenu.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/ConfMenuGenericOptions.java
+/home/lancillotto/documents/ProgettoApollo/V2/Server/ServerAPI.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Request/SetNewUserRequest.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/VoluntaryMenu.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Request/EditAllowedVisitFromVoluntaryRequest.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Reply/SetNewEventReply.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/DataManager.java
+/home/lancillotto/documents/ProgettoApollo/V2/Server/Engine/SetNewEventEngine.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Request/SetClosedDaysRequest.java
+/home/lancillotto/documents/ProgettoApollo/V2/Client/Client_test.java
+/home/lancillotto/documents/ProgettoApollo/V2/Server/Engine/GetEventEngine.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/ComunicationType/ComunicationTypeStringConverter.java
+/home/lancillotto/documents/ProgettoApollo/V2/User/Place.java
+/home/lancillotto/documents/ProgettoApollo/V2/RequestReply/Request/RequestType.java
