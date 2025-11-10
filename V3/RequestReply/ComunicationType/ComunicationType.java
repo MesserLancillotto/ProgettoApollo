@@ -13,6 +13,7 @@ public enum ComunicationType
     GET_USER_DATA,
     SET_DISPONIBILITY,
 DELETE_PLACE, 
+SET_VOLUNTARY_TO_EVENT,
 DELETE_VISIT_TYPE_FROM_PLACE, // da implementare
-DELETE_VOLUNTARY, // da implementare
+DELETE_VOLUNTARY // da implementare
 }
