@@ -134,4 +134,23 @@ public final class Client
         this.body = new GetUserDataRequest(target);
         this.comunicationType = ComunicationType.GET_USER_DATA;
     }
+    
+    public String make_server_request() {
+        String request = new Request(comunicationType, userID, userPassword, body).toJSONString();
+        String response = "";
+        
+        try (
+            Socket socket = new Socket(SERVER_ADDR, PORT);
+            DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
+            DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
+        ) {
+            dataOutputStream.writeUTF(request);
+            dataOutputStream.flush(); 
+            response = dataInputStream.readUTF();
+            return response;
+        } catch(Exception e) {
+            System.out.println("An error occurred: " + e);
+        }
+        return response;
+    }
 }
