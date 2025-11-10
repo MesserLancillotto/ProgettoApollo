@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.10.17)  10 NOV 2025 16:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.10.17)  10 NOV 2025 18:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -124,13 +124,13 @@ Underfull \hbox (badness 1152) in paragraph at lines 217--217
 
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 237--237
-[]|\OT1/cmr/m/n/10 Visualizzare le visite nello stato di
+Underfull \hbox (badness 1622) in paragraph at lines 237--237
+[]|\OT1/cmr/m/n/10 Visualizzare le visite nello stato di PROPOSTA
  []
 
 
-Overfull \hbox (110.43413pt too wide) in paragraph at lines 237--237
-\OT1/cmr/m/n/10 PROPOSTA/EFFETTUATA/COMPLETA/CONFERMATA/CANCELLATA| 
+Underfull \hbox (badness 10000) in paragraph at lines 237--237
+\OT1/cmr/m/n/10 EFFETTUATA COMPLETA CONFERMATA
  []
 
 
@@ -162,7 +162,7 @@ Here is how much of TeX's memory you used:
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on use_cases.pdf (3 pages, 48088 bytes).
+Output written on use_cases.pdf (3 pages, 48012 bytes).
 PDF statistics:
  29 PDF objects out of 1000 (max. 8388607)
  17 compressed objects within 1 object stream
