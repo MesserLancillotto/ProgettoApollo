@@ -12,9 +12,8 @@ public class Server
         while(true)
         {
             try
-            (
+            {
                 ServerAPI api = new ServerAPI();
-            ) {
                 api.start();
             } catch(Exception e)
             {
