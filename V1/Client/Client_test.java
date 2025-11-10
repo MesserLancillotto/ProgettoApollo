@@ -6,7 +6,7 @@ public class Client_test
 {
     public static void main(String [] args)
     {
-        Client client = new Client("CONFIGURATOR.Carlo.Goldoni.97", "samuele");
+        // Client client = new Client("CONFIGURATOR.Carlo.Goldoni.97", "samuele");
         
         // ORGANIZZAZIONE DIVERSA
         // Map<String, Object> fields = new HashMap<String, Object>();

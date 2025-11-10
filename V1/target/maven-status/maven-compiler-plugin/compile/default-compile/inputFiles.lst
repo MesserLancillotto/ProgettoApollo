@@ -3,6 +3,7 @@
 /home/lancillotto/documents/ProgettoApollo/V1/User/Place.java
 /home/lancillotto/documents/ProgettoApollo/V1/RequestReply/Reply/GetUserDataReply.java
 /home/lancillotto/documents/ProgettoApollo/V1/User/UserTui.java
+/home/lancillotto/documents/ProgettoApollo/V1/User/JSONObjectCreator.java
 /home/lancillotto/documents/ProgettoApollo/V1/Server/Engine/GetEventEngine.java
 /home/lancillotto/documents/ProgettoApollo/V1/User/DayOfWeek.java
 /home/lancillotto/documents/ProgettoApollo/V1/Server/Engine/GetUserDataEngine.java
@@ -20,6 +21,7 @@
 /home/lancillotto/documents/ProgettoApollo/V1/Client/Client.java
 /home/lancillotto/documents/ProgettoApollo/V1/RequestReply/Reply/EditEventReply.java
 /home/lancillotto/documents/ProgettoApollo/V1/RequestReply/Request/EditAllowedVisitFromVoluntaryRequest.java
+/home/lancillotto/documents/ProgettoApollo/V1/User/JSONObjectMethod.java
 /home/lancillotto/documents/ProgettoApollo/V1/User/User.java
 /home/lancillotto/documents/ProgettoApollo/V1/Server/Engine/GetVoluntariesEngine.java
 /home/lancillotto/documents/ProgettoApollo/V1/RequestReply/Request/RequestType.java

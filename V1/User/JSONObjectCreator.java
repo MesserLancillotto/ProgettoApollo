@@ -20,7 +20,7 @@ public class JSONObjectCreator
     }
 
     private static void saveJsonToFile(String jsonString, String filePath) 
-    {s
+    {
         try 
         {
             // Scrive la stringa JSON nel file

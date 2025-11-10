@@ -68,7 +68,7 @@ class ServerAPI extends Thread
             String userID = dictionary.getString("userID"); 
             String userPassword = dictionary.getString("userPassword");
             String organization;
-            Map<String, Object> filters;
+            Map<String, Object> filters = new HashMap<String, Object>();
             dictionary.remove("userID");
             dictionary.remove("userPassword");
             switch(comunicationType)
@@ -141,9 +141,9 @@ class ServerAPI extends Thread
                         dictionary.getString("newPassword")
                     ).handleRequest();
                 case GET_VOLUNTARIES:
-                    for (String key : json.keySet()) 
+                    for (String key : dictionary.keySet()) 
                     {
-                       this.filters.put(key, json.get(key));
+                       filters.put(key, dictionary.get(key));
                     }
                     return new GetVoluntariesEngine(
                         userID, 
