@@ -40,9 +40,18 @@ public class ConfMenuPlaceMenu extends UserMenu
     {
         menuSelection.put(1, () -> view_visitable_places());
         menuSelection.put(2, () -> view_type_of_visit_by_place());
+        //iterazione 3
+        menuSelection.put(3, () -> introduce_new_place());
+        menuSelection.put(4, () -> add_to_existing_place_new_visit());
+        menuSelection.put(5, () -> remove_place());
+        menuSelection.put(6, () -> remove_visit_type_from_place()); 
 
         menuOptionList.add("Visualizza l'elenco dei luoghi visitabili");
         menuOptionList.add("Visualizza l'elenco dei tipi di visita associati a ciascun luogo");
+        menuOptionList.add("Inserisci una nuova visita in un nuovo posto");
+        menuOptionList.add("Inserisci una nuova visita in un luogo esistente");
+        menuOptionList.add("Rimuovi un luogo visitabile (e le visite ad esso associate)");
+        menuOptionList.add("Rimuovi un tipo di visita da un luogo visitabile");
     }
 
     public ConfMenuPlaceMenu (String organization)
@@ -134,6 +143,95 @@ public class ConfMenuPlaceMenu extends UserMenu
         } while (addAnotherPlaceAnswer); 
     }
 
+    public void add_to_existing_place_new_visit()   //OK
+    {
+        Map<String, String> placesToChoose = get_visitable_places();
+        if (placesToChoose != null && !placesToChoose.isEmpty())
+        {
+            HashMap <Integer, String> placesToChooseMap = UserTui.fromListToMap(placesToChoose.values());
+            String place = UserTui.getChoiceFromMap(MSG_CHOOSE_PLACE, placesToChooseMap);
+            StringBuilder msgToConfirmPlaceDecision = new StringBuilder();
+            msgToConfirmPlaceDecision.append ("Hai scelto ");
+            msgToConfirmPlaceDecision.append(place);
+            msgToConfirmPlaceDecision.append(" confermi ");
+            boolean confirmDecision = UserTui.getYesNoAnswer (msgToConfirmPlaceDecision.toString());
+            if (!place.trim().isEmpty() && confirmDecision)
+            {
+                int commaPlace = place.indexOf(":");
+                String city = place.substring(0, commaPlace);
+                String address = place.substring(commaPlace+1);
+                add_place_to_server(city, address);
+            }
+        }
+        else
+            System.out.println (ERROR_CONNECTION_SERVER);
+    }
+
+    
+    public void remove_place()  //fai un secondo check ma dovrebbe funzionare
+    {
+        Map<String, String> placesToChoose = view_visitable_places();
+        if (placesToChoose != null && !placesToChoose.isEmpty())
+        {
+            HashMap <Integer, String> placesToChooseMap = UserTui.fromListToMap(placesToChoose.values());
+            String placeToRemove = UserTui.getChoiceFromMap(MSG_REMOVEPLACE_CHOOSEPLACE, placesToChooseMap);
+            boolean confirmDecision = UserTui.getYesNoAnswer ("Hai scelto "+ placeToRemove+ " confermi ");
+            if (!placeToRemove.trim().isEmpty() && confirmDecision)
+            {
+                int commaPlace = placeToRemove.indexOf(":");
+                String cityToRemove = placeToRemove.substring(0, commaPlace);
+                String addressToRemove = placeToRemove.substring(commaPlace+1);
+                Client.getInstance().delete_place(cityToRemove, addressToRemove);
+                String removePlaceReply = Client.getInstance().make_server_request();
+                if (!removePlaceReply.trim().isEmpty() && JSONObjectMethod.isValidJSONObject(removePlaceReply))
+                {
+                    JSONObject dictionary = new JSONObject(removePlaceReply);
+                    boolean removeSuccess = dictionary.getBoolean("loginSuccessful");
+                    UserTui.operationIsSuccessful(removeSuccess);
+                    if (removeSuccess)
+                    {
+                        int numberOfVisitRemoved = dictionary.getInt("rowsDeleted");
+                        StringBuilder numberOfVisitRemovedCommunication = new StringBuilder();
+                        numberOfVisitRemovedCommunication.append("Hai rimosso ");
+                        numberOfVisitRemovedCommunication.append(numberOfVisitRemoved);
+                        numberOfVisitRemovedCommunication.append(" visite");
+                        System.out.println (numberOfVisitRemovedCommunication.toString());
+                    }
+                }
+                else
+                    System.out.println (ERROR_CONNECTION_SERVER);
+            }
+        }
+        else
+            System.out.println (ERROR_CONNECTION_SERVER);
+    }
+
+    public void remove_visit_type_from_place()  //manca solo chiamata al server + controlla key
+    {
+        Map<String, String> placesToChoose = view_visitable_places();
+        if (placesToChoose != null && !placesToChoose.isEmpty())
+        {
+            HashMap <Integer, String> placesToChooseMap = UserTui.fromListToMap(placesToChoose.values());
+            String placeToRemove = UserTui.getChoiceFromMap(MSG_REMOVEVISIT_CHOOSEPLACE, placesToChooseMap);
+            boolean confirmDecision = UserTui.getYesNoAnswer ("Hai scelto "+ placeToRemove+ " confermi ");
+            if (!placeToRemove.trim().isEmpty() && confirmDecision)
+            {
+                String visitTypeToRemove = get_visit_type_from_place(placeToRemove);
+                if (!placeToRemove.trim().isEmpty() && !visitTypeToRemove.trim().isEmpty())
+                {
+                    //Client.getInstance().remove_visit_type_from_place(placeToRemove, visitTypeToRemove);
+                    String removeVisitTypeReply = Client.getInstance().make_server_request();
+                    if (!removeVisitTypeReply.trim().isEmpty() && JSONObjectMethod.isValidJSONObject(removeVisitTypeReply))
+                    {
+                        JSONObject dictionary = new JSONObject(removeVisitTypeReply);
+                        UserTui.operationIsSuccessful(dictionary.getBoolean("querySuccesful")); // CONTROLLA key
+                    }
+                }
+            }
+        }
+        else
+            System.out.println (ERROR_CONNECTION_SERVER);
+    }   
 
     //METODI GESTIONE INTERNA
 
@@ -195,6 +293,25 @@ public class ConfMenuPlaceMenu extends UserMenu
         else
             System.out.println (ERROR_CONNECTION_SERVER);
         return null;
+    }
+
+    private String get_visit_type_from_place (String stampablePlace)
+    {
+        String place = stampablePlace.toUpperCase().trim().replaceAll(" ", "");
+        Map<String, Place> placeMap = get_type_of_visit_by_place();
+        String visitTypeToRemove = "";
+        if (placeMap != null && !placeMap.isEmpty())
+        {
+            Set <String> visitTypes = new HashSet<>();
+            Place p = placeMap.get(place);  // place passato come .toUpperCase().trim().replaceAll(" ", "")
+            if (p != null)
+            {
+                visitTypes = p.get_type_visit_list();
+                visitTypeToRemove = UserTui.getChoiceFromMap("Scegli quale tipo di visita rimuovere da "+stampablePlace, UserTui.fromListToMap(visitTypes));
+            }
+            
+        }
+        return visitTypeToRemove;
     }
 
     private void add_place_to_server(String cityName, String cityAddress) // DA CONTROLLARE
