@@ -22,7 +22,7 @@ public class ConfMenuVoluntaryMenu extends UserMenu
     public void initialize_menu_selection ()
     {
         menuSelection.put(1, () -> view_voluntary_list());
-        //iterazione 3
+        
         menuSelection.put(2, () -> remove_voluntary());
         menuSelection.put(3, () -> close_disponibility_collection());
         menuSelection.put(4, () -> open_disponibility_collection());
