@@ -19,10 +19,31 @@ public final class Client
     private RequestType body;
     private ComunicationType comunicationType;
 
-    public Client(String userID, String userPassword) {
-        this.userID = userID;
-        this.userPassword = userPassword;
+    private static Client instance;
+
+    private Client ()
+    {
+        
     }
+
+    public static synchronized Client getInstance ()
+    {
+         if (instance == null) {
+            instance = new Client();
+        }
+        return instance;
+    }
+
+    public void setUserID (String tmpuUserID)
+    {
+        userID = tmpuUserID;
+    }
+
+    public void setUserPassword (String tmpUserPassword)
+    {
+        userPassword = tmpUserPassword;
+    }
+
 
     public void set_new_organization(String organizationName, ArrayList<String> territoriesOfCompetence) {
         this.body = new SetNewOrganizationRequest(organizationName, territoriesOfCompetence);
