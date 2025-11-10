@@ -1,6 +1,7 @@
 RequestReply/ComunicationType/ComunicationType.class
 User/ConfMenuVoluntaryMenu.class
 RequestReply/Reply/EditPasswordReply.class
+RequestReply/Reply/SetDisponibilityReply.class
 Server/ServerAPI$1.class
 Server/Engine/Engine.class
 Server/Engine/SetClosedDaysEngine.class
@@ -18,6 +19,7 @@ RequestReply/Request/GetEventRequest.class
 Server/Engine/EditPasswordEngine.class
 User/UserTui.class
 Server/Engine/SetNewEventEngine.class
+RequestReply/Request/SetDisponibilityRequest.class
 User/JSONObjectMethod.class
 RequestReply/Reply/EditEventReply.class
 User/ConfiguratorMenu.class
@@ -39,6 +41,7 @@ RequestReply/Reply/ReplyType.class
 RequestReply/Reply/SetNewUserReply.class
 Client/Client_test.class
 RequestReply/Reply/SetNewOrganizationReply.class
+Server/Engine/SetDisponibilityEngine.class
 RequestReply/Request/SetNewOrganizationRequest.class
 Client/Client.class
 RequestReply/Request/GetVoluntariesRequest.class
