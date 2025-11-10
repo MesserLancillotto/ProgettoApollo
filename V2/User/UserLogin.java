@@ -27,8 +27,10 @@ public class UserLogin
     private static void initialize_user_factory ()
     {
         userFactory.put (CONFIGURATOR_SYMBOL, (username, cityOfResidence, birthYear, password, roleTitle, organization, allowedVisitType) -> new Configurator (username, cityOfResidence, birthYear, password, roleTitle, organization, allowedVisitType));  
+        userFactory.put (VOLUNTARY_SYMBOL, (username, cityOfResidence, birthYear, password, roleTitle, organization, allowedVisitType) -> new Voluntary (username, cityOfResidence, birthYear, password, roleTitle, organization, allowedVisitType));  
 
 		userFirstAccessFactory.put (CONFIGURATOR_SYMBOL, (tmpUsernName, tmpPassword, roleTitle) -> new Configurator (tmpUsernName, tmpPassword, roleTitle));
+        userFirstAccessFactory.put (VOLUNTARY_SYMBOL, (tmpUsernName, tmpPassword, roleTitle) -> new Voluntary (tmpUsernName, tmpPassword, roleTitle));
     }
 
 	public static void main (String[] args)
