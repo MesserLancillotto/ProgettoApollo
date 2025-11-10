@@ -9,13 +9,13 @@ public abstract class User
 	private static final String ERROR_SERVER = "\nERRORE! Non è stato possibile comunicare col server";
 	private static final String ERROR_SERVER_COMMUNICATION = "Errore, non è stato possibile cambiare la password";
 	
-    protected String userName;
-	protected String cityOfResidence;
-	protected int birthYear;
-	protected String roleTitle;
-	protected String userID;
-    protected String password;
-	protected String organization;
+    String userName;
+	String cityOfResidence;
+	int birthYear;
+	String roleTitle;
+	String userID;
+    String password;
+	String organization;
 
 	// metodo per creare nuova password
 	protected boolean set_new_password ()
