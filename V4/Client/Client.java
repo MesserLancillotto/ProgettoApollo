@@ -158,27 +158,6 @@ public final class Client
         this.comunicationType = ComunicationType.SET_VOLUNTARY_TO_EVENT;
     }
 
-    public void delete_visit_type_from_place(
-        String city, 
-        String address, 
-        String visitType
-    ) {
-        this.body = new DeleteVisitTypeFromPlaceRequest(
-            city,
-            address,
-            visitType
-        );
-        this.comunicationType = ComunicationType.DELETE_VISIT_TYPE_FROM_PLACE;
-    }
-
-    public void delete_voluntary(
-        String targetID
-    ) {
-        this.body = new DeleteVoluntaryRequest(targetID);
-        this.comunicationType = ComunicationType.DELETE_VOLUNTARY;
-    }
-
-
 // -----------------------------------------------------------------------
 
     public String make_server_request() {

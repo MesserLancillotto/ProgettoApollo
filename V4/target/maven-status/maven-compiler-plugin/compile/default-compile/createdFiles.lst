@@ -8,6 +8,7 @@ Server/Engine/SetClosedDaysEngine.class
 Server/Engine/GetVoluntariesEngine.class
 RequestReply/Request/Request.class
 RequestReply/Request/EditPasswordRequest.class
+RequestReply/Reply/DeleteVoluntaryRequest.class
 Server/Engine/SetVoluntaryToEventEngine.class
 RequestReply/Request/SetClosedDaysRequest.class
 User/UserFirstAccessCreator.class
@@ -63,7 +64,6 @@ Server/Engine/DeleteVisitTypeFromPlaceEngine.class
 RequestReply/Reply/GetEventReply.class
 User/Place.class
 Server/Engine/SetNewOrganizationEngine.class
-RequestReply/Request/DeleteVoluntaryRequest.class
 RequestReply/Request/SetNewUserRequest.class
 RequestReply/Request/SetVoluntaryToEventRequest.class
 RequestReply/ComunicationType/ComunicationTypeStringConverter.class

@@ -1,8 +1,8 @@
-package RequestReply.Request;
+package RequestReply.Reply;
 
 import org.json.*;
 
-public class DeleteVoluntaryRequest implements RequestType
+public class DeleteVoluntaryRequest implements ReplyType
 {
     private String targetID;
 

@@ -1,0 +1,190 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.10.17)  10 NOV 2025 21:12
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**use_cases.tex
+(./use_cases.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/share/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count196
+\c@section=\count197
+\c@subsection=\count198
+\c@subsubsection=\count199
+\c@paragraph=\count266
+\c@subparagraph=\count267
+\c@figure=\count268
+\c@table=\count269
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
+)
+(/usr/share/texmf-dist/tex/latex/tools/array.sty
+Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
+\col@sep=\dimen142
+\ar@mcellbox=\box52
+\extrarowheight=\dimen143
+\NC@list=\toks17
+\extratabsurround=\skip51
+\backup@length=\skip52
+\ar@cellbox=\box53
+)
+(/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\enitkv@toks@=\toks18
+\labelindent=\skip53
+\enit@outerparindent=\dimen144
+\enit@toks=\toks19
+\enit@inbox=\box54
+\enit@count@id=\count270
+\enitdp@description=\count271
+)
+(/usr/share/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen145
+\TX@old@table=\dimen146
+\TX@old@col=\dimen147
+\TX@target=\dimen148
+\TX@delta=\dimen149
+\TX@cols=\count272
+\TX@ftn=\toks20
+)
+(/usr/share/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2025/02/14 v25.4 The multilingual framework for pdfLaTeX, LuaLaT
+eX and XeLaTeX
+\babel@savecnt=\count273
+\U@D=\dimen150
+\l@unhyphenated=\language3
+
+(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count274
+Package babel Info: You haven't specified a language as a class or package
+(babel)             option. I'll load 'nil'. Reported on input line 4188.
+
+(/usr/share/texmf-dist/tex/generic/babel/nil.ldf
+Language: nil 2025/02/14 v25.4 Nil language
+\l@nil=\language4
+))
+(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count275
+\l__pdf_internal_box=\box55
+)
+(./use_cases.aux)
+\openout1 = `use_cases.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--67
+[]\OT1/cmr/m/n/10 Si apre la lista di azioni compibili
+ []
+
+
+Underfull \hbox (badness 2111) in paragraph at lines 117--117
+[]\OT1/cmr/m/n/10 Postcondizioni: il server prende in carico la
+ []
+
+
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 1895) in paragraph at lines 147--147
+[]\OT1/cmr/m/n/10 Postcondizioni: il server prende in carico la
+ []
+
+
+Underfull \hbox (badness 1152) in paragraph at lines 197--197
+[]\OT1/cmr/m/n/10 Postcondizioni: il programma stampa a video
+ []
+
+
+Underfull \hbox (badness 1152) in paragraph at lines 217--217
+[]\OT1/cmr/m/n/10 Postcondizioni: il programma stampa a video
+ []
+
+
+
+[2]
+Underfull \hbox (badness 1622) in paragraph at lines 237--237
+[]|\OT1/cmr/m/n/10 Visualizzare le visite nello stato di PROPOSTA
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--237
+\OT1/cmr/m/n/10 EFFETTUATA COMPLETA CONFERMATA
+ []
+
+
+Underfull \hbox (badness 7486) in paragraph at lines 237--237
+[]\OT1/cmr/m/n/10 Precondizioni: l'utente effettua la richiesta
+ []
+
+
+Underfull \hbox (badness 1152) in paragraph at lines 237--237
+[]\OT1/cmr/m/n/10 Postcondizioni: il programma stampa a video
+ []
+
+
+Underfull \hbox (badness 6792) in paragraph at lines 264--264
+[]\OT1/cmr/m/n/10 Precondizioni: l'utente effettua la richiesta
+ []
+
+
+Underfull \hbox (badness 7486) in paragraph at lines 286--286
+[]\OT1/cmr/m/n/10 Precondizioni: il configuratore conferma la
+ []
+
+
+Underfull \hbox (badness 7486) in paragraph at lines 308--308
+[]\OT1/cmr/m/n/10 Precondizioni: il configuratore conferma la
+ []
+
+
+
+[3]
+
+[4]
+
+[5] (./use_cases.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 1931 strings out of 475171
+ 34252 string characters out of 5767094
+ 443734 words of memory out of 5000000
+ 24986 multiletter control sequences out of 15000+600000
+ 559610 words of font info for 39 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 37i,11n,50p,243b,540s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on use_cases.pdf (5 pages, 51870 bytes).
+PDF statistics:
+ 35 PDF objects out of 1000 (max. 8388607)
+ 21 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
