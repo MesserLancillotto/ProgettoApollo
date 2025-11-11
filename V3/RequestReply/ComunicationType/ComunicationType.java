@@ -14,6 +14,6 @@ public enum ComunicationType
     SET_DISPONIBILITY,
 DELETE_PLACE, 
 SET_VOLUNTARY_TO_EVENT,
-DELETE_VISIT_TYPE_FROM_PLACE, // da implementare
+DELETE_VISIT_TYPE_FROM_PLACE, 
 DELETE_VOLUNTARY // da implementare
 }
