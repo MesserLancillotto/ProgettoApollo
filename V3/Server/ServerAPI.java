@@ -187,6 +187,20 @@ class ServerAPI extends Thread
                         dictionary.getString("targetID"),
                         dictionary.getInt("time")
                     ).handleRequest();
+                case DELETE_VISIT_TYPE_FROM_PLACE:
+                    return new DeleteVisitTypeFromPlaceEngine(
+                        userID,
+                        userPassword,
+                        dictionary.getString("city"),
+                        dictionary.getString("address"),
+                        dictionary.getString("visitType")
+                    ).handleRequest();
+                case DELETE_VOLUNTARY:
+                    return new DeleteVoluntaryEngine(
+                        userID,
+                        userPassword,
+                        dictionary.getString("targetID")
+                    ).handleRequest();
             }
         } catch(Exception e)
         {
