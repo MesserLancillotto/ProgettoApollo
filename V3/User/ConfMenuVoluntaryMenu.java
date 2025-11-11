@@ -22,7 +22,7 @@ public class ConfMenuVoluntaryMenu extends UserMenu
     public void initialize_menu_selection ()
     {
         menuSelection.put(1, () -> view_voluntary_list());
-        
+        //iterazione 3
         menuSelection.put(2, () -> remove_voluntary());
         menuSelection.put(3, () -> close_disponibility_collection());
         menuSelection.put(4, () -> open_disponibility_collection());
@@ -55,7 +55,7 @@ public class ConfMenuVoluntaryMenu extends UserMenu
             System.out.println (ERROR_VOLUNTARY_LIST_EMPTY);
     }
 
-    public void remove_voluntary()      // manca chiamata al SERVER + controlla key word
+    public void remove_voluntary()     
     {
         Set<String> voluntaryList =  get_voluntary_list();
         if (voluntaryList != null && !voluntaryList.isEmpty())
@@ -69,12 +69,12 @@ public class ConfMenuVoluntaryMenu extends UserMenu
             boolean confirmDecisionForVoluntary = UserTui.getYesNoAnswer (msgToDecisionForVoluntary.toString());
             if (!voluntaryID.trim().isEmpty() && confirmDecisionForVoluntary)
             {
-                //Client.getInstance().remove_voluntary(voluntaryID);
+                Client.getInstance().delete_voluntary(voluntaryID);
                 String removeVoluntaryResponse = Client.getInstance().make_server_request();
                 if (!removeVoluntaryResponse.trim().isEmpty() && JSONObjectMethod.isValidJSONObject(removeVoluntaryResponse))
                 {
-                     JSONObject dictionary = new JSONObject(removeVoluntaryResponse);
-                    UserTui.operationIsSuccessful (dictionary.getBoolean("querySuccesful"));    // controlla key word
+                    JSONObject dictionary = new JSONObject(removeVoluntaryResponse);
+                    UserTui.operationIsSuccessful (dictionary.getBoolean("loginSuccessful"));    
                 }
                 else
                     System.out.println (ERROR_SERVER);
@@ -93,12 +93,14 @@ public class ConfMenuVoluntaryMenu extends UserMenu
         boolean makeServerCall = UserTui.getYesNoAnswer(MSG_CLOSE_DISP_COLLECTION);
         if (makeServerCall)
         {
-            //Client.getInstance().close_voluntary_disponibility_collection(organization);
+            HashMap <String, Object> filter = new HashMap<>();
+            filter.put ("voluntariesCanSubmit", false);
+            Client.getInstance().get_event(filter);
             String closeVoluntaryDisponibilityCollectionResponse = Client.getInstance().make_server_request();
             if (!closeVoluntaryDisponibilityCollectionResponse.trim().isEmpty() && JSONObjectMethod.isValidJSONObject(closeVoluntaryDisponibilityCollectionResponse))
             {
                 JSONObject dictionary = new JSONObject(closeVoluntaryDisponibilityCollectionResponse);
-                UserTui.operationIsSuccessful (dictionary.getBoolean("querySuccesful"));    // controlla key word
+                UserTui.operationIsSuccessful (dictionary.getBoolean("editSuccesful"));    // controlla key word
             }
         }
     }
@@ -108,12 +110,14 @@ public class ConfMenuVoluntaryMenu extends UserMenu
         boolean makeServerCall = UserTui.getYesNoAnswer(MSG_OPEN_DISP_COLLECTION);
         if (makeServerCall)
         {
-            //Client.getInstance().open_voluntary_disponibility_collection(organization);
-            String openVoluntaryDisponibilityCollectionResponse = Client.getInstance().make_server_request();
-            if (!openVoluntaryDisponibilityCollectionResponse.trim().isEmpty() && JSONObjectMethod.isValidJSONObject(openVoluntaryDisponibilityCollectionResponse))
+            HashMap <String, Object> filter = new HashMap<>();
+            filter.put ("voluntariesCanSubmit", true);
+            Client.getInstance().get_event(filter);
+            String closeVoluntaryDisponibilityCollectionResponse = Client.getInstance().make_server_request();
+            if (!closeVoluntaryDisponibilityCollectionResponse.trim().isEmpty() && JSONObjectMethod.isValidJSONObject(closeVoluntaryDisponibilityCollectionResponse))
             {
-                JSONObject dictionary = new JSONObject(openVoluntaryDisponibilityCollectionResponse);
-                UserTui.operationIsSuccessful (dictionary.getBoolean("querySuccesful"));    // controlla key word
+                JSONObject dictionary = new JSONObject(closeVoluntaryDisponibilityCollectionResponse);
+                UserTui.operationIsSuccessful (dictionary.getBoolean("editSuccesful"));    // controlla key word
             }
         }
     }   

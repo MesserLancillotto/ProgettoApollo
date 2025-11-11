@@ -69,7 +69,7 @@ public class ConfMenuPlaceMenu extends UserMenu
         introduce_new_place();
     }
     // stampa i posti visitabili, return di Set<String> per poter riusare il metodo nella ricerca posti
-    public Map<String, String> view_visitable_places ()     //OK
+    public Map<String, String> view_visitable_places ()    
 	{
         HashMap <String, Object> filters = new HashMap<>();
         filters.put ("city", "%");
@@ -96,7 +96,7 @@ public class ConfMenuPlaceMenu extends UserMenu
         return null;
 	}
 
-    public Map<String, Place> view_type_of_visit_by_place() //OK
+    public Map<String, Place> view_type_of_visit_by_place() 
     {
         HashMap <String, Object> filters = new HashMap<>();
         filters.put ("city", "%");
@@ -143,7 +143,7 @@ public class ConfMenuPlaceMenu extends UserMenu
         } while (addAnotherPlaceAnswer); 
     }
 
-    public void add_to_existing_place_new_visit()   //OK
+    public void add_to_existing_place_new_visit()   
     {
         Map<String, String> placesToChoose = get_visitable_places();
         if (placesToChoose != null && !placesToChoose.isEmpty())
@@ -168,7 +168,7 @@ public class ConfMenuPlaceMenu extends UserMenu
     }
 
     
-    public void remove_place()  //fai un secondo check ma dovrebbe funzionare
+    public void remove_place() 
     {
         Map<String, String> placesToChoose = view_visitable_places();
         if (placesToChoose != null && !placesToChoose.isEmpty())
@@ -206,7 +206,7 @@ public class ConfMenuPlaceMenu extends UserMenu
             System.out.println (ERROR_CONNECTION_SERVER);
     }
 
-    public void remove_visit_type_from_place()  //manca solo chiamata al server + controlla key
+    public void remove_visit_type_from_place() 
     {
         Map<String, String> placesToChoose = view_visitable_places();
         if (placesToChoose != null && !placesToChoose.isEmpty())
@@ -219,12 +219,25 @@ public class ConfMenuPlaceMenu extends UserMenu
                 String visitTypeToRemove = get_visit_type_from_place(placeToRemove);
                 if (!placeToRemove.trim().isEmpty() && !visitTypeToRemove.trim().isEmpty())
                 {
-                    //Client.getInstance().remove_visit_type_from_place(placeToRemove, visitTypeToRemove);
+                    int commaPlace = placeToRemove.indexOf(":");
+                    String city = placeToRemove.substring(0, commaPlace);
+                    String address = placeToRemove.substring(commaPlace+1);
+                    Client.getInstance().delete_visit_type_from_place(city, address, visitTypeToRemove);
                     String removeVisitTypeReply = Client.getInstance().make_server_request();
                     if (!removeVisitTypeReply.trim().isEmpty() && JSONObjectMethod.isValidJSONObject(removeVisitTypeReply))
                     {
                         JSONObject dictionary = new JSONObject(removeVisitTypeReply);
-                        UserTui.operationIsSuccessful(dictionary.getBoolean("querySuccesful")); // CONTROLLA key
+                        boolean visitRemovalWasSuccessful = dictionary.getBoolean("loginSuccessful");
+                        UserTui.operationIsSuccessful(visitRemovalWasSuccessful); 
+                        if (visitRemovalWasSuccessful)
+                        {
+                            StringBuilder msgToShowHowManyVisitRemoved = new StringBuilder();
+                            msgToShowHowManyVisitRemoved.append("Hai rimosso ");
+                            msgToShowHowManyVisitRemoved.append(dictionary.getInt("rowsDeleted"));
+                            msgToShowHowManyVisitRemoved.append(" visite");
+                            System.out.println (msgToShowHowManyVisitRemoved);
+                        }
+
                     }
                 }
             }
@@ -235,7 +248,7 @@ public class ConfMenuPlaceMenu extends UserMenu
 
     //METODI GESTIONE INTERNA
 
-    public Map<String, String> get_visitable_places ()     //OK
+    public Map<String, String> get_visitable_places ()   
 	{
         HashMap <String, Object> filters = new HashMap<>();
         filters.put ("city", "%");
@@ -261,7 +274,7 @@ public class ConfMenuPlaceMenu extends UserMenu
         return null;
 	}
 
-    public Map<String, Place> get_type_of_visit_by_place() //OK
+    public Map<String, Place> get_type_of_visit_by_place()
     {
         HashMap <String, Object> filters = new HashMap<>();
         filters.put ("city", "%");
@@ -314,7 +327,7 @@ public class ConfMenuPlaceMenu extends UserMenu
         return visitTypeToRemove;
     }
 
-    private void add_place_to_server(String cityName, String cityAddress) // DA CONTROLLARE
+    private void add_place_to_server(String cityName, String cityAddress) 
     {
         boolean addAnotherTypeVisitAnswer; 
         do 
