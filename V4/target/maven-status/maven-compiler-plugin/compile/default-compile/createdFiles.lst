@@ -1,6 +1,7 @@
 RequestReply/ComunicationType/ComunicationType.class
 User/ConfMenuVoluntaryMenu.class
 RequestReply/Reply/EditPasswordReply.class
+RequestReply/Request/SetUserToEventRequest.class
 RequestReply/Reply/SetDisponibilityReply.class
 Server/ServerAPI$1.class
 Server/Engine/Engine.class
@@ -22,6 +23,7 @@ Server/Engine/DaemonEngine.class
 RequestReply/Request/GetEventRequest.class
 Server/Engine/EditPasswordEngine.class
 User/UserTui.class
+RequestReply/Reply/SetUserToEventReply.class
 User/Voluntary.class
 Server/Engine/SetNewEventEngine.class
 RequestReply/Request/SetDisponibilityRequest.class
@@ -31,6 +33,7 @@ RequestReply/Reply/EditEventReply.class
 User/ConfiguratorMenu.class
 User/VoluntaryMenu.class
 User/DayOfWeek.class
+Server/Engine/DeleteSubscribedVisitEngine.class
 RequestReply/Request/EditAllowedVisitFromVoluntaryRequest.class
 User/User.class
 RequestReply/Reply/SetClosedDaysReply.class
@@ -48,12 +51,14 @@ Server/Engine/EditEventEngine.class
 RequestReply/Request/GetUserDataRequest.class
 RequestReply/Reply/ReplyType.class
 RequestReply/Reply/SetNewUserReply.class
+Server/Engine/SetUserToEventEngine.class
 RequestReply/Reply/DeleteVoluntaryReply.class
 Client/Client_test.class
 RequestReply/Reply/SetNewOrganizationReply.class
 Server/Engine/SetDisponibilityEngine.class
 RequestReply/Request/SetNewOrganizationRequest.class
 Client/Client.class
+RequestReply/Request/DeleteSubscribedVisitRequest.class
 RequestReply/Reply/DeletePlaceReply.class
 RequestReply/Request/GetVoluntariesRequest.class
 RequestReply/UserRoleTitle/UserRoleTitleStringConverter.class
@@ -63,10 +68,12 @@ RequestReply/Request/SetNewEventRequest.class
 Server/Engine/DeleteVisitTypeFromPlaceEngine.class
 RequestReply/Reply/GetEventReply.class
 User/Place.class
+RequestReply/Reply/DeleteSubscribedVisitReply.class
 Server/Engine/SetNewOrganizationEngine.class
 RequestReply/Request/SetNewUserRequest.class
 RequestReply/Request/SetVoluntaryToEventRequest.class
 RequestReply/ComunicationType/ComunicationTypeStringConverter.class
+Server/Engine/SetNewBeneficiaryEngine.class
 RequestReply/Request/EditEventRequest.class
 User/DataManagerPeriod.class
 Server/ServerAPI.class

@@ -158,6 +158,45 @@ public final class Client
         this.comunicationType = ComunicationType.SET_VOLUNTARY_TO_EVENT;
     }
 
+    public void set_new_beneficiary(
+        String userName,
+        String newPassword,
+        String cityOfResidence,
+        Integer birthYear
+    ) {
+        this.body = new SetNewUserRequest(
+            userName,
+            newPassword,
+            cityOfResidence,
+            birthYear
+        );
+        this.comunicationType = ComunicationType.SET_NEW_BENEFICIARY;
+    }
+
+    public void delete_subscribed_visit(
+        String event,
+        int time
+    ) {
+        this.body = new DeleteSubscribedVisitRequest(
+            event,
+            time
+        );
+        this.comunicationType = ComunicationType.DELETE_SUBSCRIBED_VISIT;
+    }
+
+    public void set_user_to_event(
+        ArrayList<String> friends,
+        String event,
+        int time
+    ) {
+        this.body = new SetUserToEventRequest(
+            friends,
+            event,
+            time
+        );
+        this.comunicationType = ComunicationType.SET_USER_TO_EVENT;
+    }
+
 // -----------------------------------------------------------------------
 
     public String make_server_request() {
