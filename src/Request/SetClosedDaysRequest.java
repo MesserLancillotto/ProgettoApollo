@@ -1,8 +1,7 @@
 package Comunication.Request;
 
-// external
 import org.json.*;
-// custom
+
 import Comunication.ComunicationType.ComunicationType;
 import Comunication.Request.Interfaces.AuthenticatedRequest; 
 
