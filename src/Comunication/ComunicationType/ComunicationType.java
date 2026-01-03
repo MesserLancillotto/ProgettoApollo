@@ -2,6 +2,7 @@ package Comunication.ComunicationType;
 
 public enum ComunicationType
 {
+    DELETE_VOLUNTARY,
     GET_ALLOWED_VISIT_TYPES,
     GET_EVENT,
     GET_PLACES,
