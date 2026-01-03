@@ -70,3 +70,9 @@ CREATE TABLE IF NOT EXISTS eventsVoluntaries
         userID VARCHAR(32),
         date INT
     );
+CREATE TABLE IF NOT EXISTS voluntaryDisponibilities
+    (
+        userID VARCHAR(32),
+        start INT,
+        end INT
+    )
