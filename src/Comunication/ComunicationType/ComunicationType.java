@@ -2,7 +2,9 @@ package Comunication.ComunicationType;
 
 public enum ComunicationType
 {
+    DELETE_VISIT,
     DELETE_VOLUNTARY,
+    EDIT_VISITABLE_PLACES,
     GET_ALLOWED_VISIT_TYPES,
     GET_EVENT,
     GET_PLACES,
