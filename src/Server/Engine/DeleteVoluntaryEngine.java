@@ -11,9 +11,6 @@ import Comunication.Reply.SetClosedDaysReply;
 
 public class DeleteVoluntaryEngine extends AuthenticatedEngine
 {
-    private static final int MAX_TABLES = 100;
-    private static final int TABLES_NUMBER = 6;
-
     private String targetID;
 
     public DeleteVoluntaryEngine

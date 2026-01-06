@@ -7,6 +7,16 @@ import Comunication.Reply.Interfaces.ReplyInterface;
 
 public abstract class AuthenticatedEngine implements EngineInterface
 {
+    private static final int MAX_TABLES = 100;
+    private static final int TABLES_NUMBER = 6;
+    private static final int MAX_EDIT_SIZE = 50;
+    private static final int MAX_FILTERS = 5;
+    private static final int MAX_RESULTS = 1000;
+    private static final int MAX_DISPONIBILITIES = 31;
+    private static final int MAX_PARAMETERS = 100;
+    private static final int MAX_PLACES = 1000;
+    private static final int MAX_VOLUNTARIES = 1000;
+
     protected String userID;
     protected String password;
     protected String organization;

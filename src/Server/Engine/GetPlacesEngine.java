@@ -11,9 +11,6 @@ import Comunication.DatabaseObjects.Place;
 
 public class GetPlacesEngine extends AuthenticatedEngine
 {
-    private static final int MAX_FILTERS = 5;
-    private static final int MAX_RESULTS = 1000;
-
     private Map<String, Object> filters;
     
     public GetPlacesEngine(String data) 

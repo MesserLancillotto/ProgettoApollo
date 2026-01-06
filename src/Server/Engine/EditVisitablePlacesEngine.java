@@ -12,8 +12,6 @@ import Comunication.Reply.GetAllowedVisitTypesReply;
 
 public class EditVisitablePlacesEngine extends AuthenticatedEngine
 {
-    private static final int MAX_EDIT_SIZE = 50;
-
     private String city;
     private String address;
     private List<String> visitTypes;

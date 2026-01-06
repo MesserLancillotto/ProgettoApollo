@@ -13,9 +13,6 @@ import Comunication.DatabaseObjects.UserRole;
 
 public class SetDisponibilityEngine extends AuthenticatedEngine
 {
-    private static int MAX_DISPONIBILITIES = 31;
-    private static int MAX_PARAMETERS = 100;
-
     private static String TEMPLATE = """
                 INSERT INTO voluntaryDisponibilities
                 VALUES ( ? , ? , ? );
