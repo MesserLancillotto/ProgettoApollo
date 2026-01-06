@@ -9,56 +9,55 @@ import Comunication.Reply.AuthenticatedUpdateReply;
 import Comunication.Reply.Interfaces.ReplyInterface;
 import Comunication.Reply.SetClosedDaysReply;
 
-public class DeleteVoluntaryEngine extends AuthenticatedEngine
+public class DeleteVisitEngine extends AuthenticatedEngine
 {
-    private String targetID;
+    private String city;
+    private String address;
+    private String visitType;
 
-    public DeleteVoluntaryEngine
+    public DeleteVisitEngine
     (
         String data
     ) {
         super(data);
-        this.targetID = json.getString("targetID"); 
+        this.city = json.getString("city");
+        this.address = json.getString("address");
+        this.visitType = json.getString("visitType"); 
     }
     
     public AuthenticatedUpdateReply handleRequest()
     {
         if (!connectDB()) 
         {
-            return new SetClosedDaysReply(false, false);
+            return new AuthenticatedReply(false, false);
         } 
         try 
         {
             if(!petitionerCanLogIn())
             {
-                return new SetClosedDaysReply(false, false);
+                return new AuthenticatedReply(false, false);
             }
             
             if(!"CONFIGURATOR".equals(role))
             {
-                return new SetClosedDaysReply(false, false);
+                return new AuthenticatedReply(false, false);
             }
             
             String query = """
-                DELETE FROM userd WHERE userID = ?;
-                DELEET FROM placesData WHERE userID = ?;
-                DELETE FROM userPermissions WHERE userID = ?;
-                DELETE FROM eventsData WHERE userID = ?;
-                DELETE FROM eventsVoluntaries WHERE userID = ?;
-                DELETE FROM voluntariesDisponibilities WHERE userID = ?;
+                DELETE FROM placesData 
+                WHERE 
+                    city = ? 
+                    AND address = ? 
+                    AND visitType = ?;
             """;
             
             PreparedStatement statement = connection.prepareStatement(query);
             
-            for(int i = 1; i <= TABLES_NUMBER && i < MAX_TABLES; i++)
-            {
-                statement.setString(i, organization);
-            }
+            statement.setString(1, city);
+            statement.setString(2, address);
+            statement.setString(3, visitType);
 
             int updatedRows = statement.executeUpdate();
-            result.close();
-            statement.close();
-            disconnectDB();
 
             if(updatedRows != 1)
             {
@@ -69,6 +68,12 @@ public class DeleteVoluntaryEngine extends AuthenticatedEngine
         catch(Exception e)
         {
             e.printStackTrace();
+        }
+        finally
+        {
+            result.close();
+            statement.close();
+            disconnectDB();
         }
         return new AuthenticatedReply(true, false);    
     }

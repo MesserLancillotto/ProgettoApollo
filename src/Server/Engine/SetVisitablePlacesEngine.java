@@ -11,9 +11,6 @@ import Comunication.Reply.SetVisitablePlacesReply;
 
 public class SetVisitablePlacesEngine extends AuthenticatedEngine
 {
-    private static final int MAX_PLACES = 1000;
-    private static final int MAX_VOLUNTARIES = 1000;
-
     private List<Place> places;
     private JSONArray placesData;
 

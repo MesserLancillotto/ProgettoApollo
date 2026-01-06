@@ -10,6 +10,7 @@ import Server.Engine.Interfaces.AuthenticatedEngine;
 public class SetMaximumFriendsEngine extends AuthenticatedEngine
 {
     private Integer maximum_friends;
+    
     public SetMaximumFriendsEngine 
     (
         String data
