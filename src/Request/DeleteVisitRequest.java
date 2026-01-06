@@ -19,7 +19,7 @@ public class DeleteVisitRequest extends AuthenticatedRequest
         String address,
         String visitType
     ) {
-        super(ComunicationType.DELETE_VOLUNTARY, userID, password);
+        super(ComunicationType.DELETE_VISIT, userID, password);
         this.city = city;
         this.address = address;
         this.visitType = visitType;
