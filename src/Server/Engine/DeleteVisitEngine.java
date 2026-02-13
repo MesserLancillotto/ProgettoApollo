@@ -5,7 +5,8 @@ import java.sql.*;
 
 import Server.Engine.Interfaces.AuthenticatedEngine;
 import Server.Engine.Helper.DateIntervalCalculator;
-import Comunication.Reply.AuthenticatedUpdateReply;
+import Comunication.Reply.Interfaces.AuthenticatedUpdateReply;
+import Comunication.Reply.DeleteVisitReply;
 import Comunication.Reply.Interfaces.ReplyInterface;
 import Comunication.Reply.SetClosedDaysReply;
 
@@ -29,18 +30,18 @@ public class DeleteVisitEngine extends AuthenticatedEngine
     {
         if (!connectDB()) 
         {
-            return new AuthenticatedReply(false, false);
+            return new DeleteVisitReply(false, false);
         } 
         try 
         {
             if(!petitionerCanLogIn())
             {
-                return new AuthenticatedReply(false, false);
+                return new DeleteVisitReply(false, false);
             }
             
             if(!"CONFIGURATOR".equals(role))
             {
-                return new AuthenticatedReply(false, false);
+                return new DeleteVisitReply(false, false);
             }
             
             String query = """
@@ -61,7 +62,7 @@ public class DeleteVisitEngine extends AuthenticatedEngine
 
             if(updatedRows != 1)
             {
-                return new AuthenticatedReply(true, true);
+                return new DeleteVisitReply(true, true);
             }
             
         }
@@ -71,10 +72,8 @@ public class DeleteVisitEngine extends AuthenticatedEngine
         }
         finally
         {
-            result.close();
-            statement.close();
             disconnectDB();
         }
-        return new AuthenticatedReply(true, false);    
+        return new DeleteVisitReply(true, false);    
     }
 }
