@@ -2,17 +2,20 @@ package Server.Engine;
 
 import org.json.*;
 import java.sql.*;
+import java.util.*;
+import java.time.*;
 
+import Server.Engine.Helper.DateIntervalCalculator;
 import Server.Engine.Interfaces.AuthenticatedEngine;
 import Server.Engine.Helper.DateIntervalCalculator;
-import Comunication.Reply.AuthenticatedUpdateReply;
-import Comunication.Reply.Interfaces.ReplyInterface;
 import Comunication.Reply.SetClosedDaysReply;
+import Comunication.Reply.Interfaces.AuthenticatedUpdateReply;
 
 public class SetClosedDaysEngine extends AuthenticatedEngine
 {
     private Integer closure_end_date;
     private Integer closure_start_date;
+    private PreparedStatement statement;  // DICHIARATO fuori dal try
 
     public SetClosedDaysEngine
     (
@@ -36,17 +39,13 @@ public class SetClosedDaysEngine extends AuthenticatedEngine
                 return new SetClosedDaysReply(false, false);
             }
             
-            List<long[]> interval = DateIntervalCalculator
-                .calculateDayIntervalsForFutureMonths(
-                    Instant.now().getEpochSecond(),
-                    3,
-                    16, 
-                    16
-                );
-            long[] monthInterval = interval[2];
-            if(closure_start_date < monthInterval[0] || closure_end_date > monthInterval[1])
+            ArrayList<Long> interval = DateIntervalCalculator
+                .calculateDateInterval( 1, 16, 2, 15);
+                
+            if(closure_start_date < interval.get(0) 
+                || closure_end_date > interval.get(1))
             {
-                return SetClosedDaysReply(true, false);
+                return new SetClosedDaysReply(true, false);
             }
             
             String [] roleAndOrg = getRoleAndOrganization();
@@ -59,13 +58,13 @@ public class SetClosedDaysEngine extends AuthenticatedEngine
             }
             
             String query = "INSERT INTO closedDays VALUES ( ?, ?, ?)";
-            PreparedStatement statement = connection.prepareStatement(query);
+            this.statement = connection.prepareStatement(query); 
             
-            statement.setString(1, organization);
-            statement.setInt(2, closure_start_date);
-            statement.setInt(3, closure_end_date);
+            this.statement.setString(1, organization); 
+            this.statement.setInt(2, closure_start_date); 
+            this.statement.setInt(3, closure_end_date); 
 
-            if(statement.executeUpdate() != 1)
+            if(this.statement.executeUpdate() != 1) 
             {
                 return new SetClosedDaysReply(true, true);
             }
@@ -73,6 +72,19 @@ public class SetClosedDaysEngine extends AuthenticatedEngine
         catch(Exception e)
         {
             e.printStackTrace();
+            return new SetClosedDaysReply(false, false); 
+        }
+        finally  // AGGIUNTO finally block
+        {
+            if(this.statement != null)
+            {
+                try {
+                    this.statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            disconnectDB();
         }
         return new SetClosedDaysReply(true, false);    
     }
