@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Server.Engine.Interfaces.AuthenticatedEngine;
-import Comunication.Reply.AuthenticatedUpdateReply;
+import Comunication.Reply.Interfaces.AuthenticatedUpdateReply;
 import Comunication.Reply.Interfaces.AuthenticatedReply;
-import Comunication.Reply.GetAllowedVisitTypesReply;
+import Comunication.Reply.EditVisitablePlacesReply;
 
 public class EditVisitablePlacesEngine extends AuthenticatedEngine
 {
@@ -45,13 +45,13 @@ public class EditVisitablePlacesEngine extends AuthenticatedEngine
     {
         if (!connectDB()) 
         {
-            return new AuthenticatedReply(false, new ArrayList<>());
+            return new EditVisitablePlacesReply(false, false);
         } 
         try 
         {
             if(!petitionerCanLogIn())
             {
-                return new AuthenticatedReply(false, new ArrayList<>());
+                return new EditVisitablePlacesReply(false, false);
             }
             
             String [] roleAndOrg = getRoleAndOrganization();
@@ -60,7 +60,7 @@ public class EditVisitablePlacesEngine extends AuthenticatedEngine
 
             if(!"CONFIGURATOR".equals(role))
             {
-                return new AuthenticatedReply(false, new ArrayList<>());
+                return new EditVisitablePlacesReply(false, false);
             }
             StringBuilder query = new StringBuilder();
             List<String> params = new ArrayList<String>();
@@ -74,10 +74,12 @@ public class EditVisitablePlacesEngine extends AuthenticatedEngine
                 params.put(userIDs);                
             }
             
-            PreparedStatement statement = connection.prepareStatement(query);
-            for(int i = 0, i < params.length() && i < MAX_EDIT_SIZE * 4; i++)
+            PreparedStatement statement = 
+                connection.prepareStatement(query.toString());
+            
+            for(int i = 0; i < params.size() && i < MAX_EDIT_SIZE * 4; i++)
             {
-                statement.setString(params.get(i + 1));
+                statement.setString(i + 1, params.get(i));
             }
 
             Integer modifiedLines = statement.executeUpdate();
@@ -87,20 +89,18 @@ public class EditVisitablePlacesEngine extends AuthenticatedEngine
             
             if (visitTypes.isEmpty()) 
             {
-                return new GetAllowedVisitTypesReply(true, new ArrayList<>());
+                return new EditVisitablePlacesReply(true, false);
             }
             
-            return new GetAllowedVisitTypesReply(true, visitTypes);
+            return new EditVisitablePlacesReply(true, true);
         }
         catch(Exception e)
         {
             e.printStackTrace();
-            return new GetAllowedVisitTypesReply(false, new ArrayList<>());
+            return new EditVisitablePlacesReply(false, false);
         }
         finally
         {
-            result.close();
-            statement.close();
             disconnectDB();
         }
     }

@@ -5,9 +5,8 @@ import java.sql.*;
 
 import Server.Engine.Interfaces.AuthenticatedEngine;
 import Server.Engine.Helper.DateIntervalCalculator;
-import Comunication.Reply.AuthenticatedUpdateReply;
-import Comunication.Reply.Interfaces.ReplyInterface;
-import Comunication.Reply.SetClosedDaysReply;
+import Comunication.Reply.Interfaces.AuthenticatedUpdateReply;
+import Comunication.Reply.DeleteVoluntaryReply;
 
 public class DeleteVoluntaryEngine extends AuthenticatedEngine
 {
@@ -25,18 +24,18 @@ public class DeleteVoluntaryEngine extends AuthenticatedEngine
     {
         if (!connectDB()) 
         {
-            return new SetClosedDaysReply(false, false);
+            return new DeleteVoluntaryReply(false, false);
         } 
         try 
         {
             if(!petitionerCanLogIn())
             {
-                return new SetClosedDaysReply(false, false);
+                return new DeleteVoluntaryReply(false, false);
             }
             
             if(!"CONFIGURATOR".equals(role))
             {
-                return new SetClosedDaysReply(false, false);
+                return new DeleteVoluntaryReply(false, false);
             }
             
             String query = """
@@ -56,13 +55,10 @@ public class DeleteVoluntaryEngine extends AuthenticatedEngine
             }
 
             int updatedRows = statement.executeUpdate();
-            result.close();
-            statement.close();
-            disconnectDB();
 
             if(updatedRows != 1)
             {
-                return new AuthenticatedReply(true, true);
+                return new DeleteVoluntaryReply(true, true);
             }
             
         }
@@ -70,6 +66,10 @@ public class DeleteVoluntaryEngine extends AuthenticatedEngine
         {
             e.printStackTrace();
         }
-        return new AuthenticatedReply(true, false);    
+        finally
+        {
+            disconnectDB();
+        }
+        return new DeleteVoluntaryReply(true, false);    
     }
 }

@@ -3,19 +3,21 @@ package Server.Engine.Interfaces;
 import org.json.*;
 import java.sql.*;
 
+import java.lang.AutoCloseable;
+
 import Comunication.Reply.Interfaces.ReplyInterface;
 
 public abstract class AuthenticatedEngine implements EngineInterface
 {
-    private static final int MAX_TABLES = 100;
-    private static final int TABLES_NUMBER = 6;
-    private static final int MAX_EDIT_SIZE = 50;
-    private static final int MAX_FILTERS = 5;
-    private static final int MAX_RESULTS = 1000;
-    private static final int MAX_DISPONIBILITIES = 31;
-    private static final int MAX_PARAMETERS = 100;
-    private static final int MAX_PLACES = 1000;
-    private static final int MAX_VOLUNTARIES = 1000;
+    protected static final int MAX_TABLES = 100;
+    protected static final int TABLES_NUMBER = 6;
+    protected static final int MAX_EDIT_SIZE = 50;
+    protected static final int MAX_FILTERS = 5;
+    protected static final int MAX_RESULTS = 1000;
+    protected static final int MAX_DISPONIBILITIES = 31;
+    protected static final int MAX_PARAMETERS = 100;
+    protected static final int MAX_PLACES = 1000;
+    protected static final int MAX_VOLUNTARIES = 1000;
 
     protected String userID;
     protected String password;
@@ -24,6 +26,7 @@ public abstract class AuthenticatedEngine implements EngineInterface
 
     protected JSONObject json;
     protected Connection connection;
+    protected PreparedStatement statement;
 
     protected static String dbUrl = 
     """
@@ -56,6 +59,35 @@ public abstract class AuthenticatedEngine implements EngineInterface
         }
     }
 
+    private void closeAutoCloseable(AutoCloseable c) throws Exception
+    {
+        if(c != null)
+        {
+            try 
+            {
+                c.close();
+            } 
+            catch (Exception e) 
+            {
+                throw e;
+            } 
+        }
+    }
+
+    public void disconnectDB()
+    {
+        try
+        {
+            closeAutoCloseable(statement);
+            closeAutoCloseable(connection);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        
+    }
+
     public Boolean petitionerCanLogIn()
     {
         try
@@ -77,7 +109,8 @@ public abstract class AuthenticatedEngine implements EngineInterface
             {
                 return true;
             }
-        } catch(Exception e)
+        } 
+        catch(Exception e)
         {
             e.printStackTrace(); 
         }
@@ -106,7 +139,8 @@ public abstract class AuthenticatedEngine implements EngineInterface
                 role = result.getString("role");
                 organization = result.getString("organization");
             }
-        } catch(Exception e)
+        } 
+        catch(Exception e)
         {
             e.printStackTrace();
         }

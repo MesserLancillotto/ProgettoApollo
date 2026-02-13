@@ -1,0 +1,140 @@
+\documentclass{article}
+
+\usepackage{amsmath,amsfonts,amssymb, blindtext, hyperref, minted}
+\usepackage{babel}[it]
+
+\title{Convenzioni di programmazione}
+
+\begin{document}
+\section{Convenzioni del codice da utilizzare} Stabilito pro nobis et inter 
+nos, e soprattutto che sia funzionale, perché "Avere un buono standard di 
+programmazione è meglio che non averne nessuno. Tuttavia, [...] uno standard di
+programmazione scadente è peggio che non averne affatto" - 
+\href{https://stroustrup.com/bs_faq2.html}{Bjarne Stroustrup} paragrafo "Can 
+you recommend a coding standard?".
+\begin{enumerate}
+    \item 4 spazi.
+    \item CamelCase per i nomi delle classi, dromedaryCase per i nomi delle 
+    variabili e snake\_case per i nomi delle funzioni.
+    \item A costo di essere verbosi i nomi di variabili e funzioni devono 
+    essere autoesplicativi.
+    \item Le costanti in SNAKE\_CASE ma con solo maiuscole.
+    \item Dopo un \texttt{if}, \texttt{while}, dichiarazione di funzione, et 
+    cetera, si va a capo con una     graffa e poi si va a capo di nuovo. Idem 
+    per le parentesi tonde.
+    \item Non innesare più di tre livelli, inverti ed estrai.
+    \item Se nella dichiarazione di una funzione gli argomenti superano gli 80 
+    caratteri andare a capo dopo la parentesi aperta e per ogni parametro dopo
+    di essa. Mantenere le righe (commenti inclusi) sotto gli 80 caratteri.
+    \item Qualora si passasse "by reference" un valore ad una funzione tramite 
+    un puntatore, il puntatore nella funzione avrà in coda \texttt{\_ptr}.
+    -> non negoziabile, non so java non farmi ammattire
+    \item Non compilare automaticamente, ogni package deve avere un 
+    \texttt{MAKEFILE} che permetta la compilazione a prescindere dalle 
+    tecnologie usate, sia l'editor di testo o sistema operativo.
+    \item Tutti i nomi saranno in inglese.
+\end{enumerate}
+Esempio punto 2 per camel case e compagnia, 5 e 7 per le regole di ritorno a 
+capo e 8 per i pass by reference.
+\begin{minted}{java}
+public class Test 
+{
+    private ArrayClass somethingArray = new ArrayClass;
+    Integer get_first_value_over_threshold(
+        Array array_ptr, 
+        int threshold
+    ) {
+        lorem_ipsum();
+        return dolor_sit_amet();
+    }
+}
+\end{minted}
+Esempio del punto 3 per i ritorno a capo prima delle graffe;
+\begin{minted}{java}
+public class Test 
+{
+    int foo() 
+    {
+        something_something();
+        return x;
+    }
+}
+\end{minted}
+Esempio del punto 5 di pratiche da NON seguire:
+\begin{minted}{java}
+void register_user([...]) {
+    UserLoginFields userLoginFields = [...]; // ha 2 campi, id e password
+    Server server = [...];
+    User user;
+    if(userLoginFields.getFieldsCount() == 2) {
+        if(userLoginFields.getId() >= 0) {
+            if(server.login(userLoginFields)) {
+                user = server.getLoginData();
+            } else {
+                throw new InvalidCredentialsError(
+                    UserLoginFields.INVALID_CREDENTIALS_ERROR_MSG);
+            }
+        } else {
+            throw new InvalidIDError(
+                UserLoginFields.INVALID_ID_ERROR_MSG);
+        }
+    } else {
+        throw new InvalidFieldsCountError(
+            UserLoginFields.INVALID_FIELDS_COUNT_ERROR_MSG);
+    }
+}
+\end{minted}
+Come fare:
+\begin{minted}{java}
+void register_user([...]) {
+    UserLoginFields userLoginFields = [...]; // ha 2 campi, id e password
+    Server server = [...];
+    User user;
+    if(!userLoginFields.getFieldsCount() == 2) {
+        throw new InvalidFieldsCountError(
+            UserLoginFields.INVALID_FIELDS_COUNT_ERROR_MSG);
+    }
+    if(!userLoginFields.getId() >= 0) {
+        throw new InvalidIDError(
+            UserLoginFields.INVALID_ID_ERROR_MSG);
+    }
+    if(!server.login(userLoginFields)) {
+        throw new InvalidCredentialsError(
+            UserLoginFields.INVALID_CREDENTIALS_ERROR_MSG);
+    }
+    user = server.getLoginData();
+}
+\end{minted}
+\section{Convenzioni sullo stile di codice} Per rendere più facile l'analisi -
+preso da \href{"https://web.eecs.umich.edu/~imarkov/10rules.pdf"}{The Power of 
+10: Rules for Developing Safety-Critical Code}.
+\begin{enumerate}
+    \item Evitare \texttt{goto}, ricorsione ed altre pratiche che rendono 
+    difficile seguire il flusso di esecuzione.
+    \item Tutti i cicli for devono avere un upper bound hard coded per impedire
+    che il codice diverga con un'esecuzione incontrollata.
+    \item Evita di allocare elementi sullo heap dopo l'inizializzazione // 
+    abrogata per come è strutturato java.
+    \item Restringi le funzioni ad una singola pagina stampata - non più di 60 
+    righe commenti inclusi.
+    \item Usa in media almeno due asserzioni a runtime per funzione // questo 
+    va bene nei test, ma una volta testato rimuoverli.
+    \begin{itemize}
+        \item Per abilitare gli assert: \texttt{java -ea MyClass}
+        \item Per disabilitare gli assert: \texttt{java -da MyClass}
+    \end{itemize}
+    \item Riduci l'ambito dei dati al minimo possibile (va a braccetto con il 
+    pattern \texttt{Information Expert}). 
+    \item Controllare il valore di ritorno di tutte le funzioni non void, 
+    oppure eseguire un cast a void per indicare che il valore di ritorno è 
+    inutile.
+    \item Utilizzare il preprocessore solo per file header e macro semplici.
+    // sebbene l'uso del preprocessore in java sia limitato
+    \item Limitare l'uso dei puntatori a una sola dereferenziazione, e non 
+    utilizzare puntatori a funzione. // non usare proprio i puntatori di 
+    funzioni, rendere espliciti quelli dedgli oggetti
+    \item Compilare con tutti i possibili warning attivi; tutti i warning 
+    devono poi essere risolti prima del rilascio del software.
+\end{enumerate}
+
+\end{document}

@@ -1,176 +1,78 @@
-package Server.Engine;
+package Comunication.DatabaseObjects;
 
 import org.json.*;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-import Server.Engine.Interfaces.AuthenticatedEngine;
-import Comunication.Reply.AuthenticatedUpdateReply;
-import Comunication.Reply.Interfaces.AuthenticatedReply;
-import Comunication.Reply.GetEventReply;
-import Comunication.DatabaseObjects.Event;
+public class Event 
+{   
+    private static final int MAX_VOLUNTARIES = 100;
 
-public class GetEventEngine extends AuthenticatedEngine
-{
+    private String name;
+    private String description;
+    private String type;
+    private String organization;
+    private String city;
+    private String address;
+    private String rendezvous;
     private String state;
+    private List<String> voluntaries;
+    private List<List<Integer>> singleEvent;
 
-    public GetEventEngine(String data) 
-    {
-        super(data);
-        state = json.getString("state");
+     public Event(
+        String name,
+        String description,
+        String type,
+        String organization,
+        String city,
+        String address,
+        String rendezvous,
+        String state,
+        List<String> voluntaries,
+        List<List<Integer>> singleEvent
+    ) {
+        this.name = name;
+        this.description = description;
+        this.type = type;
+        this.organization = organization;
+        this.city = city;
+        this.address = address;
+        this.rendezvous = rendezvous;
+        this.state = state;
+        this.voluntaries = List.copyOf(voluntaries);
+        this.singleEvent = List.copyOf(singleEvent);
     }
-    
-    public AuthenticatedReply handleRequest()
-    {
-        if (!connectDB()) 
-        {
-            return new GetEventReply(false, new ArrayList<>());
-        } 
-        try 
-        {
-            if(!petitionerCanLogIn())
-            {
-                return new GetEventReply(false, new ArrayList<>());
-            }
-            
-            String [] roleAndOrg = getRoleAndOrganization();
-            String role = roleAndOrg[0];
-            String organization = roleAndOrg[1];
 
-            if(!"CONFIGURATOR".equals(role))
-            {
-                return new GetEventReply(false, new ArrayList<>());
-            }
-            
-            String query = """
-                SELECT e.*, ed.*
-                FROM events e
-                INNER JOIN eventsData ed ON e.name = ed.name
-                WHERE e.state LIKE ?
-            """;
-            
-            PreparedStatement statement = connection.prepareStatement(query);
-            
-            statement.setString(1, "%" + state + "%");
-
-            ResultSet result = statement.executeQuery();
-            
-            List<Event> events = new ArrayList<>();
-            
-            while(result.next())
-            {
-                Event event = createEventFromResultSet(result);
-                events.add(event);
-            }
-            
-            result.close();
-            statement.close();
-            
-            return new GetEventReply(true, events);
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-            return new GetEventReply(false, new ArrayList<>());
-        }
-        finally
-        {
-            disconnectDB();
-        }
-    }
-    
-    private Event createEventFromResultSet(ResultSet resultSet) throws SQLException
-    {
-        String name = resultSet.getString("name");
-        String description = resultSet.getString("description");
-        String type = resultSet.getString("type");
-        String organization = resultSet.getString("organization");
-        String city = resultSet.getString("city");
-        String address = resultSet.getString("address");
-        String rendezvous = resultSet.getString("rendezvous");
-        String state = resultSet.getString("state");
+    public String toJSONString() {
+        JSONObject json = new JSONObject();
         
-        List<String> voluntaries = new ArrayList<>();
-        String voluntariesStr = resultSet.getString("voluntaries");
-        if(voluntariesStr != null && !voluntariesStr.isEmpty())
-        {
-            try 
-            {
-                JSONArray voluntariesArray = new JSONArray(voluntariesStr);
-                for(int i = 0; i < voluntariesArray.length() && i < 100; i++)
-                {
-                    voluntaries.add(voluntariesArray.getString(i));
-                }
-            } 
-            catch (JSONException e) 
-            {
-                String[] voluntariesArray = voluntariesStr.split(",");
-                for(int i = 0; i < voluntariesArray.length && i < 100; i++)
-                {
-                    voluntaries.add(voluntariesArray[i].trim());
-                }
-            }
-        }
+        json.put("name", name);
+        json.put("description", description);
+        json.put("type", type);
+        json.put("organization", organization);
+        json.put("city", city);
+        json.put("address", address);
+        json.put("rendezvous", rendezvous);
+        json.put("state", state);
         
-        List<List<Integer>> singleEvent = new ArrayList<>();
-        String singleEventStr = resultSet.getString("singleEvent");
-        if(singleEventStr != null && !singleEventStr.isEmpty())
+        JSONArray voluntariesArray = new JSONArray();
+        for(int i = 0; i < voluntaries.size() && i < MAX_VOLUNTARIES; i++) 
         {
-            try 
-            {
-                JSONArray singleEventArray = new JSONArray(singleEventStr);
-                for(int i = 0; i < singleEventArray.length() && i < 365; i++)
-                {
-                    JSONArray timeIntervalArray 
-                        = singleEventArray.getJSONArray(i);
-                    if(timeIntervalArray.length() >= 2)
-                    {
-                        List<Integer> timeInterval = new ArrayList<>();
-                        timeInterval.add(timeIntervalArray.getInt(0));
-                        timeInterval.add(timeIntervalArray.getInt(1));
-                        singleEvent.add(coppia);
-                    }
-                }
-            } 
-            catch (JSONException e) 
-            {
-                String[] eventPairs = singleEventStr.split(",");
-                for(String pair : eventPairs)
-                {
-                    if(pair.contains("-"))
-                    {
-                        String[] times = pair.split("-");
-                        if(times.length >= 2)
-                        {
-                            try
-                            {
-                                List<Integer> coppia = new ArrayList<>();
-                                coppia.add(Integer.parseInt(times[0].trim()));
-                                coppia.add(Integer.parseInt(times[1].trim()));
-                                singleEvent.add(coppia);
-                            }
-                            catch(NumberFormatException nfe)
-                            {
-                                assert true;
-                            }
-                        }
-                    }
-                }
-            }
+            voluntariesArray.put(voluntaries.get(i));
         }
+        json.put("voluntaries", voluntariesArray);
         
-        return new Event(
-            name,
-            description,
-            type,
-            organization,
-            city,
-            address,
-            rendezvous,
-            state,
-            voluntaries,
-            singleEvent
-        );
+        JSONArray singleEventArray = new JSONArray();
+        for(List<Integer> event : singleEvent) 
+        {
+            JSONArray eventArray = new JSONArray();
+            for(Integer value : event) 
+            {
+                eventArray.put(value);
+            }
+            singleEventArray.put(eventArray);
+        }
+        json.put("singleEvent", singleEventArray);
+        
+        return json.toString();
     }
 }
