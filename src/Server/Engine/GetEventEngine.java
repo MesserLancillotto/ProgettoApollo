@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import org.json.*;
 import java.sql.*;
 
+import Comunication.DatabaseObjects.Event;
 import Server.Engine.Interfaces.AuthenticatedEngine;
-import Comunication.Reply.AuthenticatedUpdateReply;
+import Comunication.Reply.Interfaces.AuthenticatedUpdateReply;
 import Comunication.Reply.Interfaces.AuthenticatedReply;
 import Comunication.Reply.GetEventReply;
 
@@ -26,13 +27,13 @@ public class GetEventEngine extends AuthenticatedEngine
     {
         if (!connectDB()) 
         {
-            return new GetEventReply(false, new ArrayList<Boolean>());
+            return new GetEventReply(false, new ArrayList<Event>());
         } 
         try 
         {
             if(!petitionerCanLogIn())
             {
-                return new GetEventReply(false, new ArrayList<Boolean>());
+                return new GetEventReply(false, new ArrayList<Event>());
             }
             
             String [] roleAndOrg = getRoleAndOrganization();
@@ -41,7 +42,7 @@ public class GetEventEngine extends AuthenticatedEngine
 
             if(!"CONFIGURATOR".equals(role))
             {
-                return new GetEventReply(false, new ArrayList<Boolean>());
+                return new GetEventReply(false, new ArrayList<Event>());
             }
             
             String query = """
@@ -58,13 +59,13 @@ public class GetEventEngine extends AuthenticatedEngine
 
             if(!result.next())
             {
-                return new GetEventReply(true, new ArrayList<Boolean>());
+                return new GetEventReply(true, new ArrayList<Event>());
             }
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
-        return new GetEventReply(true, new ArrayList<Boolean>());    
+        return new GetEventReply(true, new ArrayList<Event>());    
     }
 }

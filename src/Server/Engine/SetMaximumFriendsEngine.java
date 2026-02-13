@@ -4,7 +4,7 @@ import org.json.*;
 import java.sql.*;
 
 import Comunication.Reply.SetMaximumFriendsReply;
-import Comunication.Reply.AuthenticatedUpdateReply;
+import Comunication.Reply.Interfaces.AuthenticatedUpdateReply;
 import Server.Engine.Interfaces.AuthenticatedEngine;
 
 public class SetMaximumFriendsEngine extends AuthenticatedEngine

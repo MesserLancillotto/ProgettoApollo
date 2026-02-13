@@ -6,9 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Server.Engine.Interfaces.AuthenticatedEngine;
-import Comunication.Reply.Interfaces.AuthenticatedUpdateReply;
-import Comunication.Reply.Interfaces.AuthenticatedReply;
 import Comunication.Reply.EditVisitablePlacesReply;
+import Comunication.Reply.Interfaces.AuthenticatedReply;
 
 public class EditVisitablePlacesEngine extends AuthenticatedEngine
 {
@@ -27,17 +26,17 @@ public class EditVisitablePlacesEngine extends AuthenticatedEngine
         this.userIDs = new ArrayList<String>(); 
         JSONArray visitTypesArray = json.getJSONArray("visitTypes");
         JSONArray userIDsArray = json.getJSONArray("userIDs");
-        int arrayLength = (
+        this.arrayLength = (
             visitTypesArray.length() < userIDsArray.length() ? 
             visitTypesArray.length() : userIDsArray.length());
         for(
             int i = 0; 
-            i < arrayLength
+            i < this.arrayLength
                 && i < MAX_EDIT_SIZE;
             i++
         ) {
-            visitTypes.put(visitTypesArray.get(i));
-            userIDs.put(userIDsArray.get(i));
+            this.visitTypes.add(visitTypesArray.getString(i));
+            this.userIDs.add(userIDsArray.getString(i));
         }
     }
     
@@ -64,30 +63,27 @@ public class EditVisitablePlacesEngine extends AuthenticatedEngine
             }
             StringBuilder query = new StringBuilder();
             List<String> params = new ArrayList<String>();
-            for(int i = 0; i < arrayLength && i < MAX_EDIT_SIZE; i++)
+            for(int i = 0; i < this.arrayLength && i < MAX_EDIT_SIZE; i++)
             {
                 query.append(
-                    "INSERT INTO placesData VALUES ( ? , ? , ? , ? );\n");
-                params.put(city);
-                params.put(address);
-                params.put(visitTypes);
-                params.put(userIDs);                
+                    "INSERT INTO placesData VALUES ( ?, ?, ?, ? );\n"); 
+                params.add(city);
+                params.add(address);
+                params.add(this.visitTypes.get(i));
+                params.add(this.userIDs.get(i));
             }
             
-            PreparedStatement statement = 
+            this.statement =
                 connection.prepareStatement(query.toString());
             
             for(int i = 0; i < params.size() && i < MAX_EDIT_SIZE * 4; i++)
             {
-                statement.setString(i + 1, params.get(i));
+                this.statement.setString(i + 1, params.get(i));
             }
 
-            Integer modifiedLines = statement.executeUpdate();
+            Integer modifiedLines = this.statement.executeUpdate();
             
-            List<String> visitTypes = new ArrayList<>();
-
-            
-            if (visitTypes.isEmpty()) 
+            if (modifiedLines == 0)
             {
                 return new EditVisitablePlacesReply(true, false);
             }

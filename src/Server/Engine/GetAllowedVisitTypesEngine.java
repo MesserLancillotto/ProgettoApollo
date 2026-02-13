@@ -6,12 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Server.Engine.Interfaces.AuthenticatedEngine;
-import Comunication.Reply.AuthenticatedUpdateReply;
+import Comunication.Reply.Interfaces.AuthenticatedUpdateReply;
 import Comunication.Reply.Interfaces.AuthenticatedReply;
 import Comunication.Reply.GetAllowedVisitTypesReply;
 
 public class GetAllowedVisitTypesEngine extends AuthenticatedEngine
 {
+
+    private String data;
 
     public GetAllowedVisitTypesEngine(String data) 
     {
@@ -74,10 +76,6 @@ public class GetAllowedVisitTypesEngine extends AuthenticatedEngine
         }
         finally
         {
-            if(statement != null)
-            {
-                statement.close();
-            }
             disconnectDB();
         }
     }

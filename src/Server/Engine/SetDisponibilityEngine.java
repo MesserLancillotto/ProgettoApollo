@@ -5,9 +5,9 @@ import java.sql.*;
 import java.util.*;
 
 import Server.Engine.Interfaces.AuthenticatedEngine;
+import Comunication.Reply.SetDisponibilityReply;
 import Comunication.Reply.Interfaces.ReplyInterface;
 import Comunication.Reply.Interfaces.AuthenticatedUpdateReply;
-import Comunication.Reply.SetDisponibilityReply;
 import Comunication.DatabaseObjects.User;
 import Comunication.DatabaseObjects.UserRole;
 
@@ -22,7 +22,8 @@ public class SetDisponibilityEngine extends AuthenticatedEngine
     public SetDisponibilityEngine(String data) 
     {
         super(data);
-        disponibilities = parseDisponibilitiesFromJson(data);
+        JSONObject jsonObject = new JSONObject(data); 
+        this.disponibilities = parseDisponibilitiesFromJson(jsonObject);
     }
     
     public static List<List<Integer>> parseDisponibilitiesFromJson
@@ -53,21 +54,21 @@ public class SetDisponibilityEngine extends AuthenticatedEngine
     {
         if (!connectDB()) 
         {
-            return new AuthenticatedUpdateReply(false, null);
+            return new SetDisponibilityReply(false, false);
         }
         
         try 
         {
             if (!petitionerCanLogIn()) 
             {
-                return new AuthenticatedUpdateReply(false, null);
+                return new SetDisponibilityReply(false, false);
             }
             
             StringBuilder query = new StringBuilder();
             ArrayList<Object> params = new ArrayList<Object>();
             for(
                 int i = 0; 
-                i < this.disponibilities.length() 
+                i < this.disponibilities.size()
                     && i < MAX_DISPONIBILITIES;
                 i++
             ) {
@@ -77,30 +78,41 @@ public class SetDisponibilityEngine extends AuthenticatedEngine
                 params.add(this.disponibilities.get(i).get(1));
             }
 
-            PreparedStatement statement = connection.prepareStatement(
+            this.statement = connection.prepareStatement(
                 query.toString());
             
             for(
-                int i = 1; 
-                i < params.length() 
+                int i = 0;
+                i < params.size()
                     && i < MAX_PARAMETERS;
                 i += 3
             ) {
-                statement.setString(i + 0, params.get(i + 0));
-                statement.setInt(i + 1, params.get(i + 1));
-                statement.setInt(i + 2, params.get(i + 2));
+                this.statement.setString(i + 1, (String) params.get(i));  
+                this.statement.setInt(i + 2, (Integer) params.get(i + 1));
+                this.statement.setInt(i + 3, (Integer) params.get(i + 2));
             }
 
-            if(statement.executeUpdate() != 0)
+            if(this.statement.executeUpdate() > 0)
             {
                 return new SetDisponibilityReply(true, true);
             }
-            return new SetDisponibilityReply(true, true);
+            return new SetDisponibilityReply(true, false);
         
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
-            return new GetVoluntariesReply(true, null);
-        } finally {
+            return new SetDisponibilityReply(false, false);
+        } 
+        finally 
+        {
+            if(this.statement != null) {
+                try {
+                    this.statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
             disconnectDB();
         }
     }

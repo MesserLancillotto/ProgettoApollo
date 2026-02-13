@@ -17,7 +17,7 @@ public class DateIntervalCalculator {
      * @return Lista di coppie [startTimestamp, endTimestamp] in secondi UNIX
      */
 
-    public static long[] calculateDateInterval(
+    public static ArrayList<Long> calculateDateInterval(
         int monthStartOffset, 
         int startDay,
         int monthEndOffset,
@@ -41,6 +41,9 @@ public class DateIntervalCalculator {
         long startTimestamp = startDateTime.toEpochSecond();
         long endTimestamp = endDateTime.toEpochSecond();    
         
-        return new long[]{startTimestamp, endTimestamp};
+        ArrayList<Long> list = new ArrayList<>();
+        list.add(startTimestamp);
+        list.add(endTimestamp);
+        return list;
     }
 }
