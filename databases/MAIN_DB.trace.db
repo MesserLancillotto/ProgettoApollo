@@ -1,0 +1,1210 @@
+2026-02-14 12:32:20.610703+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "CLOSURE_START_DATE"; SQL statement:
+CREATE TABLE IF NOT EXISTS closedDays
+    (
+        organization VARCHAR(32),
+        closure_start_date, INT,
+        closure_end_date, INT
+    ) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.setColumns(Table.java:489)
+	at org.h2.table.TableBase.<init>(TableBase.java:73)
+	at org.h2.mvstore.db.MVTable.<init>(MVTable.java:139)
+	at org.h2.mvstore.db.Store.createTable(Store.java:216)
+	at org.h2.schema.Schema.createTable(Schema.java:797)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:112)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-14 12:32:20.616586+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS eventsData\000d\000a    (\000d\000a        name VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS eventsData
+    (
+        name VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-14 12:32:20.624865+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS voluntaryDisponibilities\000d\000a    (\000d\000a        userID VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS voluntaryDisponibilities
+    (
+        userID VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-14 16:19:44.805950+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "CLOSURE_START_DATE"; SQL statement:
+CREATE TABLE IF NOT EXISTS closedDays
+    (
+        organization VARCHAR(32),
+        closure_start_date, INT,
+        closure_end_date, INT
+    ) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.setColumns(Table.java:489)
+	at org.h2.table.TableBase.<init>(TableBase.java:73)
+	at org.h2.mvstore.db.MVTable.<init>(MVTable.java:139)
+	at org.h2.mvstore.db.Store.createTable(Store.java:216)
+	at org.h2.schema.Schema.createTable(Schema.java:797)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:112)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-14 16:19:44.815926+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS eventsData\000d\000a    (\000d\000a        name VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS eventsData
+    (
+        name VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-14 16:19:44.818468+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS voluntaryDisponibilities\000d\000a    (\000d\000a        userID VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS voluntaryDisponibilities
+    (
+        userID VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-14 16:21:31.040643+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM users\000d\000aINSERT [*]INTO users VALUES (""admin"", ""Admin"", ""Lorem"", ""Brescia"", 22, 11, 1999, 10101, ""San Genesio"", ""CONFIGURATOR"", false)"; SQL statement:
+SELECT * FROM users
+INSERT INTO users VALUES ("admin", "Admin", "Lorem", "Brescia", 22, 11, 1999, 10101, "San Genesio", "CONFIGURATOR", false) [42000-224]
+2026-02-14 16:21:59.682098+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM users\000d\000aINSERT [*]INTO users VALUES ('admin', 'Admin', 'Lorem', 'Brescia', 22, 11, 1999, 10101, 'San Genesio', 'CONFIGURATOR', false)"; SQL statement:
+SELECT * FROM users
+INSERT INTO users VALUES ('admin', 'Admin', 'Lorem', 'Brescia', 22, 11, 1999, 10101, 'San Genesio', 'CONFIGURATOR', false) [42000-224]
+2026-02-14 16:22:24.693755+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ROLE CHARACTER VARYING(8)": "'CONFIGURATOR' (12)"; SQL statement:
+INSERT INTO users VALUES ('admin', 'Admin', 'Lorem', 'Brescia', 22, 11, 1999, 10101, 'San Genesio', 'CONFIGURATOR', false) [22001-224]
+2026-02-14 16:22:44.737827+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ROLE CHARACTER VARYING(8)": "'CONFIGURATOR' (12)"; SQL statement:
+INSERT INTO users VALUES ('admin', 'Admin', 'Lorem', 'Brescia', 22, 11, 1999, 10101, 'San Genesio', 'CONFIGURATOR', false) [22001-224]
+2026-02-14 16:23:20.055214+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ROLE CHARACTER VARYING(8)": "'CONFIGURATOR' (12)"; SQL statement:
+INSERT INTO users VALUES ('admin', 'Admin', 'Lorem', 'Brescia', 22, 11, 1999, 10101, 'San Genesio', 'CONFIGURATOR', false) [22001-224]
+2026-02-14 16:23:27.800143+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ROLE CHARACTER VARYING(8)": "'CONFIGURATOR' (12)"; SQL statement:
+INSERT INTO users VALUES ('admin', 'Admin', 'Lorem', 'Brescia', 22, 11, 1999, 10101, 'San Genesio', 'CONFIGURATOR', false) [22001-224]
+2026-02-14 16:25:40.373097+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "CLOSURE_START_DATE"; SQL statement:
+CREATE TABLE IF NOT EXISTS closedDays
+    (
+        organization VARCHAR(32),
+        closure_start_date, INT,
+        closure_end_date, INT
+    ) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.setColumns(Table.java:489)
+	at org.h2.table.TableBase.<init>(TableBase.java:73)
+	at org.h2.mvstore.db.MVTable.<init>(MVTable.java:139)
+	at org.h2.mvstore.db.Store.createTable(Store.java:216)
+	at org.h2.schema.Schema.createTable(Schema.java:797)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:112)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-14 16:25:40.375302+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS eventsData\000d\000a    (\000d\000a        name VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS eventsData
+    (
+        name VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-14 16:25:40.376408+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS voluntaryDisponibilities\000d\000a    (\000d\000a        userID VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS voluntaryDisponibilities
+    (
+        userID VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-14 16:26:03.213287+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DROP TABLE [*]*"; expected "identifier"; SQL statement:
+DROP TABLE * [42001-224]
+2026-02-14 16:26:11.325792+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DROP [*]DATABASE"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, MATERIALIZED, VIEW, ROLE, ALIAS, SCHEMA, ALL OBJECTS, DOMAIN, TYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP DATABASE [42001-224]
+2026-02-14 16:29:40.988383+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]TABLE EVENTS EVENTSVOLUNTARIES ORGANIZATIONS PLACES PLACESDATA TERRITORIES USERPERMISSIONS USERS"; expected "identifier"; SQL statement:
+DELETE TABLE EVENTS EVENTSVOLUNTARIES ORGANIZATIONS PLACES PLACESDATA TERRITORIES USERPERMISSIONS USERS [42001-224]
+2026-02-14 16:29:56.720672+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]TABLE EVENTS, EVENTSVOLUNTARIES, ORGANIZATIONS, PLACES, PLACESDATA, TERRITORIES, USERPERMISSIONS, USERS"; expected "identifier"; SQL statement:
+DELETE TABLE EVENTS, EVENTSVOLUNTARIES, ORGANIZATIONS, PLACES, PLACESDATA, TERRITORIES, USERPERMISSIONS, USERS [42001-224]
+2026-02-14 16:30:40.134138+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]TABLE EVENTS"; expected "identifier"; SQL statement:
+DELETE TABLE EVENTS [42001-224]
+2026-02-14 16:30:40.135239+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]TABLE EVENTSVOLUNTARIES"; expected "identifier"; SQL statement:
+DELETE TABLE EVENTSVOLUNTARIES [42001-224]
+2026-02-14 16:30:40.136005+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]TABLE ORGANIZATIONS"; expected "identifier"; SQL statement:
+DELETE TABLE ORGANIZATIONS [42001-224]
+2026-02-14 16:30:40.136667+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]TABLE PLACES"; expected "identifier"; SQL statement:
+DELETE TABLE PLACES [42001-224]
+2026-02-14 16:30:40.137377+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]TABLE PLACESDATA"; expected "identifier"; SQL statement:
+DELETE TABLE PLACESDATA [42001-224]
+2026-02-14 16:30:40.138131+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]TABLE TERRITORIES"; expected "identifier"; SQL statement:
+DELETE TABLE TERRITORIES [42001-224]
+2026-02-14 16:30:40.139076+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]TABLE USERPERMISSIONS"; expected "identifier"; SQL statement:
+DELETE TABLE USERPERMISSIONS [42001-224]
+2026-02-14 16:30:40.139992+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]TABLE USERS"; expected "identifier"; SQL statement:
+DELETE TABLE USERS [42001-224]
+2026-02-14 16:31:19.030486+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "CLOSURE_START_DATE"; SQL statement:
+CREATE TABLE IF NOT EXISTS closedDays
+    (
+        organization VARCHAR(32),
+        closure_start_date, INT,
+        closure_end_date, INT
+    ) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.setColumns(Table.java:489)
+	at org.h2.table.TableBase.<init>(TableBase.java:73)
+	at org.h2.mvstore.db.MVTable.<init>(MVTable.java:139)
+	at org.h2.mvstore.db.Store.createTable(Store.java:216)
+	at org.h2.schema.Schema.createTable(Schema.java:797)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:112)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-14 16:31:19.034341+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS eventsData\000d\000a    (\000d\000a        name VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS eventsData
+    (
+        name VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-14 16:31:19.035901+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS voluntaryDisponibilities\000d\000a    (\000d\000a        userID VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS voluntaryDisponibilities
+    (
+        userID VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-16 10:13:28.231433+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO places VALUES ( ?, ?, ?) [21002-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
+	at Server.Engine.SetVisitablePlacesEngine.handleRequest(SetVisitablePlacesEngine.java:84)
+	at Server.Engine.SetVisitablePlacesEngine.handleRequest(SetVisitablePlacesEngine.java:12)
+	at Server.Server.main(Server.java:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 10:22:47.322352+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "VISITTYPE CHARACTER VARYING(16)": "'Cinema all''aperto' (17)"; SQL statement:
+INSERT INTO placesData VALUES ( ?, ?, ?, ? ) [22001-224]
+2026-02-16 10:23:02.356018+01:00 database: close
+org.h2.message.DbException: IO Exception: "Closing" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.close(Store.java:374)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1293)
+	at org.h2.engine.Database.closeImpl(Database.java:1255)
+	at org.h2.engine.Database.close(Database.java:1174)
+	at org.h2.engine.Database.onShutdown(Database.java:1159)
+	at org.h2.engine.OnExitDatabaseCloser.onShutdown(OnExitDatabaseCloser.java:85)
+	at org.h2.engine.OnExitDatabaseCloser.run(OnExitDatabaseCloser.java:114)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "Closing" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 8 more
+Caused by: org.h2.mvstore.MVStoreException: java.lang.NoClassDefFoundError: org/h2/mvstore/Chunk$PositionComparator [2.2.224/3]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.MVStore.executeFilestoreOperation(MVStore.java:926)
+	at org.h2.mvstore.RandomAccessStore.compactMoveChunks(RandomAccessStore.java:463)
+	at org.h2.mvstore.RandomAccessStore.compactStore(RandomAccessStore.java:443)
+	at org.h2.mvstore.FileStore.compactStore(FileStore.java:888)
+	at org.h2.mvstore.FileStore.stop(FileStore.java:275)
+	at org.h2.mvstore.MVStore.closeStore(MVStore.java:693)
+	at org.h2.mvstore.MVStore.close(MVStore.java:643)
+	at org.h2.mvstore.db.Store.close(Store.java:364)
+	... 6 more
+Caused by: java.lang.NoClassDefFoundError: org/h2/mvstore/Chunk$PositionComparator
+	at org.h2.mvstore.RandomAccessStore.findChunksToMove(RandomAccessStore.java:516)
+	at org.h2.mvstore.RandomAccessStore.compactMoveChunks(RandomAccessStore.java:479)
+	at org.h2.mvstore.RandomAccessStore.lambda$compactMoveChunks$1(RandomAccessStore.java:468)
+	at org.h2.mvstore.FileStore.executeFileStoreOperation(FileStore.java:1888)
+	at org.h2.mvstore.MVStore.executeFilestoreOperation(MVStore.java:922)
+	... 13 more
+Caused by: java.lang.ClassNotFoundException: org.h2.mvstore.Chunk$PositionComparator
+	at org.codehaus.mojo.exec.URLClassLoaderBuilder$ExecJavaClassLoader.loadClass(URLClassLoaderBuilder.java:211)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	... 18 more
+2026-02-16 10:24:33.316856+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "CLOSURE_START_DATE"; SQL statement:
+CREATE TABLE IF NOT EXISTS closedDays
+    (
+        organization VARCHAR(32),
+        closure_start_date, INT,
+        closure_end_date, INT
+    ) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.setColumns(Table.java:489)
+	at org.h2.table.TableBase.<init>(TableBase.java:73)
+	at org.h2.mvstore.db.MVTable.<init>(MVTable.java:139)
+	at org.h2.mvstore.db.Store.createTable(Store.java:216)
+	at org.h2.schema.Schema.createTable(Schema.java:797)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:112)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 10:24:33.321893+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS eventsData\000d\000a    (\000d\000a        name VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS eventsData
+    (
+        name VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-16 10:24:33.324936+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS voluntaryDisponibilities\000d\000a    (\000d\000a        userID VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS voluntaryDisponibilities
+    (
+        userID VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-16 10:24:53.453392+01:00 database: could not close the database
+java.lang.RuntimeException: java.lang.InterruptedException
+	at org.h2.mvstore.FileStore.compact(FileStore.java:880)
+	at org.h2.mvstore.RandomAccessStore.compactStore(RandomAccessStore.java:441)
+	at org.h2.mvstore.FileStore.compactStore(FileStore.java:888)
+	at org.h2.mvstore.FileStore.stop(FileStore.java:275)
+	at org.h2.mvstore.MVStore.closeStore(MVStore.java:693)
+	at org.h2.mvstore.MVStore.close(MVStore.java:643)
+	at org.h2.mvstore.db.Store.close(Store.java:364)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1293)
+	at org.h2.engine.Database.closeImpl(Database.java:1255)
+	at org.h2.engine.Database.close(Database.java:1174)
+	at org.h2.engine.Database.onShutdown(Database.java:1159)
+	at org.h2.engine.OnExitDatabaseCloser.onShutdown(OnExitDatabaseCloser.java:85)
+	at org.h2.engine.OnExitDatabaseCloser.run(OnExitDatabaseCloser.java:114)
+Caused by: java.lang.InterruptedException
+	at java.base/java.util.concurrent.locks.ReentrantLock$Sync.tryLockNanos(ReentrantLock.java:168)
+	at java.base/java.util.concurrent.locks.ReentrantLock.tryLock(ReentrantLock.java:480)
+	at org.h2.mvstore.MVStore.tryExecuteUnderStoreLock(MVStore.java:935)
+	at org.h2.mvstore.FileStore.compact(FileStore.java:877)
+	... 12 more
+2026-02-16 12:00:27.280619+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]PLACESDATA"; expected "PREPARE"; SQL statement:
+PLACESDATA [42001-224]
+2026-02-16 12:16:38.897314+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]* FROM TABLE PLACES"; expected "identifier"; SQL statement:
+DELETE * FROM TABLE PLACES [42001-224]
+2026-02-16 12:16:47.879622+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]* FROM PLACES"; expected "identifier"; SQL statement:
+DELETE * FROM PLACES [42001-224]
+2026-02-16 12:33:08.619386+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]PLACESDATA"; expected "PREPARE"; SQL statement:
+PLACESDATA [42001-224]
+2026-02-16 12:59:49.433069+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "NAME" not found; SQL statement:
+SELECT COUNT(*) FROM territories WHERE name = ? [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:147)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:148)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1177)
+	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
+	at Server.Engine.SetNewOrganizationEngine.isValidTerritory(SetNewOrganizationEngine.java:66)
+	at Server.Engine.SetNewOrganizationEngine.processWithConnection(SetNewOrganizationEngine.java:39)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:132)
+	at Server.Server.main(Server.java:38)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 12:59:49.436757+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "NAME" not found; SQL statement:
+SELECT COUNT(*) FROM territories WHERE name = ? [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:147)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:148)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1177)
+	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
+	at Server.Engine.SetNewOrganizationEngine.isValidTerritory(SetNewOrganizationEngine.java:66)
+	at Server.Engine.SetNewOrganizationEngine.processWithConnection(SetNewOrganizationEngine.java:39)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:132)
+	at Server.Server.main(Server.java:38)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 12:59:49.439129+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "NAME" not found; SQL statement:
+SELECT COUNT(*) FROM territories WHERE name = ? [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:147)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:148)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1177)
+	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
+	at Server.Engine.SetNewOrganizationEngine.isValidTerritory(SetNewOrganizationEngine.java:66)
+	at Server.Engine.SetNewOrganizationEngine.processWithConnection(SetNewOrganizationEngine.java:39)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:132)
+	at Server.Server.main(Server.java:38)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 13:00:57.455689+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORGANIZATIONTERRITORIES" not found; SQL statement:
+INSERT INTO organizationTerritories VALUES (?, ?) [42102-224]
+2026-02-16 13:00:57.458463+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORGANIZATIONTERRITORIES" not found; SQL statement:
+INSERT INTO organizationTerritories VALUES (?, ?) [42102-224]
+2026-02-16 13:00:57.460050+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORGANIZATIONTERRITORIES" not found; SQL statement:
+INSERT INTO organizationTerritories VALUES (?, ?) [42102-224]
+2026-02-16 13:01:56.208800+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'Brescia' (TERRITORIES: ""CITY"" INTEGER)"; SQL statement:
+INSERT INTO territories VALUES (?, ?) [22018-224]
+2026-02-16 13:01:56.212195+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'Verona' (TERRITORIES: ""CITY"" INTEGER)"; SQL statement:
+INSERT INTO territories VALUES (?, ?) [22018-224]
+2026-02-16 13:01:56.214542+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'Mantova' (TERRITORIES: ""CITY"" INTEGER)"; SQL statement:
+INSERT INTO territories VALUES (?, ?) [22018-224]
+2026-02-16 13:05:01.237012+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'Brescia' (TERRITORIES: ""CITY"" INTEGER)"; SQL statement:
+INSERT INTO territories VALUES (?, ?) [22018-224]
+2026-02-16 13:05:01.240283+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'Verona' (TERRITORIES: ""CITY"" INTEGER)"; SQL statement:
+INSERT INTO territories VALUES (?, ?) [22018-224]
+2026-02-16 13:05:01.243097+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'Mantova' (TERRITORIES: ""CITY"" INTEGER)"; SQL statement:
+INSERT INTO territories VALUES (?, ?) [22018-224]
+2026-02-16 13:05:43.548616+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'Brescia' (TERRITORIES: ""CITY"" INTEGER)"; SQL statement:
+INSERT INTO territories VALUES (?, ?) [22018-224]
+2026-02-16 13:05:43.552422+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'Verona' (TERRITORIES: ""CITY"" INTEGER)"; SQL statement:
+INSERT INTO territories VALUES (?, ?) [22018-224]
+2026-02-16 13:05:43.555142+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'Mantova' (TERRITORIES: ""CITY"" INTEGER)"; SQL statement:
+INSERT INTO territories VALUES (?, ?) [22018-224]
+2026-02-16 13:06:46.342736+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTS" not found; SQL statement:
+DROP TABLE EVENTS [42102-224]
+2026-02-16 13:06:46.351720+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "CLOSURE_START_DATE"; SQL statement:
+CREATE TABLE IF NOT EXISTS closedDays
+    (
+        organization VARCHAR(32),
+        closure_start_date, INT,
+        closure_end_date, INT
+    ) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.setColumns(Table.java:489)
+	at org.h2.table.TableBase.<init>(TableBase.java:73)
+	at org.h2.mvstore.db.MVTable.<init>(MVTable.java:139)
+	at org.h2.mvstore.db.Store.createTable(Store.java:216)
+	at org.h2.schema.Schema.createTable(Schema.java:797)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:112)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 13:06:46.356227+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS eventsData\000d\000a    (\000d\000a        name VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS eventsData
+    (
+        name VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-16 13:06:46.358154+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS voluntaryDisponibilities\000d\000a    (\000d\000a        userID VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS voluntaryDisponibilities
+    (
+        userID VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-16 15:02:14.023541+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO [*]table (organization, maximum_friends) \000d\000aVALUES ('San Genesio', 5)\000d\000aON CONFLICT (organization) \000d\000aDO UPDATE SET maximum_friends = EXCLUDED.maximum_friends"; expected "identifier"; SQL statement:
+INSERT INTO table (organization, maximum_friends) 
+VALUES ('San Genesio', 5)
+ON CONFLICT (organization) 
+DO UPDATE SET maximum_friends = EXCLUDED.maximum_friends [42001-224]
+2026-02-16 15:03:32.587173+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO [*]table (organization, maximum_friends \000d\000aVALUES ('San Genesio', 5)\000d\000aON DUPLICATE KEY UPDATE schei = 5"; expected "identifier"; SQL statement:
+INSERT INTO table (organization, maximum_friends 
+VALUES ('San Genesio', 5)
+ON DUPLICATE KEY UPDATE schei = 5 [42001-224]
+2026-02-16 15:04:13.734395+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO organizations (organization, maximum_friends)\000d\000aVALUES ('San Genesio', 5)\000d\000a[*]ON DUPLICATE KEY UPDATE maximum_friends = 5"; SQL statement:
+INSERT INTO organizations (organization, maximum_friends)
+VALUES ('San Genesio', 5)
+ON DUPLICATE KEY UPDATE maximum_friends = 5 [42000-224]
+2026-02-16 15:05:49.683143+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLOSEDDAYS" not found; SQL statement:
+DROP TABLE closedDays [42102-224]
+2026-02-16 15:05:49.686587+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found; SQL statement:
+DROP TABLE eventsData [42102-224]
+2026-02-16 15:05:49.688713+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VOLUNTARYDISPONIBILITIES" not found; SQL statement:
+DROP TABLE voluntaryDisponibilities [42102-224]
+2026-02-16 15:05:49.689794+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORGANIZATIONS" not found (this database is empty); SQL statement:
+SELECT * FROM ORGANIZATIONS [42104-224]
+2026-02-16 15:05:52.939624+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+DROP TABLE users [42102-224]
+2026-02-16 15:05:52.940542+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACES" not found; SQL statement:
+DROP TABLE places [42102-224]
+2026-02-16 15:05:52.941306+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found; SQL statement:
+DROP TABLE placesData [42102-224]
+2026-02-16 15:05:52.942052+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERPERMISSIONS" not found; SQL statement:
+DROP TABLE userPermissions [42102-224]
+2026-02-16 15:05:52.942817+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLOSEDDAYS" not found; SQL statement:
+DROP TABLE closedDays [42102-224]
+2026-02-16 15:05:52.943492+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORGANIZATIONS" not found; SQL statement:
+DROP TABLE organizations [42102-224]
+2026-02-16 15:05:52.944299+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TERRITORIES" not found; SQL statement:
+DROP TABLE territories [42102-224]
+2026-02-16 15:05:52.945193+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTS" not found; SQL statement:
+DROP TABLE events [42102-224]
+2026-02-16 15:05:52.946070+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found; SQL statement:
+DROP TABLE eventsData [42102-224]
+2026-02-16 15:05:52.946984+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSVOLUNTARIES" not found; SQL statement:
+DROP TABLE eventsVoluntaries [42102-224]
+2026-02-16 15:05:52.948209+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VOLUNTARYDISPONIBILITIES" not found; SQL statement:
+DROP TABLE voluntaryDisponibilities [42102-224]
+2026-02-16 15:06:18.794716+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+DROP TABLE users [42102-224]
+2026-02-16 15:06:18.795718+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACES" not found; SQL statement:
+DROP TABLE places [42102-224]
+2026-02-16 15:06:18.796429+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found; SQL statement:
+DROP TABLE placesData [42102-224]
+2026-02-16 15:06:18.797049+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERPERMISSIONS" not found; SQL statement:
+DROP TABLE userPermissions [42102-224]
+2026-02-16 15:06:18.797724+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLOSEDDAYS" not found; SQL statement:
+DROP TABLE closedDays [42102-224]
+2026-02-16 15:06:18.798606+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORGANIZATIONS" not found; SQL statement:
+DROP TABLE organizations [42102-224]
+2026-02-16 15:06:18.799445+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TERRITORIES" not found; SQL statement:
+DROP TABLE territories [42102-224]
+2026-02-16 15:06:18.800040+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTS" not found; SQL statement:
+DROP TABLE events [42102-224]
+2026-02-16 15:06:18.800920+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found; SQL statement:
+DROP TABLE eventsData [42102-224]
+2026-02-16 15:06:18.801655+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSVOLUNTARIES" not found; SQL statement:
+DROP TABLE eventsVoluntaries [42102-224]
+2026-02-16 15:06:18.802630+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VOLUNTARYDISPONIBILITIES" not found; SQL statement:
+DROP TABLE voluntaryDisponibilities [42102-224]
+2026-02-16 15:06:18.803656+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "UNIQUE"; SQL statement:
+CREATE TABLE IF NOT EXISTS users 
+    (
+        userID UNIQUE VARCHAR(32),
+        password VARCHAR(32),
+        userName VARCHAR(16),
+        userSurname VARCHAR(16),
+        city VARCHAR(16),
+        birth_dd INT, 
+        birth_mm INT, 
+        birth_yy INT, 
+        userSince INT,
+        organization VARCHAR(32),
+        role VARCHAR(16),
+        changePasswordDue BOOLEAN
+    ) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.readIfDataType1(Parser.java:5866)
+	at org.h2.command.Parser.readIfDataType(Parser.java:5704)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:5686)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5565)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8999)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8939)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 15:06:18.810419+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "CLOSURE_START_DATE"; SQL statement:
+CREATE TABLE IF NOT EXISTS closedDays
+    (
+        organization VARCHAR(32),
+        closure_start_date, INT,
+        closure_end_date, INT
+    ) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.setColumns(Table.java:489)
+	at org.h2.table.TableBase.<init>(TableBase.java:73)
+	at org.h2.mvstore.db.MVTable.<init>(MVTable.java:139)
+	at org.h2.mvstore.db.Store.createTable(Store.java:216)
+	at org.h2.schema.Schema.createTable(Schema.java:797)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:112)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 15:06:18.812839+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "UNIQUE"; SQL statement:
+CREATE TABLE IF NOT EXISTS organizations
+    (
+        organization UNIQUE VARCHAR(32),
+        maximum_friends INT
+    ) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.readIfDataType1(Parser.java:5866)
+	at org.h2.command.Parser.readIfDataType(Parser.java:5704)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:5686)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5565)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8999)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8939)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 15:06:18.817887+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS eventsData\000d\000a    (\000d\000a        name VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS eventsData
+    (
+        name VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-16 15:06:18.820279+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS voluntaryDisponibilities\000d\000a    (\000d\000a        userID VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )\000d\000a\000d\000aINSERT INTO users VALUES (\000d\000a    'Lancillotto.Benacense.99',\000d\000a    'password',\000d\000a    'Lancillotto',\000d\000a    'Benacense',\000d\000a    'Brescia',\000d\000a    23,\000d\000a    12,\000d\000a    1999,\000d\000a    1771083225,\000d\000a    'San Genesio',\000d\000a    'CONFIGURATOR',\000d\000a    false\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS voluntaryDisponibilities
+    (
+        userID VARCHAR(32),
+        start INT,
+        end INT
+    )
+
+INSERT INTO users VALUES (
+    'Lancillotto.Benacense.99',
+    'password',
+    'Lancillotto',
+    'Benacense',
+    'Brescia',
+    23,
+    12,
+    1999,
+    1771083225,
+    'San Genesio',
+    'CONFIGURATOR',
+    false
+) [42001-224]
+2026-02-16 15:06:39.937510+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+DROP TABLE users [42102-224]
+2026-02-16 15:06:39.939765+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLOSEDDAYS" not found; SQL statement:
+DROP TABLE closedDays [42102-224]
+2026-02-16 15:06:39.940455+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORGANIZATIONS" not found; SQL statement:
+DROP TABLE organizations [42102-224]
+2026-02-16 15:06:39.942255+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found; SQL statement:
+DROP TABLE eventsData [42102-224]
+2026-02-16 15:06:39.943657+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VOLUNTARYDISPONIBILITIES" not found; SQL statement:
+DROP TABLE voluntaryDisponibilities [42102-224]
+2026-02-16 15:06:39.944773+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "UNIQUE"; SQL statement:
+CREATE TABLE IF NOT EXISTS users 
+    (
+        userID UNIQUE VARCHAR(32),
+        password VARCHAR(32),
+        userName VARCHAR(16),
+        userSurname VARCHAR(16),
+        city VARCHAR(16),
+        birth_dd INT, 
+        birth_mm INT, 
+        birth_yy INT, 
+        userSince INT,
+        organization VARCHAR(32),
+        role VARCHAR(16),
+        changePasswordDue BOOLEAN
+    ) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.readIfDataType1(Parser.java:5866)
+	at org.h2.command.Parser.readIfDataType(Parser.java:5704)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:5686)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5565)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8999)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8939)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 15:06:39.949802+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "CLOSURE_START_DATE"; SQL statement:
+CREATE TABLE IF NOT EXISTS closedDays
+    (
+        organization VARCHAR(32),
+        closure_start_date, INT,
+        closure_end_date, INT
+    ) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.setColumns(Table.java:489)
+	at org.h2.table.TableBase.<init>(TableBase.java:73)
+	at org.h2.mvstore.db.MVTable.<init>(MVTable.java:139)
+	at org.h2.mvstore.db.Store.createTable(Store.java:216)
+	at org.h2.schema.Schema.createTable(Schema.java:797)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:112)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 15:06:39.951602+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "UNIQUE"; SQL statement:
+CREATE TABLE IF NOT EXISTS organizations
+    (
+        organization UNIQUE VARCHAR(32),
+        maximum_friends INT
+    ) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.readIfDataType1(Parser.java:5866)
+	at org.h2.command.Parser.readIfDataType(Parser.java:5704)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:5686)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5565)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8999)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8939)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 15:06:39.956361+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS eventsData\000d\000a    (\000d\000a        name VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS eventsData
+    (
+        name VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-16 15:06:39.958964+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS voluntaryDisponibilities\000d\000a    (\000d\000a        userID VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS voluntaryDisponibilities
+    (
+        userID VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-16 15:06:39.960599+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+INSERT INTO users VALUES (
+    'Lancillotto.Benacense.99',
+    'password',
+    'Lancillotto',
+    'Benacense',
+    'Brescia',
+    23,
+    12,
+    1999,
+    1771083225,
+    'San Genesio',
+    'CONFIGURATOR',
+    false
+) [42102-224]
+2026-02-16 15:09:08.661696+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+DROP TABLE users [42102-224]
+2026-02-16 15:09:08.666251+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLOSEDDAYS" not found; SQL statement:
+DROP TABLE closedDays [42102-224]
+2026-02-16 15:09:08.667369+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORGANIZATIONS" not found; SQL statement:
+DROP TABLE organizations [42102-224]
+2026-02-16 15:09:08.670133+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found; SQL statement:
+DROP TABLE eventsData [42102-224]
+2026-02-16 15:09:08.671732+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VOLUNTARYDISPONIBILITIES" not found; SQL statement:
+DROP TABLE voluntaryDisponibilities [42102-224]
+2026-02-16 15:09:14.589065+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "CLOSURE_START_DATE"; SQL statement:
+CREATE TABLE IF NOT EXISTS closedDays
+    (
+        organization VARCHAR(32),
+        closure_start_date, INT,
+        closure_end_date, INT
+    ) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.setColumns(Table.java:489)
+	at org.h2.table.TableBase.<init>(TableBase.java:73)
+	at org.h2.mvstore.db.MVTable.<init>(MVTable.java:139)
+	at org.h2.mvstore.db.Store.createTable(Store.java:216)
+	at org.h2.schema.Schema.createTable(Schema.java:797)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:112)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 15:09:14.593964+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS eventsData\000d\000a    (\000d\000a        name VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS eventsData
+    (
+        name VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-16 15:09:14.596069+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS voluntaryDisponibilities\000d\000a    (\000d\000a        userID VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS voluntaryDisponibilities
+    (
+        userID VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-16 15:10:08.744644+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS eventsData\000d\000a    (\000d\000a        name VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS eventsData
+    (
+        name VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-16 15:10:08.745767+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS voluntaryDisponibilities\000d\000a    (\000d\000a        userID VARCHAR(32),\000d\000a        start INT,\000d\000a        [*]end INT\000d\000a    )"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS voluntaryDisponibilities
+    (
+        userID VARCHAR(32),
+        start INT,
+        end INT
+    ) [42001-224]
+2026-02-16 15:11:03.409172+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found; SQL statement:
+DROP TABLE eventsData [42102-224]
+2026-02-16 15:11:03.410707+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VOLUNTARYDISPONIBILITIES" not found; SQL statement:
+DROP TABLE voluntaryDisponibilities [42102-224]
+2026-02-16 15:11:47.716367+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO organizations (organization, maximum_friends) \000d\000aVALUES ('San Genesio', 5)\000d\000a[*]ON DUPLICATE KEY UPDATE maximum_friends = 5"; SQL statement:
+INSERT INTO organizations (organization, maximum_friends) 
+VALUES ('San Genesio', 5)
+ON DUPLICATE KEY UPDATE maximum_friends = 5 [42000-224]
+2026-02-16 15:13:19.691289+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO organizations (organization, maximum_friends)\000d\000aVALUES ('San Genesio', 5)\000d\000a[*]ON DUPLICATE KEY UPDATE maximum_friends = 5"; SQL statement:
+INSERT INTO organizations (organization, maximum_friends)
+VALUES ('San Genesio', 5)
+ON DUPLICATE KEY UPDATE maximum_friends = 5 [42000-224]
+2026-02-16 15:14:07.009126+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO organizations (organization, maximum_friends)\000d\000aVALUES ('San Genesio', 5)\000d\000a[*]ON DUPLICATE KEY UPDATE maximum_friends = 5"; SQL statement:
+INSERT INTO organizations (organization, maximum_friends)
+VALUES ('San Genesio', 5)
+ON DUPLICATE KEY UPDATE maximum_friends = 5 [42000-224]
+2026-02-16 15:14:42.930439+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO organizations (organization, maximum_friends) \000d\000aVALUES ('San Genesio', 5)\000d\000a[*]ON CONFLICT (organization) \000d\000aDO UPDATE SET maximum_friends = EXCLUDED.maximum_friends"; SQL statement:
+INSERT INTO organizations (organization, maximum_friends) 
+VALUES ('San Genesio', 5)
+ON CONFLICT (organization) 
+DO UPDATE SET maximum_friends = EXCLUDED.maximum_friends [42000-224]
+2026-02-16 15:17:26.988789+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+DROP TABLE users [42102-224]
+2026-02-16 15:17:26.990366+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACES" not found; SQL statement:
+DROP TABLE places [42102-224]
+2026-02-16 15:17:26.991288+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found; SQL statement:
+DROP TABLE placesData [42102-224]
+2026-02-16 15:17:26.992359+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERPERMISSIONS" not found; SQL statement:
+DROP TABLE userPermissions [42102-224]
+2026-02-16 15:17:26.993318+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLOSEDDAYS" not found; SQL statement:
+DROP TABLE closedDays [42102-224]
+2026-02-16 15:17:26.995574+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TERRITORIES" not found; SQL statement:
+DROP TABLE territories [42102-224]
+2026-02-16 15:17:26.996430+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTS" not found; SQL statement:
+DROP TABLE events [42102-224]
+2026-02-16 15:17:26.997205+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found; SQL statement:
+DROP TABLE eventsData [42102-224]
+2026-02-16 15:17:26.997946+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSVOLUNTARIES" not found; SQL statement:
+DROP TABLE eventsVoluntaries [42102-224]
+2026-02-16 15:17:26.998728+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VOLUNTARYDISPONIBILITIES" not found; SQL statement:
+DROP TABLE voluntaryDisponibilities [42102-224]
+2026-02-16 16:51:10.369290+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "NAME" not found; SQL statement:
+SELECT userID, name, surname, city, organization,
+    birth_dd, birth_mm, birth_yy, changePasswordDue
+    user_since, role, changePasswordDue
+    FROM users WHERE role = 'VOLUNTARY' [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1170)
+	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
+	at Server.Engine.GetVoluntariesEngine.getFilteredVoluntaries(GetVoluntariesEngine.java:126)
+	at Server.Engine.GetVoluntariesEngine.processWithConnection(GetVoluntariesEngine.java:77)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:142)
+	at Server.Server.main(Server.java:49)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 16:55:44.556250+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "name" not found [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3492)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:301)
+	at Server.Engine.GetVoluntariesEngine.createUserFromResultSet(GetVoluntariesEngine.java:196)
+	at Server.Engine.GetVoluntariesEngine.getFilteredVoluntaries(GetVoluntariesEngine.java:141)
+	at Server.Engine.GetVoluntariesEngine.processWithConnection(GetVoluntariesEngine.java:77)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:142)
+	at Server.Server.main(Server.java:49)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 18:01:21.816985+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Invalid value "1" for parameter "parameterIndex" [90008-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:658)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:298)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1408)
+	at org.h2.jdbc.JdbcPreparedStatement.setString(JdbcPreparedStatement.java:391)
+	at Server.Engine.GetEventEngine.processWithConnection(GetEventEngine.java:46)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:142)
+	at Server.Server.main(Server.java:31)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-16 18:04:15.053555+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM EVENTS \000d\000aINSERT [*]INTO EVENTS VALUES ('Cinema in castello', 'Cinema al castello di Brescia', 'Cinema all\\'aperto', 'San Genesio', 'Brescia', 'Via Castello 9', 'Sotto il leone di San Marco all'ingresso principale', 'CONFIRMED')"; SQL statement:
+SELECT * FROM EVENTS 
+INSERT INTO EVENTS VALUES ('Cinema in castello', 'Cinema al castello di Brescia', 'Cinema all\'aperto', 'San Genesio', 'Brescia', 'Via Castello 9', 'Sotto il leone di San Marco all'ingresso principale', 'CONFIRMED') [42000-224]
+2026-02-16 18:04:28.856481+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM EVENTS \000d\000aINSERT INTO EVENTS VALUES ('Cinema in castello', 'Cinema al castello di Brescia', 'Cinema all\\'aperto', 'San Genesio', 'Brescia', 'Via Castello 9', 'Lorem', 'CONFIRMED[*]');"; SQL statement:
+SELECT * FROM EVENTS 
+INSERT INTO EVENTS VALUES ('Cinema in castello', 'Cinema al castello di Brescia', 'Cinema all\'aperto', 'San Genesio', 'Brescia', 'Via Castello 9', 'Lorem', 'CONFIRMED'); [42000-224]
+2026-02-16 18:04:32.488426+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO EVENTS VALUES ('Cinema in castello', 'Cinema al castello di Brescia', 'Cinema all\\'aperto', 'San Genesio', 'Brescia', 'Via Castello 9', 'Lorem', 'CONFIRMED[*]');"; SQL statement:
+INSERT INTO EVENTS VALUES ('Cinema in castello', 'Cinema al castello di Brescia', 'Cinema all\'aperto', 'San Genesio', 'Brescia', 'Via Castello 9', 'Lorem', 'CONFIRMED'); [42000-224]
+2026-02-16 18:04:50.824834+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "TYPE CHARACTER VARYING(16)": "'Cinema all aperto' (17)"; SQL statement:
+INSERT INTO EVENTS VALUES ('Cinema in castello', 'Cinema al castello di Brescia', 'Cinema all aperto', 'San Genesio', 'Brescia', 'Via Castello 9', 'Lorem', 'CONFIRMED') [22001-224]
+2026-02-16 18:08:19.818670+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "RENDEZVOUS CHARACTER VARYING(32)": "'Ingresso principale sotto il leone di San Marco' (47)"; SQL statement:
+INSERT INTO events VALUES (
+    'Cinema in castello',
+    'Proiezione dei grandi classici nel cinema all aperto',
+    'Cinema all aperto',
+    'San Genesio',
+    'Brescia',
+    'Via Castello 9',
+    'Ingresso principale sotto il leone di San Marco',
+    'CONFIRMED'
+) [22001-224]
+2026-02-16 18:09:21.688981+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "RENDEZVOUS CHARACTER VARYING(32)": "'Ingresso principale sotto il leone di San Marco' (47)"; SQL statement:
+INSERT INTO events VALUES (
+    'Cinema in castello',
+    'Proiezione dei grandi classici nel cinema all aperto',
+    'Cinema all aperto',
+    'San Genesio',
+    'Brescia',
+    'Via Castello 9',
+    'Ingresso principale sotto il leone di San Marco',
+    'CONFIRMED'
+) [22001-224]
+2026-02-16 18:11:23.626487+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO events VALUES (
+    'Cinema in castello',
+    10, 
+    20
+) [21002-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)

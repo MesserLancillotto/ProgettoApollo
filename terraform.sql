@@ -1,0 +1,11 @@
+DROP TABLE users; 
+DROP TABLE places; 
+DROP TABLE placesData;
+DROP TABLE userPermissions;
+DROP TABLE closedDays;
+DROP TABLE organizations;
+DROP TABLE territories;
+DROP TABLE events;
+DROP TABLE eventsData;
+DROP TABLE eventsVoluntaries;
+DROP TABLE voluntaryDisponibilities;
