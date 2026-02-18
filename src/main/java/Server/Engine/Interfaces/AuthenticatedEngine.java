@@ -21,15 +21,14 @@ public abstract class AuthenticatedEngine implements EngineInterface
     protected static final int MAX_PLACES = 1000;
     protected static final int MAX_VOLUNTARIES = 1000;
 
-    protected String userID;
-    protected String password;
-    protected String organization;
-    protected String role;
+    private String userID;
+    private String password;
+    private String organization;
+    private String role;
     private Boolean canLogIn;
 
     protected JSONObject json;
     protected Connection connection;
-    protected PreparedStatement statement;
 
     protected static String DB_URL 
         = "jdbc:h2:~/documents/ProgettoApollo/databases/MAIN_DB";
@@ -43,7 +42,7 @@ public abstract class AuthenticatedEngine implements EngineInterface
         password = json.getString("password");
     }
 
-    private Boolean petitionerCanLogIn()
+    public Boolean petitionerCanLogIn()
     {
         if(this.canLogIn != null)
         {
@@ -62,6 +61,7 @@ public abstract class AuthenticatedEngine implements EngineInterface
             statement.setString(2, password);
             ResultSet result = statement.executeQuery();
             this.canLogIn = result.next();
+
         } 
         catch(Exception e)
         {
@@ -69,6 +69,11 @@ public abstract class AuthenticatedEngine implements EngineInterface
             this.canLogIn = false;
         }
         return this.canLogIn;
+    }
+
+    public String getUserID()
+    {
+        return this.userID;
     }
 
     private void getRoleAndOrganization()
@@ -106,6 +111,24 @@ public abstract class AuthenticatedEngine implements EngineInterface
             getRoleAndOrganization();
         }
         return "CONFIGURATOR".equals(this.role);
+    }
+
+    protected boolean petitionerIsVoluntary()
+    {
+        if(this.role == null)
+        {
+            getRoleAndOrganization();
+        }
+        return "VOLUNTARY".equals(this.role);
+    }
+
+    protected boolean petitionerIsUser()
+    {
+        if(this.role == null)
+        {
+            getRoleAndOrganization();
+        }
+        return "USER".equals(this.role);
     }
 
     protected String getRole()

@@ -12,6 +12,14 @@ import Comunication.Reply.SetClosedDaysReply;
 
 public class DeleteVisitEngine extends AuthenticatedEngine
 {
+    private static final String QUERY = """
+        DELETE FROM placesData 
+        WHERE 
+            city = ? 
+            AND address = ? 
+            AND visitType = ?;
+    """;
+
     private String city;
     private String address;
     private String visitType;
@@ -26,54 +34,21 @@ public class DeleteVisitEngine extends AuthenticatedEngine
         this.visitType = json.getString("visitType"); 
     }
     
-    public AuthenticatedUpdateReply handleRequest()
-    {
-        if (!connectDB()) 
+    public AuthenticatedReply processWithConnection() throws SQLException
+    {     
+        if(!petitionerIsConfigurator())
         {
             return new DeleteVisitReply(false, false);
-        } 
-        try 
-        {
-            if(!petitionerCanLogIn())
-            {
-                return new DeleteVisitReply(false, false);
-            }
+        }
+        
+        PreparedStatement statement = connection.prepareStatement(query);
             
-            if(!"CONFIGURATOR".equals(role))
-            {
-                return new DeleteVisitReply(false, false);
-            }
-            
-            String query = """
-                DELETE FROM placesData 
-                WHERE 
-                    city = ? 
-                    AND address = ? 
-                    AND visitType = ?;
-            """;
-            
-            PreparedStatement statement = connection.prepareStatement(query);
-            
-            statement.setString(1, city);
-            statement.setString(2, address);
-            statement.setString(3, visitType);
+        statement.setString(1, city);
+        statement.setString(2, address);
+        statement.setString(3, visitType);
 
-            int updatedRows = statement.executeUpdate();
+        int updatedRows = statement.executeUpdate();
 
-            if(updatedRows != 1)
-            {
-                return new DeleteVisitReply(true, true);
-            }
-            
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-        finally
-        {
-            disconnectDB();
-        }
-        return new DeleteVisitReply(true, false);    
+        return new DeleteVisitReply(true, updatedRows > 0);    
     }
 }

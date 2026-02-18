@@ -16,17 +16,20 @@ public class Server
 {
     public static void main(String [] args)
     {
+        List<String> visitTypes = new ArrayList<String>();
+        List<String> userIDs = new ArrayList<String>();
 
-        GetEventRequest request = new GetEventRequest(
-            "Lancillotto.Benacense.99",
-            "password",
-            "CONFIRMED"
-        );
+        DeleteVoluntaryRequest request 
+            = new DeleteVoluntaryRequest(
+                "Lancillotto.Benacense.99",
+                "password",
+                "Arlecchino.Valcalepio.98"
+            );
 
         System.out.println(request.toJSONString());
 
-        AuthenticatedEngine engine 
-            = new GetEventEngine(request.toJSONString());
+        DeleteVoluntaryEngine engine 
+            = new DeleteVoluntaryEngine(request.toJSONString());
 
         ReplyInterface reply = engine.handleRequest();
 

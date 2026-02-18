@@ -42,16 +42,16 @@ public class SetClosedDaysEngine extends AuthenticatedEngine
 
         System.out.println("CONFIG");
 
-        this.statement = connection.prepareStatement(QUERY); 
+        PreparedStatement statement = connection.prepareStatement(QUERY); 
         
-        this.statement.setString(1, organization); 
-        this.statement.setInt(2, closure_start_date); 
-        this.statement.setInt(3, closure_end_date); 
+        statement.setString(1, organization); 
+        statement.setInt(2, closure_start_date); 
+        statement.setInt(3, closure_end_date); 
 
 
         System.out.println(statement);
 
-        if(this.statement.executeUpdate() == 1) 
+        if(statement.executeUpdate() == 1) 
         {
             return new SetClosedDaysReply(true, true);
         }

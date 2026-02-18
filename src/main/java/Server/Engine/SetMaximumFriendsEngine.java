@@ -33,7 +33,7 @@ public class SetMaximumFriendsEngine extends AuthenticatedEngine
         }
 
         PreparedStatement statement = connection.prepareStatement(QUERY);
-        statement.setString(1, organization);
+        statement.setString(1, getOrganization());
         statement.setInt(2, maximum_friends);
         if(statement.executeUpdate() == 1)
         {
