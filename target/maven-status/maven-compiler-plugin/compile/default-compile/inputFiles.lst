@@ -1,3 +1,4 @@
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/DeletePlaceEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetVoluntariesRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetNewOrganizationRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/DatabaseObjects/Place.java
@@ -24,6 +25,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/DeletePlaceReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/Interfaces/RequestInterface.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetDisponibilityEngine.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetAllowedVisitTypesEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetDisponibilityRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetClosedDaysEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/DatabaseObjects/Event.java
@@ -33,6 +35,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/DeletePlaceRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/Interfaces/AuthenticatedEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/NegativeAuthenticatedReply.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/DeleteVoluntaryEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetAllowedVisitTypesRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/DeleteVoluntaryReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetEventEngine.java
@@ -49,6 +52,5 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/Interfaces/Request.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/ComunicationType/ComunicationType.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/EditVisitablePlacesReply.java
-/home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetVoluntariesEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetNewPasswordRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/GetEventReply.java

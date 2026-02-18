@@ -15,7 +15,7 @@ public class SetNewPasswordEngine extends AuthenticatedEngine
     """
         UPDATE users 
         SET changePasswordDue = ?, password = ? 
-        WHERE userID = ? AND password = ?
+        WHERE userID = ?
     """;
 
     public SetNewPasswordEngine(String data) 
@@ -26,11 +26,14 @@ public class SetNewPasswordEngine extends AuthenticatedEngine
     
     public AuthenticatedReply processWithConnection() throws SQLException
     {
+        if(!petitionerCanLogIn())
+        {
+            return new SetNewPasswordReply(false, false);
+        }
         PreparedStatement statement = connection.prepareStatement(setChangePasswordDue);
         statement.setBoolean(1, false);
         statement.setString(2, newPassword);
-        statement.setString(3, userID);
-        statement.setString(4, password);
+        statement.setString(3, getUserID());
         int linesChanged = statement.executeUpdate();
         
         return new SetNewPasswordReply(true, linesChanged == 1);

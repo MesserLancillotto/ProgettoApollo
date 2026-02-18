@@ -79,7 +79,8 @@ public class SetVisitablePlacesEngine extends AuthenticatedEngine
             {
                 return new SetVisitablePlacesReply(true, false);
             }
-            this.statement = this.connection.prepareStatement(PLACES_QUERY);
+            PreparedStatement statement 
+                = this.connection.prepareStatement(PLACES_QUERY);
 
             statement.setString(1, getOrganization());
             statement.setString(2, place.getCity());

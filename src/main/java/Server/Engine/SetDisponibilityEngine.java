@@ -17,6 +17,7 @@ public class SetDisponibilityEngine extends AuthenticatedEngine
         INSERT INTO voluntaryDisponibilities
         VALUES ( ? , ? , ? );
     """;
+
     private List<List<Integer>> disponibilities;
 
     public SetDisponibilityEngine(String data) 
@@ -68,12 +69,13 @@ public class SetDisponibilityEngine extends AuthenticatedEngine
             i++
         ) {
             query.append(TEMPLATE);
-            params.add(userID);
+            params.add(getUserID());
             params.add(this.disponibilities.get(i).get(0));
             params.add(this.disponibilities.get(i).get(1));
         }
 
-        this.statement = connection.prepareStatement(query.toString());
+        PreparedStatement statement 
+            = connection.prepareStatement(query.toString());
         
         for
         (
@@ -82,11 +84,11 @@ public class SetDisponibilityEngine extends AuthenticatedEngine
                 && i < MAX_PARAMETERS;
             i += 3
         ) {
-            this.statement.setString(i + 1, (String) params.get(i));  
-            this.statement.setInt(i + 2, (Integer) params.get(i + 1));
-            this.statement.setInt(i + 3, (Integer) params.get(i + 2));
+            statement.setString(i + 1, (String) params.get(i));  
+            statement.setInt(i + 2, (Integer) params.get(i + 1));
+            statement.setInt(i + 3, (Integer) params.get(i + 2));
         }
-        if(this.statement.executeUpdate() > 0)
+        if(statement.executeUpdate() > 0)
         {
             return new SetDisponibilityReply(true, true);
         }

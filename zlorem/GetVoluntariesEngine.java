@@ -11,6 +11,15 @@ import Comunication.Reply.GetVoluntariesReply;
 import Comunication.DatabaseObjects.User;
 import Comunication.DatabaseObjects.UserRole;
 
+
+/* Seleziona tutti i permessi di tutti gli utenti
+        SELECT userPermissions.userID, userPermissions.visitType 
+        FROM userPermissions
+        INNER JOIN users ON users.userID = userPermissions.userID
+        WHERE users.organization = ?;
+*/
+
+
 public class GetVoluntariesEngine extends AuthenticatedEngine
 {
     private Map<String, Object> filters;
@@ -77,7 +86,8 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
         List<User> voluntaries = getFilteredVoluntaries();
         return new GetVoluntariesReply(true, voluntaries);
     }
-        private List<User> getFilteredVoluntaries() throws SQLException 
+    
+    private List<User> getFilteredVoluntaries() throws SQLException 
     {
         List<User> voluntaries = new ArrayList<>();    
         StringBuilder queryBuilder = new StringBuilder(
@@ -119,7 +129,8 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
             parameters.add(birthYear);
         }
 
-        this.statement = connection.prepareStatement(queryBuilder.toString());
+        PreparedStatement statement 
+            = connection.prepareStatement(queryBuilder.toString());
             
         for (int i = 0; i < parameters.size(); i++) 
         {
