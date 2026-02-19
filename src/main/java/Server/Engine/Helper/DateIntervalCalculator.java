@@ -46,4 +46,28 @@ public class DateIntervalCalculator {
         list.add(endTimestamp);
         return list;
     }
+    
+    /**
+     * Restituisce l'intervallo dal giorno 16 del mese i al giorno 15 del mese i+1
+     * @param year l'anno
+     * @param month il mese di partenza (1-12)
+     * @return una stringa con l'intervallo formattato
+     */
+    public static String getMidMonthInterval(int year, int month) {
+        // Data inizio: 16 del mese corrente
+        LocalDate startDate = LocalDate.of(year, month, 16);
+        
+        // Calcola il mese successivo (gestisce il cambio d'anno)
+        YearMonth nextMonth = YearMonth.from(startDate).plusMonths(1);
+        
+        // Data fine: 15 del mese successivo
+        LocalDate endDate = nextMonth.atDay(15);
+        
+        return startDate.toString() + " - " + endDate.toString();
+    }
+
+    public static Boolean validInterval(Integer startDate, Integer endDate)
+    {
+        return true;
+    }
 }

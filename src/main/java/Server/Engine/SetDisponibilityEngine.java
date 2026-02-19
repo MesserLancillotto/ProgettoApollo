@@ -10,6 +10,7 @@ import Comunication.Reply.Interfaces.ReplyInterface;
 import Comunication.Reply.Interfaces.AuthenticatedReply;
 import Comunication.DatabaseObjects.User;
 import Comunication.DatabaseObjects.UserRole;
+import Server.Engine.Helper.DateIntervalCalculator;
 
 public class SetDisponibilityEngine extends AuthenticatedEngine
 {
@@ -45,11 +46,12 @@ public class SetDisponibilityEngine extends AuthenticatedEngine
                 i++
             ) {
                 JSONArray innerArray = outerArray.getJSONArray(i);
-                List<Integer> innerList = new ArrayList<>();
-                
+
+                List<Integer> innerList = new ArrayList<Integer>();
+
                 innerList.add(innerArray.getInt(0));
                 innerList.add(innerArray.getInt(1));
-                
+
                 result.add(innerList);
             }
         }

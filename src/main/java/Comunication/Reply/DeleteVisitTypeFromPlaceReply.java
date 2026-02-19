@@ -2,9 +2,9 @@ package Comunication.Reply;
 
 import Comunication.Reply.Interfaces.AuthenticatedUpdateReply;
 
-public class DeleteVisitReply extends AuthenticatedUpdateReply
+public class DeleteVisitTypeFromPlaceReply extends AuthenticatedUpdateReply
 {
-    public DeleteVisitReply
+    public DeleteVisitTypeFromPlaceReply
     (
         Boolean loginSuccessful,
         Boolean updateSuccessful

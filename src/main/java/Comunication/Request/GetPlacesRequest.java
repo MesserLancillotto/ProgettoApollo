@@ -46,6 +46,7 @@ public class GetPlacesRequest extends AuthenticatedRequest
     public String toJSONString()
     {
         json.put("filters", filters);
+
         return json.toString();
     }
 }

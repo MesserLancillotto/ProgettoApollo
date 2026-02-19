@@ -12,13 +12,17 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/Interfaces/EngineInterface.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/SetMaximumFriendsReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetClosedDaysRequest.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetPersonalDataRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetEventRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/Interfaces/ReplyInterface.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/DeleteVisitTypeFromPlaceRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/Helper/DateIntervalCalculator.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Server.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/GetPersonalDataReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/SetNewPasswordReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetVisitablePlacesRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetVisitablePlacesEngine.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetPlacesEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/SetClosedDaysReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetPlacesRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/Interfaces/Engine.java
@@ -28,10 +32,10 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetAllowedVisitTypesEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetDisponibilityRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetClosedDaysEngine.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/DeleteVisitTypeFromPlaceEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/DatabaseObjects/Event.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/SetVisitablePlacesReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/SetDisponibilityReply.java
-/home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/DeleteVisitReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/DeletePlaceRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/Interfaces/AuthenticatedEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/NegativeAuthenticatedReply.java
@@ -44,7 +48,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/DatabaseObjects/UserRole.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/DeleteVoluntaryRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/ComunicationType/ComunicationTypeStringConverter.java
-/home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/DeleteVisitRequest.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetPersonalDataEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetNewOrganizationEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetMaximumFriendsRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/GetPlacesReply.java
@@ -52,5 +56,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/Interfaces/Request.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/ComunicationType/ComunicationType.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/EditVisitablePlacesReply.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetVoluntariesEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetNewPasswordRequest.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/DeleteVisitTypeFromPlaceReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/GetEventReply.java

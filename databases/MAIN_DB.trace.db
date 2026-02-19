@@ -1919,3 +1919,532 @@ INSERT INTO users VALUES (
 	at org.h2.server.web.WebThread.process(WebThread.java:190)
 	at org.h2.server.web.WebThread.run(WebThread.java:103)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-18 19:13:19.798026+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM[*]"; expected "identifier"; SQL statement:
+SELECT * FROM [42001-224]
+2026-02-18 19:13:19.800080+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM[*]"; expected "identifier"; SQL statement:
+SELECT * FROM [42001-224]
+2026-02-18 19:13:19.801627+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM[*]"; expected "identifier"; SQL statement:
+SELECT * FROM [42001-224]
+2026-02-18 19:13:19.803288+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM[*]"; expected "identifier"; SQL statement:
+SELECT * FROM [42001-224]
+2026-02-19 11:10:30.146468+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: No data is available [2000-224]
+2026-02-19 11:46:03.279467+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: No data is available [2000-224]
+2026-02-19 11:59:14.651104+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "CHARACTER VARYING to DECFLOAT"; SQL statement:
+INSERT INTO eventsVoluntaries (name, userID, date)
+SELECT e.name, v.userID, v.date
+FROM (
+    SELECT 'Cinema in castello' AS userID, 'Balanzone.Pignoletto.83' AS date, 11105 AS name
+) v
+JOIN events e ON e.name = v.name
+WHERE e.state = 'CONFIRMED' [22018-224]
+2026-02-19 11:59:57.662163+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO eventsVoluntaries (name, userID, date)\000d\000aSELECT e.name, 'Balanzone.Pignoletto.83, 1640995200\000d\000aFROM events e\000d\000aWHERE e.name = 'Cinema in castello' \000d\000a  AND e.state = 'CONFIRMED[*]';"; SQL statement:
+INSERT INTO eventsVoluntaries (name, userID, date)
+SELECT e.name, 'Balanzone.Pignoletto.83, 1640995200
+FROM events e
+WHERE e.name = 'Cinema in castello' 
+  AND e.state = 'CONFIRMED'; [42000-224]
+2026-02-19 15:53:25.718426+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+INSERT INTO users VALUES (
+    'Lancillotto.Benacense.99',
+    'password',
+    'Lancillotto',
+    'Benacense',
+    'Brescia',
+    23,12,1999,
+    1771083225,
+    'San Genesio',
+    'CONFIGURATOR',
+    false
+) [42104-224]
+2026-02-19 15:53:25.721156+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+INSERT INTO users VALUES (
+    'Arlecchino.Valcalepio.98',
+    'vino&carte', 
+    'Arlecchino',
+    'Valcalepio',
+    'Bergamo',
+    11,12,1997,
+    1771257245,
+    'San Genesio',
+    'VOLUNTARY',
+    false
+) [42104-224]
+2026-02-19 15:53:25.722639+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERPERMISSIONS" not found (this database is empty); SQL statement:
+INSERT INTO userPermissions VALUES (
+    'Arlecchino.Valcalepio.98',
+    'Cinema'
+) [42104-224]
+2026-02-19 15:53:25.723906+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found (this database is empty); SQL statement:
+INSERT INTO placesData VALUES (
+    'Brescia',
+    'Via Castello 9',
+    'Cinema',
+    'Arlecchino.Valcalepio.98'
+) [42104-224]
+2026-02-19 15:53:25.725252+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+INSERT INTO users VALUES (
+    'Balanzone.Pignoletto.83',
+    'carnevale',
+    'Balanzone',
+    'Pignoletto',
+    'Bergamo'
+    13, 14, 1983,
+    1771257245,
+    'San Genesio',
+    'VOLUNTARY',
+    false
+) [42104-224]
+2026-02-19 15:53:25.726605+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERPERMISSIONS" not found (this database is empty); SQL statement:
+INSERT INTO userPermissions VALUES (
+    'Balanzone.Pignoletto.83',
+    'Teatro'
+) [42104-224]
+2026-02-19 15:53:25.727864+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found (this database is empty); SQL statement:
+INSERT INTO placesData VALUES (
+    'Brescia',
+    'Via Castello 9',
+    'Teatro',
+    'Balanzone.Pignoletto.83'
+) [42104-224]
+2026-02-19 15:53:25.729155+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTS" not found (this database is empty); SQL statement:
+INSERT INTO events VALUES (
+    'Cinema in castello',
+    'Proiezione dei grandi classici nel cinema all aperto',
+    'Cinema',
+    'San Genesio',
+    'Brescia',
+    'Via Castello 9',
+    'Ingresso principale sotto il leone di San Marco',
+    'CONFIRMED'
+) [42104-224]
+2026-02-19 15:53:25.730506+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTS" not found (this database is empty); SQL statement:
+INSERT INTO events VALUES (
+    'Teatro in castello',
+    'Rappresentazione teatrale dello spettacolo "La rosa bianca" da parte della compagnia "Profumo di Cielo"',
+    'Teatro',
+    'San Genesio',
+    'Brescia',
+    'Via Castello 9',
+    'Ingresso principale sotto il leone di San Marco',
+    'CONFIRMED'
+) [42104-224]
+2026-02-19 15:53:25.731844+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found (this database is empty); SQL statement:
+INSERT INTO eventsData VALUES (
+    'Cinema in castello',
+    10, 
+    20
+) [42104-224]
+2026-02-19 15:53:25.733107+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found (this database is empty); SQL statement:
+INSERT INTO eventsData VALUES (
+    'Teatro in castello',
+    10, 
+    20
+) [42104-224]
+2026-02-19 15:53:29.263966+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+DROP TABLE users [42102-224]
+2026-02-19 15:53:29.265650+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACES" not found; SQL statement:
+DROP TABLE places [42102-224]
+2026-02-19 15:53:29.266338+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found; SQL statement:
+DROP TABLE placesData [42102-224]
+2026-02-19 15:53:29.267091+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERPERMISSIONS" not found; SQL statement:
+DROP TABLE userPermissions [42102-224]
+2026-02-19 15:53:29.267773+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLOSEDDAYS" not found; SQL statement:
+DROP TABLE closedDays [42102-224]
+2026-02-19 15:53:29.268562+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORGANIZATIONS" not found; SQL statement:
+DROP TABLE organizations [42102-224]
+2026-02-19 15:53:29.269271+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TERRITORIES" not found; SQL statement:
+DROP TABLE territories [42102-224]
+2026-02-19 15:53:29.269980+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTS" not found; SQL statement:
+DROP TABLE events [42102-224]
+2026-02-19 15:53:29.270701+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found; SQL statement:
+DROP TABLE eventsData [42102-224]
+2026-02-19 15:53:29.271388+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSVOLUNTARIES" not found; SQL statement:
+DROP TABLE eventsVoluntaries [42102-224]
+2026-02-19 15:53:29.272103+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VOLUNTARYDISPONIBILITIES" not found; SQL statement:
+DROP TABLE voluntaryDisponibilities [42102-224]
+2026-02-19 15:53:29.272748+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+INSERT INTO users VALUES (
+    'Lancillotto.Benacense.99',
+    'password',
+    'Lancillotto',
+    'Benacense',
+    'Brescia',
+    23,12,1999,
+    1771083225,
+    'San Genesio',
+    'CONFIGURATOR',
+    false
+) [42104-224]
+2026-02-19 15:53:29.273619+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+INSERT INTO users VALUES (
+    'Arlecchino.Valcalepio.98',
+    'vino&carte', 
+    'Arlecchino',
+    'Valcalepio',
+    'Bergamo',
+    11,12,1997,
+    1771257245,
+    'San Genesio',
+    'VOLUNTARY',
+    false
+) [42104-224]
+2026-02-19 15:53:29.274662+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERPERMISSIONS" not found (this database is empty); SQL statement:
+INSERT INTO userPermissions VALUES (
+    'Arlecchino.Valcalepio.98',
+    'Cinema'
+) [42104-224]
+2026-02-19 15:53:29.275454+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found (this database is empty); SQL statement:
+INSERT INTO placesData VALUES (
+    'Brescia',
+    'Via Castello 9',
+    'Cinema',
+    'Arlecchino.Valcalepio.98'
+) [42104-224]
+2026-02-19 15:53:29.276223+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+INSERT INTO users VALUES (
+    'Balanzone.Pignoletto.83',
+    'carnevale',
+    'Balanzone',
+    'Pignoletto',
+    'Bergamo'
+    13, 14, 1983,
+    1771257245,
+    'San Genesio',
+    'VOLUNTARY',
+    false
+) [42104-224]
+2026-02-19 15:53:29.276978+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERPERMISSIONS" not found (this database is empty); SQL statement:
+INSERT INTO userPermissions VALUES (
+    'Balanzone.Pignoletto.83',
+    'Teatro'
+) [42104-224]
+2026-02-19 15:53:29.277743+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found (this database is empty); SQL statement:
+INSERT INTO placesData VALUES (
+    'Brescia',
+    'Via Castello 9',
+    'Teatro',
+    'Balanzone.Pignoletto.83'
+) [42104-224]
+2026-02-19 15:53:29.278581+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTS" not found (this database is empty); SQL statement:
+INSERT INTO events VALUES (
+    'Cinema in castello',
+    'Proiezione dei grandi classici nel cinema all aperto',
+    'Cinema',
+    'San Genesio',
+    'Brescia',
+    'Via Castello 9',
+    'Ingresso principale sotto il leone di San Marco',
+    'CONFIRMED'
+) [42104-224]
+2026-02-19 15:53:29.279358+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTS" not found (this database is empty); SQL statement:
+INSERT INTO events VALUES (
+    'Teatro in castello',
+    'Rappresentazione teatrale dello spettacolo "La rosa bianca" da parte della compagnia "Profumo di Cielo"',
+    'Teatro',
+    'San Genesio',
+    'Brescia',
+    'Via Castello 9',
+    'Ingresso principale sotto il leone di San Marco',
+    'CONFIRMED'
+) [42104-224]
+2026-02-19 15:53:29.280183+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found (this database is empty); SQL statement:
+INSERT INTO eventsData VALUES (
+    'Cinema in castello',
+    10, 
+    20
+) [42104-224]
+2026-02-19 15:53:29.280947+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found (this database is empty); SQL statement:
+INSERT INTO eventsData VALUES (
+    'Teatro in castello',
+    10, 
+    20
+) [42104-224]
+2026-02-19 15:53:35.026450+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+INSERT INTO users VALUES (
+    'Lancillotto.Benacense.99',
+    'password',
+    'Lancillotto',
+    'Benacense',
+    'Brescia',
+    23,12,1999,
+    1771083225,
+    'San Genesio',
+    'CONFIGURATOR',
+    false
+) [42104-224]
+2026-02-19 15:53:35.027697+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+INSERT INTO users VALUES (
+    'Arlecchino.Valcalepio.98',
+    'vino&carte', 
+    'Arlecchino',
+    'Valcalepio',
+    'Bergamo',
+    11,12,1997,
+    1771257245,
+    'San Genesio',
+    'VOLUNTARY',
+    false
+) [42104-224]
+2026-02-19 15:53:35.028867+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERPERMISSIONS" not found (this database is empty); SQL statement:
+INSERT INTO userPermissions VALUES (
+    'Arlecchino.Valcalepio.98',
+    'Cinema'
+) [42104-224]
+2026-02-19 15:53:35.029868+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found (this database is empty); SQL statement:
+INSERT INTO placesData VALUES (
+    'Brescia',
+    'Via Castello 9',
+    'Cinema',
+    'Arlecchino.Valcalepio.98'
+) [42104-224]
+2026-02-19 15:53:35.030670+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+INSERT INTO users VALUES (
+    'Balanzone.Pignoletto.83',
+    'carnevale',
+    'Balanzone',
+    'Pignoletto',
+    'Bergamo'
+    13, 14, 1983,
+    1771257245,
+    'San Genesio',
+    'VOLUNTARY',
+    false
+) [42104-224]
+2026-02-19 15:53:35.031425+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERPERMISSIONS" not found (this database is empty); SQL statement:
+INSERT INTO userPermissions VALUES (
+    'Balanzone.Pignoletto.83',
+    'Teatro'
+) [42104-224]
+2026-02-19 15:53:35.032563+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found (this database is empty); SQL statement:
+INSERT INTO placesData VALUES (
+    'Brescia',
+    'Via Castello 9',
+    'Teatro',
+    'Balanzone.Pignoletto.83'
+) [42104-224]
+2026-02-19 15:53:35.033253+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTS" not found (this database is empty); SQL statement:
+INSERT INTO events VALUES (
+    'Cinema in castello',
+    'Proiezione dei grandi classici nel cinema all aperto',
+    'Cinema',
+    'San Genesio',
+    'Brescia',
+    'Via Castello 9',
+    'Ingresso principale sotto il leone di San Marco',
+    'CONFIRMED'
+) [42104-224]
+2026-02-19 15:53:35.033885+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTS" not found (this database is empty); SQL statement:
+INSERT INTO events VALUES (
+    'Teatro in castello',
+    'Rappresentazione teatrale dello spettacolo "La rosa bianca" da parte della compagnia "Profumo di Cielo"',
+    'Teatro',
+    'San Genesio',
+    'Brescia',
+    'Via Castello 9',
+    'Ingresso principale sotto il leone di San Marco',
+    'CONFIRMED'
+) [42104-224]
+2026-02-19 15:53:35.034737+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found (this database is empty); SQL statement:
+INSERT INTO eventsData VALUES (
+    'Cinema in castello',
+    10, 
+    20
+) [42104-224]
+2026-02-19 15:53:35.035591+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found (this database is empty); SQL statement:
+INSERT INTO eventsData VALUES (
+    'Teatro in castello',
+    10, 
+    20
+) [42104-224]
+2026-02-19 15:53:50.094357+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+DROP TABLE users [42102-224]
+2026-02-19 15:53:50.095029+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACES" not found; SQL statement:
+DROP TABLE places [42102-224]
+2026-02-19 15:53:50.095647+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found; SQL statement:
+DROP TABLE placesData [42102-224]
+2026-02-19 15:53:50.096209+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERPERMISSIONS" not found; SQL statement:
+DROP TABLE userPermissions [42102-224]
+2026-02-19 15:53:50.096718+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLOSEDDAYS" not found; SQL statement:
+DROP TABLE closedDays [42102-224]
+2026-02-19 15:53:50.097229+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORGANIZATIONS" not found; SQL statement:
+DROP TABLE organizations [42102-224]
+2026-02-19 15:53:50.097758+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TERRITORIES" not found; SQL statement:
+DROP TABLE territories [42102-224]
+2026-02-19 15:53:50.098340+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTS" not found; SQL statement:
+DROP TABLE events [42102-224]
+2026-02-19 15:53:50.098863+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found; SQL statement:
+DROP TABLE eventsData [42102-224]
+2026-02-19 15:53:50.099404+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSVOLUNTARIES" not found; SQL statement:
+DROP TABLE eventsVoluntaries [42102-224]
+2026-02-19 15:53:50.100030+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VOLUNTARYDISPONIBILITIES" not found; SQL statement:
+DROP TABLE voluntaryDisponibilities [42102-224]
+2026-02-19 15:53:50.113348+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO users VALUES (\000d\000a    'Balanzone.Pignoletto.83',\000d\000a    'carnevale',\000d\000a    'Balanzone',\000d\000a    'Pignoletto',\000d\000a    'Bergamo'\000d\000a    [*]13, 14, 1983,\000d\000a    1771257245,\000d\000a    'San Genesio',\000d\000a    'VOLUNTARY',\000d\000a    false\000d\000a)"; expected "[, ., ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
+INSERT INTO users VALUES (
+    'Balanzone.Pignoletto.83',
+    'carnevale',
+    'Balanzone',
+    'Pignoletto',
+    'Bergamo'
+    13, 14, 1983,
+    1771257245,
+    'San Genesio',
+    'VOLUNTARY',
+    false
+) [42001-224]
+2026-02-19 15:54:18.709936+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]EVENTSVOLUNTARIES"; expected "EXPLAIN, EXECUTE"; SQL statement:
+EVENTSVOLUNTARIES [42001-224]
+2026-02-19 15:58:32.940667+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO users VALUES (\000d\000a    'Balanzone.Pignoletto.83',\000d\000a    'carnevale',\000d\000a    'Balanzone',\000d\000a    'Pignoletto',\000d\000a    'Bergamo'\000d\000a    [*]13, 14, 1983,\000d\000a    1771257245,\000d\000a    'San Genesio',\000d\000a    'VOLUNTARY',\000d\000a    false\000d\000a)"; expected "[, ., ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
+INSERT INTO users VALUES (
+    'Balanzone.Pignoletto.83',
+    'carnevale',
+    'Balanzone',
+    'Pignoletto',
+    'Bergamo'
+    13, 14, 1983,
+    1771257245,
+    'San Genesio',
+    'VOLUNTARY',
+    false
+) [42001-224]
+2026-02-19 15:59:51.477526+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM [*]*"; expected "identifier"; SQL statement:
+SELECT * FROM * [42001-224]
+2026-02-19 16:00:29.738478+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO organizations VALUES (\000d\000a    'San Genesio',\000d\000a    3\000d\000a)\000d\000a\000d\000a[*]SELECT * FROM EVENTS"; SQL statement:
+INSERT INTO organizations VALUES (
+    'San Genesio',
+    3
+)
+
+SELECT * FROM EVENTS [42000-224]
+2026-02-19 16:05:21.610775+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO voluntaryDisponibilities (\000d\000a    [*]'Arlecchino.Valcalepio.98',\000d\000a    10,\000d\000a    100\000d\000a)"; expected "identifier"; SQL statement:
+INSERT INTO voluntaryDisponibilities (
+    'Arlecchino.Valcalepio.98',
+    10,
+    100
+) [42001-224]
+2026-02-19 16:05:21.612181+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO users VALUES (\000d\000a    'Balanzone.Pignoletto.83',\000d\000a    'carnevale',\000d\000a    'Balanzone',\000d\000a    'Pignoletto',\000d\000a    'Bergamo'\000d\000a    [*]13, 14, 1983,\000d\000a    1771257245,\000d\000a    'San Genesio',\000d\000a    'VOLUNTARY',\000d\000a    false\000d\000a)"; expected "[, ., ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
+INSERT INTO users VALUES (
+    'Balanzone.Pignoletto.83',
+    'carnevale',
+    'Balanzone',
+    'Pignoletto',
+    'Bergamo'
+    13, 14, 1983,
+    1771257245,
+    'San Genesio',
+    'VOLUNTARY',
+    false
+) [42001-224]
+2026-02-19 16:05:21.612898+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO voluntaryDisponibilities (\000d\000a    [*]'Balanzone.Pignoletto.83',\000d\000a    10,\000d\000a    100\000d\000a)"; expected "identifier"; SQL statement:
+INSERT INTO voluntaryDisponibilities (
+    'Balanzone.Pignoletto.83',
+    10,
+    100
+) [42001-224]
+2026-02-19 16:08:31.785584+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]* FROM users"; expected "identifier"; SQL statement:
+DELETE * FROM users [42001-224]
+2026-02-19 16:08:38.804775+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]* FROM users"; expected "identifier"; SQL statement:
+DELETE * FROM users [42001-224]
+2026-02-19 16:09:06.629974+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE FROM users WHERE userID LIKE [*]%"; SQL statement:
+DELETE FROM users WHERE userID LIKE % [42000-224]
+2026-02-19 16:27:22.699435+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO places VALUES (
+    'San Genesio',
+    'Brescia',
+    'Via Castello 9',
+    'Castello di Brescia'
+) [21002-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)

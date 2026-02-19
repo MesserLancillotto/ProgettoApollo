@@ -9,16 +9,16 @@ import Comunication.Request.Interfaces.AuthenticatedRequest;
 public class GetVoluntariesRequest extends AuthenticatedRequest
 {    
     private static final int MAX_FILTERS = 5;
-    private Map<String, Object> filters;
+    private JSONObject filters;
 
     public GetVoluntariesRequest
     (
         String userID,
         String password,
-        Map<String, Object> filters
+        JSONObject filters
     ) {
         super(ComunicationType.GET_VOLUNTARIES, userID, password);
-        this.filters = (filters != null) ? filters : new HashMap<>();
+        this.filters = (filters != null) ? filters : new JSONObject();
     }
 
     public GetVoluntariesRequest(
@@ -26,7 +26,7 @@ public class GetVoluntariesRequest extends AuthenticatedRequest
         String password
     ) {
         super(ComunicationType.GET_VOLUNTARIES, userID, password);
-        this.filters = new HashMap<>();
+        this.filters = new JSONObject();
     }
 
     public GetVoluntariesRequest withCity(String city)
@@ -58,17 +58,16 @@ public class GetVoluntariesRequest extends AuthenticatedRequest
         filters.put("name", name);
         return this;        
     }
+    
+    public GetVoluntariesRequest withSurname(String surname)
+    {
+        filters.put("surname", surname);
+        return this;        
+    }
 
     public String toJSONString()
     {
-        List<Map.Entry<String, Object>> entryList 
-            = new ArrayList<>(filters.entrySet());
-
-        for (int i = 0; i < entryList.size() && i < MAX_FILTERS; i++) 
-        {
-            Map.Entry<String, Object> entry = entryList.get(i);
-            json.put(entry.getKey(), entry.getValue());
-        }
+        json.put("filters", filters);
         return json.toString();
     }
 }
