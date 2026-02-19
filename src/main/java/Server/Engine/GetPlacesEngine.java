@@ -4,14 +4,14 @@ import org.json.*;
 import java.sql.*;
 import java.util.*;
 
-import Comunication.Reply.Interfaces.ReplyInterface;
+import Comunication.Reply.Interfaces.AuthenticatedReply;
 import Comunication.Reply.GetPlacesReply;
 import Server.Engine.Interfaces.AuthenticatedEngine;
 import Comunication.DatabaseObjects.Place;
 
 public class GetPlacesEngine extends AuthenticatedEngine
 {
-    private Map<String, Object> filters;
+    private JSONObject filters;
     
     public GetPlacesEngine(String data) 
     {
@@ -19,41 +19,30 @@ public class GetPlacesEngine extends AuthenticatedEngine
         this.filters = extractFiltersFromJson();
     }
 
-    private Map<String, Object> extractFiltersFromJson()
+    private JSONObject extractFiltersFromJson()
     {
-        Map<String, Object> extractedFilters = new HashMap<>();
-
+        JSONObject extractedFilters = new JSONObject();
+        
         List<String> allowedFilters = new ArrayList<String>();
-        allowedFilters.put("city");
-        allowedFilters.put("address");
-        allowedFilters.put("visitTypes");
-        allowedFilters.put("states");
+        allowedFilters.add("city");
+        allowedFilters.add("address");
+        allowedFilters.add("visitTypes");
+        allowedFilters.add("states");
+
+        if(!json.has("filters")) 
+        {
+            return new JSONObject();
+        }
 
         for(String filter : allowedFilters)
         {
-            if(json.jas(filter))
+            if(json.has(filter))
             {
-                extractedFilters.put(
-                    filter,
-                    filtersJson.getString())
+                extractedFilters.put(filter, json.getString(filter));
             }
         }
 
-        if(json.has("filters")) 
-        {
-            JSONObject filtersJson = json.getJSONObject("filters");
-
-            if(filtersJson.has())
-            {
-
-            }
-
-            for (int i = 0; i < keys.size() && i < MAX_FILTERS; i++) 
-            {
-                String key = keys.get(i);
-                filters.put(key, filtersJSONObject.get(key));
-            }
-        }
+        return extractedFilters;
     }
     
     public AuthenticatedReply processWithConnection() throws SQLException
@@ -67,12 +56,12 @@ public class GetPlacesEngine extends AuthenticatedEngine
         
         List<String> parameters = new ArrayList<String>();
             
-        if (filters.containsKey("city"))
+        if (filters.has("city"))
         {
             queryBuilder.append(" AND city LIKE ? ");
             parameters.add("%" + filters.get("city") + "%");
         }
-        if (filters.containsKey("address"))
+        if (filters.has("address"))
         {
             queryBuilder.append(" AND address LIKE ? ");
             parameters.add("%" + filters.get("address") + "%");
@@ -102,7 +91,7 @@ public class GetPlacesEngine extends AuthenticatedEngine
             """;
             
             PreparedStatement detailsStmt = 
-                connection.prepareStatement(detailsQuery)
+                connection.prepareStatement(detailsQuery);
                 
             detailsStmt.setString(1, city);
             detailsStmt.setString(2, address);

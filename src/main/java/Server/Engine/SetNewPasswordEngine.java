@@ -14,7 +14,7 @@ public class SetNewPasswordEngine extends AuthenticatedEngine
     private static String setChangePasswordDue = 
     """
         UPDATE users 
-        SET changePasswordDue = ?, password = ? 
+        SET changePasswordDue = false, password = ? 
         WHERE userID = ?
     """;
 
@@ -31,9 +31,8 @@ public class SetNewPasswordEngine extends AuthenticatedEngine
             return new SetNewPasswordReply(false, false);
         }
         PreparedStatement statement = connection.prepareStatement(setChangePasswordDue);
-        statement.setBoolean(1, false);
-        statement.setString(2, newPassword);
-        statement.setString(3, getUserID());
+        statement.setString(1, newPassword);
+        statement.setString(2, getUserID());
         int linesChanged = statement.executeUpdate();
         
         return new SetNewPasswordReply(true, linesChanged == 1);

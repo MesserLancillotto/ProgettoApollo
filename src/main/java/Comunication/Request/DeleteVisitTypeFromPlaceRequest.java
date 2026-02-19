@@ -5,13 +5,13 @@ import org.json.*;
 import Comunication.ComunicationType.ComunicationType;
 import Comunication.Request.Interfaces.AuthenticatedRequest; 
 
-public class DeleteVisitRequest extends AuthenticatedRequest
+public class DeleteVisitTypeFromPlaceRequest extends AuthenticatedRequest
 {
     private String city;
     private String address;
     private String visitType;
 
-    public DeleteVisitRequest
+    public DeleteVisitTypeFromPlaceRequest
     (
         String userID,
         String password,

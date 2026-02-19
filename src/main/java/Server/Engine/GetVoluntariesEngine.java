@@ -11,18 +11,9 @@ import Comunication.Reply.GetVoluntariesReply;
 import Comunication.DatabaseObjects.User;
 import Comunication.DatabaseObjects.UserRole;
 
-
-/* Seleziona tutti i permessi di tutti gli utenti
-        SELECT userPermissions.userID, userPermissions.visitType 
-        FROM userPermissions
-        INNER JOIN users ON users.userID = userPermissions.userID
-        WHERE users.organization = ?;
-*/
-
-
 public class GetVoluntariesEngine extends AuthenticatedEngine
 {
-    private Map<String, Object> filters;
+    private JSONObject filters;
     
     public GetVoluntariesEngine(String data) 
     {
@@ -30,9 +21,17 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
         this.filters = extractFiltersFromJson();
     }
     
-    private Map<String, Object> extractFiltersFromJson() 
+    private JSONObject extractFiltersFromJson() 
     {
-        Map<String, Object> extractedFilters = new HashMap<>();
+        JSONObject extractedFilters = new JSONObject();
+
+        List<String> allowedFilters = new ArrayList<String>();
+        allowedFilters.add("city");
+        allowedFilters.add("birthYear");
+        allowedFilters.add("olderThanYear");
+        allowedFilters.add("visitType");
+        allowedFilters.add("name");
+        allowedFilters.add("surname");
         
         if(json.has("filters")) 
         {
@@ -77,6 +76,14 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
                     filtersJson.getString("name")
                 );
             }
+
+            if(filtersJson.has("surname")) 
+            {
+                extractedFilters.put(
+                    "surname", 
+                    filtersJson.getString("surname")
+                );
+            }
         }
         return extractedFilters;
     }
@@ -89,6 +96,8 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
     
     private List<User> getFilteredVoluntaries() throws SQLException 
     {
+        JSONObject filters = json.getJSONObject("filters");
+
         List<User> voluntaries = new ArrayList<>();    
         StringBuilder queryBuilder = new StringBuilder(
             """
@@ -101,23 +110,28 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
         
         List<Object> parameters = new ArrayList<>();
         
-        if(filters.containsKey("city")) 
+        if(filters.has("city")) 
         {
             queryBuilder.append(" AND city LIKE ?");
             parameters.add("%" + filters.get("city") + "%");
         }
         
-        if(filters.containsKey("name")) 
+        if(filters.has("name"))
         {
-            queryBuilder.append(" AND (userName LIKE ? OR userSurname LIKE ?)");
-            parameters.add("%" + filters.get("name") + "%");
+            queryBuilder.append(" AND userName LIKE ?");
             parameters.add("%" + filters.get("name") + "%");
         }
+
+        if(filters.has("surname"))
+        {
+            queryBuilder.append(" AND userSurname LIKE ?");
+            parameters.add("%" + filters.get("surname") + "%");
+        }
         
-        if(filters.containsKey("birthYear")) 
+        if(filters.has("birthYear")) 
         {
             int birthYear = (int) filters.get("birthYear");
-            boolean olderThan = filters.containsKey("olderThanYear") 
+            boolean olderThan = filters.has("olderThanYear") 
                 && (boolean) filters.get("olderThanYear");
             
             if(olderThan) 
@@ -140,27 +154,10 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
         ResultSet result = statement.executeQuery();
         while (result.next()) 
         {
-            User user = createUserFromResultSet(result);
+            User user = User.createUserFromResultSet(connection, result);
             voluntaries.add(user);
         }
         
         return voluntaries;
-    }
-        
-    private User createUserFromResultSet(ResultSet result) throws SQLException 
-    {
-        return new User(
-            result.getString("userID"),
-            result.getString("userName"),
-            result.getString("userSurname"),
-            result.getString("city"),
-            result.getInt("birth_dd"),
-            result.getInt("birth_mm"),
-            result.getInt("birth_yy"),
-            result.getInt("user_since"),
-            UserRole.valueOf(result.getString("role")),
-            result.getBoolean("changePasswordDue"),
-            result.getString("organization")
-        );
     }
 }

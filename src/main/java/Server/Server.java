@@ -19,17 +19,19 @@ public class Server
         List<String> visitTypes = new ArrayList<String>();
         List<String> userIDs = new ArrayList<String>();
 
-        DeleteVoluntaryRequest request 
-            = new DeleteVoluntaryRequest(
+        AuthenticatedRequest request 
+            = new DeleteVisitTypeFromPlaceRequest(
                 "Lancillotto.Benacense.99",
                 "password",
-                "Arlecchino.Valcalepio.98"
+                "Brescia",
+                "Via Castello 9",
+                "Teatro"
             );
 
         System.out.println(request.toJSONString());
 
-        DeleteVoluntaryEngine engine 
-            = new DeleteVoluntaryEngine(request.toJSONString());
+        AuthenticatedEngine engine 
+            = new DeleteVisitTypeFromPlaceEngine(request.toJSONString());
 
         ReplyInterface reply = engine.handleRequest();
 

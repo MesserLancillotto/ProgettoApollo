@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS places
         organization VARCHAR(32),
         city VARCHAR(16),
         address VARCHAR(32),
+        visitType VARCHAR(32),
         description VARCHAR(512) 
     );
 CREATE TABLE IF NOT EXISTS placesData
@@ -52,7 +53,7 @@ CREATE TABLE IF NOT EXISTS events
     (
         name VARCHAR(32),
         description VARCHAR(256),
-        type VARCHAR(32),
+        visitType VARCHAR(32),
         organization VARCHAR(32),
         city VARCHAR(16),
         address VARCHAR(32),
