@@ -218,3 +218,21 @@ INSERT INTO users VALUES (
     'USER',
     false
 );
+
+INSERT INTO subscriptions VALUES (
+    'Michele.Monteclarense.89',
+    'Cinema in castello',
+    10
+);
+
+INSERT INTO subscriptions VALUES (
+    'Michele.Monteclarense.89',
+    'Cinema in castello',
+    30
+);
+
+INSERT INTO subscriptions VALUES (
+    'Michele.Monteclarense.89',
+    'Cinema in castello',
+    50
+);

@@ -18,17 +18,15 @@ public class Server
     {
 
         AuthenticatedRequest request 
-            = new DeleteUserSubscriptionToEventRequest(
+            = new GetSubscribedEventsRequest(
                 "Michele.Monteclarense.89",
-                "campagna",
-                "Cinema in castello",
-                10
+                "campagna"
             );
 
         System.out.println(request.toJSONString());
 
         AuthenticatedEngine engine 
-            = new DeleteUserSubscriptionToEventEngine(request.toJSONString());
+            = new GetSubscribedEventsEngine(request.toJSONString());
 
         ReplyInterface reply = engine.handleRequest();
 

@@ -86,7 +86,7 @@ public class GetPlacesEngine extends AuthenticatedEngine
             String organization = result.getString("organization");
             String detailsQuery = 
             """
-                SELECT visitType, voluntary FROM placesData 
+                SELECT visitType, userID FROM placesData 
                 WHERE city = ? AND address = ?
             """;
             
@@ -105,7 +105,7 @@ public class GetPlacesEngine extends AuthenticatedEngine
             {
                 i++;
                 visitTypes.add(detailsResult.getString("visitType"));
-                voluntaries.add(detailsResult.getString("voluntary"));
+                voluntaries.add(detailsResult.getString("userID"));
             }
                 
             detailsResult.close();

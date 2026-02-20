@@ -17,6 +17,7 @@ public class EditVisitablePlacesReply extends AuthenticatedReply
         this.updateSuccessful = updateSuccessful;
     }
 
+    @Override
     public String toJSONString()
     {
         json.put("updateSuccessful", updateSuccessful);

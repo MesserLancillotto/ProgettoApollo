@@ -14,7 +14,7 @@ public class GetSubscribedEventsRequest extends AuthenticatedRequest
         String userID,
         String password
     ) {
-        super(ComunicationType.GET_EVENT, userID, password);
+        super(ComunicationType.GET_SUBSCRIBED_EVENTS, userID, password);
     }
 
     public String toJSONString()
