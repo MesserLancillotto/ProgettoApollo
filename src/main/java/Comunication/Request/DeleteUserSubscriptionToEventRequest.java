@@ -18,7 +18,7 @@ public class DeleteUserSubscriptionToEventRequest extends AuthenticatedRequest
         String eventName,
         Integer date
     ) {
-        super(ComunicationType.SET_NEW_PASSWORD, userID, password);
+        super(ComunicationType.DELETE_USER_SUBSCRIPTION_TO_EVENT, userID, password);
         this.eventName = eventName;
         this.date = date;
     }

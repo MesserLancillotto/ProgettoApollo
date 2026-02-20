@@ -5,75 +5,47 @@ import java.sql.*;
 import java.util.*;
 
 import Comunication.Reply.Interfaces.AuthenticatedReply;
-import Comunication.Reply.GetPlacesReply;
+import Comunication.Reply.GetSubscribedEventsReply;
 import Server.Engine.Interfaces.AuthenticatedEngine;
 import Comunication.DatabaseObjects.Place;
 
-public class GetPlacesEngine extends AuthenticatedEngine
+public class GetSubscribedEventsEngine extends AuthenticatedEngine
 {
-    private JSONObject filters;
     
-    public GetPlacesEngine(String data) 
+    private static final String QUERY = """
+        SELECT DISTINCT 
+            e.name, 
+            e.description, 
+            e.visitType, 
+            e.organization, 
+            e.city, 
+            e.address, 
+            e.rendezvous, 
+            e.state, 
+            ed.start_date, 
+            ed.end_date 
+        FROM events e
+        JOIN subscriptions ON e.name = subscriptions.name
+        JOIN eventsData ed ON ed.name = e.name
+        WHERE subscriptions.userID = ? ;
+    """;
+
+    public GetSubscribedEventsEngine(String data) 
     {
         super(data);
-        this.filters = extractFiltersFromJson();
     }
 
-    private JSONObject extractFiltersFromJson()
-    {
-        JSONObject extractedFilters = new JSONObject();
-        
-        List<String> allowedFilters = new ArrayList<String>();
-        allowedFilters.add("city");
-        allowedFilters.add("address");
-        allowedFilters.add("visitTypes");
-        allowedFilters.add("states");
-
-        if(!json.has("filters")) 
-        {
-            return new JSONObject();
-        }
-
-        for(String filter : allowedFilters)
-        {
-            if(json.has(filter))
-            {
-                extractedFilters.put(filter, json.getString(filter));
-            }
-        }
-
-        return extractedFilters;
-    }
-    
     public AuthenticatedReply processWithConnection() throws SQLException
     {   
-        StringBuilder queryBuilder = new StringBuilder(
-            """
-                SELECT city, address, description, organization 
-                FROM places WHERE 1=1
-            """
-        );
-        
-        List<String> parameters = new ArrayList<String>();
-            
-        if (filters.has("city"))
+        if(!petitionerCanLogIn() || !petitionerIsUser())
         {
-            queryBuilder.append(" AND city LIKE ? ");
-            parameters.add("%" + filters.get("city") + "%");
+            return new GetSubscribedEventsReply(false);
         }
-        if (filters.has("address"))
-        {
-            queryBuilder.append(" AND address LIKE ? ");
-            parameters.add("%" + filters.get("address") + "%");
-        }
-            
+
         PreparedStatement statement = 
-            connection.prepareStatement(queryBuilder.toString());
+            connection.prepareStatement(QUERY);
             
-        for(int i = 0; i < parameters.size() && i < MAX_FILTERS; i++)
-        {
-            statement.setString(i + 1, parameters.get(i));
-        }
+        statement.setString(1, getUserID());
             
         ResultSet result = statement.executeQuery();
         ArrayList<Place> places = new ArrayList<Place>();
@@ -101,7 +73,7 @@ public class GetPlacesEngine extends AuthenticatedEngine
             ArrayList<String> voluntaries = new ArrayList<String>();                
                 
             int i = 0;
-            while(detailsResult.next() && i < MAX_RESULTS)
+            while(detailsResult.next())
             {
                 i++;
                 visitTypes.add(detailsResult.getString("visitType"));
@@ -120,6 +92,6 @@ public class GetPlacesEngine extends AuthenticatedEngine
             );
             places.add(place);
         }
-        return new GetPlacesReply(true, places);
+        return new GetSubscribedEventsReply(true, places);
     }
 }
