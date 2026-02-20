@@ -34,7 +34,7 @@ extends AuthenticatedEngine
 
     public AuthenticatedReply processWithConnection() throws SQLException
     {
-        if(!petitionerIsUser())
+        if(!petitionerIsUser() || !petitionerCanLogIn())
         {
             return new SetUserSubscriptionToEventReply(false, false);
         }

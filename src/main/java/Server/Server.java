@@ -16,24 +16,19 @@ public class Server
 {
     public static void main(String [] args)
     {
-        List<String> visitTypes = new ArrayList<String>();
-        List<String> userIDs = new ArrayList<String>();
-
-        userIDs.add("Stefania.Arilicense.71");
 
         AuthenticatedRequest request 
-            = new SetUserSubscriptionToEventRequest(
+            = new DeleteUserSubscriptionToEventRequest(
                 "Michele.Monteclarense.89",
                 "campagna",
                 "Cinema in castello",
-                10,
-                userIDs
+                10
             );
 
         System.out.println(request.toJSONString());
 
         AuthenticatedEngine engine 
-            = new SetUserSubscriptionToEventEngine(request.toJSONString());
+            = new DeleteUserSubscriptionToEventEngine(request.toJSONString());
 
         ReplyInterface reply = engine.handleRequest();
 

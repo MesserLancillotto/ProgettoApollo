@@ -31,11 +31,13 @@ Comunication/Request/GetAllowedVisitTypesRequest.class
 Comunication/Request/Interfaces/AuthenticatedRequest.class
 Comunication/Request/DeletePlaceRequest.class
 Comunication/Request/SetVisitablePlacesRequest.class
+Comunication/Reply/DeleteUserSubscriptionToEventReply.class
 Comunication/Reply/SetVisitablePlacesReply.class
 Comunication/Request/SetUserSubscriptionToEventRequest.class
 Comunication/Request/GetPlacesRequest.class
 Comunication/Request/DeleteVoluntaryRequest.class
 Comunication/Reply/SetDisponibilityReply.class
+Server/Engine/DeleteUserSubscriptionToEventEngine.class
 Comunication/Request/SetDisponibilityRequest.class
 Comunication/Reply/DeleteVisitTypeFromPlaceReply.class
 Comunication/Reply/NegativeAuthenticatedReply.class
@@ -60,6 +62,7 @@ Server/Engine/Interfaces/Engine.class
 Comunication/Request/SetNewPasswordRequest.class
 Server/Engine/Helper/DateIntervalCalculator.class
 Comunication/Request/SetClosedDaysRequest.class
+Comunication/Request/DeleteUserSubscriptionToEventRequest.class
 Server/Server.class
 Server/Engine/SetMaximumFriendsEngine.class
 Server/Engine/DeletePlaceEngine.class
