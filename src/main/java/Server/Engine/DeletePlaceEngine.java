@@ -12,28 +12,36 @@ import Comunication.Reply.DeletePlaceReply;
 public class DeletePlaceEngine extends AuthenticatedEngine
 {
     private static final String [] QUERIES = {
-        """
-            DELETE FROM eventsData 
-            WHERE name IN (
-                SELECT name FROM events 
-                WHERE city = ? AND address = ?
-            );
-        ""","""
-            DELETE FROM eventsVoluntaries 
-            WHERE name IN (
-                SELECT name FROM events 
-                WHERE city = ? AND address = ?
-            );
-        ""","""
-            DELETE FROM events 
-            WHERE city = ? AND address = ?;
-        ""","""
-            DELETE FROM places
-            WHERE city = ? AND address = ?;
-        ""","""
-            DELETE FROM placesData
-            WHERE city = ? AND address = ?; 
-        """
+    """
+        DELETE FROM eventsData 
+        WHERE name IN (
+            SELECT name FROM events 
+            WHERE city = ?
+              AND address = ?
+        );
+    ""","""
+        DELETE FROM eventsVoluntaries 
+        WHERE name IN (
+            SELECT name FROM events 
+            WHERE city = ?
+              AND address = ? 
+        );
+    ""","""
+        DELETE FROM placesData 
+        WHERE 
+            city = ? 
+            AND address = ? ;
+    ""","""
+        DELETE FROM events
+        WHERE 
+            city = ? 
+            AND address = ? ;
+    ""","""
+        DELETE FROM places
+        WHERE 
+            city = ? 
+            AND address = ? ;
+    """
     };
 
     private String city;

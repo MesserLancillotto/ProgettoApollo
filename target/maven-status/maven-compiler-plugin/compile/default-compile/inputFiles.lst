@@ -27,6 +27,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetPlacesRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/Interfaces/Engine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/DeletePlaceReply.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetUserSubscriptionToEventEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/Interfaces/RequestInterface.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetDisponibilityEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetAllowedVisitTypesEngine.java
@@ -52,10 +53,12 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetNewOrganizationEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetMaximumFriendsRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/GetPlacesReply.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/SetUserSubscriptionToEventReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetMaximumFriendsEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/Interfaces/Request.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/ComunicationType/ComunicationType.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/EditVisitablePlacesReply.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetUserSubscriptionToEventRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetVoluntariesEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetNewPasswordRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/DeleteVisitTypeFromPlaceReply.java

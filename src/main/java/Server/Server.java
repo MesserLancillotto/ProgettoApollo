@@ -19,19 +19,21 @@ public class Server
         List<String> visitTypes = new ArrayList<String>();
         List<String> userIDs = new ArrayList<String>();
 
+        userIDs.add("Stefania.Arilicense.71");
+
         AuthenticatedRequest request 
-            = new DeleteVisitTypeFromPlaceRequest(
-                "Lancillotto.Benacense.99",
-                "password",
-                "Brescia",
-                "Via Castello 9",
-                "Teatro"
+            = new SetUserSubscriptionToEventRequest(
+                "Michele.Monteclarense.89",
+                "campagna",
+                "Cinema in castello",
+                10,
+                userIDs
             );
 
         System.out.println(request.toJSONString());
 
         AuthenticatedEngine engine 
-            = new DeleteVisitTypeFromPlaceEngine(request.toJSONString());
+            = new SetUserSubscriptionToEventEngine(request.toJSONString());
 
         ReplyInterface reply = engine.handleRequest();
 

@@ -78,3 +78,10 @@ CREATE TABLE IF NOT EXISTS voluntaryDisponibilities
         start_date INT,
         end_date INT
     );
+
+CREATE TABLE IF NOT EXISTS subscriptions
+    (
+        userID VARCHAR(32),
+        name VARCHAR(32),
+        start_date INT
+    );
