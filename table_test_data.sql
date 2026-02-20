@@ -193,3 +193,28 @@ INSERT INTO eventsData VALUES (
     70
 );
 
+INSERT INTO users VALUES (
+    'Michele.Monteclarense.89',
+    'campagna',
+    'Michele',
+    'Monteclarense',
+    'Brescia',
+    23,12,1989,
+    1771083225,
+    '',
+    'USER',
+    false
+);
+
+INSERT INTO users VALUES (
+    'Stefania.Arilicense.71',
+    'macchina',
+    'Stefania',
+    'Arilicense',
+    'Brescia',
+    23,12,1971,
+    1771083225,
+    '',
+    'USER',
+    false
+);

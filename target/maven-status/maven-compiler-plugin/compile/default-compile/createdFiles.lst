@@ -10,6 +10,7 @@ Comunication/Reply/GetPlacesReply.class
 Comunication/Reply/GetPersonalDataReply.class
 Comunication/Request/EditVisitablePlacesRequest.class
 Comunication/Reply/Interfaces/ReplyInterface.class
+Server/Engine/SetUserSubscriptionToEventEngine.class
 Server/Engine/GetPlacesEngine.class
 Comunication/DatabaseObjects/User.class
 Comunication/ComunicationType/ComunicationType.class
@@ -31,6 +32,7 @@ Comunication/Request/Interfaces/AuthenticatedRequest.class
 Comunication/Request/DeletePlaceRequest.class
 Comunication/Request/SetVisitablePlacesRequest.class
 Comunication/Reply/SetVisitablePlacesReply.class
+Comunication/Request/SetUserSubscriptionToEventRequest.class
 Comunication/Request/GetPlacesRequest.class
 Comunication/Request/DeleteVoluntaryRequest.class
 Comunication/Reply/SetDisponibilityReply.class
@@ -40,6 +42,7 @@ Comunication/Reply/NegativeAuthenticatedReply.class
 Server/Engine/SetDisponibilityEngine.class
 Comunication/Request/Interfaces/RequestInterface.class
 Server/Engine/GetAllowedVisitTypesEngine.class
+Comunication/Reply/SetUserSubscriptionToEventReply.class
 Comunication/Reply/GetVoluntariesReply.class
 Server/Engine/GetEventEngine.class
 Comunication/Request/SetNewOrganizationRequest.class

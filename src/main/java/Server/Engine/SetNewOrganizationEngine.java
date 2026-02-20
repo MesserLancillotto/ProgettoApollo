@@ -60,7 +60,7 @@ public class SetNewOrganizationEngine extends AuthenticatedEngine
     {
         try 
         {
-            String query = "INSERT INTO territories VALUES ( ?, ? )";
+            String query = "MERGE INTO territories VALUES ( ?, ? )";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, getOrganization());
             statement.setString(2, territory);

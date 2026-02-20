@@ -9,15 +9,4 @@ DROP TABLE events;
 DROP TABLE eventsData;
 DROP TABLE eventsVoluntaries;
 DROP TABLE voluntaryDisponibilities;
-
-SELECT * FROM users; 
-SELECT * FROM places; 
-SELECT * FROM placesData;
-SELECT * FROM userPermissions;
-SELECT * FROM closedDays;
-SELECT * FROM organizations;
-SELECT * FROM territories;
-SELECT * FROM events;
-SELECT * FROM eventsData;
-SELECT * FROM eventsVoluntaries;
-SELECT * FROM voluntaryDisponibilities;
+DROP TABLE subscriptions;
