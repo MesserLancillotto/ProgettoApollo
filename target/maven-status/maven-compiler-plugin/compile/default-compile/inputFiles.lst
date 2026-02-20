@@ -1,4 +1,5 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/DeletePlaceEngine.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/DeleteUserSubscriptionToEventEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetVoluntariesRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetNewOrganizationRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/DatabaseObjects/Place.java
@@ -15,6 +16,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetPersonalDataRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetEventRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/Interfaces/ReplyInterface.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/DeleteUserSubscriptionToEventReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/DeleteVisitTypeFromPlaceRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/Helper/DateIntervalCalculator.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Server.java
@@ -52,6 +54,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetPersonalDataEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetNewOrganizationEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetMaximumFriendsRequest.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/DeleteUserSubscriptionToEventRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/GetPlacesReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/SetUserSubscriptionToEventReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetMaximumFriendsEngine.java
