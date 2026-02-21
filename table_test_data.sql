@@ -1,238 +1,118 @@
-INSERT INTO organizations VALUES (
-    'San Genesio',
-    3
-);
-
-INSERT INTO places VALUES (
-    'San Genesio',
-    'Brescia',
-    'Via Castello 9',
-    'Teatro',
-    'Castello di Brescia'
-); 
-
-INSERT INTO places VALUES (
-    'San Genesio',
-    'Brescia',
-    'Via Castello 9',
-    'Cinema',
-    'Castello di Brescia'
-);  
-
-INSERT INTO territories VALUES (
-    'San Genesio',
-    'Brescia'
-);
-
 INSERT INTO users VALUES (
     'Lancillotto.Benacense.99',
-    'password',
+    'Altachiara',
     'Lancillotto',
     'Benacense',
-    'Brescia',
-    23,12,1999,
-    1771083225,
+    'Desenzano',
+    23, 12, 1999,
+    1767776400, -- 07/01/2026 9:00
     'San Genesio',
     'CONFIGURATOR',
     false
 );
 
 INSERT INTO users VALUES (
-    'Arlecchino.Valcalepio.98',
-    'vino&carte', 
+    'Parsifal.Silvano.00',
+    'Longino',
+    'Parsifal',
+    'Silvano',
+    'Desenzano',
+    24, 1, 2000,
+    1767777000, -- 07/01/2026 9:10
+    'San Genesio',
+    'CONFIGURATOR',
+    false
+);
+
+INSERT INTO users VALUES (
+    'Arlecchino.Valcalepio.89',
+    'vino&carte',
     'Arlecchino',
     'Valcalepio',
-    'Brescia',
-    11,12,1997,
-    1771257245,
+    'Desenzano',
+    15, 10, 1989,
+    1767778200, -- 07/01/2026 9:30
     'San Genesio',
     'VOLUNTARY',
     false
 );
 
-INSERT INTO voluntaryDisponibilities VALUES (
-    'Arlecchino.Valcalepio.98',
-    10,
-    100
-);
-
-INSERT INTO userPermissions VALUES (
-    'Arlecchino.Valcalepio.98',
-    'Cinema'
-);
-
-INSERT INTO placesData VALUES (
-    'Brescia',
-    'Via Castello 9',
-    'Cinema',
-    'Arlecchino.Valcalepio.98'
-);
-
 INSERT INTO users VALUES (
-    'Balanzone.Pignoletto.83',
-    'carnevale',
+    'Balanzone.Pignoletto.92',
+    'Michelas',
     'Balanzone',
     'Pignoletto',
-    'Brescia',
-    13, 14, 1983,
-    1771257245,
+    'Desenzano',
+    3, 3, 1992,
+    1767779100, -- 07/01/2026 9:45
     'San Genesio',
     'VOLUNTARY',
     false
 );
 
-INSERT INTO voluntaryDisponibilities VALUES (
-    'Balanzone.Pignoletto.83',
-    10,
-    100
-);
-
-INSERT INTO userPermissions VALUES (
-    'Balanzone.Pignoletto.83',
-    'Teatro'
-);
-
-INSERT INTO placesData VALUES (
-    'Brescia',
-    'Via Castello 9',
-    'Teatro',
-    'Balanzone.Pignoletto.83'
-);
-
-INSERT INTO events VALUES (
-    'Cinema in castello',
-    'Proiezione dei grandi classici nel cinema all aperto',
-    'Cinema',
+INSERT INTO users VALUES (
+    'Colombina.Lison.98',
+    'carnevale',
+    'Colombina',
+    'Lison',
+    'Desenzano',
+    22, 7, 1998,
+    1767780000, -- 07/01/2026 10:00
     'San Genesio',
-    'Brescia',
-    'Via Castello 9',
-    'Ingresso principale sotto il leone di San Marco',
-    'CONFIRMED'
-);
-
-INSERT INTO events VALUES (
-    'Teatro in castello',
-    'Rappresentazione teatrale dello spettacolo "La rosa bianca" da parte della compagnia "Profumo di Cielo"',
-    'Teatro',
-    'San Genesio',
-    'Brescia',
-    'Via Castello 9',
-    'Ingresso principale sotto il leone di San Marco',
-    'CONFIRMED'
-);
-
-INSERT INTO eventsVoluntaries VALUES (
-    'Cinema in castello',
-    'Arlecchino.Valcalepio.98',
-    10
-);
-
-INSERT INTO eventsVoluntaries VALUES (
-    'Cinema in castello',
-    'Arlecchino.Valcalepio.98',
-    30
-);
-
-INSERT INTO eventsVoluntaries VALUES (
-    'Cinema in castello',
-    'Arlecchino.Valcalepio.98',
-    50
-);
-
-INSERT INTO eventsVoluntaries VALUES (
-    'Teatro in castello',
-    'Balanzone.Pignoletto.83',
-    20
-);
-
-INSERT INTO eventsVoluntaries VALUES (
-    'Teatro in castello',
-    'Balanzone.Pignoletto.83',
-    40
-);
-
-INSERT INTO eventsVoluntaries VALUES (
-    'Teatro in castello',
-    'Balanzone.Pignoletto.83',
-    60
-);
-
-INSERT INTO eventsData VALUES (
-    'Cinema in castello',
-    10, 
-    20
-);
-
-INSERT INTO eventsData VALUES (
-    'Cinema in castello',
-    30, 
-    40
-);
-
-INSERT INTO eventsData VALUES (
-    'Cinema in castello',
-    50, 
-    60
-);
-
-INSERT INTO eventsData VALUES (
-    'Teatro in castello',
-    20, 
-    30
-);
-
-INSERT INTO eventsData VALUES (
-    'Teatro in castello',
-    40, 
-    50
-);
-
-INSERT INTO eventsData VALUES (
-    'Teatro in castello',
-    60, 
-    70
+    'VOLUNTARY',
+    false
 );
 
 INSERT INTO users VALUES (
-    'Michele.Monteclarense.89',
-    'campagna',
-    'Michele',
-    'Monteclarense',
-    'Brescia',
-    23,12,1989,
-    1771083225,
+    'Paolo.Malatesta.82',
+    'Francesca',
+    'Paolo',
+    'Malatesta',
+    'Ravenna',
+    7, 1, 1982,
+    1768047600, -- 10/01/2026 12:20
     '',
     'USER',
     false
 );
 
 INSERT INTO users VALUES (
-    'Stefania.Arilicense.71',
-    'macchina',
-    'Stefania',
-    'Arilicense',
-    'Brescia',
-    23,12,1971,
-    1771083225,
+    'Francesca.Polenta.89',
+    'Paolo',
+    'Francesca',
+    'Polenta',
+    'Rimini',
+    19, 8, 1989,
+    1768047300, -- 10/01/2026 12:15
     '',
     'USER',
     false
 );
 
-INSERT INTO subscriptions VALUES (
-    'Michele.Monteclarense.89',
-    'Cinema in castello',
-    10
+INSERT INTO users VALUES (
+    'Renzo.Tramaglino.94',
+    'Milano',
+    'Renzo',
+    'Tramaglino',
+    'Milano',
+    28, 11, 1994,
+    1768155600, -- 10/01/2026 18:20
+    '',
+    'USER',
+    false
 );
 
-INSERT INTO subscriptions VALUES (
-    'Michele.Monteclarense.89',
-    'Cinema in castello',
-    30
+INSERT INTO users VALUES (
+    'Lucia.Mondella.97',
+    'Monza',
+    'Lucia',
+    'Mondella',
+    'Milano',
+    4, 6, 1997,
+    1768155900, -- 10/01/2026 18:20
+    '',
+    'USER',
+    false
 );
 
-INSERT INTO subscriptions VALUES (
-    'Michele.Monteclarense.89',
-    'Cinema in castello',
-    50
-);
+
