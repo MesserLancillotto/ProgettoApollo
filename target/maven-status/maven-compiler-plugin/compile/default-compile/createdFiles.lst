@@ -22,6 +22,7 @@ Comunication/Request/GetVoluntariesRequest.class
 Server/Engine/DeleteVoluntaryEngine.class
 Comunication/Reply/SetClosedDaysReply.class
 Comunication/Reply/Interfaces/AuthenticatedUpdateReply.class
+Helper/EventCreator.class
 Comunication/DatabaseObjects/UserRole.class
 Comunication/Reply/GetAllowedVisitTypesReply.class
 Comunication/Request/GetEventRequest.class
@@ -41,6 +42,8 @@ Comunication/Request/GetPlacesRequest.class
 Comunication/Request/DeleteVoluntaryRequest.class
 Comunication/Reply/SetDisponibilityReply.class
 Server/Engine/DeleteUserSubscriptionToEventEngine.class
+Helper/UserCreator.class
+Helper/JsonListConverter.class
 Comunication/Request/SetDisponibilityRequest.class
 Comunication/Reply/DeleteVisitTypeFromPlaceReply.class
 Comunication/Reply/NegativeAuthenticatedReply.class
@@ -50,6 +53,7 @@ Server/Engine/GetAllowedVisitTypesEngine.class
 Comunication/Reply/SetUserSubscriptionToEventReply.class
 Comunication/Reply/GetVoluntariesReply.class
 Server/Engine/GetEventEngine.class
+Helper/DateIntervalCalculator.class
 Comunication/Request/SetNewOrganizationRequest.class
 Comunication/DatabaseObjects/Place.class
 Server/Engine/SetNewPasswordEngine.class
@@ -63,7 +67,6 @@ Comunication/Reply/DeletePlaceReply.class
 Comunication/ComunicationType/ComunicationTypeStringConverter.class
 Server/Engine/Interfaces/Engine.class
 Comunication/Request/SetNewPasswordRequest.class
-Server/Engine/Helper/DateIntervalCalculator.class
 Comunication/Request/SetClosedDaysRequest.class
 Comunication/Request/DeleteUserSubscriptionToEventRequest.class
 Server/Server.class

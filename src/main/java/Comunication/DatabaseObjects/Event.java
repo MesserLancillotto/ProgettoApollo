@@ -2,6 +2,7 @@ package Comunication.DatabaseObjects;
 
 import org.json.*;
 import java.util.*;
+import Helper.*;
 
 public class Event 
 {   
@@ -36,15 +37,18 @@ public class Event
     private String organization;
     private String city;
     private String address;
+    private String visitType;
     private String rendezvous;
     private String state;
     private List<String> voluntaries;
     private List<List<Integer>> singleEvent;
+    private JSONObject json;
+    private String jsonString;
 
      public Event(
         String name,
         String description,
-        String type,
+        String visitType,
         String organization,
         String city,
         String address,
@@ -55,7 +59,7 @@ public class Event
     ) {
         this.name = name;
         this.description = description;
-        this.type = type;
+        this.visitType = visitType;
         this.organization = organization;
         this.city = city;
         this.address = address;
@@ -65,43 +69,42 @@ public class Event
         this.singleEvent = List.copyOf(singleEvent);
     }
 
-    public String toJSONString() {
-
-    /**
-     * Partendo dai dati del costruttore crea un JSON
-     * @return Stringa JSON
-    */
-
-        JSONObject json = new JSONObject();
-        
+    private JSONObject getJSONObject()
+    {
+        if(json != null)
+        {
+            return json;
+        }
+        json = new JSONObject();
         json.put("name", name);
         json.put("description", description);
         json.put("type", type);
         json.put("organization", organization);
         json.put("city", city);
         json.put("address", address);
+        json.put("visitType", visitType);
         json.put("rendezvous", rendezvous);
         json.put("state", state);
-        
-        JSONArray voluntariesArray = new JSONArray();
-        for(int i = 0; i < voluntaries.size() && i < MAX_VOLUNTARIES; i++) 
-        {
-            voluntariesArray.put(voluntaries.get(i));
-        }
+        JSONArray voluntariesArray 
+            = JsonListConverter.listToJsonArray(voluntaries);
         json.put("voluntaries", voluntariesArray);
-        
         JSONArray singleEventArray = new JSONArray();
         for(List<Integer> event : singleEvent) 
         {
-            JSONArray eventArray = new JSONArray();
-            for(Integer value : event) 
-            {
-                eventArray.put(value);
-            }
+            JSONArray eventArray = 
+                JsonListConverter.listToJsonArray(event);
             singleEventArray.put(eventArray);
         }
         json.put("singleEvent", singleEventArray);
-        
-        return json.toString();
+        return json;
+    }
+
+    public String toJSONString() 
+    {
+        if(jsonString == null)
+        {
+            jsonString = getJSONObject().toString(); 
+        }
+        return jsonString;
     }
 }

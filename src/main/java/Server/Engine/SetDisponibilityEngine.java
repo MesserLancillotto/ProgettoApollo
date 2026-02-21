@@ -10,7 +10,7 @@ import Comunication.Reply.Interfaces.ReplyInterface;
 import Comunication.Reply.Interfaces.AuthenticatedReply;
 import Comunication.DatabaseObjects.User;
 import Comunication.DatabaseObjects.UserRole;
-import Server.Engine.Helper.DateIntervalCalculator;
+import Helper.DateIntervalCalculator;
 
 public class SetDisponibilityEngine extends AuthenticatedEngine
 {

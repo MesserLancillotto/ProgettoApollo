@@ -3,40 +3,40 @@ package Comunication.Reply;
 import java.util.*;
 import org.json.*;
 
-import Comunication.DatabaseObjects.Place;
+import Comunication.DatabaseObjects.Event;
 import Comunication.Reply.Interfaces.AuthenticatedReply;
 
 public class GetSubscribedEventsReply extends AuthenticatedReply 
 {
-    private List<Place> places;
+    private List<Event> events;
 
-    public GetSubscribedEventsReply(Boolean loginSuccessful, List<Place> places) 
+    public GetSubscribedEventsReply(Boolean loginSuccessful, List<Event> events) 
     {
         super(loginSuccessful);
-        this.places = new ArrayList<>(places);
+        this.events = new ArrayList<>(events);
     }
 
     public GetSubscribedEventsReply(Boolean loginSuccessful) 
     {
         super(loginSuccessful);
-        this.places = null;
+        this.events = null;
     }
 
     public String toJSONString() 
     {
-        if(places == null)
+        if(events == null)
         {
             return json.toString();
         }
 
-        JSONArray placesJSONArray = new JSONArray();
+        JSONArray eventsJSONArray = new JSONArray();
 
-        for (Place place : places) 
+        for (Event Event : events) 
         {
-            placesJSONArray.put(new JSONObject(place.toJSONString()));
+            eventsJSONArray.put(new JSONObject(Event.toJSONString()));
         }
         
-        json.put("places", placesJSONArray);
+        json.put("events", eventsJSONArray);
         return json.toString();
     }
 }

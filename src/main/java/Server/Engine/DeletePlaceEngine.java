@@ -4,7 +4,7 @@ import org.json.*;
 import java.sql.*;
 
 import Server.Engine.Interfaces.AuthenticatedEngine;
-import Server.Engine.Helper.DateIntervalCalculator;
+import Helper.DateIntervalCalculator;
 import Comunication.Reply.Interfaces.ReplyInterface;
 import Comunication.Reply.Interfaces.AuthenticatedReply;
 import Comunication.Reply.DeletePlaceReply;
