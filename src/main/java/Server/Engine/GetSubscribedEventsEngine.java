@@ -7,7 +7,8 @@ import java.util.*;
 import Comunication.Reply.Interfaces.AuthenticatedReply;
 import Comunication.Reply.GetSubscribedEventsReply;
 import Server.Engine.Interfaces.AuthenticatedEngine;
-import Comunication.DatabaseObjects.Place;
+import Comunication.DatabaseObjects.Event;
+import Helper.*;
 
 public class GetSubscribedEventsEngine extends AuthenticatedEngine
 {
@@ -21,18 +22,19 @@ public class GetSubscribedEventsEngine extends AuthenticatedEngine
             e.city, 
             e.address, 
             e.rendezvous, 
-            e.state, 
-            ed.start_date, 
-            ed.end_date 
+            e.state
         FROM events e
         JOIN subscriptions ON e.name = subscriptions.name
         JOIN eventsData ed ON ed.name = e.name
         WHERE subscriptions.userID = ? ;
     """;
 
+    private String targetID;
+
     public GetSubscribedEventsEngine(String data) 
     {
         super(data);
+        this.targetID = json.getString("targetID");
     }
 
     public AuthenticatedReply processWithConnection() throws SQLException
@@ -42,56 +44,23 @@ public class GetSubscribedEventsEngine extends AuthenticatedEngine
             return new GetSubscribedEventsReply(false);
         }
 
+        List<Event> events = new ArrayList<>();
+
         PreparedStatement statement = 
             connection.prepareStatement(QUERY);
             
-        statement.setString(1, getUserID());
+        statement.setString(1, this.targetID);
             
         ResultSet result = statement.executeQuery();
-        ArrayList<Place> places = new ArrayList<Place>();
-            
+
         while(result.next())
         {
-            String city = result.getString("city");
-            String address = result.getString("address");
-            String description = result.getString("description");
-            String organization = result.getString("organization");
-            String detailsQuery = 
-            """
-                SELECT visitType, userID FROM placesData 
-                WHERE city = ? AND address = ?
-            """;
-            
-            PreparedStatement detailsStmt = 
-                connection.prepareStatement(detailsQuery);
-                
-            detailsStmt.setString(1, city);
-            detailsStmt.setString(2, address);
-                
-            ResultSet detailsResult = detailsStmt.executeQuery();
-            ArrayList<String> visitTypes = new ArrayList<String>();
-            ArrayList<String> voluntaries = new ArrayList<String>();                
-                
-            int i = 0;
-            while(detailsResult.next())
-            {
-                i++;
-                visitTypes.add(detailsResult.getString("visitType"));
-                voluntaries.add(detailsResult.getString("userID"));
-            }
-                
-            detailsResult.close();
-                
-            Place place = new Place(
-                city, 
-                address, 
-                description,
-                organization,
-                visitTypes, 
-                voluntaries
-            );
-            places.add(place);
+            events.add(
+                EventCreator.createEventFromResultSet(
+                    connection, 
+                    result, 
+                    this.targetID));
         }
-        return new GetSubscribedEventsReply(true, places);
+        return new GetSubscribedEventsReply(true, events);
     }
 }

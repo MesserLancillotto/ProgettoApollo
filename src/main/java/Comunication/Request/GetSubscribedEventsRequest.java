@@ -7,18 +7,21 @@ import Comunication.Request.Interfaces.AuthenticatedRequest;
 
 public class GetSubscribedEventsRequest extends AuthenticatedRequest
 {
-    String state;
+    String targetID;
 
     public GetSubscribedEventsRequest
     (
         String userID,
-        String password
+        String password,
+        String targetID
     ) {
         super(ComunicationType.GET_SUBSCRIBED_EVENTS, userID, password);
+        this.targetID = targetID;
     }
 
     public String toJSONString()
     {
+        json.put("targetID", targetID);
         return json.toString();
     }
 }

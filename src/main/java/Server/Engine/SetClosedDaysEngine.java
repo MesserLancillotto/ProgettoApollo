@@ -5,9 +5,9 @@ import java.sql.*;
 import java.util.*;
 import java.time.*;
 
-import Server.Engine.Helper.DateIntervalCalculator;
+import Helper.DateIntervalCalculator;
 import Server.Engine.Interfaces.AuthenticatedEngine;
-import Server.Engine.Helper.DateIntervalCalculator;
+import Helper.DateIntervalCalculator;
 import Comunication.Reply.SetClosedDaysReply;
 import Comunication.Reply.Interfaces.AuthenticatedReply;
 

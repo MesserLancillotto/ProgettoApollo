@@ -10,6 +10,7 @@ import Comunication.Reply.Interfaces.AuthenticatedReply;
 import Comunication.Reply.GetPersonalDataReply;
 import Comunication.DatabaseObjects.User;
 import Comunication.DatabaseObjects.UserRole;
+import Helper.UserCreator;
 
 public class GetPersonalDataEngine extends AuthenticatedEngine
 {
@@ -38,7 +39,7 @@ public class GetPersonalDataEngine extends AuthenticatedEngine
             return new GetPersonalDataReply(false);
         }
         
-        User user = User.createUserFromResultSet(connection, result);
+        User user = UserCreator.createUserFromResultSet(connection, result);
         
         return new GetPersonalDataReply(true, user);
     } 

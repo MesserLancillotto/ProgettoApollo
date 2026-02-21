@@ -20,7 +20,8 @@ public class Server
         AuthenticatedRequest request 
             = new GetSubscribedEventsRequest(
                 "Michele.Monteclarense.89",
-                "campagna"
+                "campagna",
+                "Michele.Monteclarense.89"
             );
 
         System.out.println(request.toJSONString());

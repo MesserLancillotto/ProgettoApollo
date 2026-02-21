@@ -661,3 +661,14 @@ org.h2.jdbc.JdbcSQLDataException: Invalid value "1" for parameter "parameterInde
 	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
 	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-21 11:13:26.607548+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "    SELECT DISTINCT\000a        e.name\000a        ed[*].start_date,\000a        ed.end_date\000a    FROM events e\000a    JOIN subscriptions ON e.name = subscriptions.name\000a    JOIN eventsData ed ON ed.name = e.name\000a    WHERE subscriptions.userID = ? ;\000a"; SQL statement:
+    SELECT DISTINCT
+        e.name
+        ed.start_date,
+        ed.end_date
+    FROM events e
+    JOIN subscriptions ON e.name = subscriptions.name
+    JOIN eventsData ed ON ed.name = e.name
+    WHERE subscriptions.userID = ? ;
+ [42000-224]
