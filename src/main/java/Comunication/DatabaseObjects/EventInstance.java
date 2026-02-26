@@ -6,23 +6,8 @@ import Helper.*;
 
 public class EventInstance
 {   
-/**
-* @param start_date
-* @param end_date
-* @param state
-* @param voluntaries
-* @param users
-*/
-
-    private static final int MAX_VOLUNTARIES = 100;
-
-    private Integer start_date;
-    private Integer end_date;
-    private String state;
-    private List<String> voluntaries;
-    private List<String> users;
-
     private JSONObject json;
+    private String jsonString;
 
     public EventInstance(
         Integer start_date,
@@ -31,26 +16,18 @@ public class EventInstance
         List<String> voluntaries,
         List<String> users
     ) {
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.state = state;
-        this.voluntaries = List.copyOf(voluntaries);
-        this.users = List.copyOf(users);
-    }
-
-    private JSONObject getJSONObject()
-    {
-        if(json != null)
-        {
-            return json;
-        }
-        json.put("start_date", this.start_date);
-        json.put("end_date", this.end_date);
-        json.put("state", this.state);
+        json = new JSONObject();
+        json.put("start_date", start_date);
+        json.put("end_date", end_date);
+        json.put("state", state);
         json.put("voluntaries", 
             JsonListConverter.listToJsonArray(voluntaries));
         json.put("users", 
             JsonListConverter.listToJsonArray(users));
+    }
+
+    public JSONObject getJSONObject()
+    {
         return json;
     }
 

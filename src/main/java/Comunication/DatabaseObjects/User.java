@@ -4,31 +4,18 @@ import org.json.*;
 import java.util.*;
 import java.sql.*;
 
-import Comunication.DatabaseObjects.UserRole;
+import Comunication.DatabaseObjects.*;
 
 
 public class User 
 {
-    private String userID;
-    private String name;
-    private String surname;
-    private String city;
-    private Integer birth_dd;
-    private Integer birth_mm;
-    private Integer birth_yy;
-    private Integer user_since;
-    private UserRole role;
-    private Boolean changePasswordDue;
-    private String organization;
-
-    private List<List<Integer>> disponibilities 
-        = new ArrayList<>();
-    private List<String> allowedVisits 
-        = new ArrayList<String>();
-    private List<Event> voluntaryEvents
-        = new ArrayList<Event>();
-
     private JSONObject json;
+
+    public User()
+    {
+        json = new JSONObject();
+        json.put("userID", "NONE");
+    }
 
     public User
     (
@@ -43,31 +30,11 @@ public class User
         UserRole role,
         Boolean changePasswordDue,
         String organization,
+        List<String> allowedVisits,
         List<List<Integer>> disponibilities,
         List<Event> voluntaryEvents
     ) {
-        this.userID = userID;
-        this.name = name;
-        this.surname = surname;
-        this.city = city;
-        this.birth_dd = birth_dd;
-        this.birth_mm = birth_mm;
-        this.birth_yy = birth_yy;
-        this.user_since = user_since;
-        this.role = role;
-        this.changePasswordDue = changePasswordDue;
-        this.organization = organization;
-        this.disponibilities = new ArrayList<>(disponibilities);
-        this.voluntaryEvents = new ArrayList<>(voluntaryEvents);
-    }
-
-    public JSONObject getJSONObject()
-    {
-        if(this.json != null)
-        {
-            return this.json;
-        }
-        JSONObject json = new JSONObject();
+        json = new JSONObject();
         json.put("userID", userID);
         json.put("name", name);
         json.put("surname", surname);
@@ -93,15 +60,23 @@ public class User
         JSONArray voluntaryEventsJSON = new JSONArray();
         for(Event event : voluntaryEvents)
         {
-            voluntaryEventsJSON.put(event.toJSONObject());
+            voluntaryEventsJSON.put(event.getJSONObject());
         }
         json.put("allowedVisits", voluntaryEventsJSON);
+    }
 
+    public JSONObject getJSONObject()
+    {
+        if(this.json != null)
+        {
+            return this.json;
+        }
+        json = new JSONObject();
         return json;
     }
 
     public String toJSONString()
     {
-        return toJSONObject().toString();
+        return getJSONObject().toString();
     }
 }

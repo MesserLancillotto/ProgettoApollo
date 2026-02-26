@@ -242,6 +242,7 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
             UserRole.valueOf(result.getString("role")),
             result.getBoolean("changePasswordDue"),
             result.getString("organization"),
+            allowedVisits,
             disponibilities,
             new ArrayList<Event>()
         );

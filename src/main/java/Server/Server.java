@@ -18,16 +18,15 @@ public class Server
     {
 
         AuthenticatedRequest request 
-            = new GetSubscribedEventsRequest(
-                "Michele.Monteclarense.89",
-                "campagna",
-                "Michele.Monteclarense.89"
+            = new GetPersonalDataRequest(
+                "Arlecchino.Valcalepio.89",
+                "vino&carte"
             );
 
         System.out.println(request.toJSONString());
 
         AuthenticatedEngine engine 
-            = new GetSubscribedEventsEngine(request.toJSONString());
+            = new GetPersonalDataEngine(request.toJSONString());
 
         ReplyInterface reply = engine.handleRequest();
 
