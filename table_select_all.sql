@@ -1,6 +1,5 @@
 SELECT * FROM users; 
 SELECT * FROM places; 
-SELECT * FROM placesData;
 SELECT * FROM userPermissions;
 SELECT * FROM closedDays;
 SELECT * FROM organizations;

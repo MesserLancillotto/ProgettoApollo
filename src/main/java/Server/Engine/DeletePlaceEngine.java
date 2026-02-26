@@ -18,29 +18,34 @@ public class DeletePlaceEngine extends AuthenticatedEngine
             SELECT name FROM events 
             WHERE city = ?
               AND address = ?
+              AND visitType = ?
         );
     ""","""
         DELETE FROM eventsVoluntaries 
         WHERE name IN (
             SELECT name FROM events 
             WHERE city = ?
-              AND address = ? 
+              AND address = ?
+              AND visitType = ? 
         );
     ""","""
         DELETE FROM placesData 
         WHERE 
             city = ? 
-            AND address = ? ;
+            AND address = ?
+            AND visitType = ?
     ""","""
         DELETE FROM events
         WHERE 
             city = ? 
-            AND address = ? ;
+            AND address = ?
+            AND visitType = ?
     ""","""
         DELETE FROM places
         WHERE 
             city = ? 
-            AND address = ? ;
+            AND address = ?
+            AND visitType = ?
     """
     };
 
@@ -72,6 +77,7 @@ public class DeletePlaceEngine extends AuthenticatedEngine
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, this.city);
             statement.setString(2, this.address);
+            statement.setString(3, this.visitType);
             totalRows += statement.executeUpdate();
         }
         return new DeletePlaceReply(true, totalRows > 0);

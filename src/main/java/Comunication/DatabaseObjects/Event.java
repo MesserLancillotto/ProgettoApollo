@@ -3,6 +3,7 @@ package Comunication.DatabaseObjects;
 import org.json.*;
 import java.util.*;
 import Helper.*;
+import Comunication.DatabaseObjects.EventInstance;
 
 public class Event 
 {   
@@ -14,22 +15,8 @@ public class Event
 * @param city
 * @param address
 * @param rendezvous
-* @param state
-* @param voluntaries lista di stringhe con lo userID dei volontari per 
-* l'evento.
-* @param singleEvent indica le singole istanze dell'evento. La sua lunghezza è 
-* quella del numero di volte che si ripeterà quell'evento e le sottoliste
-* saranno tutte di dimensione 2, il primo valore è l'inizio ed il secondo la
-* fine, entrambi usando gli UNIX Epoch timestamp IN SECONDI NO MILLISECONDI.
-* Esempio proiezione di un film "NOME DEL FILM" per tre serate. La prima sera
-* in data 01/01/2000 21:00 - 23:00, la seconda sera in data 02/01/2000 20:00
-* - 22:00 e la terza 03/01/2000 19:00 - 21:00. Convertite le date in UNIX 
-* Epoch timestamp, inizio1 = 946760400, fine1 = 946767600, inizio2 = ...
-* allora singleEvent apparirà come
-* {{inizio1, fine1}, {inizio2, fine2}, {inizio3, fine3}}
+* 
 */
-
-    private static final int MAX_VOLUNTARIES = 100;
 
     private String name;
     private String description;
@@ -39,13 +26,9 @@ public class Event
     private String address;
     private String visitType;
     private String rendezvous;
-    private String state;
-    private List<String> voluntaries;
-    private List<List<Integer>> singleEvent;
-    private JSONObject json;
-    private String jsonString;
+    private List<EventInstance> instances;
 
-     public Event(
+    public Event(
         String name,
         String description,
         String visitType,
@@ -53,9 +36,7 @@ public class Event
         String city,
         String address,
         String rendezvous,
-        String state,
-        List<String> voluntaries,
-        List<List<Integer>> singleEvent
+        List<EventInstance> instances
     ) {
         this.name = name;
         this.description = description;
@@ -64,12 +45,10 @@ public class Event
         this.city = city;
         this.address = address;
         this.rendezvous = rendezvous;
-        this.state = state;
-        this.voluntaries = List.copyOf(voluntaries);
-        this.singleEvent = List.copyOf(singleEvent);
+        this.instances = List.copyOf(instances);
     }
 
-    private JSONObject getJSONObject()
+    public JSONObject getJSONObject()
     {
         if(json != null)
         {
@@ -84,18 +63,15 @@ public class Event
         json.put("address", address);
         json.put("visitType", visitType);
         json.put("rendezvous", rendezvous);
-        json.put("state", state);
-        JSONArray voluntariesArray 
-            = JsonListConverter.listToJsonArray(voluntaries);
-        json.put("voluntaries", voluntariesArray);
-        JSONArray singleEventArray = new JSONArray();
-        for(List<Integer> event : singleEvent) 
+
+        JSONArray instancesJSON = new JSONArray();
+        for(EventInstance instance : instances)
         {
-            JSONArray eventArray = 
-                JsonListConverter.listToJsonArray(event);
-            singleEventArray.put(eventArray);
+            instancesJSON.put(instance.getJSONObject());
         }
-        json.put("singleEvent", singleEventArray);
+
+        json.put("instances", instancesJSON);
+
         return json;
     }
 

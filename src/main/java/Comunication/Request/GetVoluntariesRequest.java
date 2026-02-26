@@ -11,16 +11,6 @@ public class GetVoluntariesRequest extends AuthenticatedRequest
     private static final int MAX_FILTERS = 5;
     private JSONObject filters;
 
-    public GetVoluntariesRequest
-    (
-        String userID,
-        String password,
-        JSONObject filters
-    ) {
-        super(ComunicationType.GET_VOLUNTARIES, userID, password);
-        this.filters = (filters != null) ? filters : new JSONObject();
-    }
-
     public GetVoluntariesRequest(
         String userID,
         String password
@@ -65,8 +55,13 @@ public class GetVoluntariesRequest extends AuthenticatedRequest
         return this;        
     }
 
+    @Override
     public String toJSONString()
     {
+        if(json.has("filters"))
+        {
+            json.remove("filters");
+        }
         json.put("filters", filters);
         return json.toString();
     }

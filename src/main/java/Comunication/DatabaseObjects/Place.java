@@ -7,58 +7,62 @@ import java.util.List;
 
 public class Place
 {
-
-/**
- * @param visitTypes
- * @param voluntaries devono avere la stessa lunghezza dato che al visitTypes[i] corrisponde il volontario voluntaries[i]
- */
-    private static final int MAX_TERRITORIES = 1000;
-    private static final int MAX_VOLUNTARIES = 1000;
-
     private String city;
     private String address;
     private String description;
     private String organization;
-    private List<String> visitTypes;
-    private List<String> voluntaries;
+    private String visitType;
+    private String defaultVoluntary;
+
+    private JSONObject json;
 
     public Place(
         String city,
         String address,
         String description,
         String organization,
-        List<String> visitTypes,
-        List<String> voluntaries
+        String visitType,
+        String defaultVoluntary
     ) {
         this.city = city;
         this.address = address;
         this.description = description;
         this.organization = organization;
-        this.visitTypes = new ArrayList<>(visitTypes);
-        this.voluntaries = new ArrayList<>(voluntaries);
+        this.visitType = visitType;
+        this.defaultVoluntary = defaultVoluntary;
     }
 
-    public Place(String data) 
+    public Place(JSONObject data)
     {
-        JSONObject json = new JSONObject(data);
-        this.city = json.getString("city");
-        this.address = json.getString("address");
-        this.description = json.getString("description");
-        this.organization = json.getString("organization");
+        this(
+            data.getString("city"),
+            data.getString("address"),
+            data.getString("description"),
+            data.getString("organization"),
+            data.getString("visitType"),
+            data.getString("defaultVoluntary")
+        );
+    }
 
-        JSONArray visitsArray = json.getJSONArray("visitTypes");
-        this.visitTypes = new ArrayList<>();
-        for (int i = 0; i < visitsArray.length() && i < MAX_TERRITORIES; i++) 
+    public JSONObject getJSONObject()
+    {
+        if(json != null) 
         {
-            this.visitTypes.add(visitsArray.getString(i));
+            return json;
         }
-        
-        JSONArray voluntariesArray = json.getJSONArray("voluntaries");
-        this.voluntaries = new ArrayList<>();
-        for (int i = 0; i < voluntariesArray.length() && i < MAX_VOLUNTARIES; i++) 
-        {
-            this.voluntaries.add(voluntariesArray.getString(i));
-        }
+        json = new JSONObject();
+        json.put("city", city);
+        json.put("address", address);
+        json.put("description", description);
+        json.put("organization", organization);
+        json.put("visitType", visitType);
+        json.put("defaultVoluntary", defaultVoluntary);
+        return json;
+    }
+
+    public String toJSONString() 
+    {
+        return getJSONObject().toString(); 
     }
 
     public String getCity()
@@ -75,41 +79,19 @@ public class Place
     {
         return this.description;
     }
-    
+
     public String getOrganization()
     {
         return this.organization;
     }
 
-    public Integer getVisitTypesLength()
+    public String getVisitType()
     {
-        return visitTypes.size();
+        return this.visitType;
     }
-
-    public List<String> getVisitTypes()
+    
+    public String getDefaultVoluntary()
     {
-        return new ArrayList<>(this.visitTypes);
-    }
-
-    public Integer getVoluntariesLength()
-    {
-        return voluntaries.size();
-    }
-
-    public List<String> getVoluntaries()
-    {
-        return new ArrayList<>(this.voluntaries);
-    }
-
-    public String toJSONString() 
-    {
-        JSONObject json = new JSONObject();
-        json.put("city", city);
-        json.put("address", address);
-        json.put("description", description);
-        json.put("organization", organization);
-        json.put("visitTypes", new JSONArray(visitTypes));
-        json.put("voluntaries", new JSONArray(voluntaries));
-        return json.toString(); 
+        return this.defaultVoluntary;
     }
 }

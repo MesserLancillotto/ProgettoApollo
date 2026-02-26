@@ -16,12 +16,6 @@ public class GetSubscribedEventsRequest extends AuthenticatedRequest
         String targetID
     ) {
         super(ComunicationType.GET_SUBSCRIBED_EVENTS, userID, password);
-        this.targetID = targetID;
-    }
-
-    public String toJSONString()
-    {
         json.put("targetID", targetID);
-        return json.toString();
     }
 }

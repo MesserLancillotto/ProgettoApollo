@@ -8,35 +8,23 @@ import Comunication.Reply.Interfaces.AuthenticatedReply;
 
 public class GetSubscribedEventsReply extends AuthenticatedReply 
 {
-    private List<Event> events;
-
-    public GetSubscribedEventsReply(Boolean loginSuccessful, List<Event> events) 
-    {
+    public GetSubscribedEventsReply
+    (
+        Boolean loginSuccessful, 
+        List<Event> events
+    ) {
         super(loginSuccessful);
-        this.events = new ArrayList<>(events);
+        JSONArray eventsJSONArray = new JSONArray();
+        for (Event event : events) 
+        {
+            eventsJSONArray.put(event.getJSONObject());
+        }
+        json.put("events", eventsJSONArray);
     }
 
     public GetSubscribedEventsReply(Boolean loginSuccessful) 
     {
         super(loginSuccessful);
-        this.events = null;
-    }
-
-    public String toJSONString() 
-    {
-        if(events == null)
-        {
-            return json.toString();
-        }
-
-        JSONArray eventsJSONArray = new JSONArray();
-
-        for (Event Event : events) 
-        {
-            eventsJSONArray.put(new JSONObject(Event.toJSONString()));
-        }
-        
-        json.put("events", eventsJSONArray);
-        return json.toString();
+        json.put("events", JSONObject.NULL);
     }
 }

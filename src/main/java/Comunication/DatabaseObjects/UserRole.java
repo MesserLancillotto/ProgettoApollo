@@ -4,5 +4,5 @@ public enum UserRole
 {
     CONFIGURATOR,
     VOLUNTARY,
-    GUEST
+    USER
 }

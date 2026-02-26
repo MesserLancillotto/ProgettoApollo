@@ -41,7 +41,6 @@ public class GetPlacesEngine extends AuthenticatedEngine
                 extractedFilters.put(filter, json.getString(filter));
             }
         }
-
         return extractedFilters;
     }
     

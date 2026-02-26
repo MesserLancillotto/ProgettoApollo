@@ -29,7 +29,7 @@ public class SetNewOrganizationEngine extends AuthenticatedEngine
     {
         if (!petitionerIsConfigurator()) 
         {
-            return new SetNewOrganizationReply(true, false, 0, null);
+            return new SetNewOrganizationReply(true, false);
         }
         
         List<String> notValidTerritories = new ArrayList<>();
@@ -50,9 +50,7 @@ public class SetNewOrganizationEngine extends AuthenticatedEngine
         
         return new SetNewOrganizationReply(
             true,
-            territoriesAdded > 0,
-            territoriesAdded,
-            notValidTerritories
+            territoriesAdded > 0
         );
     }
 

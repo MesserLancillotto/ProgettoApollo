@@ -33,43 +33,15 @@ public class EditVisitablePlacesRequest extends AuthenticatedRequest
         String password,
         String city,
         String address,
-        List<String> visitTypes,
-        List<String> userIDs
+        String visitType,
+        String defaultVoluntary,
+        String newDefauldVoluntary
     ) {
         super(ComunicationType.EDIT_VISITABLE_PLACES, userID, password);
-        this.city = city;
-        this.address = address;
-        this.visitTypes = new ArrayList<String>(visitTypes);
-        this.userIDs = new ArrayList<String>(userIDs);
-    }
-
-    /**
-     * Classe che ritorna una (String) json
-     * Le chiavi sono 
-     * @param visitTypes i tipi di visita
-     * @param userIDs gli ID degli utenti
-     * @see EditVisitablePlacesRequest
-     */
-
-    public String toJSONString()
-    {
-        JSONArray visitTypesArray = new JSONArray();
-        JSONArray userIDsArray = new JSONArray();
-        int arrayLength = (
-            visitTypes.size() < userIDs.size() ? 
-            visitTypes.size() : userIDs.size());
-
-        for(
-            int i = 0; 
-            i < arrayLength 
-                && i < MAX_EDIT_SIZE; 
-            i++
-        ) {
-            visitTypesArray.put(visitTypes.get(i));
-            userIDsArray.put(userIDs.get(i));
-        }
-        json.put("visitTypes", visitTypesArray);
-        json.put("userIDs", userIDsArray);
-        return json.toString();
+        json.put("city", city);
+        json.put("address", address);
+        json.put("visitType", visitType);
+        json.put("defaultVoluntary", defaultVoluntary);
+        json.put("newDefauldVoluntary", newDefauldVoluntary);    
     }
 }

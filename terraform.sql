@@ -1,6 +1,5 @@
 DROP TABLE users; 
-DROP TABLE places; 
-DROP TABLE placesData;
+DROP TABLE places;
 DROP TABLE userPermissions;
 DROP TABLE closedDays;
 DROP TABLE organizations;

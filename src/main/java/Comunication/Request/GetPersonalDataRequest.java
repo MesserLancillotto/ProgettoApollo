@@ -15,9 +15,4 @@ public class GetPersonalDataRequest extends AuthenticatedRequest
     ) {
         super(ComunicationType.GET_PERSONAL_DATA, userID, password);
     }
-
-    public String toJSONString()
-    {
-        return json.toString();
-    }
 }

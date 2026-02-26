@@ -8,8 +8,6 @@ import Comunication.Request.Interfaces.AuthenticatedRequest;
 
 public class SetMaximumFriendsRequest extends AuthenticatedRequest
 {
-    private Integer maximum_friends;
-
     public SetMaximumFriendsRequest
     (
         String userID,
@@ -17,12 +15,6 @@ public class SetMaximumFriendsRequest extends AuthenticatedRequest
         Integer maximum_friends
     ) {
         super(ComunicationType.SET_MAXIMUM_FRIENDS, userID, password);
-        this.maximum_friends = maximum_friends;
-    }
-
-    public String toJSONString()
-    {
         json.put("maximum_friends", maximum_friends);
-        return json.toString();
     }
 }

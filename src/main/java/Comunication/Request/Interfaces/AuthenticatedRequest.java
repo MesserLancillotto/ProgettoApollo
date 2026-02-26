@@ -6,10 +6,9 @@ import Comunication.ComunicationType.ComunicationType;
 
 public abstract class AuthenticatedRequest extends Request
 {
-    protected String userID;
-    protected String password;
-    public JSONObject json;
-
+    protected JSONObject json;
+    protected String jsonString;
+    
     public AuthenticatedRequest
     (
         ComunicationType comunicationType,
@@ -17,13 +16,18 @@ public abstract class AuthenticatedRequest extends Request
         String password
     ) {
         super(comunicationType);
-        this.userID = userID;
-        this.password = password;
         json = new JSONObject();
         json.put("comunicationType", comunicationType.name());
         json.put("userID", userID);
         json.put("password", password);
     }
 
-    public abstract String toJSONString();
+    public String toJSONString()
+    {
+        if(jsonString == null)
+        {
+            jsonString = json.toString();
+        }
+        return jsonString;
+    }
 }

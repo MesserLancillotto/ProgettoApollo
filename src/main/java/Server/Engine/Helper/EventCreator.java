@@ -18,6 +18,7 @@ public class EventCreator
         JOIN eventsData ed ON ed.name = e.name
         WHERE subscriptions.userID = ? ;
     """;
+    
     public static Event createEventFromResultSet(
         Connection connection, 
         ResultSet result,
@@ -42,9 +43,7 @@ public class EventCreator
             result.getString("city"),
             result.getString("address"),
             result.getString("rendezvous"),
-            result.getString("state"),
-            new ArrayList<String>(),
-            singleEvent
+            new ArrayList<EventInstance>()
         );
     }
 }

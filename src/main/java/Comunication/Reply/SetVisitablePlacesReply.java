@@ -15,10 +15,4 @@ public class SetVisitablePlacesReply extends AuthenticatedUpdateReply
     ) {
         super(loginSuccessful, updateSuccessful);
     }
-
-    public String toJSONString()
-    {
-        json.put("updateSuccessful", updateSuccessful);
-        return json.toString();
-    }
 }

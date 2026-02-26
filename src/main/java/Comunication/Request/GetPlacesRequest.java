@@ -43,10 +43,14 @@ public class GetPlacesRequest extends AuthenticatedRequest
         return this;
     }
 
+    @Override
     public String toJSONString()
     {
+        if(json.has("filters"))
+        {
+            json.remove("filters");
+        }
         json.put("filters", filters);
-
         return json.toString();
     }
 }

@@ -21,10 +21,12 @@ public class User
     private Boolean changePasswordDue;
     private String organization;
 
-    private List<List<Integer>> disponibilities = new ArrayList<>();
-    private List<String> allowedVisits = new ArrayList<String>();
-    private List<String> voluntaryEventName = new ArrayList<String>();
-    private List<Integer> voluntaryEventDate = new ArrayList<Integer>();
+    private List<List<Integer>> disponibilities 
+        = new ArrayList<>();
+    private List<String> allowedVisits 
+        = new ArrayList<String>();
+    private List<Event> voluntaryEvents
+        = new ArrayList<Event>();
 
     private JSONObject json;
 
@@ -42,9 +44,7 @@ public class User
         Boolean changePasswordDue,
         String organization,
         List<List<Integer>> disponibilities,
-        List<String> allowedVisits,
-        List<String> voluntaryEventName,
-        List<Integer> voluntaryEventDate
+        List<Event> voluntaryEvents
     ) {
         this.userID = userID;
         this.name = name;
@@ -58,31 +58,10 @@ public class User
         this.changePasswordDue = changePasswordDue;
         this.organization = organization;
         this.disponibilities = new ArrayList<>(disponibilities);
-        this.allowedVisits = new ArrayList<>(allowedVisits);
-        this.voluntaryEventName = new ArrayList<>(voluntaryEventName);
-        this.voluntaryEventDate = new ArrayList<>(voluntaryEventDate);
+        this.voluntaryEvents = new ArrayList<>(voluntaryEvents);
     }
 
-    public User
-    (
-        String data
-    ) {
-        this.json = new JSONObject(data);
-
-        this.userID = json.getString("userID");
-        this.name = json.getString("name");
-        this.surname = json.getString("surname");
-        this.city = json.getString("city");
-        this.birth_dd = json.getInt("birth_dd");
-        this.birth_mm = json.getInt("birth_mm");
-        this.birth_yy = json.getInt("birth_yy");
-        this.user_since = json.getInt("user_since");
-        this.role = UserRole.valueOf(json.getString("role"));
-        this.changePasswordDue = json.getBoolean("changePasswordDue");
-        this.organization = json.getString("organization");
-    }
-
-    public JSONObject toJSONObject()
+    public JSONObject getJSONObject()
     {
         if(this.json != null)
         {
@@ -111,26 +90,12 @@ public class User
         }
         json.put("disponibilities", disponibilitiesJSON);
 
-        JSONArray allowedVisitsJSON = new JSONArray();
-        for(String name : allowedVisits)
+        JSONArray voluntaryEventsJSON = new JSONArray();
+        for(Event event : voluntaryEvents)
         {
-            allowedVisitsJSON.put(name);
+            voluntaryEventsJSON.put(event.toJSONObject());
         }
-        json.put("allowedVisits", allowedVisitsJSON);
-
-        JSONArray voluntaryEventNameJSON = new JSONArray();
-        for(String name : voluntaryEventName)
-        {
-            voluntaryEventNameJSON.put(name);
-        }
-        json.put("voluntaryEventName", voluntaryEventNameJSON);
-
-        JSONArray voluntaryEventDateJSON = new JSONArray();
-        for(Integer date : voluntaryEventDate)
-        {
-            voluntaryEventDateJSON.put(date);
-        }
-        json.put("voluntaryEventDate", voluntaryEventDateJSON);
+        json.put("allowedVisits", voluntaryEventsJSON);
 
         return json;
     }
