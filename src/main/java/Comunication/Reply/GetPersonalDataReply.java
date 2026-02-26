@@ -8,23 +8,14 @@ import Comunication.Reply.Interfaces.AuthenticatedReply;
 
 public class GetPersonalDataReply extends AuthenticatedReply 
 {
-    private User user;
-
     public GetPersonalDataReply(Boolean loginSuccessful, User user) 
     {
         super(loginSuccessful);
-        this.user = user;
-        json.put("user", user.toJSONObject());
+        json.put("user", user.getJSONObject());
     }
 
     public GetPersonalDataReply(Boolean loginSuccessful)
     {
         super(loginSuccessful);
-    }
-
-    @Override
-    public String toJSONString() 
-    {
-        return json.toString();
     }
 }

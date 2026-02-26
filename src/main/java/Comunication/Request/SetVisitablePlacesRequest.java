@@ -9,8 +9,9 @@ import Comunication.Request.Interfaces.AuthenticatedRequest;
 
 public class SetVisitablePlacesRequest extends AuthenticatedRequest
 {
+    private JSONArray placesArray = new JSONArray();
     private List<Place> places;
-
+    
     public SetVisitablePlacesRequest
     (
         String userID,
@@ -25,26 +26,25 @@ public class SetVisitablePlacesRequest extends AuthenticatedRequest
         String address,
         String description,
         String organization,
-        List<String> visitTypes,
-        List<String> voluntaries
+        String visitType,
+        String defaultVoluntary
     ) {
         Place place = new Place(
-            city, 
-            address, 
-            description, 
-            organization, 
-            visitTypes, 
-            voluntaries
+            city,
+            address,
+            description,
+            organization,
+            visitType,
+            defaultVoluntary
         );
-        places.add(place);
+        placesArray.put(place.getJSONObject());
     }
 
     public String toJSONString()
     {
-        JSONArray placesArray = new JSONArray();
-        for(Place p : places)
+        if(json.has("places"))
         {
-            placesArray.put(new JSONObject(p.toJSONString()));
+            json.remove("places");
         }
         json.put("places", placesArray);
         return json.toString();

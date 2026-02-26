@@ -84,9 +84,6 @@ public class UserCreator
             result.getBoolean("changePasswordDue"),
             result.getString("organization"),
             disponibilities,
-            allowedVisits,
-            voluntaryEventName,
-            voluntaryEventDate
         );
     }
 }

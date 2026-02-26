@@ -16,12 +16,6 @@ public class DeleteVoluntaryRequest extends AuthenticatedRequest
         String targetID
     ) {
         super(ComunicationType.DELETE_VOLUNTARY, userID, password);
-        this.targetID = targetID;
-    }
-
-    public String toJSONString()
-    {
         json.put("targetID", targetID);
-        return json.toString();
     }
 }

@@ -10,6 +10,7 @@ import Comunication.Reply.Interfaces.AuthenticatedReply;
 import Comunication.Reply.GetVoluntariesReply;
 import Comunication.DatabaseObjects.User;
 import Comunication.DatabaseObjects.UserRole;
+import Comunication.DatabaseObjects.Event;
 
 public class GetVoluntariesEngine extends AuthenticatedEngine
 {
@@ -94,11 +95,8 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
         return new GetVoluntariesReply(true, voluntaries);
     }
     
-    private List<User> getFilteredVoluntaries() throws SQLException 
+    private PreparedStatement makeStatement()
     {
-        JSONObject filters = json.getJSONObject("filters");
-
-        List<User> voluntaries = new ArrayList<>();    
         StringBuilder queryBuilder = new StringBuilder(
             """
                 SELECT userID, userName, userSurname, city, organization, 
@@ -107,9 +105,8 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
                 FROM users WHERE role = 'VOLUNTARY' 
             """
         );
-        
         List<Object> parameters = new ArrayList<>();
-        
+
         if(filters.has("city")) 
         {
             queryBuilder.append(" AND city LIKE ?");
@@ -142,7 +139,6 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
             }
             parameters.add(birthYear);
         }
-
         PreparedStatement statement 
             = connection.prepareStatement(queryBuilder.toString());
             
@@ -150,6 +146,16 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
         {
             statement.setObject(i + 1, parameters.get(i));
         }
+        return statement;
+    }
+
+    private List<User> getFilteredVoluntaries() throws SQLException 
+    {
+        JSONObject filters = json.getJSONObject("filters");
+
+        PreparedStatement statement = makeStatement();
+
+        List<User> voluntaries = new ArrayList<>();    
             
         ResultSet result = statement.executeQuery();
         while (result.next()) 
@@ -161,7 +167,7 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
         return voluntaries;
     }
 
-        public static User createUserFromResultSet(
+    public static User createUserFromResultSet(
         Connection connection, 
         ResultSet result
     ) throws SQLException {
@@ -237,9 +243,7 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
             result.getBoolean("changePasswordDue"),
             result.getString("organization"),
             disponibilities,
-            allowedVisits,
-            voluntaryEventName,
-            voluntaryEventDate
+            new ArrayList<Event>()
         );
     }
 }

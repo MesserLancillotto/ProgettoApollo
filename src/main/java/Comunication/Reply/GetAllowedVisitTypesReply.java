@@ -7,29 +7,16 @@ import Comunication.Reply.Interfaces.AuthenticatedReply;
 
 public class GetAllowedVisitTypesReply extends AuthenticatedReply 
 {
-    private static final int MAX_VISIT_TYPES = 100;
-    private List<String> visitTypes;
-
     public GetAllowedVisitTypesReply(
         Boolean loginSuccessful, 
         List<String> visitTypes
     )  {
         super(loginSuccessful);
-        this.visitTypes = new ArrayList<String>(visitTypes);
-    }
-
-    @Override
-    public String toJSONString() 
-    {
-        json.put("loginSuccessful", loginSuccessful);
-        JSONArray array = new JSONArray();
-
-        for (int i = 0; i < visitTypes.size() && i < MAX_VISIT_TYPES; i++) 
+        JSONArray visitTypesJSON = new JSONArray();
+        for (String visitType : visitTypes) 
         { 
-            array.put(visitTypes.get(i));
+            visitTypesJSON.put(visitType);
         }
-        
-        json.put("visitTypes", array);
-        return json.toString();
+        json.put("visitTypes", visitTypesJSON);
     }
 }

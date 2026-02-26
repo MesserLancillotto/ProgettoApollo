@@ -9,26 +9,14 @@ import Comunication.DatabaseObjects.Event;
 
 public class GetEventReply extends AuthenticatedReply 
 {
-    private static final int MAX_EVENTS = 365;
-    private List<Event> events;
-
     public GetEventReply(Boolean loginSuccessful, List<Event> events) 
     {
         super(loginSuccessful);
-        this.events = new ArrayList<Event>(events);
-    }
-
-    @Override
-    public String toJSONString() 
-    {
-        json.put("loginSuccessful", loginSuccessful);
-        JSONArray array = new JSONArray();
-        
-        for (int i = 0; i < events.size() && i < MAX_EVENTS; i++) 
+        JSONArray eventsJSON = new JSONArray();
+        for (Event event : events) 
         {
-            array.put(new JSONObject(events.get(i).toJSONString()));
+            eventsJSON.put(event.getJSONObject());
         }
-        json.put("events", array);
-        return json.toString();
+        json.put("events", eventsJSON);
     }
 }

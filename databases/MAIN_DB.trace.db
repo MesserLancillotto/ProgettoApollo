@@ -1,305 +1,80 @@
-2026-02-19 18:04:12.212670+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "SUBSCRIPTION_DATE" not found; SQL statement:
-INSERT INTO subscriptions (userID, subscription_date, plan_type)
-        SELECT * FROM users 
-        WHERE userID = 'Stefania.Arilicense.71'  AND ROLE = 'USER' [42122-224]
+2026-02-22 15:55:01.988752+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO places VALUES (
+    'San Genesio',
+    'Desenzano',
+    'Via Castello 63',
+    'Cinema',
+    'Cinema temporaneo all''aperto',
+    'Arlecchino.Valcalepio.89'
+) [21002-224]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)
 	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.table.Table.getColumn(Table.java:759)
-	at org.h2.command.Parser.parseColumn(Parser.java:1190)
-	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
-	at org.h2.command.Parser.parseInsert(Parser.java:1549)
-	at org.h2.command.Parser.parsePrepared(Parser.java:719)
-	at org.h2.command.Parser.parse(Parser.java:592)
-	at org.h2.command.Parser.parse(Parser.java:564)
-	at org.h2.command.Parser.prepareCommand(Parser.java:483)
-	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
-	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
-	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
-	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
-	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
-	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
-	at org.h2.server.web.WebApp.query(WebApp.java:1143)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
-	at org.h2.server.web.WebThread.process(WebThread.java:190)
-	at org.h2.server.web.WebThread.run(WebThread.java:103)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-19 18:04:24.571941+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "SUBSCRIPTION_DATE" not found; SQL statement:
-INSERT INTO subscriptions (userID, subscription_date, plan_type)
-        SELECT 'Stefania.Arilicense.71' FROM users 
-        WHERE userID = 'Stefania.Arilicense.71'  AND ROLE = 'USER' [42122-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
-	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.table.Table.getColumn(Table.java:759)
-	at org.h2.command.Parser.parseColumn(Parser.java:1190)
-	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
-	at org.h2.command.Parser.parseInsert(Parser.java:1549)
-	at org.h2.command.Parser.parsePrepared(Parser.java:719)
-	at org.h2.command.Parser.parse(Parser.java:592)
-	at org.h2.command.Parser.parse(Parser.java:564)
-	at org.h2.command.Parser.prepareCommand(Parser.java:483)
-	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
-	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
-	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
-	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
-	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
-	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
-	at org.h2.server.web.WebApp.query(WebApp.java:1143)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
-	at org.h2.server.web.WebThread.process(WebThread.java:190)
-	at org.h2.server.web.WebThread.run(WebThread.java:103)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-19 18:05:14.921826+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "SUBSCRIPTION_DATE" not found; SQL statement:
-INSERT INTO subscriptions (userID, subscription_date, plan_type)
-        SELECT 'Stefania.Arilicense.71' FROM users 
-        WHERE userID = 'Stefania.Arilicense.71'  AND ROLE = 'USER' [42122-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
-	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.table.Table.getColumn(Table.java:759)
-	at org.h2.command.Parser.parseColumn(Parser.java:1190)
-	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
-	at org.h2.command.Parser.parseInsert(Parser.java:1549)
-	at org.h2.command.Parser.parsePrepared(Parser.java:719)
-	at org.h2.command.Parser.parse(Parser.java:592)
-	at org.h2.command.Parser.parse(Parser.java:564)
-	at org.h2.command.Parser.prepareCommand(Parser.java:483)
-	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
-	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
-	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
-	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
-	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
-	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
-	at org.h2.server.web.WebApp.query(WebApp.java:1143)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
-	at org.h2.server.web.WebThread.process(WebThread.java:190)
-	at org.h2.server.web.WebThread.run(WebThread.java:103)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-19 18:07:59.113724+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO subscriptions ([*]'Stefania.Arilicense71', 'Cinema in castello', 10)\000d\000a        SELECT 'Stefania.Arilicense.71' FROM users \000d\000a        WHERE userID = 'Stefania.Arilicense.71'  AND ROLE = 'USER'"; expected "identifier"; SQL statement:
-INSERT INTO subscriptions ('Stefania.Arilicense71', 'Cinema in castello', 10)
-        SELECT 'Stefania.Arilicense.71' FROM users 
-        WHERE userID = 'Stefania.Arilicense.71'  AND ROLE = 'USER' [42001-224]
-2026-02-19 18:08:31.306727+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO subscriptions ([*]'Stefania.Arilicense71', 'Cinema in castello', 10)\000d\000aSELECT * FROM users \000d\000aWHERE userID = 'Stefania.Arilicense.71'  AND ROLE = 'USER'"; expected "identifier"; SQL statement:
-INSERT INTO subscriptions ('Stefania.Arilicense71', 'Cinema in castello', 10)
-SELECT * FROM users 
-WHERE userID = 'Stefania.Arilicense.71'  AND ROLE = 'USER' [42001-224]
-2026-02-19 18:08:45.448620+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO subscriptions ([*]'Stefania.Arilicense71', 'Cinema in castello', 10)\000d\000aSELECT userID FROM users \000d\000aWHERE userID = 'Stefania.Arilicense.71'  AND ROLE = 'USER'"; expected "identifier"; SQL statement:
-INSERT INTO subscriptions ('Stefania.Arilicense71', 'Cinema in castello', 10)
-SELECT userID FROM users 
-WHERE userID = 'Stefania.Arilicense.71'  AND ROLE = 'USER' [42001-224]
-2026-02-19 18:09:16.192653+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "SUBSCRIPTION_NAME" not found; SQL statement:
-INSERT INTO subscriptions (userID, subscription_name, quantity)
-SELECT 'Stefania.Arilicense.71', 'Cinema in castello', 10
-FROM users
-WHERE userID = 'Stefania.Arilicense.71' AND ROLE = 'USER' [42122-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
-	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.table.Table.getColumn(Table.java:759)
-	at org.h2.command.Parser.parseColumn(Parser.java:1190)
-	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
-	at org.h2.command.Parser.parseInsert(Parser.java:1549)
-	at org.h2.command.Parser.parsePrepared(Parser.java:719)
-	at org.h2.command.Parser.parse(Parser.java:592)
-	at org.h2.command.Parser.parse(Parser.java:564)
-	at org.h2.command.Parser.prepareCommand(Parser.java:483)
-	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
-	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
-	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
-	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
-	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
-	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
-	at org.h2.server.web.WebApp.query(WebApp.java:1143)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
-	at org.h2.server.web.WebThread.process(WebThread.java:190)
-	at org.h2.server.web.WebThread.run(WebThread.java:103)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-19 18:09:36.407925+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "SUBSCRIPTION_NAME" not found; SQL statement:
-INSERT INTO subscriptions (userID, subscription_name, quantity)
-SELECT 'Stefania.Arilicense.71', 'Cinema in castello', 10
-FROM users
-WHERE userID = 'Stefania.Arilicense.71' AND ROLE = 'USER' [42122-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
-	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.table.Table.getColumn(Table.java:759)
-	at org.h2.command.Parser.parseColumn(Parser.java:1190)
-	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
-	at org.h2.command.Parser.parseInsert(Parser.java:1549)
-	at org.h2.command.Parser.parsePrepared(Parser.java:719)
-	at org.h2.command.Parser.parse(Parser.java:592)
-	at org.h2.command.Parser.parse(Parser.java:564)
-	at org.h2.command.Parser.prepareCommand(Parser.java:483)
-	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
-	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
-	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
-	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
-	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
-	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
-	at org.h2.server.web.WebApp.query(WebApp.java:1143)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
-	at org.h2.server.web.WebThread.process(WebThread.java:190)
-	at org.h2.server.web.WebThread.run(WebThread.java:103)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-19 18:10:05.203598+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "QUANTITY" not found; SQL statement:
-INSERT INTO subscriptions (userID, name, quantity)
-SELECT 'Stefania.Arilicense.71', 'Cinema in castello', 10
-FROM users
-WHERE userID = 'Stefania.Arilicense.71' AND ROLE = 'USER' [42122-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
-	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.table.Table.getColumn(Table.java:759)
-	at org.h2.command.Parser.parseColumn(Parser.java:1190)
-	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
-	at org.h2.command.Parser.parseInsert(Parser.java:1549)
-	at org.h2.command.Parser.parsePrepared(Parser.java:719)
-	at org.h2.command.Parser.parse(Parser.java:592)
-	at org.h2.command.Parser.parse(Parser.java:564)
-	at org.h2.command.Parser.prepareCommand(Parser.java:483)
-	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
-	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
-	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
-	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
-	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
-	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
-	at org.h2.server.web.WebApp.query(WebApp.java:1143)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
-	at org.h2.server.web.WebThread.process(WebThread.java:190)
-	at org.h2.server.web.WebThread.run(WebThread.java:103)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-19 18:25:33.357884+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Index "PRIMARY_KEY_" not found; SQL statement:
-    MERGE INTO subscriptions (userID, name, start_date)
-    SELECT ? , ? , ?
-    FROM users
-    WHERE userID = ? AND ROLE = 'USER';
- [42112-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
-	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.table.Table.getPrimaryKey(Table.java:893)
-	at org.h2.command.dml.Merge.doPrepare(Merge.java:290)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
 	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
 	at org.h2.command.Parser.prepareCommand(Parser.java:489)
 	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
 	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
-	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
-	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
-	at Server.Engine.SetUserSubscriptionToEventEngine.processWithConnection(SetUserSubscriptionToEventEngine.java:44)
-	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:165)
-	at Server.Server.main(Server.java:38)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
-	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-20 17:04:54.945903+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "EVENTNAME" not found; SQL statement:
-    DELETE FROM subscriptions
-    WHERE userID = ? AND eventName = ? AND date = ?;
- [42122-224]
+2026-02-22 15:55:01.989981+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO places VALUES (
+    'San Genesio',
+    'Desenzano',
+    'Via Castello 63',
+    'Teatro',
+    'Rappresentazioni teatrali all''aperto',
+    'Colombina.Lison.98'
+) [21002-224]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)
 	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
-	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
-	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
-	at org.h2.expression.condition.Comparison.optimize(Comparison.java:147)
-	at org.h2.expression.condition.ConditionAndOrN.optimize(ConditionAndOrN.java:168)
-	at org.h2.expression.Expression.optimizeCondition(Expression.java:148)
-	at org.h2.command.dml.Delete.doPrepare(Delete.java:112)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
 	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
 	at org.h2.command.Parser.prepareCommand(Parser.java:489)
 	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
 	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
-	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
-	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
-	at Server.Engine.DeleteUserSubscriptionToEventEngine.processWithConnection(DeleteUserSubscriptionToEventEngine.java:40)
-	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:165)
-	at Server.Server.main(Server.java:33)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
-	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-20 17:56:29.223303+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM [*]JOIN events, subscriptions WHERE events.name = subscriptions.name"; expected "identifier"; SQL statement:
-SELECT * FROM JOIN events, subscriptions WHERE events.name = subscriptions.name [42001-224]
-2026-02-20 17:57:49.585368+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * \000d\000a[*]SELECT \000d\000a*\000d\000aFROM events\000d\000aJOIN subscriptions ON events.name = subscriptions.name\000d\000aWHERE subscriptions.userID = 'Stefania.Arilicense.71'"; SQL statement:
-SELECT * 
-SELECT 
-*
-FROM events
-JOIN subscriptions ON events.name = subscriptions.name
-WHERE subscriptions.userID = 'Stefania.Arilicense.71' [42000-224]
-2026-02-20 17:57:53.708873+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * \000d\000a[*]SELECT \000d\000a    events.*,\000d\000a    subscriptions.quantity,\000d\000a    subscriptions.subscription_date\000d\000aFROM events\000d\000aJOIN subscriptions ON events.name = subscriptions.name\000d\000aWHERE subscriptions.userID = 'Stefania.Arilicense.71'"; SQL statement:
-SELECT * 
-SELECT 
-    events.*,
-    subscriptions.quantity,
-    subscriptions.subscription_date
-FROM events
-JOIN subscriptions ON events.name = subscriptions.name
-WHERE subscriptions.userID = 'Stefania.Arilicense.71' [42000-224]
-2026-02-20 17:57:58.667558+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * \000d\000a[*]SELECT \000d\000a    events.*\000d\000aFROM events\000d\000aJOIN subscriptions ON events.name = subscriptions.name\000d\000aWHERE subscriptions.userID = 'Stefania.Arilicense.71'"; SQL statement:
-SELECT * 
-SELECT 
-    events.*
-FROM events
-JOIN subscriptions ON events.name = subscriptions.name
-WHERE subscriptions.userID = 'Stefania.Arilicense.71' [42000-224]
-2026-02-20 17:58:28.223832+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "SUBSCRIPTIONS.QUANTITY" not found; SQL statement:
-SELECT 
-    events.*,
-    subscriptions.quantity,
-    subscriptions.subscription_date
-FROM events
-JOIN subscriptions ON events.name = subscriptions.name
-WHERE subscriptions.userID = 'Stefania.Arilicense.71' [42122-224]
+2026-02-22 15:55:01.991098+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO places VALUES (
+    'San Genesio',
+    'Lonato',
+    'Via Rocca 2',
+    'Teatro',
+    'Rappresentazioni teatrali all''aperto',
+    'Balanzone.Pignoletto.92'
+) [21002-224]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)
 	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
-	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
-	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
-	at org.h2.command.query.Select.prepareExpressions(Select.java:1170)
-	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
 	at org.h2.command.Parser.prepareCommand(Parser.java:489)
 	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
 	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
@@ -313,156 +88,37 @@ WHERE subscriptions.userID = 'Stefania.Arilicense.71' [42122-224]
 	at org.h2.server.web.WebThread.process(WebThread.java:190)
 	at org.h2.server.web.WebThread.run(WebThread.java:103)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-20 18:15:50.354434+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "SUBSCRIPTIONS.QUANTITY" not found; SQL statement:
-    SELECT
-        events.*,
-        subscriptions.quantity,
-        subscriptions.subscription_date
-    FROM events
-    JOIN subscriptions ON events.name = subscriptions.name
-    WHERE subscriptions.userID = ? ;
- [42122-224]
+2026-02-22 15:55:01.993777+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO closedDays VALUES (\000d\000a    'San Genesio',\000d\000a    1769904000, -- 01/02/2026 00:00\000d\000a    1770422400, -- 07/02/2026 00:00\000d\000a[*])\000d\000a\000d\000aINSERT INTO organizations VALUES (\000d\000a    'San Genesio',\000d\000a    3\000d\000a)"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO closedDays VALUES (
+    'San Genesio',
+    1769904000, -- 01/02/2026 00:00
+    1770422400, -- 07/02/2026 00:00
+)
+
+INSERT INTO organizations VALUES (
+    'San Genesio',
+    3
+) [42001-224]
+2026-02-22 15:55:01.996038+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO events VALUES (
+    'Cinema in castello',
+    'Rassegna cinematografica nel castello di Desenzano.'
+    'Cinema',
+    'San Genesio',
+    'Desenzano',
+    'Via Castello 63',
+    'Ingresso principale sull''ex ponte levatoio.',
+    'CONFIRMED'
+) [21002-224]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)
 	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
-	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
-	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
-	at org.h2.command.query.Select.prepareExpressions(Select.java:1170)
-	at org.h2.command.query.Query.prepare(Query.java:218)
-	at org.h2.command.Parser.prepareCommand(Parser.java:489)
-	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
-	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
-	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
-	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
-	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
-	at Server.Engine.GetSubscribedEventsEngine.processWithConnection(GetSubscribedEventsEngine.java:38)
-	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:165)
-	at Server.Server.main(Server.java:31)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
-	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-20 18:16:32.474206+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "VOLUNTARY" not found; SQL statement:
-SELECT visitType, voluntary FROM placesData
-    WHERE city = ? AND address = ? [42122-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
-	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
-	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
-	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
-	at org.h2.command.query.Select.prepareExpressions(Select.java:1170)
-	at org.h2.command.query.Query.prepare(Query.java:218)
-	at org.h2.command.Parser.prepareCommand(Parser.java:489)
-	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
-	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
-	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
-	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
-	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
-	at Server.Engine.GetSubscribedEventsEngine.processWithConnection(GetSubscribedEventsEngine.java:54)
-	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:165)
-	at Server.Server.main(Server.java:31)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
-	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-20 18:17:38.284611+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "voluntary" not found [42122-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
-	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
-	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:301)
-	at Server.Engine.GetSubscribedEventsEngine.processWithConnection(GetSubscribedEventsEngine.java:68)
-	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:165)
-	at Server.Server.main(Server.java:31)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
-	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-20 18:18:55.446704+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLDataException: Parameter "#1" is not set; SQL statement:
-SELECT events.* FROM events
-        JOIN subscriptions ON events.name = subscriptions.name
-        WHERE subscriptions.userID = ? [90012-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:658)
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
-	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.expression.Parameter.checkSet(Parameter.java:75)
-	at org.h2.command.Prepared.checkParameters(Prepared.java:207)
-	at org.h2.command.CommandContainer.query(CommandContainer.java:251)
-	at org.h2.command.Command.executeQuery(Command.java:192)
-	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:257)
-	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
-	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
-	at org.h2.server.web.WebApp.query(WebApp.java:1143)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
-	at org.h2.server.web.WebThread.process(WebThread.java:190)
-	at org.h2.server.web.WebThread.run(WebThread.java:103)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-20 18:22:48.067067+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "NAME"; SQL statement:
-SELECT name, description, visitType, organization, city, address, rendezvous, state, start_date, end_date FROM events
-        JOIN subscriptions ON events.name = subscriptions.name
-        JOIN eventsData ON eventsData.name = events.name
-        WHERE subscriptions.userID = 'Michele.Monteclarense.89' [90059-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
-	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
-	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
-	at org.h2.command.query.Select.mapColumns(Select.java:1558)
-	at org.h2.command.query.Select.init(Select.java:1100)
-	at org.h2.command.Parser.parseQuery(Parser.java:2501)
-	at org.h2.command.Parser.parsePrepared(Parser.java:627)
-	at org.h2.command.Parser.parse(Parser.java:592)
-	at org.h2.command.Parser.parse(Parser.java:564)
-	at org.h2.command.Parser.prepareCommand(Parser.java:483)
-	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
-	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
-	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
-	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
-	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
-	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
-	at org.h2.server.web.WebApp.query(WebApp.java:1143)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
-	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
-	at org.h2.server.web.WebThread.process(WebThread.java:190)
-	at org.h2.server.web.WebThread.run(WebThread.java:103)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-20 18:23:16.598364+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "E.START_DATE" not found; SQL statement:
-SELECT e.name, e.description, e.visitType, e.organization, e.city, e.address, e.rendezvous, e.state, e.start_date, e.end_date FROM events e
-        JOIN subscriptions ON events.name = subscriptions.name
-        JOIN eventsData ON eventsData.name = events.name
-        WHERE subscriptions.userID = 'Michele.Monteclarense.89' [42122-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
-	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
-	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
-	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
-	at org.h2.command.query.Select.prepareExpressions(Select.java:1170)
-	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
 	at org.h2.command.Parser.prepareCommand(Parser.java:489)
 	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
 	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
@@ -476,25 +132,24 @@ SELECT e.name, e.description, e.visitType, e.organization, e.city, e.address, e.
 	at org.h2.server.web.WebThread.process(WebThread.java:190)
 	at org.h2.server.web.WebThread.run(WebThread.java:103)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-20 18:23:30.750532+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "EVENTS.NAME" not found; SQL statement:
-SELECT *FROM events e
-        JOIN subscriptions ON events.name = subscriptions.name
-        JOIN eventsData ON eventsData.name = events.name
-        WHERE subscriptions.userID = 'Michele.Monteclarense.89' [42122-224]
+2026-02-22 15:55:01.997732+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO events VALUES (
+    'Cinema in castello',
+    'Rassegna cinematografica nel castello di Desenzano.'
+    'Cinema',
+    'San Genesio',
+    'Desenzano',
+    'Via Castello 63',
+    'Ingresso principale sull''ex ponte levatoio.'
+) [21002-224]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)
 	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
-	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
-	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
-	at org.h2.expression.condition.Comparison.optimize(Comparison.java:148)
-	at org.h2.expression.condition.ConditionAndOr.optimize(ConditionAndOr.java:136)
-	at org.h2.expression.condition.ConditionAndOr.optimize(ConditionAndOr.java:137)
-	at org.h2.expression.Expression.optimizeCondition(Expression.java:148)
-	at org.h2.command.query.Select.prepareExpressions(Select.java:1177)
-	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
 	at org.h2.command.Parser.prepareCommand(Parser.java:489)
 	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
 	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
@@ -508,25 +163,24 @@ SELECT *FROM events e
 	at org.h2.server.web.WebThread.process(WebThread.java:190)
 	at org.h2.server.web.WebThread.run(WebThread.java:103)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-20 18:23:31.560163+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "EVENTS.NAME" not found; SQL statement:
-SELECT * FROM events e
-        JOIN subscriptions ON events.name = subscriptions.name
-        JOIN eventsData ON eventsData.name = events.name
-        WHERE subscriptions.userID = 'Michele.Monteclarense.89' [42122-224]
+2026-02-22 15:55:01.999403+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO events VALUES (
+    'Teatro in rocca',
+    'Rassegna teatrale nella rocca di Lonato.'
+    'Teatro',
+    'San Genesio',
+    'Lonato',
+    'Via Rocca 2',
+    'Ingresso principale davanti al parcheggio.'
+) [21002-224]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)
 	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
-	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
-	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
-	at org.h2.expression.condition.Comparison.optimize(Comparison.java:148)
-	at org.h2.expression.condition.ConditionAndOr.optimize(ConditionAndOr.java:136)
-	at org.h2.expression.condition.ConditionAndOr.optimize(ConditionAndOr.java:137)
-	at org.h2.expression.Expression.optimizeCondition(Expression.java:148)
-	at org.h2.command.query.Select.prepareExpressions(Select.java:1177)
-	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
 	at org.h2.command.Parser.prepareCommand(Parser.java:489)
 	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
 	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
@@ -540,25 +194,48 @@ SELECT * FROM events e
 	at org.h2.server.web.WebThread.process(WebThread.java:190)
 	at org.h2.server.web.WebThread.run(WebThread.java:103)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-20 18:23:44.510354+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "EVENTS.NAME" not found; SQL statement:
-SELECT e.name FROM events e
-        JOIN subscriptions ON events.name = subscriptions.name
-        JOIN eventsData ON eventsData.name = events.name
-        WHERE subscriptions.userID = 'Michele.Monteclarense.89' [42122-224]
+2026-02-22 15:55:29.391223+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO closedDays VALUES (\000d\000a    'San Genesio',\000d\000a    1769904000, -- 01/02/2026 00:00\000d\000a    1770422400, -- 07/02/2026 00:00\000d\000a[*])\000d\000a\000d\000aINSERT INTO organizations VALUES (\000d\000a    'San Genesio',\000d\000a    3\000d\000a)"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO closedDays VALUES (
+    'San Genesio',
+    1769904000, -- 01/02/2026 00:00
+    1770422400, -- 07/02/2026 00:00
+)
+
+INSERT INTO organizations VALUES (
+    'San Genesio',
+    3
+) [42001-224]
+2026-02-22 15:55:29.392774+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ADDRESS CHARACTER VARYING(32)": "'Ingresso principale sull''ex ponte levatoio.' (43)"; SQL statement:
+INSERT INTO events VALUES (
+    'Cinema in castello',
+    'Rassegna cinematografica nel castello di Desenzano.'
+    'Cinema',
+    'San Genesio',
+    'Desenzano',
+    'Via Castello 63',
+    'Ingresso principale sull''ex ponte levatoio.',
+    'CONFIRMED'
+) [22001-224]
+2026-02-22 15:55:29.393489+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO events VALUES (
+    'Cinema in castello',
+    'Rassegna cinematografica nel castello di Desenzano.'
+    'Cinema',
+    'San Genesio',
+    'Desenzano',
+    'Via Castello 63',
+    'Ingresso principale sull''ex ponte levatoio.'
+) [21002-224]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)
 	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
-	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
-	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
-	at org.h2.expression.condition.Comparison.optimize(Comparison.java:148)
-	at org.h2.expression.condition.ConditionAndOr.optimize(ConditionAndOr.java:136)
-	at org.h2.expression.condition.ConditionAndOr.optimize(ConditionAndOr.java:137)
-	at org.h2.expression.Expression.optimizeCondition(Expression.java:148)
-	at org.h2.command.query.Select.prepareExpressions(Select.java:1177)
-	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
 	at org.h2.command.Parser.prepareCommand(Parser.java:489)
 	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
 	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
@@ -572,26 +249,25 @@ SELECT e.name FROM events e
 	at org.h2.server.web.WebThread.process(WebThread.java:190)
 	at org.h2.server.web.WebThread.run(WebThread.java:103)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-20 18:25:53.060057+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "NAME"; SQL statement:
-SELECT name, description, visitType, organization, city, address, rendezvous, state 
-FROM events e
-JOIN subscriptions ON e.name = subscriptions.name
-JOIN eventsData ON eventsData.name = e.name
-WHERE subscriptions.userID = 'Michele.Monteclarense.89' [90059-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+2026-02-22 15:55:29.394444+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO events VALUES (
+    'Teatro in rocca',
+    'Rassegna teatrale nella rocca di Lonato.'
+    'Teatro',
+    'San Genesio',
+    'Lonato',
+    'Via Rocca 2',
+    'Ingresso principale davanti al parcheggio.'
+) [21002-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)
 	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
-	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
-	at org.h2.command.query.Select.mapColumns(Select.java:1558)
-	at org.h2.command.query.Select.init(Select.java:1100)
-	at org.h2.command.Parser.parseQuery(Parser.java:2501)
-	at org.h2.command.Parser.parsePrepared(Parser.java:627)
-	at org.h2.command.Parser.parse(Parser.java:592)
-	at org.h2.command.Parser.parse(Parser.java:564)
-	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
 	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
 	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
@@ -604,26 +280,45 @@ WHERE subscriptions.userID = 'Michele.Monteclarense.89' [90059-224]
 	at org.h2.server.web.WebThread.process(WebThread.java:190)
 	at org.h2.server.web.WebThread.run(WebThread.java:103)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-20 18:26:19.420086+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "START_DATE"; SQL statement:
-SELECT e.name, e.description, e.visitType, e.organization, e.city, e.address, e.rendezvous, e.state, start_date 
-FROM events e
-JOIN subscriptions ON e.name = subscriptions.name
-JOIN eventsData ON eventsData.name = e.name
-WHERE subscriptions.userID = 'Michele.Monteclarense.89' [90059-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+2026-02-22 15:59:24.547022+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found; SQL statement:
+SELECT * FROM placesData [42102-224]
+2026-02-22 16:00:43.697097+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found; SQL statement:
+SELECT * FROM placesData [42102-224]
+2026-02-22 16:01:16.612980+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO closedDays VALUES (\000d\000a    'San Genesio',\000d\000a    1769904000, -- 01/02/2026 00:00\000d\000a    1770422400, -- 07/02/2026 00:00\000d\000a[*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO closedDays VALUES (
+    'San Genesio',
+    1769904000, -- 01/02/2026 00:00
+    1770422400, -- 07/02/2026 00:00
+) [42001-224]
+2026-02-22 16:01:25.486788+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO closedDays VALUES (\000d\000a    'San Genesio',\000d\000a    1769904000,\000d\000a    1770422400,\000d\000a[*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO closedDays VALUES (
+    'San Genesio',
+    1769904000,
+    1770422400,
+) [42001-224]
+2026-02-22 16:03:02.735799+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO events VALUES (
+    'Cinema in castello',
+    'Rassegna cinematografica nel castello di Desenzano.'
+    'Cinema',
+    'San Genesio',
+    'Desenzano',
+    'Via Castello 63',
+    'Ingresso principale sull''ex ponte levatoio.'
+) [21002-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)
 	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:197)
-	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:175)
-	at org.h2.command.query.Select.mapColumns(Select.java:1558)
-	at org.h2.command.query.Select.init(Select.java:1100)
-	at org.h2.command.Parser.parseQuery(Parser.java:2501)
-	at org.h2.command.Parser.parsePrepared(Parser.java:627)
-	at org.h2.command.Parser.parse(Parser.java:592)
-	at org.h2.command.Parser.parse(Parser.java:564)
-	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
 	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
 	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
@@ -636,109 +331,117 @@ WHERE subscriptions.userID = 'Michele.Monteclarense.89' [90059-224]
 	at org.h2.server.web.WebThread.process(WebThread.java:190)
 	at org.h2.server.web.WebThread.run(WebThread.java:103)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-20 18:27:16.332469+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT UNIQUE [*]e.name, e.description, e.visitType, e.organization, e.city, e.address, e.rendezvous, e.state, ed.start_date, ed.end_date \000d\000aFROM events e, eventsData ed\000d\000aJOIN subscriptions ON e.name = subscriptions.name\000d\000aJOIN eventsData ON eventsData.name = e.name\000d\000aWHERE subscriptions.userID = 'Michele.Monteclarense.89'"; expected "NULLS, ("; SQL statement:
-SELECT UNIQUE e.name, e.description, e.visitType, e.organization, e.city, e.address, e.rendezvous, e.state, ed.start_date, ed.end_date 
-FROM events e, eventsData ed
-JOIN subscriptions ON e.name = subscriptions.name
-JOIN eventsData ON eventsData.name = e.name
-WHERE subscriptions.userID = 'Michele.Monteclarense.89' [42001-224]
-2026-02-20 18:29:16.863790+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLDataException: Invalid value "1" for parameter "parameterIndex" [90008-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:658)
+2026-02-22 16:03:02.736703+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO events VALUES (
+    'Cinema in castello',
+    'Rassegna cinematografica nel castello di Desenzano.'
+    'Cinema',
+    'San Genesio',
+    'Desenzano',
+    'Via Castello 63',
+    'Ingresso principale sull''ex ponte levatoio.'
+) [21002-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.getInvalidValueException(DbException.java:298)
-	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1408)
-	at org.h2.jdbc.JdbcPreparedStatement.setString(JdbcPreparedStatement.java:391)
-	at Server.Engine.GetSubscribedEventsEngine.processWithConnection(GetSubscribedEventsEngine.java:48)
-	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:165)
-	at Server.Server.main(Server.java:31)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
-	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
-2026-02-21 11:13:26.607548+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "    SELECT DISTINCT\000a        e.name\000a        ed[*].start_date,\000a        ed.end_date\000a    FROM events e\000a    JOIN subscriptions ON e.name = subscriptions.name\000a    JOIN eventsData ed ON ed.name = e.name\000a    WHERE subscriptions.userID = ? ;\000a"; SQL statement:
-    SELECT DISTINCT
-        e.name
-        ed.start_date,
-        ed.end_date
-    FROM events e
-    JOIN subscriptions ON e.name = subscriptions.name
-    JOIN eventsData ed ON ed.name = e.name
-    WHERE subscriptions.userID = ? ;
- [42000-224]
-2026-02-21 16:25:00.811774+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO users VALUES (\000d\000a    'Paolo.Malatesta.82',\000d\000a    'Francesca',\000d\000a    'Paolo',\000d\000a    'Malatesta',\000d\000a    'Desenzano',\000d\000a    7, 1, 1982,\000d\000a    1768047600 -- 10/01/2026 12:20\000d\000a    [*]'',\000d\000a    'USER',\000d\000a    false\000d\000a)"; expected "[, ., ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
-INSERT INTO users VALUES (
+2026-02-22 16:03:02.737510+01:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO events VALUES (
+    'Teatro in rocca',
+    'Rassegna teatrale nella rocca di Lonato.'
+    'Teatro',
+    'San Genesio',
+    'Lonato',
+    'Via Rocca 2',
+    'Ingresso principale davanti al parcheggio.'
+) [21002-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-22 16:49:52.768636+01:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO eventsVoluntaries VALUES (\000d\000a    'Cinema in castello',\000d\000a    'Arlecchino.Valcalepio.89',\000d\000a    1772830800, -- 06/03/2022 21:00\000d\000a[*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO eventsVoluntaries VALUES (
+    'Cinema in castello',
+    'Arlecchino.Valcalepio.89',
+    1772830800, -- 06/03/2022 21:00
+) [42001-224]
+2026-02-22 16:49:52.769534+01:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO eventsVoluntaries VALUES (\000d\000a    'Cinema in castello',\000d\000a    'Colombina.Lison.98',\000d\000a    1772830800, -- 06/03/2022 21:00    \000d\000a[*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO eventsVoluntaries VALUES (
+    'Cinema in castello',
+    'Colombina.Lison.98',
+    1772830800, -- 06/03/2022 21:00    
+) [42001-224]
+2026-02-22 16:49:52.770326+01:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO eventsVoluntaries VALUES (\000d\000a    'Cinema in castello',\000d\000a    'Arlecchino.Valcalepio.89',\000d\000a    1772917200, -- 07/03/2022 21:00 \000d\000a[*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO eventsVoluntaries VALUES (
+    'Cinema in castello',
+    'Arlecchino.Valcalepio.89',
+    1772917200, -- 07/03/2022 21:00 
+) [42001-224]
+2026-02-22 16:49:52.771068+01:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO subscriptions VALUES (\000d\000a    'Paolo.Malatesta.82',\000d\000a    'Cinema in castello',\000d\000a    1772917200, -- 07/03/2022 21:00 \000d\000a[*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO subscriptions VALUES (
     'Paolo.Malatesta.82',
-    'Francesca',
-    'Paolo',
-    'Malatesta',
-    'Desenzano',
-    7, 1, 1982,
-    1768047600 -- 10/01/2026 12:20
-    '',
-    'USER',
-    false
+    'Cinema in castello',
+    1772917200, -- 07/03/2022 21:00 
 ) [42001-224]
-2026-02-21 16:25:00.813736+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO users VALUES (\000d\000a    'Francesca.Rimini.89',\000d\000a    'Paolo',\000d\000a    'Francesca',\000d\000a    'Rimini',\000d\000a    'Desenzano',\000d\000a    19, 8, 1989,\000d\000a    1768047300 -- 10/01/2026 12:15\000d\000a    [*]'',\000d\000a    'USER',\000d\000a    false\000d\000a)"; expected "[, ., ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
-INSERT INTO users VALUES (
-    'Francesca.Rimini.89',
-    'Paolo',
-    'Francesca',
-    'Rimini',
-    'Desenzano',
-    19, 8, 1989,
-    1768047300 -- 10/01/2026 12:15
-    '',
-    'USER',
-    false
+2026-02-22 16:49:52.771799+01:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO subscriptions VALUES (\000d\000a    'Francesca.Polenta.89',\000d\000a    'Cinema in castello',\000d\000a    1772917200, -- 07/03/2022 21:00 \000d\000a[*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO subscriptions VALUES (
+    'Francesca.Polenta.89',
+    'Cinema in castello',
+    1772917200, -- 07/03/2022 21:00 
 ) [42001-224]
-2026-02-21 16:25:00.815209+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO users VALUES (\000d\000a    'Renzo.Tramaglino.94',\000d\000a    'Milano',\000d\000a    'Renzo',\000d\000a    'Tramaglino',\000d\000a    'Desenzano',\000d\000a    28, 11, 1994,\000d\000a    1768155600 -- 10/01/2026 18:20\000d\000a    [*]'',\000d\000a    'USER',\000d\000a    false\000d\000a)"; expected "[, ., ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
-INSERT INTO users VALUES (
+2026-02-22 16:49:52.772537+01:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO subscriptions VALUES (\000d\000a    'Renzo.Tramaglino.94',\000d\000a    'Cinema in castello',\000d\000a    1772830800, -- 06/03/2022 21:00    \000d\000a[*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO subscriptions VALUES (
     'Renzo.Tramaglino.94',
-    'Milano',
-    'Renzo',
-    'Tramaglino',
-    'Desenzano',
-    28, 11, 1994,
-    1768155600 -- 10/01/2026 18:20
-    '',
-    'USER',
-    false
+    'Cinema in castello',
+    1772830800, -- 06/03/2022 21:00    
 ) [42001-224]
-2026-02-21 16:25:00.816897+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO users VALUES (\000d\000a    'Lucia.Mondella.97',\000d\000a    'Monza',\000d\000a    'Lucia',\000d\000a    'Mondella',\000d\000a    'Desenzano',\000d\000a    4, 6, 1997,\000d\000a    1768155900 -- 10/01/2026 18:20\000d\000a    [*]'',\000d\000a    'USER',\000d\000a    false\000d\000a)"; expected "[, ., ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
-INSERT INTO users VALUES (
+2026-02-22 16:49:52.773257+01:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO subscriptions VALUES (\000d\000a    'Lucia.Mondella.97',\000d\000a    'Cinema in castello',\000d\000a    1772830800, -- 06/03/2022 21:00\000d\000a[*])"; expected "DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO subscriptions VALUES (
     'Lucia.Mondella.97',
-    'Monza',
-    'Lucia',
-    'Mondella',
-    'Desenzano',
-    4, 6, 1997,
-    1768155900 -- 10/01/2026 18:20
-    '',
-    'USER',
-    false
+    'Cinema in castello',
+    1772830800, -- 06/03/2022 21:00
 ) [42001-224]
-2026-02-21 16:25:18.600001+01:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO users VALUES (\000d\000a    'Lucia.Mondella.97',\000d\000a    'Monza',\000d\000a    'Lucia',\000d\000a    'Mondella',\000d\000a    'Desenzano',\000d\000a    4, 6, 1997,\000d\000a    1768155900 -- 10/01/2026 18:20\000d\000a    [*]'',\000d\000a    'USER',\000d\000a    false\000d\000a)"; expected "[, ., ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
-INSERT INTO users VALUES (
-    'Lucia.Mondella.97',
-    'Monza',
-    'Lucia',
-    'Mondella',
-    'Desenzano',
-    4, 6, 1997,
-    1768155900 -- 10/01/2026 18:20
-    '',
-    'USER',
-    false
-) [42001-224]
+2026-02-22 16:50:48.596043+01:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found; SQL statement:
+DROP TABLE placesData [42102-224]

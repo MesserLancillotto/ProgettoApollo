@@ -19,13 +19,7 @@ CREATE TABLE IF NOT EXISTS places
         city VARCHAR(16),
         address VARCHAR(32),
         visitType VARCHAR(32),
-        description VARCHAR(512) 
-    );
-CREATE TABLE IF NOT EXISTS placesData
-    (
-        city VARCHAR(16),
-        address VARCHAR(32),
-        visitType VARCHAR(32),
+        description VARCHAR(512),
         userID VARCHAR(32)
     );
 CREATE TABLE IF NOT EXISTS userPermissions
@@ -57,14 +51,14 @@ CREATE TABLE IF NOT EXISTS events
         organization VARCHAR(32),
         city VARCHAR(16),
         address VARCHAR(32),
-        rendezvous VARCHAR(128),
-        state VARCHAR(16)
+        rendezvous VARCHAR(128)
     );
 CREATE TABLE IF NOT EXISTS eventsData
     (
         name VARCHAR(32),
         start_date INT,
-        end_date INT
+        end_date INT,
+        state VARCHAR(16)
     );
 CREATE TABLE IF NOT EXISTS eventsVoluntaries
     (
@@ -83,5 +77,5 @@ CREATE TABLE IF NOT EXISTS subscriptions
     (
         userID VARCHAR(32),
         name VARCHAR(32),
-        start_date INT
+        date INT
     );

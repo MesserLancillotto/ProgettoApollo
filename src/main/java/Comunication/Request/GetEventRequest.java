@@ -16,12 +16,6 @@ public class GetEventRequest extends AuthenticatedRequest
         String state
     ) {
         super(ComunicationType.GET_EVENT, userID, password);
-        this.state = state;
-    }
-
-    public String toJSONString()
-    {
         json.put("state", state);
-        return json.toString();
     }
 }

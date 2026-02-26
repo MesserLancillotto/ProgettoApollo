@@ -7,25 +7,22 @@ import Comunication.Request.Interfaces.AuthenticatedRequest;
 
 public class DeletePlaceRequest extends AuthenticatedRequest
 {
-    private String city;
-    private String address;
+    private String jsonString;
 
     public DeletePlaceRequest
     (
         String userID,
         String password,
         String city,
-        String address
+        String address,
+        String visitType
     ) {
         super(ComunicationType.DELETE_PLACE, userID, password);
-        this.city = city;
-        this.address = address;
-    }
-
-    public String toJSONString()
-    {
         json.put("city", city);
         json.put("address", address);
-        return json.toString();
+        json.put("visitType", visitType);
+        jsonString = null;
     }
+
+
 }

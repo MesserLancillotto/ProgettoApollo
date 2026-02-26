@@ -20,15 +20,7 @@ public class SetNewOrganizationRequest extends AuthenticatedRequest
         List<String> territories
     ) {
         super(ComunicationType.SET_NEW_ORGANIZATION, userID, password);
-        this.organization = organization;
-        this.territories = new ArrayList<>(territories);
-    }
-
-    public String toJSONString()
-    {
         json.put("organization", organization);
-        JSONArray territoriesJSONArray = new JSONArray(territories);
-        json.put("territories", territoriesJSONArray);
-        return json.toString();
+        json.put("territories", new JSONArray(territories));
     }
 }

@@ -21,22 +21,8 @@ public class SetUserSubscriptionToEventRequest extends AuthenticatedRequest
         List<String> friends
     ) {
         super(ComunicationType.SET_NEW_PASSWORD, userID, password);
-        this.friends = new ArrayList<String>(friends);
-        this.eventName = eventName;
-        this.date = date;
-    }
-
-    public String toJSONString()
-    {
-        JSONArray friendsJSON = new JSONArray();
-
-        for(String friend : this.friends)
-        {
-            friendsJSON.put(friend);
-        }
-        json.put("friends", friendsJSON);
+        json.put("friends", new JSONArray(friends));
         json.put("eventName", eventName);
-        json.put("date", date);        
-        return json.toString();
+        json.put("date", date);
     }
 }
