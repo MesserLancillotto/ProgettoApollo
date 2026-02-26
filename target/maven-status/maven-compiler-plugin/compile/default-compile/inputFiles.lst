@@ -68,7 +68,6 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/ComunicationType/ComunicationType.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/EditVisitablePlacesReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetUserSubscriptionToEventRequest.java
-/home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetVoluntariesEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetNewPasswordRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/DeleteVisitTypeFromPlaceReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/GetEventReply.java

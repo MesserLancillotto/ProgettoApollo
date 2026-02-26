@@ -1,4 +1,4 @@
-package Helper;
+package Server.Engine.Helper;
 
 import Comunication.ComunicationType.*;
 import Comunication.DatabaseObjects.*;
@@ -8,82 +8,80 @@ import java.util.*;
 
 public class UserCreator
 {
-    public static User createUserFromResultSet(
+    private static final String QUERY = """
+        SELECT userName, userSurname, city, birth_dd, birth_mm, 
+        birth_yy, userSince, organization, role, changePasswordDue 
+        FROM users 
+        WHERE userID = ? 
+    """;
+    private static final String ALLOWED_VISITS_QUERY = """
+        SELECT visitType 
+        FROM userPermissions
+        WHERE userID = ?
+    """;
+    private static final String DISPONIBILITIES_QUERY = """
+        SELECT start_date, end_date 
+        FROM voluntaryDisponibilities
+        WHERE userID = ?
+    """;
+    private static final String EVENTS_VOLUNTARIES_QUERY = """
+        SELECT name, date 
+        FROM eventsVoluntaries
+        WHERE userID = ?
+    """;
+
+    public static User createUserFromID(
         Connection connection, 
-        ResultSet result
+        String userID
     ) throws SQLException {
-        List<List<Integer>> disponibilities = new ArrayList<>();
-        List<String> allowedVisits = new ArrayList<String>();
-        List<String> voluntaryEventName = new ArrayList<String>();
-        List<Integer> voluntaryEventDate = new ArrayList<Integer>();
 
-        String disponibilityQuery = """
-            SELECT start_date, end_date FROM VOLUNTARYDISPONIBILITIES
-            WHERE userID = ? ;
-        """;
+        PreparedStatement statement = connection.prepareStatement(QUERY);
+        statement.setString(1, userID);
+        ResultSet result = statement.executeQuery();
 
-        PreparedStatement disponibilityStatement 
-            = connection.prepareStatement(disponibilityQuery);
-        disponibilityStatement.setString(1, result.getString("userID"));
-        ResultSet disponibilityResult 
-            = disponibilityStatement.executeQuery();
-
-        while(disponibilityResult.next())
+        if(!result.next())
         {
-            List<Integer> inner = new ArrayList<Integer>();
-
-            inner.add(disponibilityResult.getInt("start_date"));
-            inner.add(disponibilityResult.getInt("end_date"));
-
-            disponibilities.add(inner);
+            return new User();
         }
 
-        String allowedVisitsQuery = """
-            SELECT visitType FROM USERPERMISSIONS
-            WHERE userID = ? ;
-        """;
+        statement = connection.prepareStatement(ALLOWED_VISITS_QUERY);
+        statement.setString(1, userID);
+        ResultSet allowedVisitsResult = statement.executeQuery();
 
-        PreparedStatement allowedVisitsStatement 
-            = connection.prepareStatement(allowedVisitsQuery);
-        allowedVisitsStatement.setString(1, result.getString("userID"));
-        ResultSet allowedVisitsResult 
-            = allowedVisitsStatement.executeQuery();
-
+        List<String> allowedVisits = new ArrayList<String>();
         while(allowedVisitsResult.next())
         {
             allowedVisits.add(allowedVisitsResult.getString("visitType"));
-        }
+        } 
 
-        String eventVoluntaryQuery = """
-            SELECT name, date FROM EVENTSVOLUNTARIES
-            WHERE userID = ? ;
-        """; 
+        statement = connection.prepareStatement(DISPONIBILITIES_QUERY);
+        statement.setString(1, userID);
+        ResultSet disponibilitiesResult = statement.executeQuery();
 
-        PreparedStatement eventVoluntaryStatement 
-            = connection.prepareStatement(eventVoluntaryQuery);
-        eventVoluntaryStatement.setString(1, result.getString("userID"));
-        ResultSet eventVoluntaryResult 
-            = eventVoluntaryStatement.executeQuery();
-
-        while(eventVoluntaryResult.next())
+        List<List<Integer>> disponibilities = new ArrayList<>();
+        while(disponibilitiesResult.next())
         {
-            voluntaryEventName.add(eventVoluntaryResult.getString("name"));
-            voluntaryEventDate.add(eventVoluntaryResult.getInt("date"));
+            List<Integer> inner = new ArrayList<Integer>();
+            inner.add(disponibilitiesResult.getInt("start_date"));
+            inner.add(disponibilitiesResult.getInt("end_date"));
+            disponibilities.add(inner);
         }
 
         return new User(
-            result.getString("userID"),
+            userID,
             result.getString("userName"),
             result.getString("userSurname"),
             result.getString("city"),
             result.getInt("birth_dd"),
             result.getInt("birth_mm"),
             result.getInt("birth_yy"),
-            result.getInt("user_since"),
+            result.getInt("userSince"),
             UserRole.valueOf(result.getString("role")),
             result.getBoolean("changePasswordDue"),
             result.getString("organization"),
+            allowedVisits,
             disponibilities,
+            new ArrayList<Event>()
         );
     }
 }
