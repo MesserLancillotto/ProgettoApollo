@@ -3,6 +3,7 @@ Comunication/Reply/SetMaximumFriendsReply.class
 Comunication/Request/DeleteVisitTypeFromPlaceRequest.class
 Server/Engine/SetVisitablePlacesEngine.class
 Server/Engine/SetClosedDaysEngine.class
+Server/Engine/GetVoluntariesEngine.class
 Comunication/DatabaseObjects/Event.class
 Server/Engine/Interfaces/EngineInterface.class
 Comunication/Reply/GetPlacesReply.class
@@ -11,6 +12,7 @@ Comunication/Request/EditVisitablePlacesRequest.class
 Comunication/Reply/Interfaces/ReplyInterface.class
 Comunication/Reply/GetSubscribedEventsReply.class
 Server/Engine/SetUserSubscriptionToEventEngine.class
+Server/Engine/GetPlacesEngine.class
 Comunication/DatabaseObjects/User.class
 Comunication/ComunicationType/ComunicationType.class
 Server/Engine/GetPersonalDataEngine.class
@@ -20,9 +22,9 @@ Comunication/Request/GetVoluntariesRequest.class
 Server/Engine/DeleteVoluntaryEngine.class
 Comunication/Reply/SetClosedDaysReply.class
 Comunication/Reply/Interfaces/AuthenticatedUpdateReply.class
-Helper/EventCreator.class
 Comunication/DatabaseObjects/UserRole.class
 Comunication/Reply/GetAllowedVisitTypesReply.class
+Server/Engine/EditVisitablePlacesEngine.class
 Comunication/Request/GetEventRequest.class
 Comunication/Request/SetMaximumFriendsRequest.class
 Comunication/Reply/SetNewOrganizationReply.class
@@ -40,6 +42,7 @@ Server/Engine/GetSubscribedEventsEngine.class
 Server/Engine/Helper/UserCreator.class
 Comunication/Request/GetPlacesRequest.class
 Comunication/Request/DeleteVoluntaryRequest.class
+Server/Engine/Helper/PlaceCreator.class
 Comunication/Reply/SetDisponibilityReply.class
 Server/Engine/DeleteUserSubscriptionToEventEngine.class
 Helper/JsonListConverter.class
@@ -63,6 +66,7 @@ Comunication/Reply/DeleteVoluntaryReply.class
 Comunication/Reply/EditVisitablePlacesReply.class
 Server/Engine/SetNewOrganizationEngine.class
 Comunication/Reply/DeletePlaceReply.class
+Server/Engine/Helper/EventCreator.class
 Comunication/ComunicationType/ComunicationTypeStringConverter.class
 Server/Engine/Interfaces/Engine.class
 Comunication/Request/SetNewPasswordRequest.class

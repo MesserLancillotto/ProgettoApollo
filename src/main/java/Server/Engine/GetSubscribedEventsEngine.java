@@ -8,7 +8,7 @@ import Comunication.Reply.Interfaces.AuthenticatedReply;
 import Comunication.Reply.GetSubscribedEventsReply;
 import Server.Engine.Interfaces.AuthenticatedEngine;
 import Comunication.DatabaseObjects.Event;
-import Helper.*;
+import Server.Engine.Helper.*;
 
 public class GetSubscribedEventsEngine extends AuthenticatedEngine
 {
@@ -56,10 +56,10 @@ public class GetSubscribedEventsEngine extends AuthenticatedEngine
         while(result.next())
         {
             events.add(
-                EventCreator.createEventFromResultSet(
+                EventCreator.createEventFromName(
                     connection, 
-                    result, 
-                    this.targetID));
+                    result.getString("name"))
+            );
         }
         return new GetSubscribedEventsReply(true, events);
     }

@@ -25,16 +25,11 @@ public class GetVoluntariesRequest extends AuthenticatedRequest
         return this;        
     }
 
-    public GetVoluntariesRequest withYear(int year)
+    public GetVoluntariesRequest withYear(int year, boolean older)
     {
         filters.put("birthYear", year);
+        filters.put("olderThanYear", older);
         return this;        
-    }
-
-    public GetVoluntariesRequest greaterAge(boolean value)
-    {
-        filters.put("olderThanYear", value);
-        return this;
     }
 
     public GetVoluntariesRequest withAllowedVisits(String visitType)
