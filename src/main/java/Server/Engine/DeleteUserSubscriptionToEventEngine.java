@@ -14,7 +14,7 @@ extends AuthenticatedEngine
 {
     private static final String QUERY = """
         DELETE FROM subscriptions 
-        WHERE userID = ? AND name = ? AND start_date = ?;
+        WHERE userID = ? AND name = ? AND date = ?;
     """;
 
     private String eventName;

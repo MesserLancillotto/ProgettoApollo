@@ -464,3 +464,91 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "user_since" not found [42122-22
 	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
 	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-26 21:05:05.653209+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found; SQL statement:
+    DELETE FROM placesData
+    WHERE
+        city = ?
+        AND address = ?
+        AND visitType = ?
+ [42102-224]
+2026-02-26 21:06:21.794454+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found; SQL statement:
+DROP TABLE placesData [42102-224]
+2026-02-26 21:13:13.147970+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+DROP TABLE users [42102-224]
+2026-02-26 21:13:13.149565+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACES" not found; SQL statement:
+DROP TABLE places [42102-224]
+2026-02-26 21:13:13.151487+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "SUBSCRIPTIONS" not found; SQL statement:
+DROP TABLE subscriptions [42102-224]
+2026-02-26 21:13:21.537066+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+DROP TABLE users [42102-224]
+2026-02-26 21:13:21.538071+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACES" not found; SQL statement:
+DROP TABLE places [42102-224]
+2026-02-26 21:13:21.539009+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERPERMISSIONS" not found; SQL statement:
+DROP TABLE userPermissions [42102-224]
+2026-02-26 21:13:21.539714+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLOSEDDAYS" not found; SQL statement:
+DROP TABLE closedDays [42102-224]
+2026-02-26 21:13:21.540391+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORGANIZATIONS" not found; SQL statement:
+DROP TABLE organizations [42102-224]
+2026-02-26 21:13:21.541059+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TERRITORIES" not found; SQL statement:
+DROP TABLE territories [42102-224]
+2026-02-26 21:13:21.541776+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTS" not found; SQL statement:
+DROP TABLE events [42102-224]
+2026-02-26 21:13:21.542468+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSDATA" not found; SQL statement:
+DROP TABLE eventsData [42102-224]
+2026-02-26 21:13:21.543150+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EVENTSVOLUNTARIES" not found; SQL statement:
+DROP TABLE eventsVoluntaries [42102-224]
+2026-02-26 21:13:21.543831+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VOLUNTARYDISPONIBILITIES" not found; SQL statement:
+DROP TABLE voluntaryDisponibilities [42102-224]
+2026-02-26 21:13:21.544524+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "SUBSCRIPTIONS" not found; SQL statement:
+DROP TABLE subscriptions [42102-224]
+2026-02-26 21:23:45.156942+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "START_DATE" not found; SQL statement:
+    DELETE FROM subscriptions
+    WHERE userID = ? AND name = ? AND start_date = ?;
+ [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:147)
+	at org.h2.expression.condition.ConditionAndOrN.optimize(ConditionAndOrN.java:168)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:148)
+	at org.h2.command.dml.Delete.doPrepare(Delete.java:112)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
+	at Server.Engine.DeleteUserSubscriptionToEventEngine.processWithConnection(DeleteUserSubscriptionToEventEngine.java:40)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:165)
+	at Server.Server.test(Server.java:29)
+	at Server.Server.testDeleteUserSubscriptionToEventEngie(Server.java:86)
+	at Server.Server.main(Server.java:23)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1474)

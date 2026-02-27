@@ -7,13 +7,6 @@ import java.util.List;
 
 public class Place
 {
-    private String city;
-    private String address;
-    private String description;
-    private String organization;
-    private String visitType;
-    private String defaultVoluntary;
-
     private JSONObject json;
 
     public Place(
@@ -24,12 +17,13 @@ public class Place
         String visitType,
         String defaultVoluntary
     ) {
-        this.city = city;
-        this.address = address;
-        this.description = description;
-        this.organization = organization;
-        this.visitType = visitType;
-        this.defaultVoluntary = defaultVoluntary;
+        json = new JSONObject();
+        json.put("city", city);
+        json.put("address", address);
+        json.put("visitType", visitType);
+        json.put("description", description);
+        json.put("organization", organization);
+        json.put("defaultVoluntary", defaultVoluntary);
     }
 
     public Place(JSONObject data)
@@ -37,26 +31,27 @@ public class Place
         this(
             data.getString("city"),
             data.getString("address"),
+            data.getString("visitType"),
             data.getString("description"),
             data.getString("organization"),
-            data.getString("visitType"),
             data.getString("defaultVoluntary")
+        );
+    }
+    
+    public Place()
+    {
+        this(
+            "NONE",
+            "NONE",
+            "NONE",
+            "NONE",
+            "NONE",
+            "NONE"
         );
     }
 
     public JSONObject getJSONObject()
     {
-        if(json != null) 
-        {
-            return json;
-        }
-        json = new JSONObject();
-        json.put("city", city);
-        json.put("address", address);
-        json.put("description", description);
-        json.put("organization", organization);
-        json.put("visitType", visitType);
-        json.put("defaultVoluntary", defaultVoluntary);
         return json;
     }
 
@@ -67,31 +62,31 @@ public class Place
 
     public String getCity()
     {
-        return this.city;
+        return json.getString("city");
     }
 
     public String getAddress()
     {
-        return this.address;
+        return json.getString("address");
     }
 
     public String getDescription()
     {
-        return this.description;
+        return json.getString("description");
     }
 
     public String getOrganization()
     {
-        return this.organization;
+        return json.getString("organization");
     }
 
     public String getVisitType()
     {
-        return this.visitType;
+        return json.getString("visitType");
     }
     
     public String getDefaultVoluntary()
     {
-        return this.defaultVoluntary;
+        return json.getString("defaultVoluntary");
     }
 }

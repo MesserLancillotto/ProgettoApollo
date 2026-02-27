@@ -29,12 +29,6 @@ public class DeletePlaceEngine extends AuthenticatedEngine
               AND visitType = ? 
         );
     ""","""
-        DELETE FROM placesData 
-        WHERE 
-            city = ? 
-            AND address = ?
-            AND visitType = ?
-    ""","""
         DELETE FROM events
         WHERE 
             city = ? 

@@ -4,13 +4,11 @@ import org.json.*;
 import java.sql.*;
 import java.util.*;
 
-import Server.Engine.Interfaces.AuthenticatedEngine;
-import Comunication.Reply.Interfaces.ReplyInterface;
-import Comunication.Reply.Interfaces.AuthenticatedReply;
-import Comunication.Reply.GetVoluntariesReply;
-import Comunication.DatabaseObjects.User;
-import Comunication.DatabaseObjects.UserRole;
-import Comunication.DatabaseObjects.Event;
+import Server.Engine.Interfaces.*;
+import Server.Engine.Helper.*;
+import Comunication.Reply.*;
+import Comunication.Reply.Interfaces.*;
+import Comunication.DatabaseObjects.*;
 
 public class GetVoluntariesEngine extends AuthenticatedEngine
 {
@@ -21,7 +19,17 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
         super(data);
         this.filters = extractFiltersFromJson();
     }
-    
+
+    public AuthenticatedReply processWithConnection() throws SQLException
+    {
+        if(!petitionerIsConfigurator())
+        {
+            return new NegativeAuthenticatedReply();
+        }
+        List<User> voluntaries = getFilteredVoluntaries();
+        return new GetVoluntariesReply(true, voluntaries);
+    }
+
     private JSONObject extractFiltersFromJson() 
     {
         JSONObject extractedFilters = new JSONObject();
@@ -89,20 +97,13 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
         return extractedFilters;
     }
     
-    public AuthenticatedReply processWithConnection() throws SQLException
-    {
-        List<User> voluntaries = getFilteredVoluntaries();
-        return new GetVoluntariesReply(true, voluntaries);
-    }
-    
-    private PreparedStatement makeStatement()
+    private PreparedStatement makeStatement() throws SQLException
     {
         StringBuilder queryBuilder = new StringBuilder(
             """
-                SELECT userID, userName, userSurname, city, organization, 
-                birth_dd, birth_mm, birth_yy, changePasswordDue
-                user_since, role, changePasswordDue 
-                FROM users WHERE role = 'VOLUNTARY' 
+                SELECT userID
+                FROM users 
+                WHERE role = 'VOLUNTARY' 
             """
         );
         List<Object> parameters = new ArrayList<>();
@@ -160,91 +161,12 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
         ResultSet result = statement.executeQuery();
         while (result.next()) 
         {
-            User user = createUserFromResultSet(connection, result);
+            User user = UserCreator.createUserFromID(
+                connection, 
+                result.getString("userID")
+            );
             voluntaries.add(user);
         }
-        
         return voluntaries;
-    }
-
-    public static User createUserFromResultSet(
-        Connection connection, 
-        ResultSet result
-    ) throws SQLException {
-        List<List<Integer>> disponibilities = new ArrayList<>();
-        List<String> allowedVisits = new ArrayList<String>();
-        List<String> voluntaryEventName = new ArrayList<String>();
-        List<Integer> voluntaryEventDate = new ArrayList<Integer>();
-
-        String disponibilityQuery = """
-            SELECT start_date, end_date FROM VOLUNTARYDISPONIBILITIES
-            WHERE userID = ? ;
-        """;
-
-        PreparedStatement disponibilityStatement 
-            = connection.prepareStatement(disponibilityQuery);
-        disponibilityStatement.setString(1, result.getString("userID"));
-        ResultSet disponibilityResult 
-            = disponibilityStatement.executeQuery();
-
-        while(disponibilityResult.next())
-        {
-            List<Integer> inner = new ArrayList<Integer>();
-
-            inner.add(disponibilityResult.getInt("start_date"));
-            inner.add(disponibilityResult.getInt("end_date"));
-
-            disponibilities.add(inner);
-        }
-
-        String allowedVisitsQuery = """
-            SELECT visitType FROM USERPERMISSIONS
-            WHERE userID = ? ;
-        """;
-
-        PreparedStatement allowedVisitsStatement 
-            = connection.prepareStatement(allowedVisitsQuery);
-        allowedVisitsStatement.setString(1, result.getString("userID"));
-        ResultSet allowedVisitsResult 
-            = allowedVisitsStatement.executeQuery();
-
-        while(allowedVisitsResult.next())
-        {
-            allowedVisits.add(allowedVisitsResult.getString("visitType"));
-        }
-
-        String eventVoluntaryQuery = """
-            SELECT name, date FROM EVENTSVOLUNTARIES
-            WHERE userID = ? ;
-        """; 
-
-        PreparedStatement eventVoluntaryStatement 
-            = connection.prepareStatement(eventVoluntaryQuery);
-        eventVoluntaryStatement.setString(1, result.getString("userID"));
-        ResultSet eventVoluntaryResult 
-            = eventVoluntaryStatement.executeQuery();
-
-        while(eventVoluntaryResult.next())
-        {
-            voluntaryEventName.add(eventVoluntaryResult.getString("name"));
-            voluntaryEventDate.add(eventVoluntaryResult.getInt("date"));
-        }
-
-        return new User(
-            result.getString("userID"),
-            result.getString("userName"),
-            result.getString("userSurname"),
-            result.getString("city"),
-            result.getInt("birth_dd"),
-            result.getInt("birth_mm"),
-            result.getInt("birth_yy"),
-            result.getInt("user_since"),
-            UserRole.valueOf(result.getString("role")),
-            result.getBoolean("changePasswordDue"),
-            result.getString("organization"),
-            allowedVisits,
-            disponibilities,
-            new ArrayList<Event>()
-        );
     }
 }

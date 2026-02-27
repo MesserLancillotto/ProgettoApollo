@@ -26,8 +26,7 @@ public class GetPlacesEngine extends AuthenticatedEngine
         List<String> allowedFilters = new ArrayList<String>();
         allowedFilters.add("city");
         allowedFilters.add("address");
-        allowedFilters.add("visitTypes");
-        allowedFilters.add("states");
+        allowedFilters.add("visitType");
 
         if(!json.has("filters")) 
         {
@@ -48,7 +47,8 @@ public class GetPlacesEngine extends AuthenticatedEngine
     {   
         StringBuilder queryBuilder = new StringBuilder(
             """
-                SELECT city, address, description, organization 
+                SELECT city, address, visitType, 
+                description, organization, userID
                 FROM places WHERE 1=1
             """
         );
@@ -65,13 +65,20 @@ public class GetPlacesEngine extends AuthenticatedEngine
             queryBuilder.append(" AND address LIKE ? ");
             parameters.add("%" + filters.get("address") + "%");
         }
+        if (filters.has("visitType"))
+        {
+            queryBuilder.append(" AND visitType LIKE ? ");
+            parameters.add("%" + filters.get("visitType") + "%");
+        }
             
         PreparedStatement statement = 
             connection.prepareStatement(queryBuilder.toString());
-            
-        for(int i = 0; i < parameters.size() && i < MAX_FILTERS; i++)
+        
+        int i = 1;
+        for(String parameter : parameters)
         {
-            statement.setString(i + 1, parameters.get(i));
+            statement.setString(i, parameter);
+            i++;
         }
             
         ResultSet result = statement.executeQuery();
@@ -81,41 +88,18 @@ public class GetPlacesEngine extends AuthenticatedEngine
         {
             String city = result.getString("city");
             String address = result.getString("address");
+            String visitType = result.getString("visitType");
             String description = result.getString("description");
             String organization = result.getString("organization");
-            String detailsQuery = 
-            """
-                SELECT visitType, userID FROM placesData 
-                WHERE city = ? AND address = ?
-            """;
+            String defaultVoluntary = result.getString("userID");
             
-            PreparedStatement detailsStmt = 
-                connection.prepareStatement(detailsQuery);
-                
-            detailsStmt.setString(1, city);
-            detailsStmt.setString(2, address);
-                
-            ResultSet detailsResult = detailsStmt.executeQuery();
-            ArrayList<String> visitTypes = new ArrayList<String>();
-            ArrayList<String> voluntaries = new ArrayList<String>();                
-                
-            int i = 0;
-            while(detailsResult.next() && i < MAX_RESULTS)
-            {
-                i++;
-                visitTypes.add(detailsResult.getString("visitType"));
-                voluntaries.add(detailsResult.getString("userID"));
-            }
-                
-            detailsResult.close();
-                
             Place place = new Place(
                 city, 
                 address, 
+                visitType,
                 description,
                 organization,
-                visitTypes, 
-                voluntaries
+                defaultVoluntary
             );
             places.add(place);
         }
