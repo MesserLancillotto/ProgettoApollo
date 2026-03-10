@@ -23,6 +23,4 @@ public class DeletePlaceRequest extends AuthenticatedRequest
         json.put("visitType", visitType);
         jsonString = null;
     }
-
-
 }

@@ -9,7 +9,7 @@ import Comunication.Request.Interfaces.AuthenticatedRequest;
 
 public class SetNewOrganizationRequest extends AuthenticatedRequest
 {
-    String organization;
+    private String organization;
     private ArrayList<String> territories; 
 
     public SetNewOrganizationRequest
