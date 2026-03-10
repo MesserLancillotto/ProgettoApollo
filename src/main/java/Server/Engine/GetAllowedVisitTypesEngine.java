@@ -28,7 +28,6 @@ public class GetAllowedVisitTypesEngine extends AuthenticatedEngine
     
     public AuthenticatedReply processWithConnection() throws SQLException
     { 
-
         if(!petitionerIsVoluntary())
         {
             return new GetAllowedVisitTypesReply(false, new ArrayList<>());
