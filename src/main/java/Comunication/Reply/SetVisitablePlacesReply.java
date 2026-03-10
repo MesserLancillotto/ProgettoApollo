@@ -6,8 +6,6 @@ import Comunication.Reply.Interfaces.AuthenticatedUpdateReply;
 
 public class SetVisitablePlacesReply extends AuthenticatedUpdateReply
 {
-    private Boolean updateSuccessful;
-
     public SetVisitablePlacesReply
     (
         Boolean loginSuccessful,
