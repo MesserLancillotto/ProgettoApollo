@@ -1,0 +1,16 @@
+{
+  "loginSuccessful": true,
+  "passwordChangeDue": false,
+  "userName": "VOLUNTARY.Anna.Bianchi.1991",
+  "cityOfResidence": "Firenze",
+  "birthYear": 1992,
+  "role": "VOLUNTARY",
+  "organization": "Centro Sociale Firenze",
+  "allowedVisits": [
+    "PUBLIC",
+    "EDUCATIONAL",
+    "PRIVATE",
+    "VIRTUAL",
+    "GUIDED"
+  ]
+}

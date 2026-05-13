@@ -1,0 +1,10 @@
+{
+  "loginSuccessful": true,
+  "passwordChangeDue": false,
+  "userName": "BENEFICIARY.Mario.Rossi.1995",
+  "cityOfResidence": "Firenze",
+  "birthYear": 1995,
+  "role": "BENEFICIARY",
+  "organization": "",
+  "allowedVisits": []
+}

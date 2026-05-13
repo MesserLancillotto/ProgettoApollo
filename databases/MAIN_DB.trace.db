@@ -552,3 +552,21 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "START_DATE" not found; SQL stat
 	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
 	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
 	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-04-29 15:29:07.699559+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "SUBSCRIPTIONS" not found (this database is empty); SQL statement:
+SELECT * FROM subscriptions [42104-224]
+2026-05-11 12:37:26.516053+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM [*]JOIN u USERS, p USERPERMISSIONS WHERE u.userID = p.userID"; expected "identifier"; SQL statement:
+SELECT * FROM JOIN u USERS, p USERPERMISSIONS WHERE u.userID = p.userID [42001-224]
+2026-05-11 12:37:53.674589+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM userPermissions WHERE [*]JOIN u USERS, p USERPERMISSIONS WHERE u.userID = p.userID"; expected "INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+SELECT * FROM userPermissions WHERE JOIN u USERS, p USERPERMISSIONS WHERE u.userID = p.userID [42001-224]
+2026-05-11 12:38:33.406905+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT USERPERMISSIONS.* FROM userPermissions WHERE [*]JOIN USERS, USERPERMISSIONS WHERE USERS.userID = USERPERMISSIONS.userID"; expected "INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+SELECT USERPERMISSIONS.* FROM userPermissions WHERE JOIN USERS, USERPERMISSIONS WHERE USERS.userID = USERPERMISSIONS.userID [42001-224]
+2026-05-11 12:39:28.346699+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT UNIQUE [*]visitType\000d\000aFROM USERS u\000d\000aJOIN USERPERMISSIONS p\000d\000a  ON u.userID = p.userID"; expected "NULLS, ("; SQL statement:
+SELECT UNIQUE visitType
+FROM USERS u
+JOIN USERPERMISSIONS p
+  ON u.userID = p.userID [42001-224]

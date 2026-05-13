@@ -5,10 +5,13 @@ User/ConfiguratorView$PlaceRowData.class
 Comunication/Reply/SetMaximumFriendsReply.class
 Server/Engine/SetVisitablePlacesEngine.class
 User/UserType.class
+Server/Engine/GetMaximumFriendsEngine.class
 Server/Engine/SetClosedDaysEngine.class
 User/BeneficiaryView$1.class
+Comunication/Request/SetNewUserRequest.class
 Server/Engine/Interfaces/EngineInterface.class
 User/BeneficiaryModel.class
+Comunication/Reply/GetPossibleVisitsReply.class
 Comunication/Reply/GetPlacesReply.class
 Comunication/Reply/GetPersonalDataReply.class
 Comunication/Request/EditVisitablePlacesRequest.class
@@ -24,6 +27,7 @@ User/UserLoginController$1.class
 Comunication/Request/Interfaces/AuthenticatedRequest.class
 Comunication/Request/GetSubscribedEventsRequest.class
 Comunication/Request/SetVisitablePlacesRequest.class
+Comunication/Request/GetMaximumFriendsRequest.class
 User/ConfiguratorView$3.class
 Server/Engine/DeleteUserSubscriptionToEventEngine.class
 Helper/JsonListConverter.class
@@ -52,10 +56,12 @@ User/VoluntaryView.class
 Comunication/Request/SetClosedDaysRequest.class
 Comunication/Request/DeleteUserSubscriptionToEventRequest.class
 Server/Engine/SetMaximumFriendsEngine.class
+Comunication/Request/GetPossibleVisitsRequest.class
 Comunication/Request/DeleteVisitTypeFromPlaceRequest.class
 User/ConfiguratorView$2.class
 Server/Engine/GetVoluntariesEngine.class
 Comunication/DatabaseObjects/Event.class
+Server/Engine/SetNewUserEngine.class
 User/UserLogin.class
 Comunication/Reply/GetSubscribedEventsReply.class
 Server/Engine/SetUserSubscriptionToEventEngine.class
@@ -65,6 +71,7 @@ Comunication/Request/Interfaces/Request.class
 Comunication/Request/GetVoluntariesRequest.class
 Server/Engine/DeleteVoluntaryEngine.class
 User/FirstAccessView.class
+Comunication/Reply/SetNewUserReply.class
 User/FunctionVoluntaryConfEventsController.class
 User/ConfiguratorController.class
 Client/NetworkClient.class
@@ -79,6 +86,7 @@ User/VoluntaryModel.class
 User/VoluntaryController.class
 Comunication/Request/GetAllowedVisitTypesRequest.class
 Comunication/Request/DeletePlaceRequest.class
+Server/Engine/GetPossibleVisitsEngine.class
 Comunication/DatabaseObjects/EventInstance.class
 Comunication/Reply/DeleteUserSubscriptionToEventReply.class
 Comunication/Reply/SetVisitablePlacesReply.class
@@ -90,6 +98,7 @@ Comunication/Request/GetPlacesRequest.class
 Comunication/Request/DeleteVoluntaryRequest.class
 Server/Engine/Helper/PlaceCreator.class
 Comunication/Reply/SetDisponibilityReply.class
+Comunication/Reply/GetMaximumFriendsReply.class
 Client/Client.class
 Comunication/Request/Interfaces/RequestInterface.class
 User/UserFactory.class
