@@ -1,9 +1,11 @@
 package Client;
+
 import java.nio.file.*;
 import java.util.*;
 import java.net.*;
 import java.io.*;
 import org.json.*;
+
 public class Client
 {
     private String value;
@@ -14,7 +16,6 @@ public class Client
     private boolean isObject = true;
 
     private String filePath = "configurazione.json";
-
 
     public static JSONObject readJSONObjectFromFile(String filename) {
         try {
@@ -62,14 +63,32 @@ public class Client
         return instance;
     }
 
+    // ?
     public void setUserID (String tmpuUserID)
     {
         this.userID = tmpuUserID;
     }
 
+    /*
+    public void setNewPassword
+    (
+        String userID,
+        String password,
+        String newPassword
+    ) {
+        AuthenticatedRequest request 
+            = new SetNewPasswordRequest
+                (
+                    String userID,
+                    String password,
+                    String newPassword
+                );
+    }
+    */
     public void setUserPassword (String tmpUserPassword)
     {
         this.userPassword = tmpUserPassword;
+
     }
 
     public void delete_place(String city, String address)

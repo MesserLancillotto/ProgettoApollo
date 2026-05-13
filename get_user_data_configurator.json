@@ -1,0 +1,10 @@
+{
+  "loginSuccessful": true,
+  "passwordChangeDue": true,
+  "userName": "CONFIGURATOR.Paolo.Rossi.1997",
+  "cityOfResidence": "Firenze",
+  "birthYear": 1997,
+  "role": "CONFIGURATOR",
+  "organization": "Centro Sociale Firenze",
+  "allowedVisitType": []
+}

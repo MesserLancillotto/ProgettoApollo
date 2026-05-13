@@ -1,0 +1,394 @@
+[
+  {
+    "name": "Visita Culturale 1",
+    "description": "Descrizione dettagliata per la visita numero 1. Un'esperienza unica alla scoperta della citta.",
+    "randezvous": "Piazza Centrale, Numero 1",
+    "instances": [
+      {
+        "start_date": 1778150700,
+        "end_date": 1778157900,
+        "voluntaries": [
+          "VOLUNTARY.Luca.Verdi.1990",
+          "VOLUNTARY.Simone.Marrone.1980",
+          "VOLUNTARY.Paolo.Gialli.1988",
+          "VOLUNTARY.Giulia.Neri.1995",
+          "VOLUNTARY.Anna.Bianchi.1991"
+        ],
+        "users": [
+          "1NHCU6I2",
+          "LSDO99CQ"
+        ]
+      },
+      {
+        "start_date": 1781098200,
+        "end_date": 1781101800,
+        "voluntaries": [
+          "VOLUNTARY.Giulia.Neri.1995",
+          "VOLUNTARY.Paolo.Gialli.1988",
+          "VOLUNTARY.Elena.Blu.1992"
+        ],
+        "users": [
+          "4PS8H5IT"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Visita Culturale 2",
+    "description": "Descrizione dettagliata per la visita numero 2. Un'esperienza unica alla scoperta della citta.",
+    "randezvous": "Piazza Centrale, Numero 2",
+    "instances": [
+      {
+        "start_date": 1794740400,
+        "end_date": 1794747600,
+        "voluntaries": [
+          "VOLUNTARY.Luca.Verdi.1990",
+          "VOLUNTARY.Marco.Rossi.1985",
+          "VOLUNTARY.Simone.Marrone.1980",
+          "VOLUNTARY.Giulia.Neri.1995"
+        ],
+        "users": [
+          "386ED7SD",
+          "SAZI0EZF",
+          "H4MDIZZO",
+          "A8E234Z9"
+        ]
+      },
+      {
+        "start_date": 1794417300,
+        "end_date": 1794420900,
+        "voluntaries": [
+          "VOLUNTARY.Marco.Rossi.1985",
+          "VOLUNTARY.Elena.Blu.1992",
+          "VOLUNTARY.Simone.Marrone.1980"
+        ],
+        "users": [
+          "0U0NKPI6"
+        ]
+      },
+      {
+        "start_date": 1767544200,
+        "end_date": 1767547800,
+        "voluntaries": [
+          "VOLUNTARY.Elena.Blu.1992",
+          "VOLUNTARY.Giulia.Neri.1995",
+          "VOLUNTARY.Anna.Bianchi.1991"
+        ],
+        "users": [
+          "D87JGAP3",
+          "P10LUPGH",
+          "O4QXD6U2",
+          "0K48G6PX",
+          "2A1BKJFK"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Visita Culturale 3",
+    "description": "Descrizione dettagliata per la visita numero 3. Un'esperienza unica alla scoperta della citta.",
+    "randezvous": "Piazza Centrale, Numero 3",
+    "instances": [
+      {
+        "start_date": 1791727200,
+        "end_date": 1791734400,
+        "voluntaries": [
+          "VOLUNTARY.Luca.Verdi.1990",
+          "VOLUNTARY.Marco.Rossi.1985",
+          "VOLUNTARY.Elena.Blu.1992",
+          "VOLUNTARY.Simone.Marrone.1980",
+          "VOLUNTARY.Anna.Bianchi.1991"
+        ],
+        "users": [
+          "P2AWWBBK",
+          "T14RYRI0"
+        ]
+      },
+      {
+        "start_date": 1797416100,
+        "end_date": 1797426900,
+        "voluntaries": [
+          "VOLUNTARY.Paolo.Gialli.1988"
+        ],
+        "users": [
+          "KS571IZQ",
+          "W9F4JZLB"
+        ]
+      },
+      {
+        "start_date": 1780076700,
+        "end_date": 1780087500,
+        "voluntaries": [
+          "VOLUNTARY.Elena.Blu.1992",
+          "VOLUNTARY.Marco.Rossi.1985",
+          "VOLUNTARY.Simone.Marrone.1980"
+        ],
+        "users": [
+          "MHI5D1KI",
+          "FKLRBWQK",
+          "L0OIMC45",
+          "B83W284L"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Visita Culturale 4",
+    "description": "Descrizione dettagliata per la visita numero 4. Un'esperienza unica alla scoperta della citta.",
+    "randezvous": "Piazza Centrale, Numero 4",
+    "instances": [
+      {
+        "start_date": 1786642200,
+        "end_date": 1786645800,
+        "voluntaries": [
+          "VOLUNTARY.Elena.Blu.1992",
+          "VOLUNTARY.Simone.Marrone.1980",
+          "VOLUNTARY.Paolo.Gialli.1988",
+          "VOLUNTARY.Anna.Bianchi.1991"
+        ],
+        "users": [
+          "4Q3G0HVO",
+          "JQ2O01WI"
+        ]
+      },
+      {
+        "start_date": 1787060700,
+        "end_date": 1787071500,
+        "voluntaries": [
+          "VOLUNTARY.Marco.Rossi.1985"
+        ],
+        "users": [
+          "HGTIB1EE"
+        ]
+      },
+      {
+        "start_date": 1769001300,
+        "end_date": 1769008500,
+        "voluntaries": [
+          "VOLUNTARY.Elena.Blu.1992",
+          "VOLUNTARY.Simone.Marrone.1980",
+          "VOLUNTARY.Giulia.Neri.1995"
+        ],
+        "users": [
+          "AMYEPQIM",
+          "DASH70CT"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Visita Culturale 5",
+    "description": "Descrizione dettagliata per la visita numero 5. Un'esperienza unica alla scoperta della citta.",
+    "randezvous": "Piazza Centrale, Numero 5",
+    "instances": [
+      {
+        "start_date": 1797525000,
+        "end_date": 1797532200,
+        "voluntaries": [
+          "VOLUNTARY.Giulia.Neri.1995",
+          "VOLUNTARY.Marco.Rossi.1985",
+          "VOLUNTARY.Elena.Blu.1992",
+          "VOLUNTARY.Simone.Marrone.1980"
+        ],
+        "users": [
+          "QFYCJU8V",
+          "7JTWUB38"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Visita Culturale 6",
+    "description": "Descrizione dettagliata per la visita numero 6. Un'esperienza unica alla scoperta della citta.",
+    "randezvous": "Piazza Centrale, Numero 6",
+    "instances": [
+      {
+        "start_date": 1793293200,
+        "end_date": 1793304000,
+        "voluntaries": [
+          "VOLUNTARY.Luca.Verdi.1990",
+          "VOLUNTARY.Giulia.Neri.1995"
+        ],
+        "users": [
+          "QE5XLFNR",
+          "MEMHBF0B"
+        ]
+      },
+      {
+        "start_date": 1786375800,
+        "end_date": 1786379400,
+        "voluntaries": [
+          "VOLUNTARY.Simone.Marrone.1980",
+          "VOLUNTARY.Elena.Blu.1992",
+          "VOLUNTARY.Marco.Rossi.1985",
+          "VOLUNTARY.Giulia.Neri.1995",
+          "VOLUNTARY.Luca.Verdi.1990"
+        ],
+        "users": [
+          "N2E19UZF",
+          "TQ8QOX5F"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Visita Culturale 7",
+    "description": "Descrizione dettagliata per la visita numero 7. Un'esperienza unica alla scoperta della citta.",
+    "randezvous": "Piazza Centrale, Numero 7",
+    "instances": [
+      {
+        "start_date": 1775125800,
+        "end_date": 1775129400,
+        "voluntaries": [
+          "VOLUNTARY.Giulia.Neri.1995",
+          "VOLUNTARY.Elena.Blu.1992",
+          "VOLUNTARY.Paolo.Gialli.1988",
+          "VOLUNTARY.Marco.Rossi.1985",
+          "VOLUNTARY.Anna.Bianchi.1991"
+        ],
+        "users": [
+          "GRBKR0TP"
+        ]
+      },
+      {
+        "start_date": 1778580900,
+        "end_date": 1778584500,
+        "voluntaries": [
+          "VOLUNTARY.Paolo.Gialli.1988"
+        ],
+        "users": [
+          "LC2RJM6Y",
+          "ENLWZAAL",
+          "Z97LM0YP",
+          "RR2TU6ZW",
+          "TLKC79FJ"
+        ]
+      },
+      {
+        "start_date": 1785744000,
+        "end_date": 1785747600,
+        "voluntaries": [
+          "VOLUNTARY.Simone.Marrone.1980",
+          "VOLUNTARY.Elena.Blu.1992",
+          "VOLUNTARY.Luca.Verdi.1990",
+          "VOLUNTARY.Paolo.Gialli.1988",
+          "VOLUNTARY.Marco.Rossi.1985"
+        ],
+        "users": [
+          "91XSX41S",
+          "LCP6OU66",
+          "V6NGRBK8",
+          "SSS2ZX2Z",
+          "C1QB7BX4"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Visita Culturale 8",
+    "description": "Descrizione dettagliata per la visita numero 8. Un'esperienza unica alla scoperta della citta.",
+    "randezvous": "Piazza Centrale, Numero 8",
+    "instances": [
+      {
+        "start_date": 1776439800,
+        "end_date": 1776450600,
+        "voluntaries": [
+          "VOLUNTARY.Luca.Verdi.1990"
+        ],
+        "users": [
+          "FTXY1QG4",
+          "1Y2B9QZY",
+          "0FXUFYQS"
+        ]
+      },
+      {
+        "start_date": 1773135900,
+        "end_date": 1773143100,
+        "voluntaries": [
+          "VOLUNTARY.Simone.Marrone.1980",
+          "VOLUNTARY.Marco.Rossi.1985",
+          "VOLUNTARY.Paolo.Gialli.1988",
+          "VOLUNTARY.Luca.Verdi.1990"
+        ],
+        "users": [
+          "RJRQBM0M",
+          "DSPNUD5T",
+          "AY8UYLYX",
+          "JPAWX644",
+          "BUQTJ805"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Visita Culturale 9",
+    "description": "Descrizione dettagliata per la visita numero 9. Un'esperienza unica alla scoperta della citta.",
+    "randezvous": "Piazza Centrale, Numero 9",
+    "instances": [
+      {
+        "start_date": 1791541800,
+        "end_date": 1791545400,
+        "voluntaries": [
+          "VOLUNTARY.Luca.Verdi.1990",
+          "VOLUNTARY.Anna.Bianchi.1991"
+        ],
+        "users": [
+          "ZCYJMODH",
+          "2WT888OE",
+          "PRLHYWLE"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Visita Culturale 10",
+    "description": "Descrizione dettagliata per la visita numero 10. Un'esperienza unica alla scoperta della citta.",
+    "randezvous": "Piazza Centrale, Numero 10",
+    "instances": [
+      {
+        "start_date": 1771324200,
+        "end_date": 1771331400,
+        "voluntaries": [
+          "VOLUNTARY.Luca.Verdi.1990",
+          "VOLUNTARY.Paolo.Gialli.1988"
+        ],
+        "users": [
+          "1YPJWS0R",
+          "W2CTW20E",
+          "ZDAYG3UN",
+          "L6PQLW7O",
+          "VTH9JO44"
+        ]
+      },
+      {
+        "start_date": 1770551100,
+        "end_date": 1770558300,
+        "voluntaries": [
+          "VOLUNTARY.Simone.Marrone.1980",
+          "VOLUNTARY.Giulia.Neri.1995"
+        ],
+        "users": [
+          "JATGYF4X",
+          "76TCD849",
+          "Y8FQ7UW6"
+        ]
+      },
+      {
+        "start_date": 1796225400,
+        "end_date": 1796236200,
+        "voluntaries": [
+          "VOLUNTARY.Simone.Marrone.1980",
+          "VOLUNTARY.Giulia.Neri.1995",
+          "VOLUNTARY.Luca.Verdi.1990",
+          "VOLUNTARY.Paolo.Gialli.1988"
+        ],
+        "users": [
+          "OITUZ52E",
+          "G3IDGTH5",
+          "CISYJQ08",
+          "BFPF452D"
+        ]
+      }
+    ]
+  }
+]

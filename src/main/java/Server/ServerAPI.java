@@ -30,8 +30,10 @@ class ServerAPI extends Thread
         STRATEGY_MAP.put(ComunicationType.EDIT_VISITABLE_PLACES, EditVisitablePlacesEngine::new);
         STRATEGY_MAP.put(ComunicationType.GET_ALLOWED_VISIT_TYPES, GetAllowedVisitTypesEngine::new);
         STRATEGY_MAP.put(ComunicationType.GET_EVENT, GetEventEngine::new);
+        STRATEGY_MAP.put(ComunicationType.GET_MAXIMUM_FRIENDS, GetMaximumFriendsEngine::new);
         STRATEGY_MAP.put(ComunicationType.GET_PERSONAL_DATA, GetPersonalDataEngine::new);
         STRATEGY_MAP.put(ComunicationType.GET_PLACES, GetPlacesEngine::new);
+        STRATEGY_MAP.put(ComunicationType.GET_POSSIBLE_VISITS, GetPossibleVisitsEngine::new);
         STRATEGY_MAP.put(ComunicationType.GET_SUBSCRIBED_EVENTS, GetSubscribedEventsEngine::new);
         STRATEGY_MAP.put(ComunicationType.GET_VOLUNTARIES, GetVoluntariesEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_CLOSED_DAYS, SetClosedDaysEngine::new);
@@ -39,6 +41,7 @@ class ServerAPI extends Thread
         STRATEGY_MAP.put(ComunicationType.SET_MAXIMUM_FRIENDS, SetMaximumFriendsEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_NEW_ORGANIZATION, SetNewOrganizationEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_NEW_PASSWORD, SetNewPasswordEngine::new);
+        STRATEGY_MAP.put(ComunicationType.SET_NEW_USER, SetNewUserEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_USER_SUBSCRIPTION_TO_EVENT, SetUserSubscriptionToEventEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_VISITABLE_PLACES, SetVisitablePlacesEngine::new);
     }
