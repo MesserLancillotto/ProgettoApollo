@@ -1,11 +1,8 @@
 package Client;
-
 import java.nio.file.*;
 import java.util.*;
-import java.net.*;
 import java.io.*;
 import org.json.*;
-
 public class Client
 {
     private String value;
@@ -16,6 +13,7 @@ public class Client
     private boolean isObject = true;
 
     private String filePath = "configurazione.json";
+
 
     public static JSONObject readJSONObjectFromFile(String filename) {
         try {
@@ -63,38 +61,26 @@ public class Client
         return instance;
     }
 
-    // ?
     public void setUserID (String tmpuUserID)
     {
         this.userID = tmpuUserID;
     }
 
-    /*
-    public void setNewPassword
-    (
-        String userID,
-        String password,
-        String newPassword
-    ) {
-        AuthenticatedRequest request 
-            = new SetNewPasswordRequest
-                (
-                    String userID,
-                    String password,
-                    String newPassword
-                );
-    }
-    */
     public void setUserPassword (String tmpUserPassword)
     {
         this.userPassword = tmpUserPassword;
-
     }
 
-    public void delete_place(String city, String address)
+    public void delete_place(String city, String address, String visitType)
     {
         isObject = true;
-        this.whichFile = "delete_place.json";
+        this.whichFile = "change_password.json";
+    }
+
+    public void set_new_place (String city, String address, String description, String organization, String visitType, String defaultVoluntary )
+    {
+        isObject = true;
+        this.whichFile = "change_password.json";
     }
 
     public void set_new_organization(String organizationName, List<String> territoriesOfCompetence)
@@ -134,13 +120,20 @@ public class Client
         this.whichFile = "set_disponibility.json";
     }
 
-    public void get_voluntaries(Map<String, Object> filters)
+    public void get_voluntaries()
     {
-        isObject = false;
+        isObject = true;
         this.whichFile = "get_voluntaries.json";
     }
 
-    public void get_user_data(String target)
+    public void get_places()
+    {
+        isObject = true;
+        this.whichFile = "get_places.json";
+    }
+
+
+    public void get_personal_data(String target)
     {
         isObject = true;
         this.whichFile = "get_user_data_configurator_pw_false.json";
@@ -232,13 +225,13 @@ public class Client
         this.whichFile = "set_new_event.json";
     }
 
-    public void get_event(Map<String, Object> filters)
+    public void get_event(String state)
     {
-        isObject = false;
+        isObject = true;
         this.whichFile = "get_event.json";
     }
 
-    public void set_closed_days(int startDate, int endDate, String organization)
+    public void set_closed_days(long startDate, long endDate)
     {
         isObject = true;
         this.whichFile = "set_closed_days_successful.json";
@@ -256,11 +249,22 @@ public class Client
         this.whichFile = "change_password.json";
     }
 
-    public void set_user_subscription_to_event (List<String> users, String eventName, Integer startDate) {}
+    public void set_user_subscription_to_event (List<String> users, String eventName, Integer startDate)
+    {
+        isObject = true;
+        this.whichFile = "change_password.json";
+    }
+
+    public void delete_user_subscription_to_event (String eventName, Integer startDate)
+    {
+        isObject = true;
+        this.whichFile = "change_password.json";
+    }
 
     public void delete_voluntary (String voluntaryID)
     {
         isObject = true;
+        this.whichFile = "change_password.json";
     }
 
     public String make_server_request()
