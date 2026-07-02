@@ -320,7 +320,7 @@ public class BeneficiaryView extends JFrame {
         dialog.setVisible(true);
     }
 
-    // Finestra di dialogo per la disdetta
+    // NUOVO METODO: Finestra di dialogo per la disdetta
     public void openCancelConfirmDialog(EventSelectionData data, Runnable onConfirm) {
         int response = JOptionPane.showConfirmDialog(this,
                 "Sei sicuro di voler disdire la prenotazione per l'evento:\n" + data.name + "?",
@@ -333,7 +333,7 @@ public class BeneficiaryView extends JFrame {
         }
     }
 
-    // --- UTILITY ---
+    // --- UTILS ---
 
     private JPanel buildEventPanelBase(String eventName, String eventDescription, String eventRandezvous, Integer eventStartDate, Integer eventEndDate) {
         JPanel eventPanel = new JPanel(new GridLayout(0, 1, 5, 2));

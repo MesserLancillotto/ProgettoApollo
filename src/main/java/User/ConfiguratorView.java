@@ -57,6 +57,15 @@ public class ConfiguratorView extends JFrame {
     private JPanel selectedLuogoPanel = null;
     private String selectedLuogoKey = null; // Salva la chiave "città|indirizzo"
 
+    // Variabili per la finestra Aggiungi Luogo
+    private JFrame frameAggiungiLuogo;
+    private JTextField txtCity;
+    private JTextField txtAddress;
+    private JTextArea txtDescription;
+    private JTextField txtOrganization;
+    private JComboBox<String> cmbVisitType;
+    private JTextField txtDefaultVoluntary;
+
     // Struttura dati per aggregare i luoghi ed evitare righe duplicate
     private class PlaceRowData {
         String city;
@@ -184,7 +193,7 @@ public class ConfiguratorView extends JFrame {
         return panel;
     }
 
-    // Schermata 2: Gestisci Luoghi (Modificata come richiesto)
+    // Schermata 2: Gestisci Luoghi
     private JPanel createLuoghiCard() {
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBackground(new Color(245, 245, 245));
@@ -387,9 +396,130 @@ public class ConfiguratorView extends JFrame {
         return selectedLuogoKey; // Ritorna "Città|Indirizzo"
     }
 
+    public List<String> getSelectedLuogoVisitTypes() {
+        if (selectedLuogoKey != null && placesMap.containsKey(selectedLuogoKey)) {
+            return placesMap.get(selectedLuogoKey).visitTypes;
+        }
+        return new ArrayList<>();
+    }
+
     public void addAggiungiLuogoListener(ActionListener listener) {
         btnAggiungiLuogo.addActionListener(listener);
     }
+
+    public void open_aggiungi_luogo_view(ActionListener saveListener) {
+        if (frameAggiungiLuogo != null && frameAggiungiLuogo.isVisible()) {
+            frameAggiungiLuogo.toFront();
+            return;
+        }
+
+        frameAggiungiLuogo = new JFrame("Aggiungi Nuovo Luogo");
+        frameAggiungiLuogo.setSize(450, 500);
+        frameAggiungiLuogo.setLocationRelativeTo(this);
+        frameAggiungiLuogo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frameAggiungiLuogo.setLayout(new BorderLayout(10, 10));
+
+        // Titolo
+        JLabel lblTitolo = new JLabel("Crea nuovo luogo:", SwingConstants.CENTER);
+        lblTitolo.setFont(new Font("Arial", Font.BOLD, 18));
+        lblTitolo.setBorder(BorderFactory.createEmptyBorder(15, 0, 10, 0));
+        frameAggiungiLuogo.add(lblTitolo, BorderLayout.NORTH);
+
+        // Pannello centrale con i campi (usando GridBagLayout per un buon allineamento)
+        JPanel centerPanel = new JPanel(new GridBagLayout());
+        centerPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(5, 5, 5, 5);
+
+        // Campi di input
+        int riga = 0;
+
+        // Città
+        gbc.gridx = 0; gbc.gridy = riga; gbc.weightx = 0.3;
+        centerPanel.add(new JLabel("Città:"), gbc);
+        gbc.gridx = 1; gbc.weightx = 0.7;
+        txtCity = new JTextField();
+        centerPanel.add(txtCity, gbc);
+
+        riga++;
+        // Indirizzo
+        gbc.gridx = 0; gbc.gridy = riga; gbc.weightx = 0.3;
+        centerPanel.add(new JLabel("Indirizzo:"), gbc);
+        gbc.gridx = 1; gbc.weightx = 0.7;
+        txtAddress = new JTextField();
+        centerPanel.add(txtAddress, gbc);
+
+        riga++;
+        // Tipo Visita
+        gbc.gridx = 0; gbc.gridy = riga; gbc.weightx = 0.3;
+        centerPanel.add(new JLabel("Tipo di Visita:"), gbc);
+        gbc.gridx = 1; gbc.weightx = 0.7;
+        String[] tipiVisita = {"PUBLIC", "EDUCATIONAL", "PRIVATE", "GUIDED", "VIRTUAL"}; // Valori standard
+        cmbVisitType = new JComboBox<>(tipiVisita);
+        centerPanel.add(cmbVisitType, gbc);
+
+        riga++;
+        // Organizzazione
+        gbc.gridx = 0; gbc.gridy = riga; gbc.weightx = 0.3;
+        centerPanel.add(new JLabel("Organizzazione:"), gbc);
+        gbc.gridx = 1; gbc.weightx = 0.7;
+        txtOrganization = new JTextField();
+        centerPanel.add(txtOrganization, gbc);
+
+        riga++;
+        // Volontario di Default
+        gbc.gridx = 0; gbc.gridy = riga; gbc.weightx = 0.3;
+        centerPanel.add(new JLabel("Volontario Default (ID):"), gbc);
+        gbc.gridx = 1; gbc.weightx = 0.7;
+        txtDefaultVoluntary = new JTextField();
+        txtDefaultVoluntary.setToolTipText("Es: VOLUNTARY.Mario.Rossi.1990");
+        centerPanel.add(txtDefaultVoluntary, gbc);
+
+        riga++;
+        // Descrizione (usa JTextArea per campi più lunghi)
+        gbc.gridx = 0; gbc.gridy = riga; gbc.weightx = 0.3; gbc.anchor = GridBagConstraints.NORTH;
+        centerPanel.add(new JLabel("Descrizione:"), gbc);
+        gbc.gridx = 1; gbc.weightx = 0.7; gbc.fill = GridBagConstraints.BOTH; gbc.weighty = 1.0;
+        txtDescription = new JTextArea(4, 20);
+        txtDescription.setLineWrap(true);
+        txtDescription.setWrapStyleWord(true);
+        JScrollPane scrollDesc = new JScrollPane(txtDescription);
+        centerPanel.add(scrollDesc, gbc);
+
+        frameAggiungiLuogo.add(centerPanel, BorderLayout.CENTER);
+
+        // Pannello Bottoni
+        JPanel bottomPanel = new JPanel();
+        JButton btnSalva = new JButton("Salva Luogo");
+        btnSalva.setPreferredSize(new Dimension(150, 40));
+        btnSalva.setBackground(new Color(144, 238, 144));
+
+        btnSalva.addActionListener(e -> {
+            if (saveListener != null) {
+                saveListener.actionPerformed(e);
+            }
+        });
+
+        bottomPanel.add(btnSalva);
+        frameAggiungiLuogo.add(bottomPanel, BorderLayout.SOUTH);
+
+        frameAggiungiLuogo.setVisible(true);
+    }
+
+    public String getNewPlaceCity() { return txtCity.getText().trim(); }
+    public String getNewPlaceAddress() { return txtAddress.getText().trim(); }
+    public String getNewPlaceVisitType() { return (String) cmbVisitType.getSelectedItem(); }
+    public String getNewPlaceOrganization() { return txtOrganization.getText().trim(); }
+    public String getNewPlaceDefaultVoluntary() { return txtDefaultVoluntary.getText().trim(); }
+    public String getNewPlaceDescription() { return txtDescription.getText().trim(); }
+
+    public void close_aggiungi_luogo_view() {
+        if (frameAggiungiLuogo != null) {
+            frameAggiungiLuogo.dispose();
+        }
+    }
+
 
     // --- LOGICA VOLONTARI ---
 
@@ -648,6 +778,86 @@ public class ConfiguratorView extends JFrame {
         dialog.setVisible(true);
     }
 
+    public void open_remove_visit_type_from_place_dialog(String city, String address, List<String> visitTypes, Consumer<String> onConfirm) {
+        JDialog dialog = new JDialog(this, "Rimuovi Tipo di Visita", true);
+        dialog.setSize(450, 250);
+        dialog.setLocationRelativeTo(this);
+        dialog.setLayout(new BorderLayout(15, 15));
+
+        // Pannello Superiore: Informazioni e Testo richiesto
+        JPanel infoPanel = new JPanel(new GridLayout(3, 1));
+        infoPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 5, 15));
+        infoPanel.add(new JLabel("<html><b>Luogo Selezionato:</b> " + city + " - " + address + "</html>"));
+        infoPanel.add(new JLabel(" ")); // Spazio vuoto per distanziare
+        infoPanel.add(new JLabel("Seleziona quale tipo di visita rimuovere da questo luogo:"));
+        dialog.add(infoPanel, BorderLayout.NORTH);
+
+        // Pannello Centrale: Menu a tendina
+        JPanel centerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JComboBox<String> comboTypes = new JComboBox<>(visitTypes.toArray(new String[0]));
+        centerPanel.add(comboTypes);
+        dialog.add(centerPanel, BorderLayout.CENTER);
+
+        // Pannello Inferiore: Bottone di conferma
+        JPanel bottomPanel = new JPanel();
+        JButton btnConferma = new JButton("Conferma");
+        btnConferma.setPreferredSize(new Dimension(150, 40));
+        btnConferma.setBackground(new Color(255, 100, 100)); // Colore rosso per indicare un'azione di rimozione
+
+        btnConferma.addActionListener(e -> {
+            String selected = (String) comboTypes.getSelectedItem();
+            if (selected != null) {
+                onConfirm.accept(selected); // Passa il valore selezionato al Controller
+                dialog.dispose(); // Chiude la finestra
+            }
+        });
+
+        bottomPanel.add(btnConferma);
+        dialog.add(bottomPanel, BorderLayout.SOUTH);
+
+        dialog.setVisible(true);
+    }
+
+    public void open_add_visit_type_to_place_dialog(String city, String address, List<String> availableTypes, Consumer<String> onConfirm) {
+        JDialog dialog = new JDialog(this, "Aggiungi Tipo di Visita", true);
+        dialog.setSize(450, 250);
+        dialog.setLocationRelativeTo(this);
+        dialog.setLayout(new BorderLayout(15, 15));
+
+        // Pannello Superiore: Informazioni e Testo richiesto
+        JPanel infoPanel = new JPanel(new GridLayout(3, 1));
+        infoPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 5, 15));
+        infoPanel.add(new JLabel("<html><b>Luogo Selezionato:</b> " + city + " - " + address + "</html>"));
+        infoPanel.add(new JLabel(" ")); // Spazio vuoto per distanziare
+        infoPanel.add(new JLabel("Aggiungi un nuovo tipo di visita al luogo:"));
+        dialog.add(infoPanel, BorderLayout.NORTH);
+
+        // Pannello Centrale: Menu a tendina
+        JPanel centerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JComboBox<String> comboTypes = new JComboBox<>(availableTypes.toArray(new String[0]));
+        centerPanel.add(comboTypes);
+        dialog.add(centerPanel, BorderLayout.CENTER);
+
+        // Pannello Inferiore: Bottone di conferma
+        JPanel bottomPanel = new JPanel();
+        JButton btnConferma = new JButton("Conferma");
+        btnConferma.setPreferredSize(new Dimension(150, 40));
+        btnConferma.setBackground(new Color(144, 238, 144)); // Verde per l'aggiunta
+
+        btnConferma.addActionListener(e -> {
+            String selected = (String) comboTypes.getSelectedItem();
+            if (selected != null) {
+                onConfirm.accept(selected); // Passa il valore selezionato al Controller
+                dialog.dispose(); // Chiude la finestra
+            }
+        });
+
+        bottomPanel.add(btnConferma);
+        dialog.add(bottomPanel, BorderLayout.SOUTH);
+
+        dialog.setVisible(true);
+    }
+
     public void addOpenVoluntaryDisponibility (ActionListener listener) {
         btnOpenVoluntaryDisponibility.addActionListener(listener);
     }
@@ -834,22 +1044,6 @@ public class ConfiguratorView extends JFrame {
 
     public String getNewMaxSub() {
         return txtNewMaxSub.getText();
-    }
-
-    public void open_aggiungi_luogo_view(Object data) {
-        JFrame frame = new JFrame("Aggiungi nuovo luogo");
-        frame.setSize(500, 300);
-        frame.setLocationRelativeTo(this);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-        JPanel pnl = new JPanel(new GridBagLayout());
-        pnl.setBackground(new Color(240, 240, 240));
-        JLabel lbl = new JLabel("Schermata di aggiunta in costruzione...");
-        lbl.setFont(new Font("Arial", Font.ITALIC, 16));
-        pnl.add(lbl);
-
-        frame.add(pnl);
-        frame.setVisible(true);
     }
 
     private void open_visit_view() {
