@@ -34,26 +34,30 @@ public class BeneficiaryController
     {
         view.clearPrenotazioniAttive();
 
-        Client.getInstance().get_event(null);
+        Client.getInstance().get_event("CONFIRMED");
         String response = Client.getInstance().make_server_request();
 
         try {
-            JSONArray eventsArray = new JSONArray(response);
-            for  (int i = 0; i < eventsArray.length(); i++)
+            JSONObject eventsResponse = new JSONObject(response);
+            if (eventsResponse.getBoolean("loginSuccessful"))
             {
-                JSONObject event = eventsArray.getJSONObject(i);
-                JSONArray eventInstancesArray = event.getJSONArray("instances");
-                for (int k = 0; k < eventInstancesArray.length(); k++)
+                JSONArray eventsArray = eventsResponse.getJSONArray("events");
+                for  (int i = 0; i < eventsArray.length(); i++)
                 {
-                    JSONObject eventInstance = eventInstancesArray.getJSONObject(k);
-                    String eventName = event.getString("name");
-                    String eventDescription = event.getString("description");
-                    String eventRandezvous = event.getString("randezvous");
-                    Integer eventStartDate = eventInstance.getInt("start_date");
-                    Integer eventEndDate = eventInstance.getInt("end_date");
+                    JSONObject event = eventsArray.getJSONObject(i);
+                    JSONArray eventInstancesArray = event.getJSONArray("instances");
+                    for (int k = 0; k < eventInstancesArray.length(); k++)
+                    {
+                        JSONObject eventInstance = eventInstancesArray.getJSONObject(k);
+                        String eventName = event.getString("name");
+                        String eventDescription = event.getString("description");
+                        String eventRandezvous = event.getString("randezvous");
+                        Integer eventStartDate = eventInstance.getInt("start_date");
+                        Integer eventEndDate = eventInstance.getInt("end_date");
 
-                    // Aggiunge la riga nella schermata "Gestisci"
-                    view.addEventoDaDisdireRow(eventName, eventDescription, eventRandezvous, eventStartDate, eventEndDate);
+                        // Aggiunge la riga nella schermata "Gestisci"
+                        view.addEventoDaDisdireRow(eventName, eventDescription, eventRandezvous, eventStartDate, eventEndDate);
+                    }
                 }
             }
         }
@@ -66,7 +70,7 @@ public class BeneficiaryController
 
     private void handle_disdici_click()
     {
-        // 1. Recupera i dati dell'evento selezionato nella schermata di gestione
+        //Recupero i dati dell'evento selezionato nella schermata di gestione
         BeneficiaryView.EventSelectionData data = view.getSelectedManageData();
 
         if (data == null)
@@ -75,17 +79,19 @@ public class BeneficiaryController
             return;
         }
 
-        // 2. Apre il popup di conferma passando la funzione da eseguire in caso l'utente accetti
+        //Apro il popup di conferma passando la funzione da eseguire in caso l'utente accetti
         view.openCancelConfirmDialog(data, () -> {
             System.out.println("--- DISDETTA CONFERMATA ---");
             System.out.println("Evento da disdire: " + data.name);
             System.out.println("Data Inizio: " + data.startDate);
 
-            // chiamata al server per rimuovere la prenotazione
-            // Client.getInstance().delete_booking(data.name, data.startDate);
-            // Client.getInstance().make_server_request();
-
-            view.showMessage("Prenotazione disdetta con successo!");
+            Client.getInstance().delete_user_subscription_to_event(data.name, data.startDate);
+            if (check_server_response())
+            {
+                view.showMessage("Prenotazione disdetta con successo!");
+            }
+            else
+                view.showMessage("Errore, prenotazione non trovata!");
 
             // Aggiorna la lista dopo la disdetta per rimuovere l'evento cancellato
             handle_manage_booking();
@@ -129,25 +135,28 @@ public class BeneficiaryController
     {
         view.clearPrenotazioniDisponibili();
 
-        Client.getInstance().get_event(null);
+        Client.getInstance().get_event("CONFIRMED");
         String response = Client.getInstance().make_server_request();
-
         try {
-            JSONArray eventsArray = new JSONArray(response);
-            for  (int i = 0; i < eventsArray.length(); i++)
+            JSONObject eventsResponse = new JSONObject(response);
+            if (eventsResponse.getBoolean("loginSuccessful"))
             {
-                JSONObject event = eventsArray.getJSONObject(i);
-                JSONArray eventInstancesArray = event.getJSONArray("instances");
-                for (int k = 0; k < eventInstancesArray.length(); k++)
+                JSONArray eventsArray = eventsResponse.getJSONArray("events");
+                for  (int i = 0; i < eventsArray.length(); i++)
                 {
-                    JSONObject eventInstance = eventInstancesArray.getJSONObject(k);
-                    String eventName = event.getString("name");
-                    String eventDescription = event.getString("description");
-                    String eventRandezvous = event.getString("randezvous");
-                    Integer eventStartDate = eventInstance.getInt("start_date");
-                    Integer eventEndDate = eventInstance.getInt("end_date");
+                    JSONObject event = eventsArray.getJSONObject(i);
+                    JSONArray eventInstancesArray = event.getJSONArray("instances");
+                    for (int k = 0; k < eventInstancesArray.length(); k++)
+                    {
+                        JSONObject eventInstance = eventInstancesArray.getJSONObject(k);
+                        String eventName = event.getString("name");
+                        String eventDescription = event.getString("description");
+                        String eventRandezvous = event.getString("randezvous");
+                        Integer eventStartDate = eventInstance.getInt("start_date");
+                        Integer eventEndDate = eventInstance.getInt("end_date");
 
-                    view.addEventoPrenotabileRow(eventName, eventDescription, eventRandezvous, eventStartDate, eventEndDate);
+                        view.addEventoPrenotabileRow(eventName, eventDescription, eventRandezvous, eventStartDate, eventEndDate);
+                    }
                 }
             }
         }
@@ -171,12 +180,35 @@ public class BeneficiaryController
             {
                 if (firstAccessView.getNewPassword().equals(firstAccessView.getConfirmPassword()))
                 {
-                    //Client.getInstance().manda_i_dati_al_server();
                     Client.getInstance().make_server_request();
                     view.setVisible(true);
                 }
             }
         }
 
+    }
+
+    private boolean  check_server_response()
+    {
+        try
+        {
+            String newUserResponse = Client.getInstance().make_server_request();
+            JSONObject response = new JSONObject(newUserResponse);
+            if (response.getBoolean("loginSuccessful"))
+            {
+                if (response.getBoolean("updateSuccessful"))
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 }
