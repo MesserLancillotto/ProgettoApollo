@@ -23,7 +23,6 @@ Comunication/Reply/SetClosedDaysReply.class
 Comunication/Reply/Interfaces/AuthenticatedUpdateReply.class
 Server/Engine/EditVisitablePlacesEngine.class
 Comunication/Request/SetMaximumFriendsRequest.class
-User/UserLoginController$1.class
 Comunication/Request/Interfaces/AuthenticatedRequest.class
 Comunication/Request/GetSubscribedEventsRequest.class
 Comunication/Request/SetVisitablePlacesRequest.class

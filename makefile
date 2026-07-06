@@ -15,3 +15,4 @@ server_run:
 	mvn exec:java -Dexec.mainClass="Server.Server"
 
 client_run:
+	mvn exec:java -Dexec.mainClass="User.UserLogin"
