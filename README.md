@@ -15,6 +15,10 @@ Quindi aprire l'interfaccia grafica di H2 con uno a scelta dei seguenti comandi
 Aprire il database in `~/documents/ProgettoApollo/databases/MAIN_DB` e copiare ed incollare prima il contenuto di `terraform.sql` per avere le tabelle e dati mock. Qualora si volesse stampare a video ogni dato nel db per comodità è stato creato il file `table_select_all`, similmente per `table_drop_all.sql` se si vuole cancellare tutto.
 ## Lato Server
 Per eseguire il server con database usare
-```make server_run``` 
+
+```bash
+make server_run
+```
+ 
  mentre per avviare il lato client usare
 ```make client_run```
