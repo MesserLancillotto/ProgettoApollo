@@ -1,0 +1,52 @@
+GRASP
+
+Information Expert
+i vari engine hanno accesso a (parte) del database e soddisfano le richieste prendendo i dati a loro strettamente necessari e formulando una risposta.
+Creator
+Server è responsabile della creazione degli engine, contiene i dati della richiesta - quindi possiede i dati per inizializzare l'engine specifico - ed in base a questo crea l'oggetto che possa formulare la risposta.
+Controller
+Questo software teoricamente doveva funzionare offline tecnicamente funziona online; lo strato UI manda impacchetta i dati e chiama il controller Client che tramite NetworkClient li invia al Server
+Pure Fabrication
+Tutte le classi del pacchetto Engine hanno l'unica cosa in comune di agire sul database: mentre, essendo simil RESTful API (invece che POST si usa Set*, PUT diventa Edit*, GET e DELETE sono Get* e Delete*) al posto di esser divise per tipologia di richiesta sono tutte nello stesso pacchetto ordinate alfabeticamente di modo che il sistemista possa al bisogno alterare le query modificando un solo pacchetto (seguendo anche il principio del minimo privilegio, così facendo al sistemista può essere revocato il permesso di modifica al di fuori del suo pacchetto di competenza).
+Polimorphism
+Gli oggetti che implementano l'interfaccia EngineInterface sono un esempio di polimorfismo: implementano la funzione handleRequest() rendendo facile la creazione di un nuovo engine senza influenzare gli engine già esistenti o il modo in cui il server chiama la risposta dell'oggetto.
+Legge di Demetra
+Ogni oggetto parla solo con il suo superiore/sottoposto: un engine parla solo con ServerAPI, ServerAPI solo o con gli Engine o con Server: non avviene mai uno scavalcamento. Simile lato client.
+
+SOLID
+
+SingleResponsibility: 
+ogni oggetto ha una ed una sola responsabilità, gli Engine di comporre una risposta specifica alla loro funzione, ServerAPI di creare gli engine e carpirne la risposta sulla base della richiesta fatta da Server, Server di interrogare ServerAPI e rispondere all'IP che ha mandato la richiesta.
+OpenClosed:
+Per estendere le funzioni del server si crea un nuovo oggetto che implementi processWithConnection() data una connessione al database
+Interface Segregation Principle 
+Ogni classe qualora implementasse un'interfaccia ne implementa soltanto una
+Dependency inversion 
+Ogni dipendenza è rispetto ad una interfaccia (Engine, AuthenticatedEngine, Thread, ...)
+Principio di separazione modello-vista
+I dati seguono una pipeline fortemente compartimentata - anche dovuto al modello architetturale Fat Client - l'interfaccia grafica dipende da una classe sottostante responsabile della creazione delle richieste (un oggetto JSON), la quale manda la richiesta al server che risponderà con un JSON che verrà "spacchettato" dal Client e che l'interfaccia grafica mostrerà all'utente.
+
+
+
+GoF
+Simple Factory:
+Chi crea i vari Engine per risolvere la domanda del Client? 
+Strategy
+EnginePureFabricator è il context - contiene un riferimento ad un Engine, EngineInterface è l'oggetto strategy, dichiara un’interfaccia comune agli algoritmi supportati mentre i vari *Engine sono i concrete strategy dato che implementano l’algoritmo usando strategy 
+Facade
+ServerAPI fornisce tanti servizi e risponde a tante richieste diverse, ma non se ne occupa personalmente: Server fa da Client ed invia una richiesta a ServerAPI, il quale delega ai vari Package (gli Engine) che si connettono al database e rispondono alla richiesta.
+MVC 
+Model: rappresenta i dati e il comportamento dell’applicazione, ovvero gli Engine e la loro politica interna di gestione dei dati.
+View: rappresenta il modo in cui l’utente interagisce con l’applicazione, ovvero la classe Client che effettua una chiamata tramite NetworkClient sulla porta 8000
+Controller: trasforma le interazione dell’utente della View in richieste al Model, ovvero tutta l'interfaccia grafica che costruisce la richiesta pezzo per pezzo e la invia al sistema sottostante
+
+Repository:
+quando viene effettuata una chiamata al database esistono poi degli oggetti - tutti quelli del package Comunication/DatabaseObjects - che agiscono in modo coeso e sensato 
+Proxy:
+il database SQL di java.sql agisce da proxy, assieme ad H2 
+- remoto: qualora il DB fosse altrove l'interfaccia java.sql gestisce la connessione
+- virtuale: H2 che implementa java.sql gestisce il caricamento in memoria dei dati del database
+- protezione: l'accesso al database non è totalmente libero, serve una autenticazione
+- intelligente: "consente l’esecuzione di attività aggiuntive quando si accede al soggetto" - ovvero le query 
+
+

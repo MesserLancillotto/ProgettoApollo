@@ -4,14 +4,9 @@ import org.json.*;
 import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import Comunication.DatabaseObjects.Place;
-
 
 public class PlaceTest 
 {
-    
-    private static Event event;
-    
     @Test
     void testPlaceGetters()
     {
@@ -19,49 +14,35 @@ public class PlaceTest
         String address = "Via Castello 9";
         String description = "Castello di Brescia";
         String organization = "San Genesio";
-
-        List<String> visitTypes = new ArrayList<String>();
-        visitTypes.add("Cinema all'aperto");
-        List<String> voluntaries = new ArrayList<String>();
-        voluntaries.add("Arlecchino.Valcalepio.99");
+        String visitType = "Cinema all'aperto";
+        String defaultVoluntary = "Arlecchino.Valcalepio.99";
 
         Place place = new Place(
             city, address, description, 
-            organization, visitTypes, voluntaries
+            organization, visitType, defaultVoluntary
         );
-
-        JSONObject json = new JSONObject(place.toJSONString());
 
         assertEquals(city, place.getCity());
         assertEquals(address, place.getAddress());
         assertEquals(description, place.getDescription());
         assertEquals(organization, place.getOrganization());
-
-        assertTrue(place.getVisitTypes().size() == visitTypes.size() && 
-                  place.getVisitTypes().containsAll(visitTypes) && 
-                  visitTypes.containsAll(place.getVisitTypes()));
-
-        assertTrue(place.getVoluntaries().size() == voluntaries.size() && 
-                  place.getVoluntaries().containsAll(voluntaries) && 
-                  voluntaries.containsAll(place.getVoluntaries()));
+        assertEquals(visitType, place.getVisitType());
+        assertEquals(defaultVoluntary, place.getDefaultVoluntary());
     }
 
     @Test
-    void testPlaceToJSON() 
+    void testPlaceToJSONString() 
     {
         String city = "Brescia";
         String address = "Via Castello 9";
         String description = "Castello di Brescia";
         String organization = "San Genesio";
-
-        List<String> visitTypes = new ArrayList<String>();
-        visitTypes.add("Cinema all'aperto");
-        List<String> voluntaries = new ArrayList<String>();
-        voluntaries.add("Arlecchino.Valcalepio.99");
+        String visitType = "Cinema all'aperto";
+        String defaultVoluntary = "Arlecchino.Valcalepio.99";
 
         Place place = new Place(
             city, address, description, 
-            organization, visitTypes, voluntaries
+            organization, visitType, defaultVoluntary
         );
 
         JSONObject json = new JSONObject(place.toJSONString());
@@ -70,8 +51,7 @@ public class PlaceTest
         assertEquals(address, json.getString("address"));
         assertEquals(description, json.getString("description"));
         assertEquals(organization, json.getString("organization"));
-
-        assertNotNull(json.getJSONArray("visitTypes"));
-        assertNotNull(json.getJSONArray("voluntaries"));
+        assertEquals(visitType, json.getString("visitType"));
+        assertEquals(defaultVoluntary, json.getString("defaultVoluntary"));
     }
 }

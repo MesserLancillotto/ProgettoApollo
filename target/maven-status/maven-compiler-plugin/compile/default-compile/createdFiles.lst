@@ -4,6 +4,7 @@ Comunication/Reply/GetEventReply.class
 User/ConfiguratorView$PlaceRowData.class
 Comunication/Reply/SetMaximumFriendsReply.class
 Server/Engine/SetVisitablePlacesEngine.class
+Server/EnginePureFabricatiorContext.class
 User/UserType.class
 Server/Engine/GetMaximumFriendsEngine.class
 Server/Engine/SetClosedDaysEngine.class
