@@ -1,0 +1,13 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{class} \PYG{n+nc}{Test}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kd}{private}\PYG{+w}{ }\PYG{n}{ArrayClass}\PYG{+w}{ }\PYG{n}{somethingArray}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{ArrayClass}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Integer}\PYG{+w}{ }\PYG{n+nf}{get\PYGZus{}first\PYGZus{}value\PYGZus{}over\PYGZus{}threshold}\PYG{p}{(}
+\PYG{+w}{        }\PYG{n}{Array}\PYG{+w}{ }\PYG{n}{array\PYGZus{}ptr}\PYG{p}{,}
+\PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{threshold}
+\PYG{+w}{    }\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{lorem\PYGZus{}ipsum}\PYG{p}{();}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{dolor\PYGZus{}sit\PYGZus{}amet}\PYG{p}{();}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

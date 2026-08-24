@@ -6,7 +6,7 @@
 \title{Convenzioni di programmazione}
 
 \begin{document}
-\section{Convenzioni del codice da utilizzare} Stabilito pro nobis et inter 
+\section{Convenzioni del codice da utilizzare} Stabilito pro nobis et intra 
 nos, e soprattutto che sia funzionale, perché "Avere un buono standard di 
 programmazione è meglio che non averne nessuno. Tuttavia, [...] uno standard di
 programmazione scadente è peggio che non averne affatto" - 
@@ -17,18 +17,19 @@ you recommend a coding standard?".
     \item CamelCase per i nomi delle classi, dromedaryCase per i nomi delle 
     variabili e snake\_case per i nomi delle funzioni.
     \item A costo di essere verbosi i nomi di variabili e funzioni devono 
-    essere autoesplicativi.
+    essere autoesplicativi (fa rima con il pattern di refactoring "Extract 
+    method").
     \item Le costanti in SNAKE\_CASE ma con solo maiuscole.
     \item Dopo un \texttt{if}, \texttt{while}, dichiarazione di funzione, et 
-    cetera, si va a capo con una     graffa e poi si va a capo di nuovo. Idem 
-    per le parentesi tonde.
+    cetera, si va a capo con una graffa e poi si va a capo di nuovo. Idem 
+    per le parentesi tonde. \texttt{\} else \{} è un'eccezione.
     \item Non innesare più di tre livelli, inverti ed estrai.
     \item Se nella dichiarazione di una funzione gli argomenti superano gli 80 
     caratteri andare a capo dopo la parentesi aperta e per ogni parametro dopo
     di essa. Mantenere le righe (commenti inclusi) sotto gli 80 caratteri.
     \item Qualora si passasse "by reference" un valore ad una funzione tramite 
     un puntatore, il puntatore nella funzione avrà in coda \texttt{\_ptr}.
-    -> non negoziabile, non so java non farmi ammattire
+    - non negoziabile, non so java non farmi ammattire
     \item Non compilare automaticamente, ogni package deve avere un 
     \texttt{MAKEFILE} che permetta la compilazione a prescindere dalle 
     tecnologie usate, sia l'editor di testo o sistema operativo.
@@ -62,13 +63,17 @@ public class Test
 \end{minted}
 Esempio del punto 5 di pratiche da NON seguire:
 \begin{minted}{java}
-void register_user([...]) {
+void register_user([...]) 
+{
     UserLoginFields userLoginFields = [...]; // ha 2 campi, id e password
     Server server = [...];
     User user;
-    if(userLoginFields.getFieldsCount() == 2) {
-        if(userLoginFields.getId() >= 0) {
-            if(server.login(userLoginFields)) {
+    if(userLoginFields.getFieldsCount() == 2) 
+    {
+        if(userLoginFields.getId() >= 0) 
+        {
+            if(server.login(userLoginFields)) 
+            {
                 user = server.getLoginData();
             } else {
                 throw new InvalidCredentialsError(
@@ -131,8 +136,7 @@ preso da \href{"https://web.eecs.umich.edu/~imarkov/10rules.pdf"}{The Power of
     \item Utilizzare il preprocessore solo per file header e macro semplici.
     // sebbene l'uso del preprocessore in java sia limitato
     \item Limitare l'uso dei puntatori a una sola dereferenziazione, e non 
-    utilizzare puntatori a funzione. // non usare proprio i puntatori di 
-    funzioni, rendere espliciti quelli dedgli oggetti
+    utilizzare puntatori a funzione. // abrogata per il pattern Strategy.
     \item Compilare con tutti i possibili warning attivi; tutti i warning 
     devono poi essere risolti prima del rilascio del software.
 \end{enumerate}

@@ -1,0 +1,27 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{register\PYGZus{}user}\PYG{p}{(}\PYG{o}{[}\PYG{p}{...}\PYG{o}{]}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{UserLoginFields}\PYG{+w}{ }\PYG{n}{userLoginFields}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{[}\PYG{p}{...}\PYG{o}{]}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// ha 2 campi, id e password}
+\PYG{+w}{    }\PYG{n}{Server}\PYG{+w}{ }\PYG{n}{server}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{[}\PYG{p}{...}\PYG{o}{]}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{User}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{userLoginFields}\PYG{p}{.}\PYG{n+na}{getFieldsCount}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{userLoginFields}\PYG{p}{.}\PYG{n+na}{getId}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZgt{}=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{k}{if}\PYG{p}{(}\PYG{n}{server}\PYG{p}{.}\PYG{n+na}{login}\PYG{p}{(}\PYG{n}{userLoginFields}\PYG{p}{))}
+\PYG{+w}{            }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{user}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{server}\PYG{p}{.}\PYG{n+na}{getLoginData}\PYG{p}{();}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{k}{throw}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{InvalidCredentialsError}\PYG{p}{(}
+\PYG{+w}{                    }\PYG{n}{UserLoginFields}\PYG{p}{.}\PYG{n+na}{INVALID\PYGZus{}CREDENTIALS\PYGZus{}ERROR\PYGZus{}MSG}\PYG{p}{);}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{k}{throw}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{InvalidIDError}\PYG{p}{(}
+\PYG{+w}{                }\PYG{n}{UserLoginFields}\PYG{p}{.}\PYG{n+na}{INVALID\PYGZus{}ID\PYGZus{}ERROR\PYGZus{}MSG}\PYG{p}{);}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{throw}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{InvalidFieldsCountError}\PYG{p}{(}
+\PYG{+w}{            }\PYG{n}{UserLoginFields}\PYG{p}{.}\PYG{n+na}{INVALID\PYGZus{}FIELDS\PYGZus{}COUNT\PYGZus{}ERROR\PYGZus{}MSG}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

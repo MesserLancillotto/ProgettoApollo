@@ -22,7 +22,7 @@ public class Server
     {
         while(true)
         {
-            ServerAPI api = new ServerAPI();
+            Thread api = new ServerAPI();
             api.start(); 
             try {
                 api.join();
