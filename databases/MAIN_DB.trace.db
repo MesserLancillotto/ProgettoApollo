@@ -1,0 +1,20 @@
+2026-08-24 12:23:09.064206+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+    SELECT userID FROM users
+    WHERE userID = ? AND password = ?
+ [42104-224]
+2026-08-24 12:23:09.100875+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+    SELECT userID FROM users
+    WHERE userID = ? AND password = ?
+ [42104-224]
+2026-08-24 12:23:52.844142+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+    SELECT userID FROM users
+    WHERE userID = ? AND password = ?
+ [42104-224]
+2026-08-24 12:23:52.964665+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+    SELECT userID FROM users
+    WHERE userID = ? AND password = ?
+ [42104-224]

@@ -48,5 +48,3 @@ il database SQL di java.sql agisce da proxy, assieme ad H2
 - virtuale: H2 che implementa java.sql gestisce il caricamento in memoria dei dati del database
 - protezione: l'accesso al database non è totalmente libero, serve una autenticazione
 - intelligente: "consente l’esecuzione di attività aggiuntive quando si accede al soggetto" - ovvero le query 
-
-

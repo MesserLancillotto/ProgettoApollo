@@ -42,6 +42,11 @@ public abstract class AuthenticatedEngine implements EngineInterface
         password = json.getString("password");
     }
 
+    public void setConnection(Connection connection) 
+    {
+        this.connection = connection;
+    }
+
     public Boolean petitionerCanLogIn()
     {
         if(this.canLogIn != null)
@@ -151,25 +156,36 @@ public abstract class AuthenticatedEngine implements EngineInterface
 
     public AuthenticatedReply handleRequest()
     {
-        try
-        (
-            Connection connection
-                = DriverManager.getConnection(DB_URL, user, db_passwd)
-        ) {
+        if (this.connection != null) 
+        {
+            try {
+                if (!petitionerCanLogIn()) {
+                    return new NegativeAuthenticatedReply();
+                }
+                getRoleAndOrganization();
+                return processWithConnection();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return new NegativeAuthenticatedReply();
+            }
+        }
+        try (Connection connection 
+            = DriverManager.getConnection(DB_URL, user, db_passwd)) 
+        {
             this.connection = connection;
-            if(!petitionerCanLogIn())
+            if(!petitionerCanLogIn()) 
             {
                 return new NegativeAuthenticatedReply();
             }
             getRoleAndOrganization();
             return processWithConnection();
         } 
-        catch(Exception e)
+        catch(Exception e) 
         {
             e.printStackTrace();
             return new NegativeAuthenticatedReply();
         }
-        finally
+        finally 
         {
             this.connection = null;
         }

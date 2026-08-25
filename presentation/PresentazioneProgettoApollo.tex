@@ -1,0 +1,190 @@
+\documentclass{beamer}
+\usepackage{amsmath, amsfonts, amssymb, mathtools}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+
+\usetheme{Madrid}
+
+
+
+\title{Progetto Apollo (ingegneria del software)}
+\author{Alessandro Lemme, Alessandro Lucchese}
+\institute{Università degli studi di Brescia}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Sommario}
+\tableofcontents
+\end{frame}
+
+\section{Pattern GRASP}
+
+\subsection{Information Expert}
+\begin{frame}{Information Expert}
+Qual è il principio base nell’assegnazione di responsabilità agli oggetti? \\
+\quad I vari engine hanno accesso a (parte) del database e soddisfano le richieste 
+prendendo i dati a loro strettamente necessari e formulando una risposta - 
+dunque la responsabilità di formulare una risposta è attribuita alla classe che
+ha la possibilità di reperire i dati necessari.
+\end{frame}
+
+\subsection{Creator}
+\begin{frame}{Creator}
+Chi dovrebbe essere responsabile per la creazione di una nuova istanza di una 
+classe? \\
+\quad \texttt{Server} è responsabile della creazione degli engine, contiene i 
+dati della richiesta - quindi possiede i dati per inizializzare l'oggetto che 
+implementa \texttt{Engine} - ed in base a questo crea l'oggetto che possa 
+formulare la risposta. Allo stesso modo \texttt{Client} crea la classe che 
+implementa \texttt{RequestInterface} che corrisponde alla richiesta specifica:
+lo strato UI passa i dati necessari per inizializzarla e lui crea l'oggetto che
+permetterà poi di creare la stringa JSON.
+\end{frame}
+
+\subsection{Controller}
+\begin{frame}{Controller}
+Qual è il primo oggetto oltre lo strato UI che riceve e coordina un’operazione 
+di sistema? \\
+\quad Qui creator e controller vanno a braccetto, lo strato UI chiama Client 
+che crea l'oggetto corrispondente alla richiesta dell'utente. Allo stesso modo 
+se per operazione di sistema si intende una modifica dei dati (e non il 
+semplice invio della richiesta con un socket) allora \texttt{Server} possiede e
+coordina la creazione degli oggetti che effettueranno queste modifiche.
+\end{frame}
+
+\subsection{Pure Fabrication}
+\begin{frame}{Pure Fabrication}
+Come assegnare le responsabilità quando usando Information Expert si violano 
+Low Coupling e High Cohesion? \\
+\quad Tutte le classi del pacchetto Engine hanno l'unica cosa in comune di 
+agire sul database: mentre, essendo simil RESTful API (invece che POST si usa 
+Set*, PUT diventa Edit*, GET e DELETE sono Get* e Delete*) al posto di esser 
+divise per tipologia di richiesta sono tutte nello stesso pacchetto ordinate 
+alfabeticamente di modo che il sistemista possa al bisogno alterare le query 
+modificando un solo pacchetto (seguendo anche il principio del minimo 
+privilegio, così facendo al sistemista può essere revocato il permesso di 
+modifica al di fuori del suo pacchetto di competenza).
+\end{frame}
+
+\subsection{Polimorphism}
+\begin{frame}{Polimorphism}
+Come gestire responsabilità alternative che variano sulla base del tipo (la 
+classe)? \\
+\quad Gli oggetti che implementano l'interfaccia \texttt{EngineInterface} sono
+un esempio di polimorfismo: implementano la funzione \texttt{handleRequest()} 
+rendendo facile la creazione di un nuovo engine senza influenzare gli engine 
+già esistenti o il modo in cui il server chiama la risposta dell'oggetto.
+\end{frame}
+
+\subsection{Legge di Demetra}
+\begin{frame}{Legge di Demetra}
+Come progettare uno o più oggetti in modo tale che
+l’instabilità di questi oggetti non abbia un impatto
+indesiderato su altri oggetti? \\
+\quad Ogni oggetto parla solo con il suo superiore/sottoposto: un engine parla 
+solo con ServerAPI, ServerAPI solo o con gli Engine o con Server: non avviene 
+mai uno scavalcamento. Simile lato client.
+\end{frame}
+
+\section{Pattern SOLID}
+
+\subsection{SingleResponsibility}
+\begin{frame}{SingleResponsibility}
+Ogni oggetto ha una ed una sola responsabilità, gli Engine di comporre una risposta specifica alla loro funzione, ServerAPI di creare gli engine e carpirne la risposta sulla base della richiesta fatta da Server, Server di interrogare ServerAPI e rispondere all'IP che ha mandato la richiesta.
+\end{frame}
+
+\subsection{Open Closed}
+\begin{frame}{Open Closed}
+Per estendere le funzioni del server bisogna:
+\begin{itemize}
+\item Creare un oggetto in \texttt{Request} che implementi \texttt{RequestInterface} e prenda i dati necessari a formulare la richiesta.
+\item Creare un metodo in \texttt{Client} che prenda i dati e costruisca l'oggetto \texttt{Request}.
+\item Creare un oggetto in \texttt{Engine} che implementi \texttt{EngineInterface} e soddisfi la richiesta.
+\item Creare un oggetto in \texttt{Reply} che implementi \texttt{ReplyInterface} che contenga i dati richiesti.
+\end{itemize}
+\end{frame}
+
+\subsection{Interface Segregation Principle}
+\begin{frame}{Interface Segregation Principle}
+Ogni classe qualora implementasse un'interfaccia ne implementa soltanto una
+\end{frame}
+
+\subsection{Dependency inversion}
+\begin{frame}{Dependency inversion}
+Ogni dipendenza è rispetto ad una interfaccia (Engine, AuthenticatedEngine, Thread, ...)
+\end{frame}
+
+\subsection{Principio di separazione modello-vista}
+\begin{frame}{Principio di separazione modello-vista}
+I dati seguono una pipeline fortemente compartimentata - anche dovuto al modello architetturale Fat Client - l'interfaccia grafica dipende da una classe sottostante responsabile della creazione delle richieste (un oggetto JSON), la quale manda la richiesta al server che risponderà con un JSON che verrà "spacchettato" dal Client e che l'interfaccia grafica mostrerà all'utente.
+\end{frame}
+
+\section{Gang og Four}
+
+\subsection{Simple Factory}
+\begin{frame}{Simple Factory}
+Chi crea i vari Engine per risolvere la domanda del Client? \\
+\begin{itemize}
+\item \textbf{Client}: è il \texttt{Client} dell'utente, che chiama (indirettamente)
+i metodi di \texttt{Server} \\
+\item \textbf{Factory}: è \texttt{Server} che crea gli engine a seconda del tipo di 
+richiesta del client.\\
+\item \textbf{Abstract}: è \texttt{EngineInterface}, implementata dai vari engine. \\
+\item \textbf{Product}: Sono i vari \texttt{[Delete,Edit,Get,Set]*Engine}. \\
+\end{itemize}
+\end{frame}
+
+\subsection{Strategy}
+\begin{frame}{Strategy}
+\begin{itemize}
+\item \textbf{Strategy}: \texttt{Engine} è l'interfaccia a cui tutti i contenitori di algoritmi devono rifarsi per essere creati ed invocati da \texttt{Server}. \\
+\item \textbf{Context}: EnginePureFabricator è il context - contiene un riferimento ad un Engine, EngineInterface è l'oggetto strategy, dichiara un’interfaccia comune agli algoritmi supportati mentre i vari *Engine sono i concrete strategy dato che implementano l’algoritmo usando strategy. \\
+\item \textbf{ConcreteStrategy}: i vari engine contengono l'algoritmo per rispondere alle richieste. \\
+\end{itemize}
+\end{frame}
+
+\subsection{MVC}
+\begin{frame}{MVC}
+\begin{itemize}
+\item \textbf{Model}: rappresenta i dati e il comportamento dell’applicazione, ovvero gli Engine e la loro politica interna di gestione dei dati. \\
+\item \textbf{View}: rappresenta il modo in cui l’utente interagisce con l’applicazione, ovvero la classe Client che effettua una chiamata tramite NetworkClient sulla porta 8000. \\
+\item \textbf{Controller}: trasforma le interazione dell’utente della View in richieste al Model, ovvero tutta l'interfaccia grafica che costruisce la richiesta pezzo per pezzo e la invia al sistema sottostante. \\
+\end{itemize}
+\end{frame}
+
+\subsection{Repository}
+\begin{frame}{Repository}
+Quando viene effettuata una chiamata al database esistono poi degli oggetti - tutti quelli del package Comunication/DatabaseObjects - che agiscono in modo coeso e sensato 
+\end{frame}
+
+\subsection{Proxy}
+\begin{frame}{Proxy}
+Il database SQL di java.sql agisce da proxy, assieme ad H2 \\
+\begin{itemize}
+\item remoto: qualora il DB fosse altrove l'interfaccia java.sql gestisce la connessione
+\item virtuale: H2 che implementa java.sql gestisce il caricamento in memoria dei dati del database
+\item protezione: l'accesso al database non è totalmente libero, serve una autenticazione
+\item intelligente: "consente l’esecuzione di attività aggiuntive quando si accede al soggetto" - ovvero le query 
+\end{itemize}
+\end{frame}
+
+\section{Testing}
+\subsection{White box}
+\begin{frame}{Testing white box}
+I test eseguiti su \texttt{GetPersonalDataEngine} sono tre per i due possibili metodi che potrebbero venir chiamati.
+\begin{itemize}
+\item \texttt{testPetitionerCanLogIn()} controlla solo che l'utente \texttt{Lancillotto.Benacense.99} possa connettersi con le sue credenziali (corrette).
+\item \texttt{testProcessWithConnection()} controlla che l'utente ritornato contenga tutti i dati che dovrebbe.
+\item \texttt{testProcessWithConnectionShouldFail()} controlla che un utente inesistente non possa accedere a dati del database.
+\end{itemize}
+\end{frame}
+
+
+\end{document}
