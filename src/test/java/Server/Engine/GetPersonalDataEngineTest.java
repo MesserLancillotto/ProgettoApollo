@@ -77,6 +77,23 @@ public class GetPersonalDataEngineTest
         assertNotNull(reply, "Engine answer should not be null");
     }
 
+    @Test
+    void testPetitionerFailLogIn() throws Exception 
+    {
+        GetPersonalDataRequest request = new GetPersonalDataRequest(
+            "Lancillotto.Benacense.99", "Errata");
+
+        GetPersonalDataEngine engine 
+            = new GetPersonalDataEngine(request.toJSONString());
+        engine.setConnection(connection);
+
+        assertFalse(engine.petitionerCanLogIn(), 
+            "User in terraform.sql should not be able to authenticate");
+
+        AuthenticatedReply reply = engine.processWithConnection();
+        assertNotNull(reply, "Engine answer should not be null");
+    }
+
     @Test 
     void testProcessWithConnection() throws Exception 
     {
