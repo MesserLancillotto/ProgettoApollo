@@ -55,7 +55,7 @@ public class BeneficiaryController
                         Integer eventStartDate = eventInstance.getInt("start_date");
                         Integer eventEndDate = eventInstance.getInt("end_date");
 
-                        // Aggiunge la riga nella schermata "Gestisci"
+                        // Aggiunge la riga nella schermata "Gestisci".
                         view.addEventoDaDisdireRow(eventName, eventDescription, eventRandezvous, eventStartDate, eventEndDate);
                     }
                 }
