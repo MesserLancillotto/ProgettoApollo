@@ -20,7 +20,7 @@ public class SetUserSubscriptionToEventRequest extends AuthenticatedRequest
         Integer date,
         List<String> friends
     ) {
-        super(ComunicationType.SET_NEW_PASSWORD, userID, password);
+        super(ComunicationType.SET_USER_SUBSCRIPTION_TO_EVENT, userID, password);
         json.put("friends", new JSONArray(friends));
         json.put("eventName", eventName);
         json.put("date", date);

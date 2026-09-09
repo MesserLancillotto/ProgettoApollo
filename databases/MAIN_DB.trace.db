@@ -18,3 +18,37 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database 
     SELECT userID FROM users
     WHERE userID = ? AND password = ?
  [42104-224]
+2026-09-09 08:55:47.796384+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "USERID CHARACTER VARYING(32)": "'CONFIGURATOR.Lancillotto.Benacense.99' (37)"; SQL statement:
+INSERT INTO users VALUES (
+    'CONFIGURATOR.Lancillotto.Benacense.99',
+    'Altachiara',
+    'Lancillotto',
+    'Benacense',
+    'Desenzano',
+    23, 12, 1999,
+    1767776400, -- 07/01/2026 9:00
+    'San Genesio',
+    'CONFIGURATOR',
+    false
+) [22001-224]
+2026-09-09 08:58:46.479102+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO users VALUE ('CONFIGURATOR.pippo', '123', 'p, 'p', 'p', 1, 1, 1, 1, 'l', 'CONFIGURATOR[*]', FALSE);"; SQL statement:
+INSERT INTO users VALUE ('CONFIGURATOR.pippo', '123', 'p, 'p', 'p', 1, 1, 1, 1, 'l', 'CONFIGURATOR', FALSE); [42000-224]
+2026-09-09 08:58:52.865388+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO users VALUES ('CONFIGURATOR.pippo', '123', 'p, 'p', 'p', 1, 1, 1, 1, 'l', 'CONFIGURATOR[*]', FALSE);"; SQL statement:
+INSERT INTO users VALUES ('CONFIGURATOR.pippo', '123', 'p, 'p', 'p', 1, 1, 1, 1, 'l', 'CONFIGURATOR', FALSE); [42000-224]
+2026-09-09 08:59:13.224218+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "USERID CHARACTER VARYING(32)": "'CONFIGURATOR.Lancillotto.Benacense.99' (37)"; SQL statement:
+INSERT INTO users VALUES (
+    'CONFIGURATOR.Lancillotto.Benacense.99',
+    'Altachiara',
+    'Lancillotto',
+    'Benacense',
+    'Desenzano',
+    23, 12, 1999,
+    1767776400, -- 07/01/2026 9:00
+    'San Genesio',
+    'CONFIGURATOR',
+    false
+) [22001-224]
