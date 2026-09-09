@@ -50,9 +50,12 @@ public class UserLoginController
             if (dictionaryResponse != null)
             {
                 userModel = UserFactory.create_user(model.getUsername(), dictionaryResponse);
+                System.out.println(userModel);
                 view.setVisible(false);
                 if (userModel == null)
+                {
                     throw new Exception();
+                }
                 else
                 {
                     userToCreate.get(userModel.getRoleTitle()).run();

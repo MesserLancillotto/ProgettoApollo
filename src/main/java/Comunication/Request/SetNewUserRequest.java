@@ -32,4 +32,25 @@ public class SetNewUserRequest extends AuthenticatedRequest
         json.put("role", role);
         json.put("organization", organization);
     }
+
+    public SetNewUserRequest(String userName, String password, String city, Integer birthYear) {
+        super(ComunicationType.SET_NEW_USER, "", "");
+        String name = userName != null ? userName : "";
+        String surname = "";
+        if (userName != null && userName.contains(".")) {
+            String[] parts = userName.split("\\.", 2);
+            name = parts[0];
+            surname = parts[1];
+        }
+        json.put("name", name);
+        json.put("surname", surname);
+        json.put("password", password);
+        json.put("city", city);
+        json.put("birth_dd", 1);
+        json.put("birth_mm", 1);
+        json.put("birth_yy", birthYear != null ? birthYear : 2000);
+        json.put("user_since", 2026);
+        json.put("role", UserRole.CONFIGURATOR);
+        json.put("organization", "");
+    }
 }
