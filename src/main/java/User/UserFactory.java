@@ -15,8 +15,17 @@ public class UserFactory
 
     public static UserModel create_user (String username, JSONObject usrData)
     {
+        if (username == null || usrData == null) {
+            return null;
+        }
+
         int dotIndex = username.indexOf('.');
-        String userType = username.substring(0, dotIndex);
+        String userType = (dotIndex != -1) ? username.substring(0, dotIndex).toUpperCase() : "";
+
+        // Fallback: se il nome utente non ha il prefisso col punto, prova a leggere il ruolo dal JSON
+        if (!CREATORS.containsKey(userType) && usrData.has("role")) {
+            userType = usrData.optString("role", "").toUpperCase();
+        }
 
         BiFunction<String, JSONObject, UserModel> creator = CREATORS.get(userType);
         if (creator != null) {

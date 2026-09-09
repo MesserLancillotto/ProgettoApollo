@@ -244,8 +244,9 @@ public class BeneficiaryView extends JFrame implements IBeneficiaryView {
         JPanel selectorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         selectorPanel.add(new JLabel("Numero Partecipanti:"));
 
-        Integer[] nums = new Integer[maxParticipants];
-        for(int i=0; i<maxParticipants; i++) nums[i] = i+1;
+        int effectiveMax = (maxParticipants > 0) ? maxParticipants : 1;
+        Integer[] nums = new Integer[effectiveMax];
+        for (int i = 0; i < effectiveMax; i++) nums[i] = i + 1;
         JComboBox<Integer> comboParticipants = new JComboBox<>(nums);
         selectorPanel.add(comboParticipants);
         centerPanel.add(selectorPanel, BorderLayout.NORTH);
@@ -262,7 +263,8 @@ public class BeneficiaryView extends JFrame implements IBeneficiaryView {
         Runnable updateFields = () -> {
             namesPanel.removeAll();
             textFields.clear();
-            int count = (Integer) comboParticipants.getSelectedItem();
+            Integer selected = (Integer) comboParticipants.getSelectedItem();
+            int count = (selected != null) ? selected : 1;
             for (int i = 1; i <= count; i++) {
                 JPanel row = new JPanel(new BorderLayout(10, 0));
                 row.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));

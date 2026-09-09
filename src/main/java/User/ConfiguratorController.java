@@ -281,15 +281,22 @@ public class ConfiguratorController
                         System.out.println("Indirizzo: " + address);
                         System.out.println("Tipi di visita associati: " + visitTypes);
 
+                        boolean allSuccessful = true;
                         for (String type : visitTypes)
                         {
                             Client.getInstance().delete_place(city, address, type);
-                            if (check_server_response())
-                                view.showMessage("Luogo eliminato con successo!");
-                            else
-                                view.showMessage("Errore di comunicazione col server!");
-                            handle_gestione_luoghi_apri(); // Ricarica la lista
+                            if (!check_server_response())
+                            {
+                                allSuccessful = false;
+                            }
                         }
+
+                        if (allSuccessful)
+                            view.showMessage("Luogo eliminato con successo!");
+                        else
+                            view.showMessage("Errore di comunicazione col server!");
+
+                        handle_gestione_luoghi_apri(); // Ricarica la lista una sola volta dopo il ciclo
 
                     }
                 }
