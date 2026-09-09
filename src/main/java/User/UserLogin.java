@@ -10,7 +10,7 @@ public class UserLogin
         SwingUtilities.invokeLater(() ->
         {
             UserLoginModel model = new UserLoginModel();
-            UserLoginView view = new UserLoginView();
+            ILoginView view = ViewFactory.getInstance().createLoginView();
             UserLoginController controller = new UserLoginController (model, view);
         });
     }

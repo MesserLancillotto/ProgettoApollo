@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.function.Consumer;
 
-public class VoluntaryView extends JFrame {
+public class VoluntaryView extends JFrame implements IVoluntaryView {
 
     private JPanel centerCardsPanel;
     private CardLayout cardLayout;

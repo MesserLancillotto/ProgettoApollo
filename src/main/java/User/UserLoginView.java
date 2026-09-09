@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UserLoginView extends JFrame
+public class UserLoginView extends JFrame implements ILoginView
 {
     JPanel panel;
     private JTextField txtUsername;

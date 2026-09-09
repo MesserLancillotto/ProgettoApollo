@@ -1,18 +1,15 @@
 package User;
 
 import Client.Client;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class FunctionVoluntaryConfEventsController extends FunctionController
+public class FunctionVoluntaryConfEventsController extends FunctionController<Boolean>
 {
     private VoluntaryModel model;
-    private VoluntaryView view;
+    private IVoluntaryView view;
 
-    public FunctionVoluntaryConfEventsController (VoluntaryModel model, VoluntaryView view)
+    public FunctionVoluntaryConfEventsController (VoluntaryModel model, IVoluntaryView view)
     {
         this.model = model;
         this.view = view;
@@ -24,45 +21,29 @@ public class FunctionVoluntaryConfEventsController extends FunctionController
         try {
             Client.getInstance().get_event(null);
             String response = Client.getInstance().make_server_request();
-            JSONArray eventsArray = new JSONArray(response);
+            List<EventDTO> events = DataMapper.parseEvents(response);
 
-            for  (int i = 0; i < eventsArray.length(); i++)
+            for (EventDTO event : events)
             {
-                JSONObject event = eventsArray.getJSONObject(i);
-                JSONArray eventInstancesArray = event.getJSONArray("instances");
-
-                for (int k = 0; k < eventInstancesArray.length(); k++)
+                for (EventInstanceDTO instance : event.getInstances())
                 {
-                    JSONObject eventInstance = eventInstancesArray.getJSONObject(k);
-                    JSONArray voluntariesArray = eventInstance.getJSONArray("voluntaries");
-
-                    for (int l = 0; l < voluntariesArray.length(); l++)
+                    if (instance.hasVoluntary(model.getUsername()))
                     {
-                        if (model.getUsername().equalsIgnoreCase(voluntariesArray.getString(l)))
-                        {
-                            String eventName = event.getString("name");
-                            String eventDescription = event.getString("description");
-                            String eventRandezvous = event.getString("randezvous");
-                            Integer eventStartDate = eventInstance.getInt("start_date");
-                            Integer eventEndDate = eventInstance.getInt("end_date");
-
-                            List<String> eventUsers = new ArrayList<>();
-                            JSONArray eventUserArray = eventInstance.getJSONArray("users");
-
-                            for (int m = 0; m < eventUserArray.length(); m++)
-                            {
-                                eventUsers.add(eventUserArray.getString(m));
-                            }
-
-                            view.addConfirmedVisitRow(eventName, eventDescription, eventRandezvous, eventStartDate, eventEndDate, eventUsers);
-                        }
+                        view.addConfirmedVisitRow(
+                                event.getName(),
+                                event.getDescription(),
+                                event.getRandezvous(),
+                                instance.getStartDate(),
+                                instance.getEndDate(),
+                                instance.getUsers()
+                        );
                     }
                 }
             }
-            return true; // Ha finito con successo
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
-            return false; // C'è stato un errore
+            return false;
         }
     }
 }

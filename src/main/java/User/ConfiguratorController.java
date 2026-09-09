@@ -1,28 +1,23 @@
 package User;
 
 import Client.Client;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import javax.swing.*;
-import java.time.Instant;
-import java.time.*;
+import java.time.LocalDate;
 import java.util.*;
 
 public class ConfiguratorController
 {
-    private ConfiguratorView view;
-    private FirstAccessView firstAccessView;
+    private IConfiguratorView view;
+    private IFirstAccessView firstAccessView;
     private ConfiguratorModel model;
 
-    public ConfiguratorController(ConfiguratorView view, ConfiguratorModel model)
+    public ConfiguratorController(IConfiguratorView view, ConfiguratorModel model)
     {
         this.model = model;
         this.view = view;
         if (model.getPasswordNeedsToBeChanged())
         {
             view.setVisible(false);
-            firstAccessView = new FirstAccessView("Completa");
+            firstAccessView = ViewFactory.getInstance().createFirstAccessView("Completa");
             firstAccessView.addConfirmListener(e -> handle_complete_registration());
         }
 
@@ -76,34 +71,17 @@ public class ConfiguratorController
         {
             Client.getInstance().get_voluntaries();
             String getVoluntariesRequest = Client.getInstance().make_server_request();
-            try
+            List<VoluntaryDTO> voluntaries = DataMapper.parseVoluntaries(getVoluntariesRequest);
+            if (!voluntaries.isEmpty() || getVoluntariesRequest.contains("\"voluntaries\""))
             {
-                JSONObject getVoluntariesResponse = new JSONObject(getVoluntariesRequest);
-                if (getVoluntariesResponse.getBoolean("loginSuccessful"))
+                for (VoluntaryDTO voluntary : voluntaries)
                 {
-                    JSONArray voluntaries = getVoluntariesResponse.getJSONArray("voluntaries");
-                    for (int m = 0; m < voluntaries.length(); m++)
-                    {
-                        JSONObject voluntary = voluntaries.getJSONObject(m);
-                        JSONArray allowedVisitsArray = voluntary.getJSONArray("allowedVisits");
-                        Set <String> allowedVisits = new HashSet<String>();
-
-                        for (int i = 0; i < allowedVisitsArray.length(); i++)
-                        {
-                            allowedVisits.add(allowedVisitsArray.getString(i));
-                        }
-                        List<String> allowedVisitsList = new ArrayList<>(allowedVisits);
-                        view.addVolontarioRow(voluntary.getString("userID"), allowedVisitsList);
-                    }
-                }
-                else
-                {
-                    view.showMessage("Errore nel recupero dei volontari!");
+                    view.addVolontarioRow(voluntary.getUserID(), voluntary.getAllowedVisits());
                 }
             }
-            catch (Exception e)
+            else
             {
-                view.showMessage("Errore di comunicazione col server!");
+                view.showMessage("Errore nel recupero dei volontari!");
             }
         }
         catch (Exception e)
@@ -117,29 +95,12 @@ public class ConfiguratorController
     {
         view.open_add_visit_type_voluntary_view(() -> {
             String selectedID = view.getSelectedAddVisitVoluntaryID();
-            Set<String> newVisitType = new HashSet<>();
-
             Client.getInstance().get_event(null);
             String getEventRequest = Client.getInstance().make_server_request();
-            try
-            {
-                JSONObject getEventResponse = new JSONObject(getEventRequest);
-                if (getEventResponse.getBoolean("loginSuccessful"))
-                {
-                    JSONArray events = getEventResponse.getJSONArray("events");
-                    for (int i = 0; i < events.length(); i++)
-                    {
-                        JSONObject event = events.getJSONObject(i);
-                        newVisitType.add(event.getString("visitType").toUpperCase());
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                view.showMessage("Errore nella comunicazione col server");
-            }
+            List<EventDTO> events = DataMapper.parseEvents(getEventRequest);
+            Set<String> newVisitType = DataMapper.extractVisitTypes(events);
 
-            view.open_select_new_visit_type_dialog(selectedID, newVisitType.stream().toList(), selectedType -> {
+            view.open_select_new_visit_type_dialog(selectedID, new ArrayList<>(newVisitType), selectedType -> {
                 System.out.println("--- AZIONE: AGGIUNGI TIPO DI VISITA A VOLONTARIO ---");
                 System.out.println("Utente: " + selectedID + " | Nuovo tipo: " + selectedType);
 
@@ -157,36 +118,17 @@ public class ConfiguratorController
         {
             Client.getInstance().get_voluntaries();
             String getVoluntariesRequest = Client.getInstance().make_server_request();
-            try
+            List<VoluntaryDTO> voluntaries = DataMapper.parseVoluntaries(getVoluntariesRequest);
+            if (!voluntaries.isEmpty() || getVoluntariesRequest.contains("\"voluntaries\""))
             {
-                JSONObject getVoluntariesResponse = new JSONObject(getVoluntariesRequest);
-                if (getVoluntariesResponse.getBoolean("loginSuccessful"))
+                for (VoluntaryDTO voluntary : voluntaries)
                 {
-
-                    JSONArray voluntaries = getVoluntariesResponse.getJSONArray("voluntaries");
-                    for (int m = 0; m < voluntaries.length(); m++)
-                    {
-                        JSONObject voluntary = voluntaries.getJSONObject(m);
-                        JSONArray allowedVisitsArray = voluntary.getJSONArray("allowedVisits");
-
-                        Set <String> allowedVisits = new HashSet<String>();
-
-                        for (int i = 0; i < allowedVisitsArray.length(); i++)
-                        {
-                            allowedVisits.add(allowedVisitsArray.getString(i));
-                        }
-                        List<String> allowedVisitsList = new ArrayList<>(allowedVisits);
-                        view.addAddVisitVolontarioRow(voluntary.getString("userID"), allowedVisitsList);
-                    }
-                }
-                else
-                {
-                    view.showMessage("Errore nel recupero dei volontari!");
+                    view.addAddVisitVolontarioRow(voluntary.getUserID(), voluntary.getAllowedVisits());
                 }
             }
-            catch (Exception e)
+            else
             {
-                view.showMessage("Errore di comunicazione col serverAO!");
+                view.showMessage("Errore nel recupero dei volontari!");
             }
         }
         catch (Exception e)
@@ -247,28 +189,10 @@ public class ConfiguratorController
                     String address = parts[1];
 
                     // b. Otteniamo dal server la lista di tutti i tipi di visita possibili
-                    Set<String> newVisitType = new HashSet<>();
                     Client.getInstance().get_event(null);
                     String getEventRequest = Client.getInstance().make_server_request();
-                    try
-                    {
-                        JSONObject getEventResponse = new JSONObject(getEventRequest);
-                        if (getEventResponse.getBoolean("loginSuccessful"))
-                        {
-                            JSONArray events = getEventResponse.getJSONArray("events");
-                            for (int i = 0; i < events.length(); i++)
-                            {
-                                JSONObject event = events.getJSONObject(i);
-                                newVisitType.add(event.getString("visitType").toUpperCase());
-                            }
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        e.printStackTrace();
-                        view.showMessage("Errore nella comunicazione col server durante il recupero dei tipi!");
-                        return; // Interrompiamo se fallisce il caricamento
-                    }
+                    List<EventDTO> events = DataMapper.parseEvents(getEventRequest);
+                    Set<String> newVisitType = DataMapper.extractVisitTypes(events);
 
                     // c. Logica extra: rimuoviamo dal Set i tipi di visita che il luogo ha GIA' associati
                     List<String> tipiGiaPresenti = view.getSelectedLuogoVisitTypes();
@@ -350,11 +274,7 @@ public class ConfiguratorController
                     // b. Estrazione dei tipi di visita associati a quel luogo
                     List<String> visitTypes = view.getSelectedLuogoVisitTypes();
 
-                    int response = JOptionPane.showConfirmDialog(null,
-                            "Vuoi davvero eliminare il luogo:\nCittà: " + city + "\nIndirizzo: " + address + "?",
-                            "Conferma Eliminazione", JOptionPane.YES_NO_OPTION);
-
-                    if (response == JOptionPane.YES_OPTION)
+                    if (view.confirmDeletePlace(city, address))
                     {
                         System.out.println("Azione: Rimosso luogo -> " + key);
                         System.out.println("Città: " + city);
@@ -381,26 +301,17 @@ public class ConfiguratorController
         {
             Client.getInstance().get_places();
             String getPlacesRequest = Client.getInstance().make_server_request();
-            try
+            List<PlaceDTO> places = DataMapper.parsePlaces(getPlacesRequest);
+            if (!places.isEmpty() || getPlacesRequest.contains("\"places\""))
             {
-                JSONObject getPlacesResponse = new JSONObject(getPlacesRequest);
-                if (getPlacesResponse.getBoolean("loginSuccessful"))
+                for (PlaceDTO place : places)
                 {
-                    JSONArray places = getPlacesResponse.getJSONArray("places");
-                    for (int m = 0; m < places.length(); m++)
-                    {
-                        JSONObject place = places.getJSONObject(m);
-                        view.addLuogoRow(place.getString("city"), place.getString("address"), place.getString("visitType"));
-                    }
-                }
-                else
-                {
-                    view.showMessage("Errore nel recupero dei volontari!");
+                    view.addLuogoRow(place.getCity(), place.getAddress(), place.getVisitType());
                 }
             }
-            catch (Exception e)
+            else
             {
-                view.showMessage("Errore nella comunicazione col server");
+                view.showMessage("Errore nel recupero dei luoghi!");
             }
         }
         catch (Exception e)
@@ -463,10 +374,12 @@ public class ConfiguratorController
         if (check_server_response())
         {
             this.view.showMessage("Numero massimo prenotazioni cambiato");
+            view.close_change_max_number_subrsctipion_view();
         }
         else
+        {
             this.view.showMessage("Errore! Modifica non eseguita");
-        view.setVisible(false);
+        }
     }
 
     private void handle_closed_days_selected()
@@ -475,7 +388,7 @@ public class ConfiguratorController
         Boolean changeSuccessfull = true;
         for  (Long unix : unixClosedDays)
         {
-            Client.getInstance().set_closed_days(getDayBoundaries(unix, true), getDayBoundaries(unix,false));
+            Client.getInstance().set_closed_days(DateUtils.getDayBoundaries(unix, true), DateUtils.getDayBoundaries(unix,false));
             if (changeSuccessfull && check_server_response())
                 changeSuccessfull = true;
             else
@@ -487,48 +400,8 @@ public class ConfiguratorController
             this.view.showMessage("Errore! Modifica non eseguita");
     }
 
-    // PER GESTIONE INTERNA
-    public static long getDayBoundaries(long unixTimeMillis, Boolean isStartDay) {
-
-        ZoneId zone = ZoneId.systemDefault();
-
-        LocalDate date = Instant.ofEpochMilli(unixTimeMillis)
-                .atZone(zone)
-                .toLocalDate();
-
-        ZonedDateTime startingDate = date.atTime(0, 1, 0).atZone(zone);
-        ZonedDateTime endingDate = date.atTime(23, 59, 59).atZone(zone);
-
-        if (isStartDay)
-            return startingDate.toInstant().toEpochMilli();
-        else
-            return endingDate.toInstant().toEpochMilli();
-
-    }
-
-    private boolean  check_server_response()
+    private boolean check_server_response()
     {
-        try
-        {
-            String requestResponse = Client.getInstance().make_server_request();
-            JSONObject response = new JSONObject(requestResponse);
-            if (response.getBoolean("loginSuccessful"))
-            {
-                if (response.getBoolean("updateSuccessful"))
-                {
-                    return true;
-                }
-                else
-                    return false;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
+        return DataMapper.isOperationSuccessful(Client.getInstance().make_server_request());
     }
 }

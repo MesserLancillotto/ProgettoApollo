@@ -3,23 +3,24 @@ package User;
 import Client.Client;
 import org.json.JSONObject;
 
-public class FunctionPasswordController extends FunctionController
+public class FunctionPasswordController extends FunctionController<Boolean>
 {
     private UserModel model;
-    private ChangePswdView view;
-    private Runnable onClompleteAction;
-    public FunctionPasswordController (UserModel model, ChangePswdView view, Runnable onCompleteAction)
+    private IChangePswdView view;
+    private Runnable onCompleteAction;
+    public FunctionPasswordController (UserModel model, IChangePswdView view, Runnable onCompleteAction)
     {
         this.model = model;
         this.view = view;
-        this.onClompleteAction = onCompleteAction;
+        this.onCompleteAction = onCompleteAction;
         view.addConfirmListener(e -> handle_confirm_psw_change());
         view.addCancelListener(e -> handle_cancel_psw_change());
     }
     @Override
     public Boolean execute ()
     {
-        return false;
+        view.setVisible(true);
+        return true;
     }
 
     private void handle_confirm_psw_change ()
@@ -68,6 +69,6 @@ public class FunctionPasswordController extends FunctionController
     private void handle_cancel_psw_change ()
     {
         view.setVisible(false);
-        onClompleteAction.run();
+        onCompleteAction.run();
     }
 }

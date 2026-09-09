@@ -6,7 +6,7 @@ public final class UserInputValidator
 
     public static String format_String (String str)
     {
-        if (str != null || !str.trim().isEmpty())
+        if (str != null && !str.trim().isEmpty())
         {
             StringBuilder sb = new StringBuilder();
             sb.append (str.substring(0,1).toUpperCase());
@@ -36,13 +36,14 @@ public final class UserInputValidator
 
     public static boolean passwordIsSafe(String pswd)
     {
+        if (pswd == null || pswd.trim().isEmpty()) {
+            return false;
+        }
         if (pswd.length() < 8)
         {
             return false;
         }
-        if (pswd == null || pswd.trim().isEmpty()) {
-            return false;
-        }
+
 
         boolean hasUpperCase = false;
         boolean hasLowerCase = false;

@@ -1,16 +1,16 @@
 package User;
 
 import Client.Client;
-import org.json.JSONArray;
-import org.json.JSONObject;
+
+import java.util.List;
 
 public class BeneficiaryController
 {
-    private BeneficiaryView view;
+    private IBeneficiaryView view;
     private BeneficiaryModel model;
-    private FirstAccessView firstAccessView;
+    private IFirstAccessView firstAccessView;
 
-    public BeneficiaryController(BeneficiaryView view, BeneficiaryModel model)
+    public BeneficiaryController(IBeneficiaryView view, BeneficiaryModel model)
     {
         this.view = view;
         this.model = model;
@@ -18,15 +18,15 @@ public class BeneficiaryController
         if (model.getIsFirstAccess())
         {
             view.setVisible(false);
-            firstAccessView = new FirstAccessView("Completa");
+            firstAccessView = ViewFactory.getInstance().createFirstAccessView("Completa");
             firstAccessView.addConfirmListener(e -> handle_complete_registration());
         }
 
-        view.addEffettuaPrenotazioneListener (e -> handle_make_booking ());
+        view.addEffettuaPrenotazioneListener(e -> handle_make_booking());
         view.addPrenotaActionListener(e -> handle_book_clicked());
 
         // Listener per la gestione delle prenotazioni e disdetta
-        view.addGestisciPrenotazioneListener (e -> handle_manage_booking());
+        view.addGestisciPrenotazioneListener(e -> handle_manage_booking());
         view.addDisdiciActionListener(e -> handle_disdici_click());
     }
 
@@ -38,26 +38,18 @@ public class BeneficiaryController
         String response = Client.getInstance().make_server_request();
 
         try {
-            JSONObject eventsResponse = new JSONObject(response);
-            if (eventsResponse.getBoolean("loginSuccessful"))
+            List<EventDTO> events = DataMapper.parseEvents(response);
+            for (EventDTO event : events)
             {
-                JSONArray eventsArray = eventsResponse.getJSONArray("events");
-                for  (int i = 0; i < eventsArray.length(); i++)
+                for (EventInstanceDTO instance : event.getInstances())
                 {
-                    JSONObject event = eventsArray.getJSONObject(i);
-                    JSONArray eventInstancesArray = event.getJSONArray("instances");
-                    for (int k = 0; k < eventInstancesArray.length(); k++)
-                    {
-                        JSONObject eventInstance = eventInstancesArray.getJSONObject(k);
-                        String eventName = event.getString("name");
-                        String eventDescription = event.getString("description");
-                        String eventRandezvous = event.getString("randezvous");
-                        Integer eventStartDate = eventInstance.getInt("start_date");
-                        Integer eventEndDate = eventInstance.getInt("end_date");
-
-                        // Aggiunge la riga nella schermata "Gestisci".
-                        view.addEventoDaDisdireRow(eventName, eventDescription, eventRandezvous, eventStartDate, eventEndDate);
-                    }
+                    view.addEventoDaDisdireRow(
+                            event.getName(),
+                            event.getDescription(),
+                            event.getRandezvous(),
+                            instance.getStartDate(),
+                            instance.getEndDate()
+                    );
                 }
             }
         }
@@ -70,8 +62,8 @@ public class BeneficiaryController
 
     private void handle_disdici_click()
     {
-        //Recupero i dati dell'evento selezionato nella schermata di gestione
-        BeneficiaryView.EventSelectionData data = view.getSelectedManageData();
+        // Recupero i dati dell'evento selezionato nella schermata di gestione
+        IBeneficiaryView.EventSelectionData data = view.getSelectedManageData();
 
         if (data == null)
         {
@@ -79,7 +71,7 @@ public class BeneficiaryController
             return;
         }
 
-        //Apro il popup di conferma passando la funzione da eseguire in caso l'utente accetti
+        // Apro il popup di conferma passando la funzione da eseguire in caso l'utente accetti
         view.openCancelConfirmDialog(data, () -> {
             System.out.println("--- DISDETTA CONFERMATA ---");
             System.out.println("Evento da disdire: " + data.name);
@@ -100,7 +92,7 @@ public class BeneficiaryController
 
     private void handle_book_clicked()
     {
-        BeneficiaryView.EventSelectionData data = view.getSelectedBookingData();
+        IBeneficiaryView.EventSelectionData data = view.getSelectedBookingData();
 
         if (data == null)
         {
@@ -119,8 +111,7 @@ public class BeneficiaryController
 
             Client.getInstance().set_user_subscription_to_event(friendsName, eventName, startDate);
             String makeBookingResponse = Client.getInstance().make_server_request();
-            JSONObject response = new JSONObject(makeBookingResponse);
-            if (response.getBoolean("updateSuccessful") && response.getBoolean("loginSuccessful"))
+            if (DataMapper.isOperationSuccessful(makeBookingResponse))
             {
                 view.showMessage("Prenotazione per " + friendsName.size() + " partecipanti confermata con successo!");
             }
@@ -138,25 +129,18 @@ public class BeneficiaryController
         Client.getInstance().get_event("CONFIRMED");
         String response = Client.getInstance().make_server_request();
         try {
-            JSONObject eventsResponse = new JSONObject(response);
-            if (eventsResponse.getBoolean("loginSuccessful"))
+            List<EventDTO> events = DataMapper.parseEvents(response);
+            for (EventDTO event : events)
             {
-                JSONArray eventsArray = eventsResponse.getJSONArray("events");
-                for  (int i = 0; i < eventsArray.length(); i++)
+                for (EventInstanceDTO instance : event.getInstances())
                 {
-                    JSONObject event = eventsArray.getJSONObject(i);
-                    JSONArray eventInstancesArray = event.getJSONArray("instances");
-                    for (int k = 0; k < eventInstancesArray.length(); k++)
-                    {
-                        JSONObject eventInstance = eventInstancesArray.getJSONObject(k);
-                        String eventName = event.getString("name");
-                        String eventDescription = event.getString("description");
-                        String eventRandezvous = event.getString("randezvous");
-                        Integer eventStartDate = eventInstance.getInt("start_date");
-                        Integer eventEndDate = eventInstance.getInt("end_date");
-
-                        view.addEventoPrenotabileRow(eventName, eventDescription, eventRandezvous, eventStartDate, eventEndDate);
-                    }
+                    view.addEventoPrenotabileRow(
+                            event.getName(),
+                            event.getDescription(),
+                            event.getRandezvous(),
+                            instance.getStartDate(),
+                            instance.getEndDate()
+                    );
                 }
             }
         }
@@ -188,27 +172,8 @@ public class BeneficiaryController
 
     }
 
-    private boolean  check_server_response()
+    private boolean check_server_response()
     {
-        try
-        {
-            String newUserResponse = Client.getInstance().make_server_request();
-            JSONObject response = new JSONObject(newUserResponse);
-            if (response.getBoolean("loginSuccessful"))
-            {
-                if (response.getBoolean("updateSuccessful"))
-                    return true;
-                else
-                    return false;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
+        return DataMapper.isOperationSuccessful(Client.getInstance().make_server_request());
     }
 }
