@@ -26,7 +26,7 @@ public class SetBasicAppInfoView extends JFrame implements ISetBasicAppInfoView 
 
     private void initialize() {
         this.setTitle("Configurazione Applicazione");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(550, 480);
         this.setMinimumSize(new Dimension(500, 450));
         this.setLocationRelativeTo(null);

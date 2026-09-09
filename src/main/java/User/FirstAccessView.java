@@ -25,7 +25,7 @@ public class FirstAccessView extends JFrame implements IFirstAccessView {
 
     private void initialize() {
         this.setTitle(typeOfView);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(600, 550); // Aumentata altezza per nuovo campo
         this.setMinimumSize(new Dimension(500, 500));
         this.setLocationRelativeTo(null);
