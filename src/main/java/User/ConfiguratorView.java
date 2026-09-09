@@ -17,7 +17,7 @@ import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 import java.util.function.Consumer;
 
-public class ConfiguratorView extends JFrame {
+public class ConfiguratorView extends JFrame implements IConfiguratorView {
 
     // Pannello centrale
     private JPanel centerCardsPanel;
@@ -980,6 +980,12 @@ public class ConfiguratorView extends JFrame {
         frameChangeMax.setVisible (value);
     }
 
+    public void close_change_max_number_subrsctipion_view() {
+        if (frameChangeMax != null) {
+            frameChangeMax.dispose();
+        }
+    }
+
     public void open_change_max_number_subrsctipion_view(int currentMaxValue, ActionListener saveListener) {
         frameChangeMax = new JFrame("Cambia numero massimo di persone per prenotazione");
         frameChangeMax.setSize(500, 250);
@@ -1023,13 +1029,9 @@ public class ConfiguratorView extends JFrame {
             try {
                 int newValue = Integer.parseInt(inputText);
                 if (newValue > 0) {
-                    lblStatus.setText("Attualmente si possono iscrivere al massimo " + newValue + " persone per ogni prenotazione");
-
-                    if(saveListener != null) {
+                    if (saveListener != null) {
                         saveListener.actionPerformed(e);
                     }
-                    txtNewMaxSub.setText("");
-                    JOptionPane.showMessageDialog(frameChangeMax, "Valore aggiornato con successo a " + newValue, "Successo", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(frameChangeMax, "Il valore deve essere maggiore di zero.", "Attenzione", JOptionPane.WARNING_MESSAGE);
                 }
@@ -1072,5 +1074,13 @@ public class ConfiguratorView extends JFrame {
 
     public void showMessage(String msg) {
         JOptionPane.showMessageDialog(this, msg);
+    }
+
+    @Override
+    public boolean confirmDeletePlace(String city, String address) {
+        int response = JOptionPane.showConfirmDialog(this,
+                "Vuoi davvero eliminare il luogo:\nCittà: " + city + "\nIndirizzo: " + address + "?",
+                "Conferma Eliminazione", JOptionPane.YES_NO_OPTION);
+        return response == JOptionPane.YES_OPTION;
     }
 }

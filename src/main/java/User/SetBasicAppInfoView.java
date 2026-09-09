@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SetBasicAppInfoView extends JFrame {
+public class SetBasicAppInfoView extends JFrame implements ISetBasicAppInfoView {
     private JTextField txtOrganizationName;
     private JTextField txtMaxPeoplePerBooking;
 

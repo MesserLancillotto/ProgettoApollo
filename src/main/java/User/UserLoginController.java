@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class UserLoginController
 {
-    private UserLoginView view;
+    private ILoginView view;
     private UserLoginModel model;
 
     private HashMap<UserType, Runnable> userToCreate = new HashMap<>();
@@ -19,7 +19,7 @@ public class UserLoginController
         userToCreate.put(UserType.BENEFICIARY, () -> beneficiary_created());
     }
 
-    public UserLoginController(UserLoginModel model, UserLoginView view)
+    public UserLoginController(UserLoginModel model, ILoginView view)
     {
         initialize_user_to_create();
         this.view = view;
@@ -32,7 +32,7 @@ public class UserLoginController
     private void handleRegister ()
     {
         view.setVisible(false);
-        BeneficiaryView beneficiaryView = new BeneficiaryView();
+        IBeneficiaryView beneficiaryView = ViewFactory.getInstance().createBeneficiaryView();
         BeneficiaryController benController = new BeneficiaryController(beneficiaryView, new BeneficiaryModel(true));
     }
 
@@ -50,12 +50,9 @@ public class UserLoginController
             if (dictionaryResponse != null)
             {
                 userModel = UserFactory.create_user(model.getUsername(), dictionaryResponse);
-                System.out.println(userModel);
                 view.setVisible(false);
                 if (userModel == null)
-                {
                     throw new Exception();
-                }
                 else
                 {
                     userToCreate.get(userModel.getRoleTitle()).run();
@@ -71,17 +68,17 @@ public class UserLoginController
     // Metodi per HashMap
     private void configurator_created ()
     {
-        ConfiguratorView configuratorView = new ConfiguratorView();
+        IConfiguratorView configuratorView = ViewFactory.getInstance().createConfiguratorView();
         ConfiguratorController confController = new ConfiguratorController(configuratorView, (ConfiguratorModel) userModel);
     }
     private void voluntary_created ()
     {
-        VoluntaryView voluntaryView = new VoluntaryView();
+        IVoluntaryView voluntaryView = ViewFactory.getInstance().createVoluntaryView();
         VoluntaryController volController = new VoluntaryController(voluntaryView, (VoluntaryModel) userModel);
     }
     private void beneficiary_created ()
     {
-        BeneficiaryView beneficiaryView = new BeneficiaryView();
+        IBeneficiaryView beneficiaryView = ViewFactory.getInstance().createBeneficiaryView();
         BeneficiaryController benController = new BeneficiaryController(beneficiaryView, (BeneficiaryModel) userModel);
     }
 

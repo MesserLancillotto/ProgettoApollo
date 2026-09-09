@@ -5,14 +5,14 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-public class FunctionConfCompleteRegistrationController extends FunctionController
+public class FunctionConfCompleteRegistrationController extends FunctionController<Boolean>
 {
-    private FirstAccessView view;
-    private SetBasicAppInfoView setBasicAppInfoView;
+    private IFirstAccessView view;
+    private ISetBasicAppInfoView setBasicAppInfoView;
     private ConfiguratorModel model;
     private Runnable onCompleteAction;
 
-    public FunctionConfCompleteRegistrationController (FirstAccessView view, ConfiguratorModel model, Runnable onCompleteAction)
+    public FunctionConfCompleteRegistrationController (IFirstAccessView view, ConfiguratorModel model, Runnable onCompleteAction)
     {
         this.view = view;
         this.model = model;
@@ -54,12 +54,12 @@ public class FunctionConfCompleteRegistrationController extends FunctionControll
                     Client.getInstance().set_new_user(model.getUserID(), view.getNewPassword(),
                             model.getCityOfResidence(), model.getYearOfBirth());
 
-                    if (check_server_response() || true)
-                    // SISTEMAAAAA = togli il true
+                    if (check_server_response())
                     {
                         view.setVisible(false);
-                        setBasicAppInfoView = new SetBasicAppInfoView();
+                        setBasicAppInfoView = ViewFactory.getInstance().createSetBasicAppInfoView();
                         setBasicAppInfoView.addConfirmListener(e -> handle_basic_app_info_registration());
+                        return true;
                     }
                     else
                     {
@@ -136,29 +136,8 @@ public class FunctionConfCompleteRegistrationController extends FunctionControll
         }
     }
 
-    private boolean  check_server_response()
+    private boolean check_server_response()
     {
-        try
-        {
-            String requestResponse = Client.getInstance().make_server_request();
-            JSONObject response = new JSONObject(requestResponse);
-            if (response.getBoolean("loginSuccessful"))
-            {
-                if (response.getBoolean("updateSuccessful"))
-                {
-                    return true;
-                }
-                else
-                    return false;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
+        return DataMapper.isOperationSuccessful(Client.getInstance().make_server_request());
     }
 }

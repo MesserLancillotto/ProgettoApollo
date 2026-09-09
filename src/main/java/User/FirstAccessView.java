@@ -8,7 +8,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.text.NumberFormatter;
 import java.text.NumberFormat;
 
-public class FirstAccessView extends JFrame {
+public class FirstAccessView extends JFrame implements IFirstAccessView {
     private JTextField txtName;
     private JTextField txtSurname;
     private JTextField txtBirthYear;

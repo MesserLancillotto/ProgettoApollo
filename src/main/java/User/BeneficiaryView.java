@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BeneficiaryView extends JFrame {
+public class BeneficiaryView extends JFrame implements IBeneficiaryView {
 
     private JPanel centerCardsPanel;
     private CardLayout cardLayout;
@@ -22,17 +22,6 @@ public class BeneficiaryView extends JFrame {
     private JPanel selectedBookingPanel = null;
     private JPanel selectedManagePanel = null;
 
-    // Struttura per memorizzare i dati completi dell'evento selezionato
-    public static class EventSelectionData {
-        public String name, desc, place;
-        public Integer startDate, endDate;
-
-        public EventSelectionData(String name, String desc, String place, Integer startDate, Integer endDate) {
-            this.name = name; this.desc = desc; this.place = place;
-            this.startDate = startDate; this.endDate = endDate;
-        }
-    }
-
     private EventSelectionData selectedBookingData = null;
     private EventSelectionData selectedManageData = null;
 
@@ -41,11 +30,6 @@ public class BeneficiaryView extends JFrame {
 
     private JButton btnPrenota;
     private JButton btnDisdici;
-
-    // Interfaccia di Callback per comunicare i risultati al controller
-    public interface BookingConfirmListener {
-        void onConfirm(String eventName, Integer eventStartDate, List<String> nominativi);
-    }
 
     public BeneficiaryView() {
         initialize();

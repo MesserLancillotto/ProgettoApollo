@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class ChangePswdView extends JFrame {
+public class ChangePswdView extends JFrame implements IChangePswdView {
 
     // Componenti della finestra
     private JPasswordField txtNuovaPassword;
