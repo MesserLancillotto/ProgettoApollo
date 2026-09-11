@@ -34,12 +34,19 @@ java -cp ~/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar org.h2.tools.
 Aprire il database in `~/documents/ProgettoApollo/databases/MAIN_DB` e copiare ed incollare prima il contenuto di `terraform.sql` per avere le tabelle e dati mock. Qualora si volesse stampare a video ogni dato nel db per comodità è stato creato il file `table_select_all`, similmente per `table_drop_all.sql` se si vuole cancellare tutto.
 ## Lato Server
 Per eseguire il server con database usare
-
 ```bash
 make server_run
 ```
-
- mentre per avviare il lato client usare
+## Lato Client
+Per avviare il lato client usare
 ```bash
 make client_run
 ```
+## Richieste custom (debug)
+Per mandare richieste di test usando netcat usare
+```bash
+LEN=$(wc -c < login_request.json)
+printf "$(printf '\\x%02x\\x%02x' $((LEN>>8)) $((LEN&0xff)))" > /tmp/hdr
+cat /tmp/hdr login_request.json | nc localhost 8000 | xxd
+```
+dove `login_request.json` è un file con la stringa formata per la richiesta

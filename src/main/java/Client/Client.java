@@ -62,24 +62,24 @@ public class Client
         return this.request;
     }
 
-    public String make_server_request()
+    public String makeServerRequest()
     {
-        return make_server_request(this.request);
+        return makeServerRequest(this.request);
     }
 
-    public String make_server_request(JSONObject jsonRequest)
+    public String makeServerRequest(JSONObject jsonRequest)
     {
         return NetworkClient.makeServerRequest(SERVER_ADDR, PORT, jsonRequest.toString());
     }
 
-    public String make_server_request(RequestInterface request) 
+    public String makeServerRequest(RequestInterface request) 
     {
         return NetworkClient.makeServerRequest(SERVER_ADDR, PORT, request.toJSONString());
     }
 
-    public void delete_place(String city, String address, String visitType) 
+    public void deletePlace(String city, String address) 
     {
-        this.request = new DeletePlaceRequest(this.userID, this.userPassword, city, address, visitType);
+        this.request = new DeletePlaceRequest(this.userID, this.userPassword, city, address);
     }
 
     public void set_new_place(String city, String address, String description, String organization, String visitType, String defaultVoluntary) 
@@ -218,7 +218,7 @@ public class Client
     public void set_max_people_subscription(int value) 
     {
         this.request = new SetMaximumFriendsRequest(this.userID, this.userPassword, value);
-        make_server_request();
+        makeServerRequest();
     }
 
     public int get_max_people_subscription() 
@@ -228,7 +228,7 @@ public class Client
         req.put("userID", this.userID);
         req.put("userPassword", this.userPassword);
 
-        String jsonResponse = make_server_request(req);
+        String jsonResponse = makeServerRequest(req);
 
         if (jsonResponse == null || jsonResponse.isEmpty()) {
             System.err.println("❌ Nessuna risposta dal server.");
@@ -266,7 +266,7 @@ public class Client
         this.request = new SetClosedDaysRequest(this.userID, this.userPassword, (int) startDate, (int) endDate);
     }
 
-    public void delete_visit_type_from_place(String city, String address, String visitType) 
+    public void deleteVisitTypeFromPlace(String city, String address, String visitType) 
     {
         this.request = new DeleteVisitTypeFromPlaceRequest(this.userID, this.userPassword, city, address, visitType);
     }

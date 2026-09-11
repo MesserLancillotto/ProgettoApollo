@@ -14,13 +14,11 @@ public class DeletePlaceRequest extends AuthenticatedRequest
         String userID,
         String password,
         String city,
-        String address,
-        String visitType
+        String address
     ) {
         super(ComunicationType.DELETE_PLACE, userID, password);
         json.put("city", city);
         json.put("address", address);
-        json.put("visitType", visitType);
         jsonString = null;
     }
 }

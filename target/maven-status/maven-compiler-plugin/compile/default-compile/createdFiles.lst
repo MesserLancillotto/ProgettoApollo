@@ -1,7 +1,6 @@
 Comunication/Reply/GetEventReply.class
 Comunication/Reply/SetMaximumFriendsReply.class
 Server/Engine/SetVisitablePlacesEngine.class
-User/Configurator/AbstractConfiguratorGUI.class
 Server/EnginePureFabricatiorContext.class
 User/Configurator/ConfiguratorGUI.class
 Server/Engine/GetMaximumFriendsEngine.class
@@ -13,11 +12,12 @@ Comunication/Reply/GetPossibleVisitsReply.class
 Comunication/Reply/GetPlacesReply.class
 Comunication/Reply/GetPersonalDataReply.class
 Comunication/Request/EditVisitablePlacesRequest.class
+User/Interfaces/RequestGUI.class
 Comunication/Reply/Interfaces/ReplyInterface.class
-User/Configurator/AbstractConfiguratorGUI$ActionConfig.class
 Server/Engine/GetPlacesEngine.class
 Comunication/DatabaseObjects/User.class
 Comunication/ComunicationType/ComunicationType.class
+User/Configurator/DeletePlaceRequestGUI.class
 Comunication/Reply/SetClosedDaysReply.class
 Comunication/Reply/Interfaces/AuthenticatedUpdateReply.class
 Server/Engine/EditVisitablePlacesEngine.class
@@ -31,6 +31,7 @@ Helper/JsonListConverter.class
 Comunication/Request/SetDisponibilityRequest.class
 Comunication/Reply/DeleteVisitTypeFromPlaceReply.class
 Comunication/Reply/NegativeAuthenticatedReply.class
+User/Configurator/DeleteVisitTypeFromPlaceGUI.class
 Server/Engine/SetDisponibilityEngine.class
 Comunication/Reply/SetUserSubscriptionToEventReply.class
 Server/Engine/GetEventEngine.class
@@ -53,9 +54,12 @@ Comunication/DatabaseObjects/Event.class
 Server/Engine/SetNewUserEngine.class
 Comunication/Reply/GetSubscribedEventsReply.class
 Server/Engine/SetUserSubscriptionToEventEngine.class
+User/Interfaces/AbstractConfiguratorGUI$ButtonAction.class
 Server/Engine/GetPersonalDataEngine.class
+User/Interfaces/AbstractConfiguratorGUI$ActionConfig.class
 Comunication/Request/GetPersonalDataRequest.class
 Comunication/Request/Interfaces/Request.class
+User/Interfaces/AbstractConfiguratorGUI.class
 Comunication/Request/GetVoluntariesRequest.class
 Server/Engine/DeleteVoluntaryEngine.class
 Comunication/Reply/SetNewUserReply.class
@@ -93,6 +97,5 @@ Server/Engine/SetNewOrganizationEngine.class
 Comunication/Reply/DeletePlaceReply.class
 Server/Engine/Interfaces/Engine.class
 Comunication/Request/SetNewPasswordRequest.class
-User/Configurator/AbstractConfiguratorGUI$ButtonAction.class
 Server/Server.class
 Server/Engine/DeletePlaceEngine.class
