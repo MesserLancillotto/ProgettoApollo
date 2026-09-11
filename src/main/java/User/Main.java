@@ -24,7 +24,7 @@ public class Main {
 
         client.get_personal_data(username);
 
-        String responseJson = client.make_server_request();
+        String responseJson = client.makeServerRequest();
 
         System.out.println("Response JSON: " + responseJson);
 

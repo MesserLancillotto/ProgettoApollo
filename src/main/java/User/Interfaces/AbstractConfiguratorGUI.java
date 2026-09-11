@@ -1,4 +1,4 @@
-package User.Configurator;
+package User.Interfaces;
 
 import User.Interfaces.UserViewInterface;
 import org.json.JSONObject;
@@ -13,34 +13,31 @@ public abstract class AbstractConfiguratorGUI implements UserViewInterface {
     protected Map<String, ActionConfig> configMap = new HashMap<>();
 
     @FunctionalInterface
-    protected interface ButtonAction 
-    {
+    protected interface ButtonAction {
         void execute();
     }
 
-    protected static class ActionConfig 
-    {
+    protected static class ActionConfig {
         String buttonText;
         String descriptionText;
         ButtonAction action;
 
-        public ActionConfig(String buttonText, String descriptionText, ButtonAction action) 
-        {
+        public ActionConfig(String buttonText, String descriptionText, ButtonAction action) {
             this.buttonText = buttonText;
             this.descriptionText = descriptionText;
             this.action = action;
         }
     }
 
-    private Map<String, ActionConfig> getConfigurations() 
-    {
+    private Map<String, ActionConfig> getConfigurations() {
         return configMap;
     }
 
     @Override
-    public void paint(JSONObject jsonObject) 
-    {
-        String userName = jsonObject.getJSONObject("user").getString("name");
+    public void paint(JSONObject jsonObject) {
+        String userName = (jsonObject != null && jsonObject.has("user")) 
+            ? jsonObject.getJSONObject("user").optString("name", "Utente") 
+            : "Utente";
 
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Configurator");
@@ -63,8 +60,7 @@ public abstract class AbstractConfiguratorGUI implements UserViewInterface {
 
             Map<String, ActionConfig> configs = getConfigurations();
 
-            for (Map.Entry<String, ActionConfig> entry : configs.entrySet()) 
-            {
+            for (Map.Entry<String, ActionConfig> entry : configs.entrySet()) {
                 ActionConfig config = entry.getValue();
 
                 JButton button = new JButton(config.buttonText);

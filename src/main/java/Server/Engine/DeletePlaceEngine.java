@@ -18,7 +18,6 @@ public class DeletePlaceEngine extends AuthenticatedEngine
             SELECT name FROM events 
             WHERE city = ?
               AND address = ?
-              AND visitType = ?
         );
     ""","""
         DELETE FROM eventsVoluntaries 
@@ -26,26 +25,22 @@ public class DeletePlaceEngine extends AuthenticatedEngine
             SELECT name FROM events 
             WHERE city = ?
               AND address = ?
-              AND visitType = ? 
         );
     ""","""
         DELETE FROM events
         WHERE 
             city = ? 
             AND address = ?
-            AND visitType = ?
     ""","""
         DELETE FROM places
         WHERE 
             city = ? 
             AND address = ?
-            AND visitType = ?
     """
     };
 
     private String city;
     private String address;
-    private String visitType;
 
     public DeletePlaceEngine
     (
@@ -53,8 +48,7 @@ public class DeletePlaceEngine extends AuthenticatedEngine
     ) {
         super(data);
         this.city = json.getString("city");
-        this.address = json.getString("address");
-        this.visitType = json.getString("visitType"); 
+        this.address = json.getString("address"); 
     }
     
     public AuthenticatedReply processWithConnection() throws SQLException
@@ -71,7 +65,6 @@ public class DeletePlaceEngine extends AuthenticatedEngine
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, this.city);
             statement.setString(2, this.address);
-            statement.setString(3, this.visitType);
             totalRows += statement.executeUpdate();
         }
         return new DeletePlaceReply(true, totalRows > 0);
