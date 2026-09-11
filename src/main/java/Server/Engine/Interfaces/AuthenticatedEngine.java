@@ -81,6 +81,16 @@ public abstract class AuthenticatedEngine implements EngineInterface
         return this.userID;
     }
 
+    protected String userExists()
+    {
+        String query = 
+        """
+            SELECT organization FROM users 
+            WHERE userID = ?
+        """;
+        return this.password;
+    }
+
     private void getRoleAndOrganization()
     {
         try
@@ -153,6 +163,8 @@ public abstract class AuthenticatedEngine implements EngineInterface
         }
         return this.organization;
     }
+
+
 
     public AuthenticatedReply handleRequest()
     {

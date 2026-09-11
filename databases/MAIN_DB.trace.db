@@ -52,3 +52,24 @@ INSERT INTO users VALUES (
     'CONFIGURATOR',
     false
 ) [22001-224]
+2026-09-11 18:01:52.711578+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found; SQL statement:
+DELETE FROM placesData WHERE userID = ? [42102-224]
+2026-09-11 18:03:59.281263+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found; SQL statement:
+DELETE FROM placesData WHERE userID = ? [42102-224]
+2026-09-11 18:04:21.387971+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found; SQL statement:
+DELETE FROM placesData WHERE userID = ? [42102-224]
+2026-09-11 18:17:01.801908+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLACESDATA" not found; SQL statement:
+    INSERT INTO placesData (city, address, visitType, userID)
+    VALUES (?, ?, ?, ?)
+    ON DUPLICATE KEY UPDATE userID = VALUES(userID);
+ [42102-224]
+2026-09-11 18:18:39.157008+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "    INSERT INTO places (city, address, visitType, userID)\000a    VALUES (?, ?, ?, ?)\000a    [*]ON DUPLICATE KEY UPDATE userID = VALUES(userID);\000a"; SQL statement:
+    INSERT INTO places (city, address, visitType, userID)
+    VALUES (?, ?, ?, ?)
+    ON DUPLICATE KEY UPDATE userID = VALUES(userID);
+ [42000-224]

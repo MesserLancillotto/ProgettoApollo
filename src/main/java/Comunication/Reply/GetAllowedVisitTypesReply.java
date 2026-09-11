@@ -8,7 +8,7 @@ import Comunication.Reply.Interfaces.AuthenticatedReply;
 public class GetAllowedVisitTypesReply extends AuthenticatedReply 
 {
     public GetAllowedVisitTypesReply(
-        Boolean loginSuccessful, 
+        Boolean loginSuccessful,
         List<String> visitTypes
     )  {
         super(loginSuccessful);

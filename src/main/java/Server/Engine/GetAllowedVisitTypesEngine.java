@@ -28,12 +28,12 @@ public class GetAllowedVisitTypesEngine extends AuthenticatedEngine
     
     public AuthenticatedReply processWithConnection() throws SQLException
     { 
-        if(!petitionerIsVoluntary())
+        if(!petitionerIsConfigurator() && !petitionerIsVoluntary())
         {
             return new GetAllowedVisitTypesReply(false, new ArrayList<>());
         }
         PreparedStatement statement = connection.prepareStatement(QUERY);
-        statement.setString(1, getUserID());
+        statement.setString(1, json.getString("targetID"));
             
         ResultSet result = statement.executeQuery();
             
@@ -43,7 +43,11 @@ public class GetAllowedVisitTypesEngine extends AuthenticatedEngine
         {
             visitTypes.add(result.getString("visitType"));
         }
-            
+        System.out.println("Fin qui");
+        for(String visitType : visitTypes)
+        {
+            System.out.println(visitType);
+        }
         return new GetAllowedVisitTypesReply(true, visitTypes);
     }
 }

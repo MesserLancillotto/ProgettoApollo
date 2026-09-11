@@ -9,34 +9,28 @@ import User.Interfaces.RequestGUI;
 import javax.swing.*;
 import java.util.Map;
 
-public class DeleteVisitTypeFromPlaceGUI extends RequestGUI {
+public class DeleteVoluntaryGUI extends RequestGUI {
 
-    public DeleteVisitTypeFromPlaceGUI() {
-        this.successMessage = "La richiesta di eliminazione del tipo di visita associato al luogo è stata inviata con successo.";
-        this.errorMessage = "Si è verificato un errore durante l'invio della richiesta di eliminazione del tipo di visita. Si prega di riprovare."; 
-        this.title = "Elimina Tipo Visita";
+    public DeleteVoluntaryGUI() 
+    {
+        this.successMessage = "La richiesta di eliminazione dell'utente è stata inviata con successo.";
+        this.errorMessage = "Si è verificato un errore durante l'invio della richiesta di eliminazione dell'utente. Si prega di riprovare."; 
+        this.title = "Elimina Utente";
     }
 
     @Override
-    protected void buildFieldsMap() 
-    {
-        this.fields.put("Città", false);
-        this.fields.put("Indirizzo", false);
-        this.fields.put("Tipo Visita", false);
+    protected void buildFieldsMap() {
+        this.fields.put("UserID", false);
     }
 
     @Override
     protected void requestLogic(JButton submitButton, Map<String, JTextField> inputMap) {
         submitButton.addActionListener(e -> {
-            String city = inputMap.get("Città").getText();
-            String address = inputMap.get("Indirizzo").getText();
-            String visitType = inputMap.get("Tipo Visita").getText();
-            
-            System.out.println("Città: " + city);
-            System.out.println("Indirizzo: " + address);
-            System.out.println("Tipo Visita: " + visitType);
+            String userID = inputMap.get("UserID").getText();
 
-            Client.getInstance().deleteVisitTypeFromPlace(city, address, visitType);
+            System.out.println("UserID: " + userID);
+
+            Client.getInstance().deleteVoluntary(userID);
             String response = Client.getInstance().makeServerRequest();
             System.out.println("Risposta dal server: " + response);
 
