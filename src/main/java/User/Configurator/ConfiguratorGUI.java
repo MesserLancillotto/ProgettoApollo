@@ -4,10 +4,6 @@ import User.Interfaces.*;
 import User.Configurator.*;
 import org.json.JSONObject;
 
-// Se DeleteVisitTypeFromPlaceGUI è in User.Configurator non serve import, 
-// ma se si trova in User.User scommenta la riga sotto:
-// import User.User.DeleteVisitTypeFromPlaceGUI; 
-
 public class ConfiguratorGUI extends AbstractConfiguratorGUI {
 
     public ConfiguratorGUI() {
@@ -29,6 +25,12 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
                 "Elimina utente", 
                 "Elimina l'utente selezionato dal pool di volontari", 
                 this::deleteVoluntaryRequest));
+        configMap.put(
+            "EditVisitablePlacesRequest", 
+            new ActionConfig(
+                "Modifica posto visitabile", 
+                "Modifica le informazioni del posto visitabile selezionato", 
+                this::editVisitablePlaceRequest));
     }
 
     private void deletePlaceRequest() 
@@ -46,5 +48,15 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
 
     private void deleteVoluntaryRequest() {
         System.out.println("deleteVoluntaryRequest()");
+        System.out.println("Cancella utente");
+        UserViewInterface userView = new DeleteVoluntaryGUI();
+        userView.paint(new JSONObject());
+    }
+
+    private void editVisitablePlaceRequest() {
+        System.out.println("editVisitablePlaceRequest()");
+        System.out.println("Modifica posto visitabile");
+        UserViewInterface userView = new EditVisitablesPlacesGUI();
+        userView.paint(new JSONObject());
     }
 }

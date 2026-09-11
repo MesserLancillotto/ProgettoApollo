@@ -18,7 +18,8 @@ public class DeleteVisitTypeFromPlaceGUI extends RequestGUI {
     }
 
     @Override
-    protected void buildFieldsMap() {
+    protected void buildFieldsMap() 
+    {
         this.fields.put("Città", false);
         this.fields.put("Indirizzo", false);
         this.fields.put("Tipo Visita", false);

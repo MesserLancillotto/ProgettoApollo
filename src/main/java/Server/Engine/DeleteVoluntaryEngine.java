@@ -12,7 +12,6 @@ public class DeleteVoluntaryEngine extends AuthenticatedEngine
 {
     private static final String [] QUERIES = {
         "DELETE FROM users WHERE userID = ?",
-        "DELETE FROM placesData WHERE userID = ?",
         "DELETE FROM userPermissions WHERE userID = ?",
         "DELETE FROM eventsVoluntaries WHERE userID = ?",
         "DELETE FROM voluntaryDisponibilities WHERE userID = ?"

@@ -73,12 +73,29 @@ CREATE TABLE IF NOT EXISTS voluntaryDisponibilities
         end_date INT
     );
 
+
+
 CREATE TABLE IF NOT EXISTS subscriptions
     (
         userID VARCHAR(32),
         name VARCHAR(32),
         date INT
-    );INSERT INTO users VALUES (
+    );
+
+INSERT INTO users VALUES (
+    'sa',
+    '1',
+    'Lancillotto',
+    'Benacense',
+    'Desenzano',
+    23, 12, 1999,
+    1767776400, -- 07/01/2026 9:00
+    'San Genesio',
+    'CONFIGURATOR',
+    false
+);
+
+INSERT INTO users VALUES (
     'Lancillotto.Benacense.99',
     'Altachiara',
     'Lancillotto',

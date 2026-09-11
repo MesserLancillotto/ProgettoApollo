@@ -89,7 +89,7 @@ public class Client
         this.request = req;
     }
 
-    public void edit_visitable_places(String city, String address, String visitType, String newDefauldVoluntary) 
+    public void editVisitablePlaces(String city, String address, String visitType, String newDefauldVoluntary) 
     {
         this.request = new EditVisitablePlacesRequest(this.userID, this.userPassword, city, address, visitType, newDefauldVoluntary);
     }
@@ -178,18 +178,18 @@ public class Client
         this.request = new GetMaximumFriendsRequest(organization);
     }
 
-    public void get_allowed_visit_types()
+    public void getAllowedVisitTypes()
     {
         this.request = new GetAllowedVisitTypesRequest(this.userID, this.userPassword);
     }
 
-    public void remove_voluntary(String voluntaryID) 
+    public void deleteVoluntary(String voluntaryID) 
     {
-        delete_voluntary(voluntaryID);
-    }
-
-    public void delete_voluntary(String voluntaryID) 
-    {
+        System.out.println("deleteVoluntary() called with userID: " + this.userID);
+        System.out.println("deleteVoluntary() called with userPassword: " + this.userPassword);
+        System.out.println("deleteVoluntary() called with voluntaryID: " + voluntaryID);
+        
+        System.out.println("deleteVoluntary() called with voluntaryID: " + voluntaryID);
         this.request = new DeleteVoluntaryRequest(this.userID, this.userPassword, voluntaryID);
     }
 

@@ -34,9 +34,11 @@ public class EditVisitablePlacesEngine extends AuthenticatedEngine
         }
         
         String query = """
-            INSERT INTO placesData (city, address, visitType, userID) 
-            VALUES (?, ?, ?, ?)
-            ON DUPLICATE KEY UPDATE userID = VALUES(userID);
+            UPDATE places 
+            SET userID = ? 
+            WHERE city = ? 
+              AND address = ? 
+              AND visitType = ?;
         """;
         
         PreparedStatement statement = connection.prepareStatement(query);

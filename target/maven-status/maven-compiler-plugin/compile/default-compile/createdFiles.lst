@@ -47,13 +47,16 @@ Comunication/Request/SetClosedDaysRequest.class
 Comunication/Request/DeleteUserSubscriptionToEventRequest.class
 Server/Engine/SetMaximumFriendsEngine.class
 User/Main.class
+User/Configurator/GetAllowedVisitTypesGUI.class
 Comunication/Request/GetPossibleVisitsRequest.class
 Comunication/Request/DeleteVisitTypeFromPlaceRequest.class
 Server/Engine/GetVoluntariesEngine.class
+User/Configurator/EditVisitablesPlacesGUI.class
 Comunication/DatabaseObjects/Event.class
 Server/Engine/SetNewUserEngine.class
 Comunication/Reply/GetSubscribedEventsReply.class
 Server/Engine/SetUserSubscriptionToEventEngine.class
+User/Configurator/DeleteVoluntaryGUI.class
 User/Interfaces/AbstractConfiguratorGUI$ButtonAction.class
 Server/Engine/GetPersonalDataEngine.class
 User/Interfaces/AbstractConfiguratorGUI$ActionConfig.class
