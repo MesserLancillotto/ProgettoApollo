@@ -39,11 +39,4 @@ public class NetworkClient
         }
         return "";
     }
-
-    public static void main(String [] args)
-    {
-        RequestInterface req = new GetPersonalDataRequest("Lancillotto.Benacense.99", "Altachiara");
-        String resp = makeServerRequest("127.0.0.1", 8000, req.toJSONString());
-        System.out.println(resp);
-    }
 }
