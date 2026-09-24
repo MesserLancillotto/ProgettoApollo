@@ -13,7 +13,7 @@ public class DeleteVoluntaryGUI extends RequestGUI {
 
     public DeleteVoluntaryGUI() 
     {
-        this.successMessage = "La richiesta di eliminazione dell'utente è stata inviata con successo.";
+        this.successMessage = "La richiesta di eliminazione dell'utente %s è stata inviata con successo.";
         this.errorMessage = "Si è verificato un errore durante l'invio della richiesta di eliminazione dell'utente. Si prega di riprovare."; 
         this.title = "Elimina Utente";
     }
@@ -38,7 +38,7 @@ public class DeleteVoluntaryGUI extends RequestGUI {
             if (jsonResponse.has("updateSuccessful") && jsonResponse.getBoolean("updateSuccessful")) {
                 JOptionPane.showMessageDialog(
                     frame, 
-                    this.successMessage, 
+                    String.format(this.successMessage,this.fields.put("UserID", false)), 
                     "Risposta dal Server", 
                     JOptionPane.INFORMATION_MESSAGE
                 );

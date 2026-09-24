@@ -1,0 +1,21 @@
+- [x] DeletePlaceRequest.java 
+- [ ] DeleteUserSubscriptionToEventRequest.java
+- [x] DeleteVisitTypeFromPlaceRequest.java 
+- [x] DeleteVoluntaryRequest.java
+- [x] EditVisitablePlacesRequest.java
+- [ ] GetAllowedVisitTypesRequest.java
+- [x] GetEventRequest.java
+- [-] GetMaximumFriendsRequest.java
+- [-] GetPersonalDataRequest.java
+- [-] GetPlacesRequest.java
+- [-] GetPossibleVisitsRequest.java
+- [ ] GetSubscribedEventsRequest.java
+- [ ] GetVoluntariesRequest.java
+- [ ] SetClosedDaysRequest.java
+- [ ] SetDisponibilityRequest.java
+- [ ] SetMaximumFriendsRequest.java
+- [ ] SetNewOrganizationRequest.java
+- [ ] SetNewPasswordRequest.java
+- [ ] SetNewUserRequest.java
+- [ ] SetUserSubscriptionToEventRequest.java
+- [ ] SetVisitablePlacesRequest.java

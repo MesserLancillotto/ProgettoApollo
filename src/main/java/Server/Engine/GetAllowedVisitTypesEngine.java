@@ -43,11 +43,6 @@ public class GetAllowedVisitTypesEngine extends AuthenticatedEngine
         {
             visitTypes.add(result.getString("visitType"));
         }
-        System.out.println("Fin qui");
-        for(String visitType : visitTypes)
-        {
-            System.out.println(visitType);
-        }
         return new GetAllowedVisitTypesReply(true, visitTypes);
     }
 }

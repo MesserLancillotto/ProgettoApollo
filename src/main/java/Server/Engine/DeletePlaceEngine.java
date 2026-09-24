@@ -11,6 +11,10 @@ import Comunication.Reply.DeletePlaceReply;
 
 public class DeletePlaceEngine extends AuthenticatedEngine
 {
+    private static final String ORGANIZATION_QUERY = """
+        SELECT organization FROM places WHERE city = ? and address = ?;
+    """;
+
     private static final String [] QUERIES = {
     """
         DELETE FROM eventsData 
@@ -58,8 +62,23 @@ public class DeletePlaceEngine extends AuthenticatedEngine
             return new DeletePlaceReply(false, false);
         }
 
+        PreparedStatement organizationStatement = connection.prepareStatement(ORGANIZATION_QUERY);
+        organizationStatement.setString(1, this.city);
+        organizationStatement.setString(2, this.address);
+        ResultSet result = organizationStatement.executeQuery();
+
+        if(!result.next())
+        {
+            return new DeletePlaceReply(true, false);
+        }
+
+        if(!getOrganization().equals(result.getString("organization")))
+        {
+            return new DeletePlaceReply(true, false);
+        }
+
         int totalRows = 0;
-            
+
         for(String query : QUERIES)
         {
             PreparedStatement statement = connection.prepareStatement(query);

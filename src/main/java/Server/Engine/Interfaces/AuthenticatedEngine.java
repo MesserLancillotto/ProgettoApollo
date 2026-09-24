@@ -164,8 +164,6 @@ public abstract class AuthenticatedEngine implements EngineInterface
         return this.organization;
     }
 
-
-
     public AuthenticatedReply handleRequest()
     {
         if (this.connection != null) 

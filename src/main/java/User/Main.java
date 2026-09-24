@@ -22,7 +22,7 @@ public class Main {
         client.setUserID(username);
         client.setUserPassword(new String(password));
 
-        client.get_personal_data(username);
+        client.getPersonalData(username);
 
         String responseJson = client.makeServerRequest();
 

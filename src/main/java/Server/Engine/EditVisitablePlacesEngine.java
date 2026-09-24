@@ -38,18 +38,28 @@ public class EditVisitablePlacesEngine extends AuthenticatedEngine
             SET userID = ? 
             WHERE city = ? 
               AND address = ? 
-              AND visitType = ?;
+              AND visitType = ?
+              AND EXISTS (
+                  SELECT 1 
+                  FROM userPermissions up 
+                  WHERE up.userID = ? 
+                    AND up.visitType = places.visitType
+              );
         """;
-        
+
         PreparedStatement statement = connection.prepareStatement(query);
         
-        statement.setString(1, city);
-        statement.setString(2, address);
-        statement.setString(3, visitType);
-        statement.setString(4, voluntary);
+        statement.setString(1, voluntary);
+        statement.setString(2, city);
+        statement.setString(3, address);
+        statement.setString(4, visitType);
+        statement.setString(5, voluntary);
         
         int successCount = statement.executeUpdate();
         
+        System.out.println(statement.toString());
+        System.out.println(successCount);
+
         return new EditVisitablePlacesReply(true, successCount > 0);
     
     }
