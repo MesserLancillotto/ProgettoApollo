@@ -43,7 +43,8 @@ public abstract class RequestGUI implements UserViewInterface {
 
             Map<String, JTextField> inputMap = new LinkedHashMap<>();
 
-            for (Map.Entry<String, Boolean> entry : fields.entrySet()) {
+            for (Map.Entry<String, Boolean> entry : fields.entrySet()) 
+            {
                 String labelText = entry.getKey();
                 boolean isPassword = entry.getValue();
 

@@ -49,14 +49,13 @@ class ServerAPI extends Thread
             
             Function<String, EngineInterface> engineCreator 
                 = EnginePureFabricatiorContext.createEngine(type);
-            if (engineCreator == null) {
+            if (engineCreator == null) 
+            {
                 return errorResponse("Unknown communication type: " + type);
             }
             
-            // Passa la stringa JSON originale al costruttore
             EngineInterface engine = engineCreator.apply(_request);
             
-            // Esegui e restituisci il risultato
             return engine.handleRequest().toJSONString();
             
         } catch (Exception e) {

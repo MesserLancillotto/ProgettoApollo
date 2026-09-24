@@ -13,11 +13,13 @@ public abstract class AbstractConfiguratorGUI implements UserViewInterface {
     protected Map<String, ActionConfig> configMap = new HashMap<>();
 
     @FunctionalInterface
-    protected interface ButtonAction {
+    protected interface ButtonAction 
+    {
         void execute();
     }
 
-    protected static class ActionConfig {
+    protected static class ActionConfig 
+    {
         String buttonText;
         String descriptionText;
         ButtonAction action;
@@ -34,7 +36,8 @@ public abstract class AbstractConfiguratorGUI implements UserViewInterface {
     }
 
     @Override
-    public void paint(JSONObject jsonObject) {
+    public void paint(JSONObject jsonObject) 
+    {
         String userName = (jsonObject != null && jsonObject.has("user")) 
             ? jsonObject.getJSONObject("user").optString("name", "Utente") 
             : "Utente";
@@ -60,7 +63,8 @@ public abstract class AbstractConfiguratorGUI implements UserViewInterface {
 
             Map<String, ActionConfig> configs = getConfigurations();
 
-            for (Map.Entry<String, ActionConfig> entry : configs.entrySet()) {
+            for (Map.Entry<String, ActionConfig> entry : configs.entrySet()) 
+            {
                 ActionConfig config = entry.getValue();
 
                 JButton button = new JButton(config.buttonText);

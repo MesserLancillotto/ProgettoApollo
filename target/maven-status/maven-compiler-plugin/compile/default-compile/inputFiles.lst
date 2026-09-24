@@ -68,6 +68,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetClosedDaysRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetPersonalDataRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetEventRequest.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/GetMaximumFriendsGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/Helper/UserCreator.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/GetPersonalDataReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/SetNewPasswordReply.java
@@ -91,6 +92,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetEventEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/DatabaseObjects/User.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/DatabaseObjects/UserRole.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/GetEventGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Interfaces/RequestGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetPersonalDataEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetNewOrganizationEngine.java

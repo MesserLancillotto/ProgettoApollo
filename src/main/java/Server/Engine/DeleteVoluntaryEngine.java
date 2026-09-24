@@ -10,6 +10,11 @@ import Comunication.Reply.DeleteVoluntaryReply;
 
 public class DeleteVoluntaryEngine extends AuthenticatedEngine
 {
+
+    private static final String ORGANIZATION_QUERY = """
+        SELECT userID FROM users WHERE userID = ? AND organization = ?;
+    """;
+
     private static final String [] QUERIES = {
         "DELETE FROM users WHERE userID = ?",
         "DELETE FROM userPermissions WHERE userID = ?",
@@ -32,6 +37,16 @@ public class DeleteVoluntaryEngine extends AuthenticatedEngine
         if(!petitionerIsConfigurator())
         {
             return new DeleteVoluntaryReply(false, false);
+        }
+
+        PreparedStatement organizationStatement = connection.prepareStatement(ORGANIZATION_QUERY);
+        organizationStatement.setString(1, targetID);
+        organizationStatement.setString(2, getOrganization());
+        ResultSet result = organizationStatement.executeQuery();
+
+        if(!result.next())
+        {
+            return new DeleteVoluntaryReply(true, false);
         }
 
         int totalRows = 0;

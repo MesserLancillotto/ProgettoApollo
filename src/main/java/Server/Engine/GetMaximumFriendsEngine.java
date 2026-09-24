@@ -24,11 +24,10 @@ public class GetMaximumFriendsEngine extends AuthenticatedEngine
 
     @Override
     public AuthenticatedReply processWithConnection() throws SQLException
-    {
+    {        
         PreparedStatement statement = connection.prepareStatement(QUERY);
         statement.setString(1, json.getString("organization"));
         ResultSet result = statement.executeQuery();
-        
         if(result.next())
         {
             return new GetMaximumFriendsReply(true, result.getInt("maximum_friends"));

@@ -12,19 +12,6 @@ INSERT INTO users VALUES (
 );
 
 INSERT INTO users VALUES (
-    'Parsifal.Silvano.00',
-    'Longino',
-    'Parsifal',
-    'Silvano',
-    'Lonato',
-    24, 1, 2000,
-    1767777000, -- 07/01/2026 9:10
-    'San Genesio',
-    'CONFIGURATOR',
-    false
-);
-
-INSERT INTO users VALUES (
     'Arlecchino.Valcalepio.89',
     'vino&carte',
     'Arlecchino',
@@ -114,48 +101,6 @@ INSERT INTO users VALUES (
     'USER',
     false
 );
-
--- generati da Gemini (i dati di test non sto a scriverli tutti a mano)
-
--- 1. Dante e Beatrice
-INSERT INTO users VALUES ('Dante.Alighieri.85', 'VitaNova', 'Dante', 'Alighieri', 'Firenze', 12, 5, 1985, 1775000000, '', 'USER', false);
-INSERT INTO users VALUES ('Beatrice.Portinari.88', 'GuidaDivina', 'Beatrice', 'Portinari', 'Firenze', 19, 6, 1988, 1775000000, '', 'USER', false);
-
--- 2. Petrarca e Laura
-INSERT INTO users VALUES ('Francesco.Petrarca.81', 'Canzoniere', 'Francesco', 'Petrarca', 'Arezzo', 20, 7, 1981, 1775000000, '', 'USER', false);
-INSERT INTO users VALUES ('Laura.DeNoves.83', 'Valchiusa', 'Laura', 'DeNoves', 'Avignone', 4, 6, 1983, 1775000000, '', 'USER', false);
-
--- 3. Orlando e Angelica
-INSERT INTO users VALUES ('Orlando.DArlono.90', 'FolliaDAmore', 'Orlando', 'DArlono', 'Parigi', 15, 8, 1990, 1775000000, '', 'USER', false);
-INSERT INTO users VALUES ('Angelica.DelCatai.93', 'Medoro', 'Angelica', 'DelCatai', 'Catai', 10, 3, 1993, 1775000000, '', 'USER', false);
-
--- 4. Tancredi e Clorinda
-INSERT INTO users VALUES ('Tancredi.DAltavilla.86', 'DuelloTragico', 'Tancredi', 'DAltavilla', 'Bari', 18, 3, 1986, 1775000000, '', 'USER', false);
-INSERT INTO users VALUES ('Clorinda.Guerriera.88', 'BattesimoInMorte', 'Clorinda', 'Guerriera', 'Gerusalemme', 25, 11, 1988, 1775000000, '', 'USER', false);
-
--- 5. Boccaccio e Fiammetta
-INSERT INTO users VALUES ('Giovanni.Boccaccio.82', 'Decameron', 'Giovanni', 'Boccaccio', 'Certaldo', 16, 6, 1982, 1775000000, '', 'USER', false);
-INSERT INTO users VALUES ('Maria.DAquino.84', 'ElegiaFiammetta', 'Maria', 'DAquino', 'Napoli', 12, 10, 1984, 1775000000, '', 'USER', false);
-
--- 6. Jacopo e Teresa
-INSERT INTO users VALUES ('Jacopo.Ortis.94', 'ColliEuganei', 'Jacopo', 'Ortis', 'Venezia', 11, 11, 1994, 1775000000, '', 'USER', false);
-INSERT INTO users VALUES ('Teresa.Rabbia.97', 'OrazioRivoira', 'Teresa', 'Rabbia', 'Padova', 22, 4, 1997, 1775000000, '', 'USER', false);
-
--- 7. Rinaldo e Armida
-INSERT INTO users VALUES ('Rinaldo.DEste.89', 'GiardinoIncantato', 'Rinaldo', 'DEste', 'Ferrara', 1, 9, 1989, 1775000000, '', 'USER', false);
-INSERT INTO users VALUES ('Armida.Siren.91', 'SpecchioMagico', 'Armida', 'Siren', 'Damasco', 14, 2, 1991, 1775000000, '', 'USER', false);
-
--- 8. Piramo e Tisbe
-INSERT INTO users VALUES ('Piramo.Babilonese.00', 'GelsiRossi', 'Piramo', 'Babilonese', 'Babilonia', 5, 5, 2000, 1775000000, '', 'USER', false);
-INSERT INTO users VALUES ('Tisbe.Babilonese.02', 'FessuraNelMuro', 'Tisbe', 'Babilonese', 'Babilonia', 17, 9, 2002, 1775000000, '', 'USER', false);
-
--- 9. Guiscardo e Ghismunda
-INSERT INTO users VALUES ('Guiscardo.Valletto.98', 'CuoreNelCalice', 'Guiscardo', 'Valletto', 'Salerno', 3, 1, 1998, 1775000000, '', 'USER', false);
-INSERT INTO users VALUES ('Ghismunda.DiSalerno.01', 'PrincipeTancredi', 'Ghismunda', 'DiSalerno', 'Salerno', 19, 8, 2001, 1775000000, '', 'USER', false);
-
--- 10. Ruggiero e Bradamante
-INSERT INTO users VALUES ('Ruggiero.DiRisa.92', 'Ippogrifo', 'Ruggiero', 'DiRisa', 'ReggioCalabria', 24, 12, 1992, 1775000000, '', 'USER', false);
-INSERT INTO users VALUES ('Bradamante.DiChiaramonte.95', 'LanciaDOro', 'Bradamante', 'DiChiaramonte', 'Dordogna', 30, 5, 1995, 1775000000, '', 'USER', false);
 
 INSERT INTO places VALUES (
     'San Genesio',
@@ -341,4 +286,29 @@ INSERT INTO subscriptions VALUES (
     'Lucia.Mondella.97',
     'Cinema in castello',
     1772830800 -- 06/03/2022 21:00
+);
+
+INSERT INTO organizations VALUES (
+    'San Carlo',
+    1
+);
+INSERT INTO places VALUES (
+    'San Carlo',
+    'Desenzano',
+    'Via Porto Vecchio 36',
+    'Conferenze informatiche',
+    'Conferenze informatiche all''aperto',
+    'Balanzone.Sangiovese.94'
+);
+INSERT INTO users VALUES (
+    'Balanzone.Sangiovese.94',
+    'compiuter_et_tastiere',
+    'Balanzone',
+    'Sangiovese',
+    'Desenzano',
+    27,  8, 1994,
+    1767776400, -- 07/01/2026 9:00
+    'San Carlo',
+    'VOLUNTARY',
+    false
 );

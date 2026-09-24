@@ -10,13 +10,13 @@ public class GetMaximumFriendsReply extends AuthenticatedReply
         Integer friendsNumber
     ) {
         super(true);
-        this.json.put("querySuccesful", querySuccesful);
+        this.json.put("querySuccessful", querySuccesful);
         this.json.put("friendsNumber", friendsNumber);
     }
 
     public GetMaximumFriendsReply() 
     {
         super(true);
-        this.json.put("querySuccesful", false);
+        this.json.put("querySuccessful", false);
     }
 }

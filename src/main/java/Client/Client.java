@@ -158,7 +158,7 @@ public class Client
         this.request = new GetPlacesRequest(this.userID, this.userPassword);
     }
 
-    public void get_personal_data(String target) 
+    public void getPersonalData(String target) 
     {
         this.request = new GetPersonalDataRequest(this.userID, this.userPassword);
     }
@@ -173,9 +173,9 @@ public class Client
         this.request = new GetPossibleVisitsRequest(organization);
     }
 
-    public void get_maximum_friends(String organization)
+    public void getMaximumFriends(String organization)
     {
-        this.request = new GetMaximumFriendsRequest(organization);
+        this.request = new GetMaximumFriendsRequest(this.userID, this.userPassword, organization);
     }
 
     public void getAllowedVisitTypes()
@@ -256,7 +256,7 @@ public class Client
     ) {
     }
 
-    public void get_event(String state) 
+    public void getEvent(String state) 
     {
         this.request = new GetEventRequest(this.userID, this.userPassword, state);
     }

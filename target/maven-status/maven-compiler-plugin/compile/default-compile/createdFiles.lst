@@ -43,6 +43,7 @@ Server/Engine/DeleteVisitTypeFromPlaceEngine.class
 Server/Engine/Helper/EventCreator.class
 Comunication/ComunicationType/ComunicationTypeStringConverter.class
 Server/ServerAPI.class
+User/Configurator/GetMaximumFriendsGUI.class
 Comunication/Request/SetClosedDaysRequest.class
 Comunication/Request/DeleteUserSubscriptionToEventRequest.class
 Server/Engine/SetMaximumFriendsEngine.class
@@ -93,6 +94,7 @@ Comunication/Reply/GetVoluntariesReply.class
 Comunication/DatabaseObjects/Place.class
 Comunication/Reply/Interfaces/AuthenticatedReply.class
 Server/Engine/Interfaces/AuthenticatedEngine.class
+User/Configurator/GetEventGUI.class
 User/Voluntary/VoluntaryGUI.class
 Comunication/Reply/DeleteVoluntaryReply.class
 Comunication/Reply/EditVisitablePlacesReply.class

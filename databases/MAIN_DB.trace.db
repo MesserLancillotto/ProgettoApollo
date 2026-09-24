@@ -73,3 +73,482 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "    INSE
     VALUES (?, ?, ?, ?)
     ON DUPLICATE KEY UPDATE userID = VALUES(userID);
  [42000-224]
+2026-09-22 17:05:27.249054+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:185)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:12)
+	at Server.ServerAPI.userResponse(ServerAPI.java:60)
+	at Server.ServerAPI.handleUserRequest(ServerAPI.java:31)
+	at Server.ServerAPI.run(ServerAPI.java:78)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 16 more
+2026-09-22 17:21:33.700868+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Parameter "#5" is not set; SQL statement:
+    UPDATE places
+    SET userID = ?
+    WHERE city = ?
+      AND address = ?
+      AND visitType = ?
+      AND EXISTS (
+          SELECT 1
+          FROM userPermissions up
+          WHERE up.userID = ?
+            AND up.visitType = places.visitType
+      ) [90012-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:658)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.Parameter.checkSet(Parameter.java:75)
+	at org.h2.command.Prepared.checkParameters(Prepared.java:207)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:159)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:216)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:174)
+	at Server.Engine.EditVisitablePlacesEngine.processWithConnection(EditVisitablePlacesEngine.java:61)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:193)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:12)
+	at Server.ServerAPI.userResponse(ServerAPI.java:60)
+	at Server.ServerAPI.handleUserRequest(ServerAPI.java:31)
+	at Server.ServerAPI.run(ServerAPI.java:78)
+2026-09-22 17:22:04.569349+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Parameter "#5" is not set; SQL statement:
+    UPDATE places
+    SET userID = ?
+    WHERE city = ?
+      AND address = ?
+      AND visitType = ?
+      AND EXISTS (
+          SELECT 1
+          FROM userPermissions up
+          WHERE up.userID = ?
+            AND up.visitType = places.visitType
+      ) [90012-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:658)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.Parameter.checkSet(Parameter.java:75)
+	at org.h2.command.Prepared.checkParameters(Prepared.java:207)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:159)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:216)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:174)
+	at Server.Engine.EditVisitablePlacesEngine.processWithConnection(EditVisitablePlacesEngine.java:61)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:193)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:12)
+	at Server.ServerAPI.userResponse(ServerAPI.java:60)
+	at Server.ServerAPI.handleUserRequest(ServerAPI.java:31)
+	at Server.ServerAPI.run(ServerAPI.java:78)
+2026-09-22 17:26:39.199371+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "E.STATE" not found; SQL statement:
+SELECT DISTINCT 
+            e.name, 
+            e.description, 
+            e.visitType, 
+            e.organization, 
+            e.city, 
+            e.address, 
+            e.rendezvous, 
+            e.state
+        FROM events e
+        JOIN subscriptions ON e.name = subscriptions.name
+        JOIN eventsData ed ON ed.name = e.name
+        WHERE subscriptions.userID = 'Balanzone.Pignoletto.92' [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1170)
+	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1516)
+2026-09-22 18:15:51.326399+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:185)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:12)
+	at Server.ServerAPI.userResponse(ServerAPI.java:59)
+	at Server.ServerAPI.handleUserRequest(ServerAPI.java:31)
+	at Server.ServerAPI.run(ServerAPI.java:77)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 16 more
+2026-09-23 12:25:24.558671+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO organizations VALUES (\000d\000a    'San Carlo',\000d\000a    1\000d\000a)\000d\000a\000d\000a[*]INSERT INTO places VALUES (\000d\000a    'San Carlo',\000d\000a    'Desenzano',\000d\000a    'Via Porto Vecchio 36',\000d\000a    'Conferenze informatiche',\000d\000a    'Balanzone.Sangiovese.94'\000d\000a)\000d\000a\000d\000aINSERT INTO users VALUES (\000d\000a    'Balanzone.Sangiovese.94',\000d\000a    'compiuter_et_tastiere',\000d\000a    'Balanzone',\000d\000a    'Sangiovese',\000d\000a    'Desenzano',\000d\000a    27,  8, 1994,\000d\000a    1767776400, -- 07/01/2026 9:00\000d\000a    'San Carlo',\000d\000a    'VOLUNTARY',\000d\000a    false\000d\000a)"; SQL statement:
+INSERT INTO organizations VALUES (
+    'San Carlo',
+    1
+)
+
+INSERT INTO places VALUES (
+    'San Carlo',
+    'Desenzano',
+    'Via Porto Vecchio 36',
+    'Conferenze informatiche',
+    'Balanzone.Sangiovese.94'
+)
+
+INSERT INTO users VALUES (
+    'Balanzone.Sangiovese.94',
+    'compiuter_et_tastiere',
+    'Balanzone',
+    'Sangiovese',
+    'Desenzano',
+    27,  8, 1994,
+    1767776400, -- 07/01/2026 9:00
+    'San Carlo',
+    'VOLUNTARY',
+    false
+) [42000-224]
+2026-09-23 12:26:14.878576+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO organizations VALUES (\000d\000a    'San Carlo',\000d\000a    1\000d\000a)\000d\000a\000d\000a[*]INSERT INTO places VALUES (\000d\000a    'San Carlo',\000d\000a    'Desenzano',\000d\000a    'Via Porto Vecchio 36',\000d\000a    'Conferenze informatiche',\000d\000a    'Balanzone.Sangiovese.94'\000d\000a)\000d\000a\000d\000aINSERT INTO users VALUES (\000d\000a    'Balanzone.Sangiovese.94',\000d\000a    'compiuter_et_tastiere',\000d\000a    'Balanzone',\000d\000a    'Sangiovese',\000d\000a    'Desenzano',\000d\000a    27,  8, 1994,\000d\000a    1767776400, -- 07/01/2026 9:00\000d\000a    'San Carlo',\000d\000a    'VOLUNTARY',\000d\000a    false\000d\000a)"; SQL statement:
+INSERT INTO organizations VALUES (
+    'San Carlo',
+    1
+)
+
+INSERT INTO places VALUES (
+    'San Carlo',
+    'Desenzano',
+    'Via Porto Vecchio 36',
+    'Conferenze informatiche',
+    'Balanzone.Sangiovese.94'
+)
+
+INSERT INTO users VALUES (
+    'Balanzone.Sangiovese.94',
+    'compiuter_et_tastiere',
+    'Balanzone',
+    'Sangiovese',
+    'Desenzano',
+    27,  8, 1994,
+    1767776400, -- 07/01/2026 9:00
+    'San Carlo',
+    'VOLUNTARY',
+    false
+) [42000-224]
+2026-09-23 12:27:36.008389+02:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO organizations VALUES (\000d\000a    'San Carlo',\000d\000a    1\000d\000a)\000d\000a\000d\000a[*]INSERT INTO places VALUES (\000d\000a    'San Carlo',\000d\000a    'Desenzano',\000d\000a    'Via Porto Vecchio 36',\000d\000a    'Conferenze informatiche',\000d\000a    'Balanzone.Sangiovese.94'\000d\000a)\000d\000a\000d\000aINSERT INTO users VALUES (\000d\000a    'Balanzone.Sangiovese.94',\000d\000a    'compiuter_et_tastiere',\000d\000a    'Balanzone',\000d\000a    'Sangiovese',\000d\000a    'Desenzano',\000d\000a    27,  8, 1994,\000d\000a    1767776400, -- 07/01/2026 9:00\000d\000a    'San Carlo',\000d\000a    'VOLUNTARY',\000d\000a    false\000d\000a)"; SQL statement:
+INSERT INTO organizations VALUES (
+    'San Carlo',
+    1
+)
+
+INSERT INTO places VALUES (
+    'San Carlo',
+    'Desenzano',
+    'Via Porto Vecchio 36',
+    'Conferenze informatiche',
+    'Balanzone.Sangiovese.94'
+)
+
+INSERT INTO users VALUES (
+    'Balanzone.Sangiovese.94',
+    'compiuter_et_tastiere',
+    'Balanzone',
+    'Sangiovese',
+    'Desenzano',
+    27,  8, 1994,
+    1767776400, -- 07/01/2026 9:00
+    'San Carlo',
+    'VOLUNTARY',
+    false
+) [42000-224]
+2026-09-24 10:19:42.103182+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO organizations VALUES (\000d\000a    'San Carlo',\000d\000a    1\000d\000a)\000d\000a\000d\000a[*]INSERT INTO places VALUES (\000d\000a    'San Carlo',\000d\000a    'Desenzano',\000d\000a    'Via Porto Vecchio 36',\000d\000a    'Conferenze informatiche',\000d\000a    'Balanzone.Sangiovese.94'\000d\000a)\000d\000a\000d\000aINSERT INTO users VALUES (\000d\000a    'Balanzone.Sangiovese.94',\000d\000a    'compiuter_et_tastiere',\000d\000a    'Balanzone',\000d\000a    'Sangiovese',\000d\000a    'Desenzano',\000d\000a    27,  8, 1994,\000d\000a    1767776400, -- 07/01/2026 9:00\000d\000a    'San Carlo',\000d\000a    'VOLUNTARY',\000d\000a    false\000d\000a)"; SQL statement:
+INSERT INTO organizations VALUES (
+    'San Carlo',
+    1
+)
+
+INSERT INTO places VALUES (
+    'San Carlo',
+    'Desenzano',
+    'Via Porto Vecchio 36',
+    'Conferenze informatiche',
+    'Balanzone.Sangiovese.94'
+)
+
+INSERT INTO users VALUES (
+    'Balanzone.Sangiovese.94',
+    'compiuter_et_tastiere',
+    'Balanzone',
+    'Sangiovese',
+    'Desenzano',
+    27,  8, 1994,
+    1767776400, -- 07/01/2026 9:00
+    'San Carlo',
+    'VOLUNTARY',
+    false
+) [42000-224]
+2026-09-24 10:23:36.056749+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO organizations VALUES (\000d\000a    'San Carlo',\000d\000a    1\000d\000a)\000d\000a\000d\000a[*]INSERT INTO places VALUES (\000d\000a    'San Carlo',\000d\000a    'Desenzano',\000d\000a    'Via Porto Vecchio 36',\000d\000a    'Conferenze informatiche',\000d\000a    'Balanzone.Sangiovese.94'\000d\000a)\000d\000a\000d\000aINSERT INTO users VALUES (\000d\000a    'Balanzone.Sangiovese.94',\000d\000a    'compiuter_et_tastiere',\000d\000a    'Balanzone',\000d\000a    'Sangiovese',\000d\000a    'Desenzano',\000d\000a    27,  8, 1994,\000d\000a    1767776400, -- 07/01/2026 9:00\000d\000a    'San Carlo',\000d\000a    'VOLUNTARY',\000d\000a    false\000d\000a)"; SQL statement:
+INSERT INTO organizations VALUES (
+    'San Carlo',
+    1
+)
+
+INSERT INTO places VALUES (
+    'San Carlo',
+    'Desenzano',
+    'Via Porto Vecchio 36',
+    'Conferenze informatiche',
+    'Balanzone.Sangiovese.94'
+)
+
+INSERT INTO users VALUES (
+    'Balanzone.Sangiovese.94',
+    'compiuter_et_tastiere',
+    'Balanzone',
+    'Sangiovese',
+    'Desenzano',
+    27,  8, 1994,
+    1767776400, -- 07/01/2026 9:00
+    'San Carlo',
+    'VOLUNTARY',
+    false
+) [42000-224]
+2026-09-24 10:30:22.081688+02:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM USERS \000d\000a[*]SELECT * FROM PLACES"; SQL statement:
+SELECT * FROM USERS 
+SELECT * FROM PLACES [42000-224]
+2026-09-24 10:31:15.922719+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:185)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:12)
+	at Server.ServerAPI.userResponse(ServerAPI.java:59)
+	at Server.ServerAPI.handleUserRequest(ServerAPI.java:31)
+	at Server.ServerAPI.run(ServerAPI.java:77)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 16 more
+2026-09-24 10:51:48.436206+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:183)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:12)
+	at Server.ServerAPI.userResponse(ServerAPI.java:59)
+	at Server.ServerAPI.handleUserRequest(ServerAPI.java:31)
+	at Server.ServerAPI.run(ServerAPI.java:77)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 16 more
+2026-09-24 10:51:54.476813+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:183)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:12)
+	at Server.ServerAPI.userResponse(ServerAPI.java:59)
+	at Server.ServerAPI.handleUserRequest(ServerAPI.java:31)
+	at Server.ServerAPI.run(ServerAPI.java:77)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 16 more
+2026-09-24 10:52:04.831025+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:183)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:12)
+	at Server.ServerAPI.userResponse(ServerAPI.java:59)
+	at Server.ServerAPI.handleUserRequest(ServerAPI.java:31)
+	at Server.ServerAPI.run(ServerAPI.java:77)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 16 more
+2026-09-24 10:52:09.651515+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:183)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:12)
+	at Server.ServerAPI.userResponse(ServerAPI.java:59)
+	at Server.ServerAPI.handleUserRequest(ServerAPI.java:31)
+	at Server.ServerAPI.run(ServerAPI.java:77)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: /home/lancillotto/documents/ProgettoApollo/databases/MAIN_DB.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 16 more
