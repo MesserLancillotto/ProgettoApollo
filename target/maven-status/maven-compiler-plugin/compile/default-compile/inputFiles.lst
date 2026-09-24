@@ -49,6 +49,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/Helper/JsonListConverter.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/GetPlacesReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetMaximumFriendsEngine.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/GetPersonalDataGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/Interfaces/Request.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/ComunicationType/ComunicationType.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetUserSubscriptionToEventRequest.java

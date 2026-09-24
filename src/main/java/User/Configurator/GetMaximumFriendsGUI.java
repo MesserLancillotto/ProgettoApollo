@@ -19,17 +19,13 @@ public class GetMaximumFriendsGUI extends RequestGUI {
     @Override
     protected void buildFieldsMap() 
     {
-        this.fields.put("Nome organizzazione", false);
     }
 
     @Override
     protected void requestLogic(JButton submitButton, Map<String, JTextField> inputMap) 
     {
         submitButton.addActionListener(e -> {
-            String organization_name = inputMap.get("Nome organizzazione").getText();
 
-            Client.getInstance().getMaximumFriends(organization_name);
-            
             String response = Client.getInstance().makeServerRequest();
             System.out.println("Risposta dal server: " + response);
 

@@ -21,6 +21,8 @@ public class Client
     private static final String SERVER_ADDR = "127.0.0.1";
     private static final int PORT = 8000;
     private String filePath = "configurazione.json";
+    private JSONObject userData;
+    private Boolean triggerPersonalData = false;
 
     private Client(String userID, String userPassword) 
     {
@@ -56,6 +58,10 @@ public class Client
     {
         return this.userPassword;
     }
+    public JSONObject getUserData()
+    {
+        return this.userData;
+    }
 
     public RequestInterface getCurrentRequest()
     {
@@ -64,7 +70,18 @@ public class Client
 
     public String makeServerRequest()
     {
-        return makeServerRequest(this.request);
+        if(!this.triggerPersonalData)
+        {
+            return makeServerRequest(this.request);
+        }
+        else
+        {
+            this.triggerPersonalData = false;
+            String reply = makeServerRequest(this.request);
+            userData = new JSONObject(reply);
+            return reply;
+        }
+        
     }
 
     public String makeServerRequest(JSONObject jsonRequest)
@@ -161,6 +178,7 @@ public class Client
     public void getPersonalData(String target) 
     {
         this.request = new GetPersonalDataRequest(this.userID, this.userPassword);
+        this.triggerPersonalData = true;
     }
 
     public void get_subscribed_events(String targetID)

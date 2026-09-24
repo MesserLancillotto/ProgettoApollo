@@ -33,6 +33,11 @@ public class EditVisitablePlacesEngine extends AuthenticatedEngine
             return new EditVisitablePlacesReply(false, false);
         }
         
+        if(!sameOrganizationPlaceConfigurator(city, address))
+        {
+            return new EditVisitablePlacesReply(true, false);
+        }
+
         String query = """
             UPDATE places 
             SET userID = ? 

@@ -12,11 +12,6 @@ import Comunication.Reply.SetClosedDaysReply;
 
 public class DeleteVisitTypeFromPlaceEngine extends AuthenticatedEngine
 {
-
-    private static final String ORGANIZATION_QUERY = """
-        SELECT organization FROM places WHERE city = ? and address = ?;
-    """;
-
     private static final String [] QUERIES = {
     """
         DELETE FROM eventsData 
@@ -75,22 +70,7 @@ public class DeleteVisitTypeFromPlaceEngine extends AuthenticatedEngine
         {
             return new DeleteVisitTypeFromPlaceReply(false, false);
         }
-        if(!petitionerIsConfigurator())
-        {
-            return new DeleteVisitTypeFromPlaceReply(false, false);
-        }
-
-        PreparedStatement organizationStatement = connection.prepareStatement(ORGANIZATION_QUERY);
-        organizationStatement.setString(1, this.city);
-        organizationStatement.setString(2, this.address);
-        ResultSet result = organizationStatement.executeQuery();
-
-        if(!result.next())
-        {
-            return new DeleteVisitTypeFromPlaceReply(true, false);
-        }
-
-        if(!getOrganization().equals(result.getString("organization")))
+        if(!sameOrganizationPlaceConfigurator(city, address))
         {
             return new DeleteVisitTypeFromPlaceReply(true, false);
         }

@@ -99,17 +99,19 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
         userView.paint(new JSONObject());
     }
 
-    private void getMaximumFriendsRequest() {
+    private void getMaximumFriendsRequest() 
+    {
         System.out.println("getMaximumFriendsRequest()");
         System.out.println("Richiesta numero amici invitabili");
         UserViewInterface userView = new GetMaximumFriendsGUI();
         userView.paint(new JSONObject());
     }
 
-    private void getPersonalDataRequest() {
-        System.out.println("getMaximumFriendsRequest()");
-        System.out.println("Richiesta numero amici invitabili");
-        UserViewInterface userView = new GetMaximumFriendsGUI();
+    private void getPersonalDataRequest() 
+    {
+        System.out.println("getPersonalDataRequest()");
+        System.out.println("Richiesta dati personali");
+        UserViewInterface userView = new GetPersonalDataGUI();
         userView.paint(new JSONObject());
     }
 
