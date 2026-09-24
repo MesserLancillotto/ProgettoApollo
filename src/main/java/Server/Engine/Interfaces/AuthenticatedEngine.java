@@ -201,6 +201,21 @@ public abstract class AuthenticatedEngine implements EngineInterface
         }
     }
 
+    protected Boolean sameOrganizationPlaceConfigurator(String city, String address)
+    throws SQLException
+    {
+        String QUERY = """
+        SELECT organization FROM places WHERE city = ? and address = ?;
+        """;
+        PreparedStatement organizationStatement = connection.prepareStatement(QUERY);
+        organizationStatement.setString(1, city);
+        organizationStatement.setString(2, address);
+        ResultSet result = organizationStatement.executeQuery();
+        return result.next() && getOrganization().equals(result.getString("organization"));
+    }
+
+
+
     protected abstract AuthenticatedReply processWithConnection() 
         throws SQLException;
 }

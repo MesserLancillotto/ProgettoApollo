@@ -20,6 +20,10 @@ public class GetEventEngine extends AuthenticatedEngine
             INNER JOIN eventsData ed ON e.name = ed.name
             WHERE e.state LIKE ?
         """;
+    private static final String SUPPLEMENT_QUERY = 
+    """
+    and e.organization = ?;
+    """;
 
     private String state;
 
@@ -40,10 +44,19 @@ public class GetEventEngine extends AuthenticatedEngine
         {
             return new GetEventReply(false, new ArrayList<Event>());
         }
-            
-        PreparedStatement statement = connection.prepareStatement(QUERY);
+        
+        PreparedStatement statement 
+            = connection.prepareStatement(
+                new StringBuilder(QUERY)
+                .append(organization.equals("") ? ";" : SUPPLEMENT_QUERY)
+                .toString()
+            );
             
         statement.setString(1, "%" + state + "%");
+        if(!organization.equals(""))
+        {
+            statement.setString(2, organization);
+        }
 
         ResultSet result = statement.executeQuery();
 
