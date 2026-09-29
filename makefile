@@ -16,3 +16,7 @@ server_run:
 
 client_run:
 	mvn exec:java -Dexec.mainClass="User.Main" -e
+
+debug:
+	mvn clean compile -U;
+	mvn exec:java -Dexec.mainClass="Server.Server" & mvn exec:java -Dexec.mainClass="User.Main" -e

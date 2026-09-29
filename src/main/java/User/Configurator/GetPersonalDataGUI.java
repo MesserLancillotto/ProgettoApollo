@@ -41,7 +41,6 @@ public class GetPersonalDataGUI extends RequestGUI
 
         JSONObject user = rawData.getJSONObject("user");
 
-        // Utilizziamo LinkedHashMap per preservare l'ordine di visualizzazione
         Map<String, String> displayData = new LinkedHashMap<>();
         displayData.put("ID Utente", user.optString("userID", "-"));
         displayData.put("Nome", user.optString("name", "-"));
@@ -95,7 +94,6 @@ public class GetPersonalDataGUI extends RequestGUI
             row++;
             gbc.gridwidth = 1;
 
-            // Generazione dinamica di Label Sinistra (Descrizione) e Label Destra (Valore)
             for (Map.Entry<String, String> entry : displayData.entrySet()) 
             {
                 JLabel labelDesc = new JLabel(entry.getKey() + ":");
@@ -117,7 +115,6 @@ public class GetPersonalDataGUI extends RequestGUI
                 row++;
             }
 
-            // Pulsante Chiudi al posto di "Invia Richiesta"
             JButton closeButton = new JButton("Chiudi");
             closeButton.addActionListener(e -> frame.dispose());
 
@@ -134,8 +131,5 @@ public class GetPersonalDataGUI extends RequestGUI
     }
 
     @Override
-    protected void requestLogic(JButton submitButton, Map<String, JTextField> inputMap) 
-    {
-        // Metodo non utilizzato in questa vista di sola lettura
-    }
+    protected void requestLogic(JButton submitButton, Map<String, JTextField> inputMap) {}
 }

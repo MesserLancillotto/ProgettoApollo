@@ -170,9 +170,27 @@ public class Client
         this.request = new GetVoluntariesRequest(this.userID, this.userPassword);
     }
 
-    public void get_places() 
+    public void getPlaces(String city, String address, List<String> visitTypes, List<String> states) 
     {
-        this.request = new GetPlacesRequest(this.userID, this.userPassword);
+        GetPlacesRequest req = new GetPlacesRequest(this.userID, this.userPassword);
+        if (city != null && !city.trim().isEmpty()) {
+            req.withCity(city.trim());
+        }
+        if (address != null && !address.trim().isEmpty()) {
+            req.withAddress(address.trim());
+        }
+        if (visitTypes != null && !visitTypes.isEmpty()) {
+            req.withVisitType(visitTypes);
+        }
+        if (states != null && !states.isEmpty()) {
+            req.withState(states);
+        }
+        this.request = req;
+    }
+
+    public void getPlaces() 
+    {
+        getPlaces(null, null, null, null);
     }
 
     public void getPersonalData(String target) 

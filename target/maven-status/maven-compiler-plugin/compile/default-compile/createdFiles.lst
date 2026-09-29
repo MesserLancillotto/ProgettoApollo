@@ -1,3 +1,5 @@
+Comunication/Reply/GetEventReply.class
+User/Configurator/GetPersonalDataGUI.class
 Comunication/Reply/SetMaximumFriendsReply.class
 Server/Engine/SetVisitablePlacesEngine.class
 Server/EnginePureFabricatiorContext.class
@@ -19,6 +21,7 @@ Comunication/ComunicationType/ComunicationType.class
 User/Configurator/DeletePlaceRequestGUI.class
 Comunication/Reply/SetClosedDaysReply.class
 Comunication/Reply/Interfaces/AuthenticatedUpdateReply.class
+Server/Engine/EditVisitablePlacesEngine.class
 Comunication/Request/SetMaximumFriendsRequest.class
 Comunication/Request/Interfaces/AuthenticatedRequest.class
 Comunication/Request/GetSubscribedEventsRequest.class
@@ -27,7 +30,9 @@ Comunication/Request/GetMaximumFriendsRequest.class
 Server/Engine/DeleteUserSubscriptionToEventEngine.class
 Helper/JsonListConverter.class
 Comunication/Request/SetDisponibilityRequest.class
+Comunication/Reply/DeleteVisitTypeFromPlaceReply.class
 Comunication/Reply/NegativeAuthenticatedReply.class
+User/Configurator/GetPlacesGUI.class
 User/Configurator/DeleteVisitTypeFromPlaceGUI.class
 Server/Engine/SetDisponibilityEngine.class
 Comunication/Reply/SetUserSubscriptionToEventReply.class
@@ -43,6 +48,7 @@ Server/ServerAPI.class
 User/Configurator/GetMaximumFriendsGUI.class
 Comunication/Request/SetClosedDaysRequest.class
 Comunication/Request/DeleteUserSubscriptionToEventRequest.class
+Server/Engine/SetMaximumFriendsEngine.class
 User/Main.class
 User/Configurator/GetAllowedVisitTypesGUI.class
 Comunication/Request/GetPossibleVisitsRequest.class
@@ -75,6 +81,7 @@ Server/Engine/GetPossibleVisitsEngine.class
 Comunication/DatabaseObjects/EventInstance.class
 Comunication/Reply/DeleteUserSubscriptionToEventReply.class
 Comunication/Reply/SetVisitablePlacesReply.class
+Comunication/Request/SetUserSubscriptionToEventRequest.class
 Server/Engine/GetSubscribedEventsEngine.class
 Server/Engine/Helper/UserCreator.class
 Comunication/Request/GetPlacesRequest.class
@@ -96,5 +103,6 @@ Comunication/Reply/EditVisitablePlacesReply.class
 Server/Engine/SetNewOrganizationEngine.class
 Comunication/Reply/DeletePlaceReply.class
 Server/Engine/Interfaces/Engine.class
+Comunication/Request/SetNewPasswordRequest.class
 Server/Server.class
 Server/Engine/DeletePlaceEngine.class

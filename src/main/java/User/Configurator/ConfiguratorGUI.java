@@ -37,8 +37,6 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
                 "Richiesta Evento", 
                 "Ottiene le informazioni sull'evento dato lo stato specificato", 
                 this::getEventRequest));
-        
-        
         configMap.put(
             "GetMaximumFriendsRequest", 
             new ActionConfig(
@@ -57,12 +55,12 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
                 "Dati posto", 
                 "Ottiene le informazioni sul posto specificato ", 
                 this::getPlacesRequest));
-        configMap.put(
-            "GetPossibleVisitsRequest", 
-            new ActionConfig(
-                "Visite organizzazione", 
-                "Ottiene le informazioni sul posto specificato ", 
-                this::getPossibleVisitsRequest));
+        // configMap.put(
+        //     "GetPossibleVisitsRequest", 
+        //     new ActionConfig(
+        //         "Visite organizzazione", 
+        //         "Ottiene le informazioni sul posto specificato ", 
+        //         this::getPossibleVisitsRequest));
 }
 
     private void deletePlaceRequest() 
@@ -115,17 +113,19 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
         userView.paint(new JSONObject());
     }
 
-    private void getPlacesRequest() {
+    private void getPlacesRequest() 
+    {
         System.out.println("getMaximumFriendsRequest()");
         System.out.println("Richiesta numero amici invitabili");
-        UserViewInterface userView = new GetMaximumFriendsGUI();
+        UserViewInterface userView = new GetPlacesGUI();
         userView.paint(new JSONObject());
     }
 
-    private void getPossibleVisitsRequest() {
-        System.out.println("getMaximumFriendsRequest()");
-        System.out.println("Richiesta numero amici invitabili");
-        UserViewInterface userView = new GetMaximumFriendsGUI();
-        userView.paint(new JSONObject());
-    }
+    // private void getPossibleVisitsRequest() 
+    // {
+    //     System.out.println("getMaximumFriendsRequest()");
+    //     System.out.println("Richiesta numero amici invitabili");
+    //     UserViewInterface userView = new GetPossibleVisitsGUI();
+    //     userView.paint(new JSONObject());
+    // }
 }
