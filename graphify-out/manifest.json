@@ -18,16 +18,16 @@
     "semantic_hash": "ceb4849bd8303d66d72ea24c8902676a"
   },
   "databases/table_test_data.sql": {
-    "mtime": 1788873966.1767538,
-    "seen": 1788937593.9931917,
-    "ast_hash": "a3e365e2e8de802a3187c6a36bf7e0ff",
-    "semantic_hash": "a3e365e2e8de802a3187c6a36bf7e0ff"
+    "mtime": 1790238340.0217636,
+    "seen": 1790687112.7561388,
+    "ast_hash": "cea91a97ebb01ce7b29add9842b4c189",
+    "semantic_hash": "cea91a97ebb01ce7b29add9842b4c189"
   },
   "databases/terraform.sql": {
-    "mtime": 1788873966.1767538,
-    "seen": 1788937593.9931924,
-    "ast_hash": "698dd8ed476a6ca5a9e7642df3799bd8",
-    "semantic_hash": "698dd8ed476a6ca5a9e7642df3799bd8"
+    "mtime": 1790238407.7181463,
+    "seen": 1790687112.7561429,
+    "ast_hash": "98ebdac73961875a0558552ad3868ed3",
+    "semantic_hash": "98ebdac73961875a0558552ad3868ed3"
   },
   "pom.xml": {
     "mtime": 1777365319.3097022,
@@ -35,21 +35,15 @@
     "ast_hash": "595bf030312ec753a1639f1bf13137e8",
     "semantic_hash": "595bf030312ec753a1639f1bf13137e8"
   },
-  "presentazione/PresentazioneProgettoApollo.toc": {
-    "mtime": 1788873966.178633,
-    "seen": 1788937593.9931939,
-    "ast_hash": "01e490c2e78969d5885c699a4825816f",
-    "semantic_hash": "01e490c2e78969d5885c699a4825816f"
-  },
   "src/main/java/Client/Client.java": {
-    "mtime": 1788935854.927353,
-    "seen": 1788937593.9931948,
-    "ast_hash": "08b761bd9c8a34f15513fcb661739421",
-    "semantic_hash": "08b761bd9c8a34f15513fcb661739421"
+    "mtime": 1790603860.6630197,
+    "seen": 1790687112.7561538,
+    "ast_hash": "9e85926aab47abf6998cd0cb7d8456e8",
+    "semantic_hash": "9e85926aab47abf6998cd0cb7d8456e8"
   },
   "src/main/java/Client/NetworkClient.java": {
-    "mtime": 1778603798.468548,
-    "seen": 1788937593.9931953,
+    "mtime": 1789115342.1669152,
+    "seen": 1790687112.7561567,
     "ast_hash": "9e312b716446d215bdda49fc020fead3",
     "semantic_hash": "9e312b716446d215bdda49fc020fead3"
   },
@@ -66,8 +60,8 @@
     "semantic_hash": "6eabe459fea57be51bef73920cf83693"
   },
   "src/main/java/Comunication/DatabaseObjects/Event.java": {
-    "mtime": 1785764784.7774198,
-    "seen": 1788937593.9931977,
+    "mtime": 1789198899.7261677,
+    "seen": 1790687112.7561674,
     "ast_hash": "7d0fb3576c30e1805e4a52eae722b936",
     "semantic_hash": "7d0fb3576c30e1805e4a52eae722b936"
   },
@@ -126,10 +120,10 @@
     "semantic_hash": "3960531574cdf673426df65278c413b2"
   },
   "src/main/java/Comunication/Reply/GetAllowedVisitTypesReply.java": {
-    "mtime": 1777365319.3109782,
-    "seen": 1788937593.9932046,
-    "ast_hash": "844a3db58751aa4fe1e37c1167838d55",
-    "semantic_hash": "844a3db58751aa4fe1e37c1167838d55"
+    "mtime": 1789145163.5327857,
+    "seen": 1790687112.7562,
+    "ast_hash": "c846398015982cf3454e5f4eb05631f2",
+    "semantic_hash": "c846398015982cf3454e5f4eb05631f2"
   },
   "src/main/java/Comunication/Reply/GetEventReply.java": {
     "mtime": 1777365319.3109782,
@@ -138,10 +132,10 @@
     "semantic_hash": "d549d6b4a90a19969eabeb70aa1f0d92"
   },
   "src/main/java/Comunication/Reply/GetMaximumFriendsReply.java": {
-    "mtime": 1778604240.5668702,
-    "seen": 1788937593.9932063,
-    "ast_hash": "1cff5148220f03f1b61ee00e6889ceef",
-    "semantic_hash": "1cff5148220f03f1b61ee00e6889ceef"
+    "mtime": 1790093497.396505,
+    "seen": 1790687112.756206,
+    "ast_hash": "db17a957ff9c644a24b1202bcb9a57bd",
+    "semantic_hash": "db17a957ff9c644a24b1202bcb9a57bd"
   },
   "src/main/java/Comunication/Reply/GetPersonalDataReply.java": {
     "mtime": 1777365319.3109782,
@@ -246,14 +240,14 @@
     "semantic_hash": "881446da7dca552d497d93755d1a8222"
   },
   "src/main/java/Comunication/Request/DeletePlaceRequest.java": {
-    "mtime": 1777365319.3113844,
-    "seen": 1788937593.993218,
-    "ast_hash": "207dfe6225b33801a7a4bb344fb349ab",
-    "semantic_hash": "207dfe6225b33801a7a4bb344fb349ab"
+    "mtime": 1789140083.38702,
+    "seen": 1790687112.756265,
+    "ast_hash": "253c464163e8c093211af404bddbcae3",
+    "semantic_hash": "253c464163e8c093211af404bddbcae3"
   },
   "src/main/java/Comunication/Request/DeleteUserSubscriptionToEventRequest.java": {
-    "mtime": 1777365319.3117425,
-    "seen": 1788937593.993219,
+    "mtime": 1789139908.0330682,
+    "seen": 1790687112.7562675,
     "ast_hash": "3edf997af0be8cf7ec854de8bbfb5791",
     "semantic_hash": "3edf997af0be8cf7ec854de8bbfb5791"
   },
@@ -276,8 +270,8 @@
     "semantic_hash": "4320c0980a3e2799f7818dfe17f4767a"
   },
   "src/main/java/Comunication/Request/GetAllowedVisitTypesRequest.java": {
-    "mtime": 1777365319.3117425,
-    "seen": 1788937593.9932222,
+    "mtime": 1789145196.8848615,
+    "seen": 1790687112.7562804,
     "ast_hash": "a6e0c1bb5325304020502eca6819f40b",
     "semantic_hash": "a6e0c1bb5325304020502eca6819f40b"
   },
@@ -288,10 +282,10 @@
     "semantic_hash": "121eea8ccf9ba747868605e28b7d0a83"
   },
   "src/main/java/Comunication/Request/GetMaximumFriendsRequest.java": {
-    "mtime": 1778604049.5420039,
-    "seen": 1788937593.9932234,
-    "ast_hash": "6cc65a6e74c86761328a17e146fd6c17",
-    "semantic_hash": "6cc65a6e74c86761328a17e146fd6c17"
+    "mtime": 1790092635.2528162,
+    "seen": 1790687112.7562866,
+    "ast_hash": "9545f2fcf9a70091ae5154718fc39bb7",
+    "semantic_hash": "9545f2fcf9a70091ae5154718fc39bb7"
   },
   "src/main/java/Comunication/Request/GetPersonalDataRequest.java": {
     "mtime": 1777365319.3117425,
@@ -300,8 +294,8 @@
     "semantic_hash": "36e2465e73d6075389519ea68a12b035"
   },
   "src/main/java/Comunication/Request/GetPlacesRequest.java": {
-    "mtime": 1777365319.3117425,
-    "seen": 1788937593.9932249,
+    "mtime": 1790603881.4940062,
+    "seen": 1790687112.7562928,
     "ast_hash": "155c5a11be82527707565e65e8fd75b5",
     "semantic_hash": "155c5a11be82527707565e65e8fd75b5"
   },
@@ -366,10 +360,10 @@
     "semantic_hash": "c54d21f18ebdeb5489f1afbe5383fbe2"
   },
   "src/main/java/Comunication/Request/SetNewPasswordRequest.java": {
-    "mtime": 1777365319.3122017,
-    "seen": 1788937593.993232,
-    "ast_hash": "a47599e7b000222efa0ea7ae1346713c",
-    "semantic_hash": "a47599e7b000222efa0ea7ae1346713c"
+    "mtime": 1789116354.8465087,
+    "seen": 1790687112.7563467,
+    "ast_hash": "67549893d0532bfbb4f92da4c408e330",
+    "semantic_hash": "67549893d0532bfbb4f92da4c408e330"
   },
   "src/main/java/Comunication/Request/SetNewUserRequest.java": {
     "mtime": 1788935786.3821578,
@@ -390,10 +384,10 @@
     "semantic_hash": "d46cc4f9608c20158db58b4120cffdd2"
   },
   "src/main/java/Server/Engine/DeletePlaceEngine.java": {
-    "mtime": 1777365319.3125339,
-    "seen": 1788937593.9932346,
-    "ast_hash": "370bed9a5848b86971a0a78c36481d32",
-    "semantic_hash": "370bed9a5848b86971a0a78c36481d32"
+    "mtime": 1790243909.1312604,
+    "seen": 1790687112.7563593,
+    "ast_hash": "401a88b20e86e189347c811a90e211ba",
+    "semantic_hash": "401a88b20e86e189347c811a90e211ba"
   },
   "src/main/java/Server/Engine/DeleteUserSubscriptionToEventEngine.java": {
     "mtime": 1777365319.3126364,
@@ -402,40 +396,40 @@
     "semantic_hash": "4439401452edcce44ce1982dfb08a16a"
   },
   "src/main/java/Server/Engine/DeleteVisitTypeFromPlaceEngine.java": {
-    "mtime": 1777365319.3126364,
-    "seen": 1788937593.993236,
-    "ast_hash": "48dd5aba4a90b6e10daed3f3bb212198",
-    "semantic_hash": "48dd5aba4a90b6e10daed3f3bb212198"
+    "mtime": 1790243913.2744262,
+    "seen": 1790687112.7563655,
+    "ast_hash": "1d2f1a875968b2e2b1c91bc5ba21ca98",
+    "semantic_hash": "1d2f1a875968b2e2b1c91bc5ba21ca98"
   },
   "src/main/java/Server/Engine/DeleteVoluntaryEngine.java": {
-    "mtime": 1777365319.3126364,
-    "seen": 1788937593.9932368,
-    "ast_hash": "d7ef2486524a0132088c442593426163",
-    "semantic_hash": "d7ef2486524a0132088c442593426163"
+    "mtime": 1790241207.917618,
+    "seen": 1790687112.7563684,
+    "ast_hash": "28fcfcbdc8fd5512fc230361fc321587",
+    "semantic_hash": "28fcfcbdc8fd5512fc230361fc321587"
   },
   "src/main/java/Server/Engine/EditVisitablePlacesEngine.java": {
-    "mtime": 1777365319.3126364,
-    "seen": 1788937593.9932373,
-    "ast_hash": "00ca6d1df7783c986b9aa8082a9c4fac",
-    "semantic_hash": "00ca6d1df7783c986b9aa8082a9c4fac"
+    "mtime": 1790244020.354419,
+    "seen": 1790687112.756371,
+    "ast_hash": "46c135761d05b95624d6748868d85eb1",
+    "semantic_hash": "46c135761d05b95624d6748868d85eb1"
   },
   "src/main/java/Server/Engine/GetAllowedVisitTypesEngine.java": {
-    "mtime": 1777365319.3126364,
-    "seen": 1788937593.993238,
-    "ast_hash": "d5f207e49f95a533e7bd152ef9194964",
-    "semantic_hash": "d5f207e49f95a533e7bd152ef9194964"
+    "mtime": 1789145453.9030151,
+    "seen": 1790687112.7563734,
+    "ast_hash": "9619bc52025d8f7a5b29c9bee3fae41a",
+    "semantic_hash": "9619bc52025d8f7a5b29c9bee3fae41a"
   },
   "src/main/java/Server/Engine/GetEventEngine.java": {
-    "mtime": 1777365319.3126364,
-    "seen": 1788937593.9932384,
-    "ast_hash": "e4d3bd54a6168f9c62e981b115df44dd",
-    "semantic_hash": "e4d3bd54a6168f9c62e981b115df44dd"
+    "mtime": 1790245366.3790748,
+    "seen": 1790687112.756376,
+    "ast_hash": "e68b680d11740be7d210b25e91306408",
+    "semantic_hash": "e68b680d11740be7d210b25e91306408"
   },
   "src/main/java/Server/Engine/GetMaximumFriendsEngine.java": {
-    "mtime": 1778604283.3174582,
-    "seen": 1788937593.9932394,
-    "ast_hash": "38af4eceb0a2e11c6415620ef6db7948",
-    "semantic_hash": "38af4eceb0a2e11c6415620ef6db7948"
+    "mtime": 1790093510.9418495,
+    "seen": 1790687112.756379,
+    "ast_hash": "3e06ddc3878f628ed6afbcf5fd097566",
+    "semantic_hash": "3e06ddc3878f628ed6afbcf5fd097566"
   },
   "src/main/java/Server/Engine/GetPersonalDataEngine.java": {
     "mtime": 1777365319.3126364,
@@ -498,10 +492,10 @@
     "semantic_hash": "4d286f9ba4233cac1cfe40c64675d56e"
   },
   "src/main/java/Server/Engine/Interfaces/AuthenticatedEngine.java": {
-    "mtime": 1788873966.1797285,
-    "seen": 1788937593.993249,
-    "ast_hash": "7b6488c7d3df1333434e5bcb19492f1b",
-    "semantic_hash": "7b6488c7d3df1333434e5bcb19492f1b"
+    "mtime": 1790243893.3541348,
+    "seen": 1790687112.756417,
+    "ast_hash": "fed12f2125744c9472befed39502f4ed",
+    "semantic_hash": "fed12f2125744c9472befed39502f4ed"
   },
   "src/main/java/Server/Engine/Interfaces/Engine.java": {
     "mtime": 1777365319.313534,
@@ -570,160 +564,16 @@
     "semantic_hash": "16b0715e1c123c6e6393975a3621fb03"
   },
   "src/main/java/Server/Server.java": {
-    "mtime": 1788873966.1798215,
-    "seen": 1788937593.9932587,
-    "ast_hash": "a630e3dcbc467fa211c2e57ac4b2f603",
-    "semantic_hash": "a630e3dcbc467fa211c2e57ac4b2f603"
+    "mtime": 1790321825.6164834,
+    "seen": 1790687112.7564616,
+    "ast_hash": "85d62ffa2f5004976247e513d016d516",
+    "semantic_hash": "85d62ffa2f5004976247e513d016d516"
   },
   "src/main/java/Server/ServerAPI.java": {
-    "mtime": 1788873966.17986,
-    "seen": 1788937593.9932592,
-    "ast_hash": "feb6c54ae63c28e7385f05cad5dc4390",
-    "semantic_hash": "feb6c54ae63c28e7385f05cad5dc4390"
-  },
-  "src/main/java/User/BeneficiaryController.java": {
-    "mtime": 1788933545.1699092,
-    "seen": 1788937593.9932601,
-    "ast_hash": "5017181c9c471fafa620388d0c309c53",
-    "semantic_hash": "5017181c9c471fafa620388d0c309c53"
-  },
-  "src/main/java/User/BeneficiaryModel.java": {
-    "mtime": 1777365319.3140776,
-    "seen": 1788937593.9932609,
-    "ast_hash": "56a8a153f5746c2057b0351381cec0b7",
-    "semantic_hash": "56a8a153f5746c2057b0351381cec0b7"
-  },
-  "src/main/java/User/BeneficiaryView.java": {
-    "mtime": 1783027623.9055808,
-    "seen": 1788937593.9932613,
-    "ast_hash": "5d659af2f7e23174d047b61a96a5e9a6",
-    "semantic_hash": "5d659af2f7e23174d047b61a96a5e9a6"
-  },
-  "src/main/java/User/ChangePswdView.java": {
-    "mtime": 1777365319.3140776,
-    "seen": 1788937593.993262,
-    "ast_hash": "00c63e837e624a29afebfe97676cf6e3",
-    "semantic_hash": "00c63e837e624a29afebfe97676cf6e3"
-  },
-  "src/main/java/User/ConfiguratorController.java": {
-    "mtime": 1783027623.9056919,
-    "seen": 1788937593.9932625,
-    "ast_hash": "bee128c8a326aee6dfe220abfec06b6b",
-    "semantic_hash": "bee128c8a326aee6dfe220abfec06b6b"
-  },
-  "src/main/java/User/ConfiguratorModel.java": {
-    "mtime": 1777365319.3140776,
-    "seen": 1788937593.9932632,
-    "ast_hash": "5046e4d4375a1a056227ea1b70c9dd40",
-    "semantic_hash": "5046e4d4375a1a056227ea1b70c9dd40"
-  },
-  "src/main/java/User/ConfiguratorView.java": {
-    "mtime": 1783027623.9059067,
-    "seen": 1788937593.993264,
-    "ast_hash": "ba4fc3441f40788d4f816c4f93c08b4b",
-    "semantic_hash": "ba4fc3441f40788d4f816c4f93c08b4b"
-  },
-  "src/main/java/User/FirstAccessView.java": {
-    "mtime": 1777365319.3140776,
-    "seen": 1788937593.9932647,
-    "ast_hash": "a543565387047c5711db99f17a334326",
-    "semantic_hash": "a543565387047c5711db99f17a334326"
-  },
-  "src/main/java/User/FunctionConfCompleteRegistrationController.java": {
-    "mtime": 1777365319.3140776,
-    "seen": 1788937593.993266,
-    "ast_hash": "b020fd9c0129be2c583a9ab7c0912c12",
-    "semantic_hash": "b020fd9c0129be2c583a9ab7c0912c12"
-  },
-  "src/main/java/User/FunctionController.java": {
-    "mtime": 1777365319.3140776,
-    "seen": 1788937593.9932666,
-    "ast_hash": "c4dfa2769694b6c64b3ecb9a0e4ee5f2",
-    "semantic_hash": "c4dfa2769694b6c64b3ecb9a0e4ee5f2"
-  },
-  "src/main/java/User/FunctionPasswordController.java": {
-    "mtime": 1777365319.3140776,
-    "seen": 1788937593.9932675,
-    "ast_hash": "c2238bc3906b9510bb95e5e8c163dfbc",
-    "semantic_hash": "c2238bc3906b9510bb95e5e8c163dfbc"
-  },
-  "src/main/java/User/FunctionVoluntaryConfEventsController.java": {
-    "mtime": 1777365319.3141975,
-    "seen": 1788937593.9932683,
-    "ast_hash": "f10f3c893d38c1f62b0063e4615507e2",
-    "semantic_hash": "f10f3c893d38c1f62b0063e4615507e2"
-  },
-  "src/main/java/User/SetBasicAppInfoView.java": {
-    "mtime": 1777365319.3141975,
-    "seen": 1788937593.9932687,
-    "ast_hash": "2e936725ea9b982bcdc9fe9d68fd1538",
-    "semantic_hash": "2e936725ea9b982bcdc9fe9d68fd1538"
-  },
-  "src/main/java/User/UserFactory.java": {
-    "mtime": 1777365319.3141975,
-    "seen": 1788937593.9932694,
-    "ast_hash": "25762d97063228e69ca4afc7edf65fa8",
-    "semantic_hash": "25762d97063228e69ca4afc7edf65fa8"
-  },
-  "src/main/java/User/UserInputValidator.java": {
-    "mtime": 1777365319.3141975,
-    "seen": 1788937593.9932702,
-    "ast_hash": "7ab968071ea5e9f5cf2957799f4dd918",
-    "semantic_hash": "7ab968071ea5e9f5cf2957799f4dd918"
-  },
-  "src/main/java/User/UserLogin.java": {
-    "mtime": 1777365319.3141975,
-    "seen": 1788937593.9932709,
-    "ast_hash": "5ed054795f6b30a03e3b6837488cca43",
-    "semantic_hash": "5ed054795f6b30a03e3b6837488cca43"
-  },
-  "src/main/java/User/UserLoginController.java": {
-    "mtime": 1788936802.372305,
-    "seen": 1788937593.9932716,
-    "ast_hash": "03be5055e578a7f1ab9bae732a47c0e9",
-    "semantic_hash": "03be5055e578a7f1ab9bae732a47c0e9"
-  },
-  "src/main/java/User/UserLoginModel.java": {
-    "mtime": 1777365319.3141975,
-    "seen": 1788937593.993272,
-    "ast_hash": "57031d868a24884c49b99c20d9eb85f7",
-    "semantic_hash": "57031d868a24884c49b99c20d9eb85f7"
-  },
-  "src/main/java/User/UserLoginView.java": {
-    "mtime": 1777365319.3141975,
-    "seen": 1788937593.9932728,
-    "ast_hash": "91bc732c18e45fac2dae6251c7ad289e",
-    "semantic_hash": "91bc732c18e45fac2dae6251c7ad289e"
-  },
-  "src/main/java/User/UserModel.java": {
-    "mtime": 1777365319.3141975,
-    "seen": 1788937593.9932735,
-    "ast_hash": "8f9a91f0d9c501343e2be33a6679cc9e",
-    "semantic_hash": "8f9a91f0d9c501343e2be33a6679cc9e"
-  },
-  "src/main/java/User/UserType.java": {
-    "mtime": 1777365319.3141975,
-    "seen": 1788937593.9932742,
-    "ast_hash": "f7d295b4b3c10d578b35fecdd1bbd1ed",
-    "semantic_hash": "f7d295b4b3c10d578b35fecdd1bbd1ed"
-  },
-  "src/main/java/User/VoluntaryController.java": {
-    "mtime": 1783027623.9060733,
-    "seen": 1788937593.993275,
-    "ast_hash": "8fba94e421fcc0e998feb4f047e02835",
-    "semantic_hash": "8fba94e421fcc0e998feb4f047e02835"
-  },
-  "src/main/java/User/VoluntaryModel.java": {
-    "mtime": 1777365319.3141975,
-    "seen": 1788937593.9932754,
-    "ast_hash": "1dbb89404b0f6bc78d9e91697731e419",
-    "semantic_hash": "1dbb89404b0f6bc78d9e91697731e419"
-  },
-  "src/main/java/User/VoluntaryView.java": {
-    "mtime": 1777365319.3141975,
-    "seen": 1788937593.9932761,
-    "ast_hash": "c993701046d54332002cf2d04b7e99f6",
-    "semantic_hash": "c993701046d54332002cf2d04b7e99f6"
+    "mtime": 1790321825.6164834,
+    "seen": 1790687112.7564645,
+    "ast_hash": "e8699124b60804f106078359f1e3edf8",
+    "semantic_hash": "e8699124b60804f106078359f1e3edf8"
   },
   "src/test/java/Client/ClientTest.java": {
     "mtime": 1788935920.1854913,
@@ -767,41 +617,17 @@
     "ast_hash": "94e728675558d82e42c702c9872504c1",
     "semantic_hash": "94e728675558d82e42c702c9872504c1"
   },
-  "throwaway.java": {
-    "mtime": 1788873966.1806343,
-    "seen": 1788937593.9932816,
-    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
-    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
-  },
   "README.md": {
-    "mtime": 1783364425.3119462,
-    "seen": 1788937593.993282,
-    "ast_hash": "83661dedab3bfb223b0d32086e235cd6",
-    "semantic_hash": "83661dedab3bfb223b0d32086e235cd6"
-  },
-  "presentazione/scaletta.txt": {
-    "mtime": 1788873966.179387,
-    "seen": 1788937593.9932828,
-    "ast_hash": "b43129b5a0072ae8b6018ad93b79c276",
-    "semantic_hash": "b43129b5a0072ae8b6018ad93b79c276"
+    "mtime": 1790601952.7211137,
+    "seen": 1790687112.7565362,
+    "ast_hash": "00673b32ae701547474f3929461752b4",
+    "semantic_hash": "00673b32ae701547474f3929461752b4"
   },
   "ProgettoLemmeLucchese.pdf": {
     "mtime": 1788873966.1756277,
     "seen": 1788937593.9932835,
     "ast_hash": "aecf3b4d595b99a24dc21849c995fbb2",
     "semantic_hash": "aecf3b4d595b99a24dc21849c995fbb2"
-  },
-  "presentazione/UMLGenerico.png": {
-    "mtime": 1788873966.1788695,
-    "seen": 1788937593.993284,
-    "ast_hash": "274b7033e9ca9990b9bd84669687c5e8",
-    "semantic_hash": "274b7033e9ca9990b9bd84669687c5e8"
-  },
-  "presentazione/UMLSpecifico.png": {
-    "mtime": 1788873966.1792715,
-    "seen": 1788937593.993285,
-    "ast_hash": "6191068b6f39583902b575aa368a9012",
-    "semantic_hash": "6191068b6f39583902b575aa368a9012"
   },
   "uml casi d'uso/Configuratore_uso app.png": {
     "mtime": 1788933545.172474,
@@ -820,5 +646,137 @@
     "seen": 1788937593.9932866,
     "ast_hash": "6bc6466d8d79e46daee0fce94e3709be",
     "semantic_hash": "6bc6466d8d79e46daee0fce94e3709be"
+  },
+  "login_request.json": {
+    "mtime": 1789131939.5843704,
+    "seen": 1790687112.7561462,
+    "ast_hash": "9103210527a42845ddb63bb16eec85f4",
+    "semantic_hash": "9103210527a42845ddb63bb16eec85f4"
+  },
+  "src/main/java/User/Configurator/ConfiguratorGUI.java": {
+    "mtime": 1790327786.8067377,
+    "seen": 1790687112.7564669,
+    "ast_hash": "caf57a10cca6e34d384d03d48f584624",
+    "semantic_hash": "caf57a10cca6e34d384d03d48f584624"
+  },
+  "src/main/java/User/Configurator/DeletePlaceRequestGUI.java": {
+    "mtime": 1789141803.5956542,
+    "seen": 1790687112.7564697,
+    "ast_hash": "abfd40a717cb7667e23426aaf5b3332e",
+    "semantic_hash": "abfd40a717cb7667e23426aaf5b3332e"
+  },
+  "src/main/java/User/Configurator/DeleteVisitTypeFromPlaceGUI.java": {
+    "mtime": 1789142893.3855913,
+    "seen": 1790687112.7564723,
+    "ast_hash": "293ec2b14a565be9c58b3a85a96133db",
+    "semantic_hash": "293ec2b14a565be9c58b3a85a96133db"
+  },
+  "src/main/java/User/Configurator/DeleteVoluntaryGUI.java": {
+    "mtime": 1790093735.0866337,
+    "seen": 1790687112.7564747,
+    "ast_hash": "639faa20220654edea25113750258ccb",
+    "semantic_hash": "639faa20220654edea25113750258ccb"
+  },
+  "src/main/java/User/Configurator/EditVisitablesPlacesGUI.java": {
+    "mtime": 1789143474.651897,
+    "seen": 1790687112.7564769,
+    "ast_hash": "b66f6e965eb038196eadeda1e9b6d8a6",
+    "semantic_hash": "b66f6e965eb038196eadeda1e9b6d8a6"
+  },
+  "src/main/java/User/Configurator/GetEventGUI.java": {
+    "mtime": 1789205884.6078548,
+    "seen": 1790687112.7564795,
+    "ast_hash": "67279a89d5c6e1b95e425380bb319bd1",
+    "semantic_hash": "67279a89d5c6e1b95e425380bb319bd1"
+  },
+  "src/main/java/User/Configurator/GetMaximumFriendsGUI.java": {
+    "mtime": 1790321875.3886101,
+    "seen": 1790687112.756482,
+    "ast_hash": "be7639db228be96fd6d3c436217537b4",
+    "semantic_hash": "be7639db228be96fd6d3c436217537b4"
+  },
+  "src/main/java/User/Configurator/GetPersonalDataGUI.java": {
+    "mtime": 1790682919.041723,
+    "seen": 1790687112.756484,
+    "ast_hash": "939d3ecf1324f7c102d968745e3c5e8d",
+    "semantic_hash": "939d3ecf1324f7c102d968745e3c5e8d"
+  },
+  "src/main/java/User/Configurator/GetPlacesGUI.java": {
+    "mtime": 1790682699.4370022,
+    "seen": 1790687112.7564867,
+    "ast_hash": "3971322203507c84dfc67e742c70618a",
+    "semantic_hash": "3971322203507c84dfc67e742c70618a"
+  },
+  "src/main/java/User/Interfaces/AbstractConfiguratorGUI.java": {
+    "mtime": 1789995505.0790424,
+    "seen": 1790687112.7564888,
+    "ast_hash": "46cde2da2d8d3ca5a3ff38bb0f96b39f",
+    "semantic_hash": "46cde2da2d8d3ca5a3ff38bb0f96b39f"
+  },
+  "src/main/java/User/Interfaces/RequestGUI.java": {
+    "mtime": 1790091992.4581447,
+    "seen": 1790687112.7564912,
+    "ast_hash": "f33cbd5315c5b7a1d1f754532fa0ffb7",
+    "semantic_hash": "f33cbd5315c5b7a1d1f754532fa0ffb7"
+  },
+  "src/main/java/User/Interfaces/UserViewInterface.java": {
+    "mtime": 1789135014.3216715,
+    "seen": 1790687112.7564936,
+    "ast_hash": "0ff32f564465b005b7381bd11d32f9f0",
+    "semantic_hash": "0ff32f564465b005b7381bd11d32f9f0"
+  },
+  "src/main/java/User/Main.java": {
+    "mtime": 1790247398.0970001,
+    "seen": 1790687112.7564962,
+    "ast_hash": "7ade01effe9c8b6d73a869dccf44ffa8",
+    "semantic_hash": "7ade01effe9c8b6d73a869dccf44ffa8"
+  },
+  "src/main/java/User/User/UserGUI.java": {
+    "mtime": 1789141693.911025,
+    "seen": 1790687112.7564986,
+    "ast_hash": "71131069423f9ba8f53c320806895e32",
+    "semantic_hash": "71131069423f9ba8f53c320806895e32"
+  },
+  "src/main/java/User/Voluntary/GetAllowedVisitTypesGUI.java": {
+    "mtime": 1789145124.6739817,
+    "seen": 1790687112.756501,
+    "ast_hash": "0530b03968986d467afb03875eaeeb50",
+    "semantic_hash": "0530b03968986d467afb03875eaeeb50"
+  },
+  "src/main/java/User/Voluntary/VoluntaryGUI.java": {
+    "mtime": 1789141696.7429495,
+    "seen": 1790687112.7565038,
+    "ast_hash": "db0995eea214a2f712a7c2eb77824b06",
+    "semantic_hash": "db0995eea214a2f712a7c2eb77824b06"
+  },
+  "src/test/java/User/UserFactoryTest.java": {
+    "mtime": 1789115439.0176692,
+    "seen": 1790687112.7565336,
+    "ast_hash": "b1b5c519a07a1d9f02462f89294ac32c",
+    "semantic_hash": "b1b5c519a07a1d9f02462f89294ac32c"
+  },
+  "TODO.md": {
+    "mtime": 1790684315.586811,
+    "seen": 1790687112.7565384,
+    "ast_hash": "87dfbb8080e3fa7ca434162082e2d679",
+    "semantic_hash": "87dfbb8080e3fa7ca434162082e2d679"
+  },
+  "uml casi d'uso/Configuratore_primo accesso .png": {
+    "mtime": 1788933545.1712606,
+    "seen": 1790687112.756545,
+    "ast_hash": "5ef5d5d5a74cb3738f1761cc5ed875ae",
+    "semantic_hash": "5ef5d5d5a74cb3738f1761cc5ed875ae"
+  },
+  "uml casi d'uso/Fruitore_primo accesso.png": {
+    "mtime": 1788933545.1726098,
+    "seen": 1790687112.7565506,
+    "ast_hash": "5d8daaf4ce95201f70a0f76b2e22e9da",
+    "semantic_hash": "5d8daaf4ce95201f70a0f76b2e22e9da"
+  },
+  "uml casi d'uso/Volontario_primo accesso.png": {
+    "mtime": 1788933545.1731288,
+    "seen": 1790687112.7565563,
+    "ast_hash": "6779b74abe187f0eb18e41966f4bdf5f",
+    "semantic_hash": "6779b74abe187f0eb18e41966f4bdf5f"
   }
 }

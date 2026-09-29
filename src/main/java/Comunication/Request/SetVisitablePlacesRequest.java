@@ -20,7 +20,7 @@ public class SetVisitablePlacesRequest extends AuthenticatedRequest
         super(ComunicationType.SET_VISITABLE_PLACES, userID, password);
         this.places = new ArrayList<Place>();
     }
-
+    
     public void addPlace(
         String city,
         String address,
