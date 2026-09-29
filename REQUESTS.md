@@ -1,9 +1,0 @@
-- [X] DeletePlaceRequest 
-- [X] DeleteVisitTypeFromPlaceRequest
-- [X] DeleteVoluntaryRequest 
-- [X] EditVisitablePlacesRequest
-- [-] GetEventRequest 
-- [X] GetMaximumFriendsRequest
-- [X] GetPersonalDataRequest 
-- [ ] GetPlacesRequest 
-- [ ] GetPossibleVisitsRequest
