@@ -3,11 +3,7 @@
 ```mermaid
 kanban
   todo[Todo]
-    GetPossibleVisits
-    SetVisitablePlaces
-    SetMaximumFriends
-    SetNewPassword
-    SetClosedDays
+
   halfway[Halfway]
 
   done[Done]
@@ -19,5 +15,20 @@ kanban
     GetPersonalData 
     GetEvent
     GetPlaces
+    GetPossibleVisits
+    SetVisitablePlaces
+    SetMaximumFriends
+    SetNewPassword
+    SetClosedDays
 ```
 
+# Voluntary
+
+```mermaid
+kanban
+  todo[Todo]
+    
+  halfway[Halfway]
+
+  done[Done]
+```

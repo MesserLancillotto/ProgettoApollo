@@ -8,7 +8,9 @@ Server/Engine/GetMaximumFriendsEngine.class
 Server/Engine/SetClosedDaysEngine.class
 Comunication/Request/SetNewUserRequest.class
 Server/Engine/Interfaces/EngineInterface.class
+User/Configurator/SetVisitablePlacesGUI.class
 User/Interfaces/UserViewInterface.class
+User/Configurator/SetClosedDaysGUI.class
 Comunication/Reply/GetPossibleVisitsReply.class
 Comunication/Reply/GetPlacesReply.class
 Comunication/Reply/GetPersonalDataReply.class
@@ -19,6 +21,7 @@ Server/Engine/GetPlacesEngine.class
 Comunication/DatabaseObjects/User.class
 Comunication/ComunicationType/ComunicationType.class
 User/Configurator/DeletePlaceRequestGUI.class
+User/Configurator/GetPossibleVisitsGUI.class
 Comunication/Reply/SetClosedDaysReply.class
 Comunication/Reply/Interfaces/AuthenticatedUpdateReply.class
 Server/Engine/EditVisitablePlacesEngine.class
@@ -26,6 +29,7 @@ Comunication/Request/SetMaximumFriendsRequest.class
 Comunication/Request/Interfaces/AuthenticatedRequest.class
 Comunication/Request/GetSubscribedEventsRequest.class
 Comunication/Request/SetVisitablePlacesRequest.class
+User/SetNewPasswordGUI.class
 Comunication/Request/GetMaximumFriendsRequest.class
 Server/Engine/DeleteUserSubscriptionToEventEngine.class
 Helper/JsonListConverter.class
@@ -53,6 +57,7 @@ User/Main.class
 User/Configurator/GetAllowedVisitTypesGUI.class
 Comunication/Request/GetPossibleVisitsRequest.class
 Comunication/Request/DeleteVisitTypeFromPlaceRequest.class
+User/Configurator/SetNewPasswordGUI.class
 Server/Engine/GetVoluntariesEngine.class
 User/Configurator/EditVisitablesPlacesGUI.class
 Comunication/DatabaseObjects/Event.class
@@ -90,6 +95,7 @@ Server/Engine/Helper/PlaceCreator.class
 Comunication/Reply/SetDisponibilityReply.class
 Comunication/Reply/GetMaximumFriendsReply.class
 Client/Client.class
+User/Configurator/SetMaximumFriendsGUI.class
 Comunication/Request/Interfaces/RequestInterface.class
 Server/Engine/GetAllowedVisitTypesEngine.class
 Comunication/Reply/GetVoluntariesReply.class

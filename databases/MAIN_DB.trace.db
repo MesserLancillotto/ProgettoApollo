@@ -552,3 +552,44 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: /home/lancillott
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 16 more
+2026-09-29 16:17:40.861424+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO places VALUES ( ?, ?, ?, ? ) [21002-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
+	at Server.Engine.SetVisitablePlacesEngine.processWithConnection(SetVisitablePlacesEngine.java:42)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:191)
+	at Server.Engine.Interfaces.AuthenticatedEngine.handleRequest(AuthenticatedEngine.java:12)
+	at Server.ServerAPI.userResponse(ServerAPI.java:59)
+	at Server.ServerAPI.handleUserRequest(ServerAPI.java:31)
+	at Server.ServerAPI.run(ServerAPI.java:77)
+2026-10-05 12:26:23.267774+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SET [*]CHANGEPASSWORDDUE = false WHERE userID = 'Lancillotto.Benacense.99'"; expected "@, AUTOCOMMIT, EXCLUSIVE, IGNORECASE, PASSWORD, SALT, MODE, DATABASE, COLLATION, CLUSTER, DATABASE_EVENT_LISTENER, ALLOW_LITERALS, DEFAULT_TABLE_TYPE, SCHEMA, CATALOG, SCHEMA_SEARCH_PATH, JAVA_OBJECT_SERIALIZER, IGNORE_CATALOGS, SESSION, TRANSACTION, TIME, NON_KEYWORDS, DEFAULT_NULL_ORDERING"; SQL statement:
+SET CHANGEPASSWORDDUE = false WHERE userID = 'Lancillotto.Benacense.99' [42001-224]
+2026-10-05 12:26:30.757683+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SET [*]CHANGEPASSWORDDUE = 'false' WHERE userID = 'Lancillotto.Benacense.99'"; expected "@, AUTOCOMMIT, EXCLUSIVE, IGNORECASE, PASSWORD, SALT, MODE, DATABASE, COLLATION, CLUSTER, DATABASE_EVENT_LISTENER, ALLOW_LITERALS, DEFAULT_TABLE_TYPE, SCHEMA, CATALOG, SCHEMA_SEARCH_PATH, JAVA_OBJECT_SERIALIZER, IGNORE_CATALOGS, SESSION, TRANSACTION, TIME, NON_KEYWORDS, DEFAULT_NULL_ORDERING"; SQL statement:
+SET CHANGEPASSWORDDUE = 'false' WHERE userID = 'Lancillotto.Benacense.99' [42001-224]
+2026-10-05 12:26:40.907610+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SET [*]USERS.CHANGEPASSWORDDUE = 'false' WHERE userID = 'Lancillotto.Benacense.99'"; expected "@, AUTOCOMMIT, EXCLUSIVE, IGNORECASE, PASSWORD, SALT, MODE, DATABASE, COLLATION, CLUSTER, DATABASE_EVENT_LISTENER, ALLOW_LITERALS, DEFAULT_TABLE_TYPE, SCHEMA, CATALOG, SCHEMA_SEARCH_PATH, JAVA_OBJECT_SERIALIZER, IGNORE_CATALOGS, SESSION, TRANSACTION, TIME, NON_KEYWORDS, DEFAULT_NULL_ORDERING"; SQL statement:
+SET USERS.CHANGEPASSWORDDUE = 'false' WHERE userID = 'Lancillotto.Benacense.99' [42001-224]
+2026-10-05 12:27:20.484197+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "UPDATE USERS SET CHANGEPASSWORDDUE = 'true WHERE userID = 'Lancillotto.Benacense.99[*]';\000d\000a\000d\000aSELECT * FROM USERS"; SQL statement:
+UPDATE USERS SET CHANGEPASSWORDDUE = 'true WHERE userID = 'Lancillotto.Benacense.99';
+
+SELECT * FROM USERS [42000-224]
+2026-10-05 12:51:50.655671+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "UPDATE users SET changePasswordDue = 'true' WHERE userID = 'Lancillotto.Benacense.99'\000d\000a\000d\000a[*]SELECT * FROM USERS"; SQL statement:
+UPDATE users SET changePasswordDue = 'true' WHERE userID = 'Lancillotto.Benacense.99'
+
+SELECT * FROM USERS [42000-224]

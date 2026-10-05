@@ -55,13 +55,37 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
                 "Dati posto", 
                 "Ottiene le informazioni sul posto specificato ", 
                 this::getPlacesRequest));
-        // configMap.put(
-        //     "GetPossibleVisitsRequest", 
-        //     new ActionConfig(
-        //         "Visite organizzazione", 
-        //         "Ottiene le informazioni sul posto specificato ", 
-        //         this::getPossibleVisitsRequest));
-}
+        configMap.put(
+            "GetPossibleVisitsRequest", 
+            new ActionConfig(
+                "Visite organizzazione", 
+                "Ottiene i tipi di visita possibili per un'organizzazione", 
+                this::getPossibleVisitsRequest));
+        configMap.put(
+            "SetVisitablePlacesRequest", 
+            new ActionConfig(
+                "Aggiungi posto visitabile", 
+                "Inserisce un nuovo posto visitabile per un'organizzazione", 
+                this::setVisitablePlacesRequest));
+        configMap.put(
+            "SetMaximumFriendsRequest", 
+            new ActionConfig(
+                "Imposta massimo amici", 
+                "Imposta il numero massimo di amici per iscrizione", 
+                this::setMaximumFriendsRequest));
+        configMap.put(
+            "SetNewPasswordRequest", 
+            new ActionConfig(
+                "Modifica password", 
+                "Modifica la password del configuratore", 
+                this::setNewPasswordRequest));
+        configMap.put(
+            "SetClosedDaysRequest", 
+            new ActionConfig(
+                "Imposta giorni chiusura", 
+                "Imposta il periodo di chiusura per l'organizzazione", 
+                this::setClosedDaysRequest));
+    }
 
     private void deletePlaceRequest() 
     {
@@ -115,17 +139,49 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
 
     private void getPlacesRequest() 
     {
-        System.out.println("getMaximumFriendsRequest()");
-        System.out.println("Richiesta numero amici invitabili");
+        System.out.println("getPlacesRequest()");
+        System.out.println("Richiesta luoghi");
         UserViewInterface userView = new GetPlacesGUI();
         userView.paint(new JSONObject());
     }
 
-    // private void getPossibleVisitsRequest() 
-    // {
-    //     System.out.println("getMaximumFriendsRequest()");
-    //     System.out.println("Richiesta numero amici invitabili");
-    //     UserViewInterface userView = new GetPossibleVisitsGUI();
-    //     userView.paint(new JSONObject());
-    // }
+    private void getPossibleVisitsRequest() 
+    {
+        System.out.println("getPossibleVisitsRequest()");
+        System.out.println("Richiesta tipi di visita possibili");
+        UserViewInterface userView = new GetPossibleVisitsGUI();
+        userView.paint(new JSONObject());
+    }
+
+    private void setVisitablePlacesRequest() 
+    {
+        System.out.println("setVisitablePlacesRequest()");
+        System.out.println("Aggiunta posto visitabile");
+        UserViewInterface userView = new SetVisitablePlacesGUI();
+        userView.paint(new JSONObject());
+    }
+
+    private void setMaximumFriendsRequest() 
+    {
+        System.out.println("setMaximumFriendsRequest()");
+        System.out.println("Imposta massimo amici");
+        UserViewInterface userView = new SetMaximumFriendsGUI();
+        userView.paint(new JSONObject());
+    }
+
+    private void setNewPasswordRequest() 
+    {
+        System.out.println("setNewPasswordRequest()");
+        System.out.println("Modifica password");
+        UserViewInterface userView = new SetNewPasswordGUI();
+        userView.paint(new JSONObject());
+    }
+
+    private void setClosedDaysRequest() 
+    {
+        System.out.println("setClosedDaysRequest()");
+        System.out.println("Imposta giorni di chiusura");
+        UserViewInterface userView = new SetClosedDaysGUI();
+        userView.paint(new JSONObject());
+    }
 }

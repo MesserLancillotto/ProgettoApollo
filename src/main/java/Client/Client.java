@@ -204,7 +204,7 @@ public class Client
         this.request = new GetSubscribedEventsRequest(this.userID, this.userPassword, targetID);
     }
 
-    public void get_possible_visits(String organization)
+    public void getPossibleVisits(String organization)
     {
         this.request = new GetPossibleVisitsRequest(organization);
     }
@@ -212,6 +212,11 @@ public class Client
     public void getMaximumFriends(String organization)
     {
         this.request = new GetMaximumFriendsRequest(this.userID, this.userPassword, organization);
+    }
+
+    public void setMaximumFriends(int value)
+    {
+        this.request = new SetMaximumFriendsRequest(this.userID, this.userPassword, value);
     }
 
     public void getAllowedVisitTypes()

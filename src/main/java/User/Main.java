@@ -14,51 +14,67 @@ import User.Configurator.ConfiguratorGUI;
 import User.User.UserGUI;
 import User.Voluntary.VoluntaryGUI;
 
+import User.SetNewPasswordGUI;
+
 public class Main {
 
-    public static void foo(JFrame loginFrame, String username, char[] password) 
+public static void foo(JFrame loginFrame, String username, char[] password) 
+{
+    Client client = Client.getInstance();
+    client.setUserID(username);
+    client.setUserPassword(new String(password));
+
+    client.getPersonalData(username);
+
+    String responseJson = client.makeServerRequest();
+
+    System.out.println("Response JSON: " + responseJson);
+
+    JSONObject jsonObject = new JSONObject(responseJson);
+
+    if (jsonObject.has("loginSuccessful") && jsonObject.getBoolean("loginSuccessful"))  
     {
-        Client client = Client.getInstance();
-        client.setUserID(username);
-        client.setUserPassword(new String(password));
+        JOptionPane.showMessageDialog(null, "Login avvenuto con successo", "Successo", JOptionPane.INFORMATION_MESSAGE);
 
-        client.getPersonalData(username);
+        JSONObject user = jsonObject.optJSONObject("user");
 
-        String responseJson = client.makeServerRequest();
-
-        System.out.println("Response JSON: " + responseJson);
-
-        JSONObject jsonObject = new JSONObject(responseJson);
-
-        if (jsonObject.has("loginSuccessful") && jsonObject.getBoolean("loginSuccessful"))  
-        {
-            JOptionPane.showMessageDialog(null, "Login avvenuto con successo", "Successo", JOptionPane.INFORMATION_MESSAGE);
-            
-            try {
-                Map<String, Supplier<UserViewInterface>> userInterfaces = new HashMap<>();
-                userInterfaces.put("CONFIGURATOR", ConfiguratorGUI::new);
-                userInterfaces.put("USER", UserGUI::new);
-                userInterfaces.put("VOLUNTARY", VoluntaryGUI::new);
-
-                String role = jsonObject.getJSONObject("user").getString("role");
-                Supplier<UserViewInterface> supplier = userInterfaces.get(role);
-
-                if (supplier != null) {
-                    UserViewInterface ui = supplier.get();
-                    ui.paint(jsonObject);
-                    loginFrame.dispose();
-                } else {
-                    System.err.println("❌ Ruolo utente non riconosciuto: " + role);
-                }
-            } 
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-        } 
-        else {
-            JOptionPane.showMessageDialog(null, "Login Fallito", "Errore", JOptionPane.ERROR_MESSAGE);
+        // Se deve cambiare la password, MOSTRA SOLO SetNewPasswordGUI e fermati
+        if (user != null && user.optBoolean("changePasswordDue", false)) {
+            UserViewInterface changePasswordGUI = new SetNewPasswordGUI();
+            changePasswordGUI.paint(jsonObject);
+            loginFrame.dispose();
+            return; // ⬅️ FONDAMENTALE: esci da foo() e non aprire altro
         }
+
+        // Altrimenti apri direttamente la GUI in base al ruolo
+        openRoleGUI(loginFrame, jsonObject);
+    } 
+    else {
+        JOptionPane.showMessageDialog(null, "Login Fallito", "Errore", JOptionPane.ERROR_MESSAGE);
     }
+}
+
+private static void openRoleGUI(JFrame loginFrame, JSONObject jsonObject) {
+    try {
+        Map<String, Supplier<UserViewInterface>> userInterfaces = new HashMap<>();
+        userInterfaces.put("CONFIGURATOR", ConfiguratorGUI::new);
+        userInterfaces.put("USER", UserGUI::new);
+        userInterfaces.put("VOLUNTARY", VoluntaryGUI::new);
+
+        String role = jsonObject.getJSONObject("user").getString("role");
+        Supplier<UserViewInterface> supplier = userInterfaces.get(role);
+
+        if (supplier != null) {
+            UserViewInterface ui = supplier.get();
+            ui.paint(jsonObject);
+            loginFrame.dispose();
+        } else {
+            System.err.println("❌ Ruolo utente non riconosciuto: " + role);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
