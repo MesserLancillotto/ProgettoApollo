@@ -1,13 +1,12 @@
 package User.User;
 
-import User.Interfaces.UserViewInterface;
-
+import User.SetNewPasswordGUI;
+import User.Interfaces.*;
+import User.Configurator.*;
 import org.json.JSONObject;
 
-public class UserGUI implements UserViewInterface {
-	@Override
-	public void paint(JSONObject jsonObject) 
-	{
-		System.out.println("Paint UserGUI");
-	}
+public class UserGUI extends AbstractConfiguratorGUI {
+
+    public UserGUI() {}
+  
 }

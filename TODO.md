@@ -27,7 +27,28 @@ kanban
 ```mermaid
 kanban
   todo[Todo]
-    
+        GetAllowedVisitTypes
+        GetEvent
+        GetPersonalData
+        GetPlaces
+        GetPossibleVisits
+        SetNewPassword 
+  halfway[Halfway]
+
+  done[Done]
+```
+
+# User
+
+```mermaid
+kanban
+  todo[Todo]
+    DeleteUserSubscriptionToEvent
+    GetEvent
+    GetMaximumFriends
+    GetPersonalData
+    GetSubscribedEvents
+    SetUserSubscriptionToEvent
   halfway[Halfway]
 
   done[Done]

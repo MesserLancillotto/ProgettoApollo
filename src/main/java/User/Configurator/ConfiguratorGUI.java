@@ -1,5 +1,6 @@
 package User.Configurator;
 
+import User.SetNewPasswordGUI;
 import User.Interfaces.*;
 import User.Configurator.*;
 import org.json.JSONObject;

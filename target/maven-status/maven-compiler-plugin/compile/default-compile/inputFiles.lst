@@ -11,7 +11,6 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/SetMaximumFriendsReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/DeleteVisitTypeFromPlaceGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/Interfaces/ReplyInterface.java
-/home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/SetNewPasswordGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/DeleteUserSubscriptionToEventReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/DeleteVisitTypeFromPlaceRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/GetPossibleVisitsReply.java
@@ -42,7 +41,6 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/Helper/PlaceCreator.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/DeletePlaceRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetPossibleVisitsEngine.java
-/home/lancillotto/documents/ProgettoApollo/src/main/java/User/Voluntary/GetAllowedVisitTypesGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/SetClosedDaysGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Main.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/Interfaces/AuthenticatedRequest.java

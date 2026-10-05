@@ -1,4 +1,4 @@
-package User.Configurator;
+package User;
 
 import Client.Client;
 import User.Interfaces.RequestGUI;
