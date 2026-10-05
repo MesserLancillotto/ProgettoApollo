@@ -47,30 +47,40 @@ public class VoluntaryGUI extends AbstractConfiguratorGUI {
                 this::setNewPasswordRequest));
     }
 
+    @Override
+    protected String getWindowTitle() {
+        return "Volontario";
+    }
+
     private void getAllowedVisitTypes() 
     {
         System.out.println("[VoluntaryGUI] getAllowedVisitTypes()");
-        
+        UserViewInterface userView = new GetAllowedVisitTypesGUI();
+        userView.paint(new JSONObject());
     }
 
     private void getEvent() {
         System.out.println("[VoluntaryGUI] getEvent()");
-        // TODO: implementare
+        UserViewInterface userView = new GetEventGUI();
+        userView.paint(new JSONObject());
     }
 
     private void getPersonalData() {
         System.out.println("[VoluntaryGUI] getPersonalData()");
-        // TODO: implementare
+        UserViewInterface userView = new GetPersonalDataGUI();
+        userView.paint(new JSONObject());
     }
 
     private void getPlaces() {
         System.out.println("[VoluntaryGUI] getPlaces()");
-        // TODO: implementare
+        UserViewInterface userView = new GetPlacesGUI();
+        userView.paint(new JSONObject());
     }
 
     private void getPossibleVisits() {
         System.out.println("[VoluntaryGUI] getPossibleVisits()");
-        // TODO: implementare
+        UserViewInterface userView = new GetPossibleVisitsGUI();
+        userView.paint(new JSONObject());
     }
 
     private void setNewPasswordRequest() {

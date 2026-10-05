@@ -31,6 +31,10 @@ public abstract class AbstractConfiguratorGUI implements UserViewInterface {
         }
     }
 
+    protected String getWindowTitle() {
+        return "Configurator";
+    }
+
     private Map<String, ActionConfig> getConfigurations() {
         return configMap;
     }
@@ -43,7 +47,7 @@ public abstract class AbstractConfiguratorGUI implements UserViewInterface {
             : "Utente";
 
         SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Configurator");
+            JFrame frame = new JFrame(getWindowTitle());
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setLayout(new GridBagLayout());
 

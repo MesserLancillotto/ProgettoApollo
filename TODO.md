@@ -27,15 +27,15 @@ kanban
 ```mermaid
 kanban
   todo[Todo]
-        GetAllowedVisitTypes
-        GetEvent
-        GetPersonalData
-        GetPlaces
-        GetPossibleVisits
-        SetNewPassword 
   halfway[Halfway]
 
   done[Done]
+    GetAllowedVisitTypes
+    GetEvent
+    GetPersonalData
+    GetPlaces
+    GetPossibleVisits
+    SetNewPassword 
 ```
 
 # User
@@ -43,13 +43,13 @@ kanban
 ```mermaid
 kanban
   todo[Todo]
+  halfway[Halfway]
+
+  done[Done]
     DeleteUserSubscriptionToEvent
     GetEvent
     GetMaximumFriends
     GetPersonalData
     GetSubscribedEvents
     SetUserSubscriptionToEvent
-  halfway[Halfway]
-
-  done[Done]
 ```
