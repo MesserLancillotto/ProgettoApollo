@@ -32,26 +32,37 @@ public static void foo(JFrame loginFrame, String username, char[] password)
 
     JSONObject jsonObject = new JSONObject(responseJson);
 
-    if (jsonObject.has("loginSuccessful") && jsonObject.getBoolean("loginSuccessful"))  
+    if (!jsonObject.has("loginSuccessful") || !jsonObject.getBoolean("loginSuccessful"))
     {
-        JOptionPane.showMessageDialog(null, "Login avvenuto con successo", "Successo", JOptionPane.INFORMATION_MESSAGE);
-
-        JSONObject user = jsonObject.optJSONObject("user");
-
-        // Se deve cambiare la password, MOSTRA SOLO SetNewPasswordGUI e fermati
-        if (user != null && user.optBoolean("changePasswordDue", false)) {
-            UserViewInterface changePasswordGUI = new SetNewPasswordGUI();
-            changePasswordGUI.paint(jsonObject);
-            loginFrame.dispose();
-            return; // ⬅️ FONDAMENTALE: esci da foo() e non aprire altro
-        }
-
-        // Altrimenti apri direttamente la GUI in base al ruolo
-        openRoleGUI(loginFrame, jsonObject);
-    } 
-    else {
         JOptionPane.showMessageDialog(null, "Login Fallito", "Errore", JOptionPane.ERROR_MESSAGE);
+    }  
+
+    JOptionPane.showMessageDialog(null, "Login avvenuto con successo", "Successo", JOptionPane.INFORMATION_MESSAGE);
+    JSONObject user = jsonObject.optJSONObject("user");
+
+    if(user == null)
+    {
+        JOptionPane.showMessageDialog(null, "Impossibile Creare Oggetto Utente", "Errore", JOptionPane.ERROR_MESSAGE);
     }
+
+    if(user.optBoolean("changePasswordDue", false)) 
+    {
+        UserViewInterface changePasswordGUI = new SetNewPasswordGUI();
+        changePasswordGUI.paint(jsonObject);
+        loginFrame.dispose();
+        return;
+    }
+
+    if(user.optString("organization", ""))
+    {
+        openFirstAccessConfiguratorGUI(user);
+    }
+    openRoleGUI(loginFrame, jsonObject);
+} 
+
+private static void openFirstAccessGUI(JSONObject userData) 
+{
+    
 }
 
 private static void openRoleGUI(JFrame loginFrame, JSONObject jsonObject) {

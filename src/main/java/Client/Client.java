@@ -143,6 +143,8 @@ public class Client
             this.userPassword, 
             newPassword
         );
+        // fallisce solo se il login è scorretto, quindi mai se ha già fatto il login
+        this.userPassword = newPassword; 
     }
 
     public void set_voluntary_to_event(
