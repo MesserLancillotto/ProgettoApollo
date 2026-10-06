@@ -81,7 +81,6 @@ public class Client
             userData = new JSONObject(reply);
             return reply;
         }
-        
     }
 
     public String makeServerRequest(JSONObject jsonRequest)
@@ -116,9 +115,50 @@ public class Client
         this.request = new SetNewOrganizationRequest(this.userID, this.userPassword, organizationName, territoriesOfCompetence);
     }
 
-    public void set_new_user(String userName, String newPassword, String cityOfResidence, Integer birthYear) 
+    public void setNewUser(String userName, String newPassword, String cityOfResidence, Integer birthYear) 
     {
         this.request = new SetNewUserRequest(userName, newPassword, cityOfResidence, birthYear);
+    }
+
+    public void setNewVoluntary(String name, String surname, String city, String birthDate, String password) {
+        int day = 1;
+        int month = 1;
+        int year = 2000;
+
+        if (birthDate != null && birthDate.contains("/")) {
+            String[] parts = birthDate.split("/");
+            if (parts.length != 3) 
+            {
+                System.out.println("Errore nel parsing della data, usati valori di default.");
+                return; 
+            }
+            try {
+                day = Integer.parseInt(parts[0].trim());
+                month = Integer.parseInt(parts[1].trim());
+                year = Integer.parseInt(parts[2].trim());
+            } catch (NumberFormatException e) {
+                System.err.println("Errore nel parsing della data, usati valori di default.");
+            }
+        }
+
+        // Recupera l'organizzazione dell'utente corrente (Configurator) se presente nel userData
+        String organizationName = "";
+        if (this.userData != null && this.userData.has("user")) {
+            organizationName = this.userData.getJSONObject("user").optString("organization", "");
+        }
+
+        set_new_user(
+            name,
+            surname,
+            password,
+            city,
+            day,
+            month,
+            year,
+            2026,
+            UserRole.VOLUNTARY,
+            organizationName
+        );
     }
 
     public void set_new_user(
@@ -133,7 +173,7 @@ public class Client
             UserRole role,
             String organization
     ) {
-        this.request = new SetNewUserRequest(name, surname, password, city, birth_dd, birth_mm, birth_yy, user_since, role, organization);
+        this.request = new SetNewUserRequest(this.userID, this.userPassword, name, surname, password, city, birth_dd, birth_mm, birth_yy, user_since, role, organization);
     }
 
     public void change_password(String newPassword) 
@@ -143,7 +183,6 @@ public class Client
             this.userPassword, 
             newPassword
         );
-        // fallisce solo se il login è scorretto, quindi mai se ha già fatto il login
         this.userPassword = newPassword; 
     }
 
@@ -232,7 +271,6 @@ public class Client
         System.out.println("deleteVoluntary() called with userPassword: " + this.userPassword);
         System.out.println("deleteVoluntary() called with voluntaryID: " + voluntaryID);
         
-        System.out.println("deleteVoluntary() called with voluntaryID: " + voluntaryID);
         this.request = new DeleteVoluntaryRequest(this.userID, this.userPassword, voluntaryID);
     }
 

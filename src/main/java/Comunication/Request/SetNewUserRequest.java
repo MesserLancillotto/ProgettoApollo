@@ -9,6 +9,8 @@ public class SetNewUserRequest extends AuthenticatedRequest
 {
     public SetNewUserRequest
     (
+        String callerUserID,
+        String callerPassword,
         String name,
         String surname,
         String password,
@@ -20,17 +22,33 @@ public class SetNewUserRequest extends AuthenticatedRequest
         UserRole role,
         String organization
     ) {
-        super(ComunicationType.SET_NEW_USER, "", "");
+        super(ComunicationType.SET_NEW_USER, callerUserID, callerPassword);
         json.put("name", name);
         json.put("surname", surname);
-        json.put("password", password);
+        json.put("newUserPassword", password);
         json.put("city", city);
         json.put("birth_dd", birth_dd);
         json.put("birth_mm", birth_mm);
         json.put("birth_yy", birth_yy);
         json.put("user_since", user_since);
-        json.put("role", role);
-        json.put("organization", organization);
+        json.put("role", role != null ? role.name() : UserRole.VOLUNTARY.name());
+        json.put("organization", organization != null ? organization : "");
+    }
+
+    public SetNewUserRequest
+    (
+        String name,
+        String surname,
+        String password,
+        String city,
+        Integer birth_dd,
+        Integer birth_mm,
+        Integer birth_yy,
+        Integer user_since,
+        UserRole role,
+        String organization
+    ) {
+        this("", "", name, surname, password, city, birth_dd, birth_mm, birth_yy, user_since, role, organization);
     }
 
     public SetNewUserRequest(String userName, String password, String city, Integer birthYear) {
@@ -44,13 +62,13 @@ public class SetNewUserRequest extends AuthenticatedRequest
         }
         json.put("name", name);
         json.put("surname", surname);
-        json.put("password", password);
+        json.put("newUserPassword", password);
         json.put("city", city);
         json.put("birth_dd", 1);
         json.put("birth_mm", 1);
         json.put("birth_yy", birthYear != null ? birthYear : 2000);
         json.put("user_since", 2026);
-        json.put("role", UserRole.CONFIGURATOR);
+        json.put("role", UserRole.CONFIGURATOR.name());
         json.put("organization", "");
     }
 }

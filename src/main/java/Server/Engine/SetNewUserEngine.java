@@ -2,17 +2,16 @@ package Server.Engine;
 
 import org.json.*;
 import java.sql.*;
-import java.time.*;
 
 import Server.Engine.Interfaces.AuthenticatedEngine;
-import Comunication.Reply.SetNewUserReply;  // Cambiato da SetNewPasswordReply
+import Comunication.Reply.SetNewUserReply;
 import Comunication.Reply.Interfaces.AuthenticatedReply;
 
 public class SetNewUserEngine extends AuthenticatedEngine
 {
     private static final String INSERT_USER_IF_NOT_EXISTS = 
     """
-        INSERT INTO users (userID, password, name, surname, city, birth_dd, birth_mm, birth_yy, user_since, organization, role, change_password_due)
+        INSERT INTO users (userID, password, userName, userSurname, city, birth_dd, birth_mm, birth_yy, userSince, organization, role, changePasswordDue)
         SELECT ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
         WHERE NOT EXISTS (SELECT 1 FROM users WHERE userID = ?)
     """;
@@ -29,7 +28,7 @@ public class SetNewUserEngine extends AuthenticatedEngine
         return new StringBuilder()
             .append(name)
             .append(".")
-            .append(json.getString("surname"))
+            .append(surname)
             .append(".")
             .append(json.getInt("birth_yy") % 100)
             .toString();
@@ -42,19 +41,18 @@ public class SetNewUserEngine extends AuthenticatedEngine
         
         PreparedStatement statement 
             = connection.prepareStatement(INSERT_USER_IF_NOT_EXISTS);
+            
         statement.setString(1, userID);
-        statement.setString(2, json.getString("password"));
+        statement.setString(2, json.optString("newUserPassword", json.optString("password", "")));
         statement.setString(3, json.getString("name"));
         statement.setString(4, json.getString("surname"));
         statement.setString(5, json.getString("city"));
         statement.setInt(6, json.getInt("birth_dd"));
         statement.setInt(7, json.getInt("birth_mm"));
         statement.setInt(8, json.getInt("birth_yy"));
-        statement.setLong(9, LocalDate.now(ZoneId.of("Europe/Rome"))
-            .toEpochSecond(
-                LocalTime.now(ZoneId.of("Europe/Rome")), ZoneOffset.UTC));
-        statement.setString(10, json.getString("organization"));
-        statement.setString(11, json.getString("role"));
+        statement.setInt(9, json.optInt("user_since", 2026));
+        statement.setString(10, json.optString("organization", ""));
+        statement.setString(11, json.optString("role", "VOLUNTARY"));
         statement.setBoolean(12, false);
         statement.setString(13, userID);
 

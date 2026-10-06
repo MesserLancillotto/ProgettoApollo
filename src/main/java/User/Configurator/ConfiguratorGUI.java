@@ -86,6 +86,13 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
                 "Imposta giorni chiusura", 
                 "Imposta il periodo di chiusura per l'organizzazione", 
                 this::setClosedDaysRequest));
+        configMap.put(
+            "SetNewVoluntary", 
+            new ActionConfig(
+                "Nuovo volontario", 
+                "Crea ed inserisci i dati di un nuovo volontario", 
+                this::setNewVoluntaryRequest));
+
     }
 
     private void deletePlaceRequest() 
@@ -183,6 +190,14 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
         System.out.println("setClosedDaysRequest()");
         System.out.println("Imposta giorni di chiusura");
         UserViewInterface userView = new SetClosedDaysGUI();
+        userView.paint(new JSONObject());
+    }
+
+    private void setNewVoluntaryRequest() 
+    {
+        System.out.println("setNewVoluntaryRequest()");
+        System.out.println("Crea un nuovo volontario dell'organizzazione");
+        UserViewInterface userView = new SetNewVoluntaryGUI();
         userView.paint(new JSONObject());
     }
 }

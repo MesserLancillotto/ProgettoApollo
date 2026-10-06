@@ -38,6 +38,7 @@ Helper/JsonListConverter.class
 Comunication/Request/SetDisponibilityRequest.class
 Comunication/Reply/DeleteVisitTypeFromPlaceReply.class
 Comunication/Reply/NegativeAuthenticatedReply.class
+User/Configurator/SetNewVoluntaryGUI.class
 User/Configurator/GetPlacesGUI.class
 User/Configurator/DeleteVisitTypeFromPlaceGUI.class
 Server/Engine/SetDisponibilityEngine.class
