@@ -24,8 +24,10 @@ public class SetNewUserEngine extends AuthenticatedEngine
     
     private String generateUserID() throws JSONException
     {
+        String name = json.getString("name").trim().replaceAll(" +", ".");
+        String surname = json.getString("surname").trim().replaceAll(" +", ".");
         return new StringBuilder()
-            .append(json.getString("name"))
+            .append(name)
             .append(".")
             .append(json.getString("surname"))
             .append(".")

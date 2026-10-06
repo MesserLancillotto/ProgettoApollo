@@ -24,9 +24,11 @@ User/Configurator/DeletePlaceRequestGUI.class
 User/Configurator/GetPossibleVisitsGUI.class
 Comunication/Reply/SetClosedDaysReply.class
 Comunication/Reply/Interfaces/AuthenticatedUpdateReply.class
+User/User/GetSubscribedEventsGUI.class
 Server/Engine/EditVisitablePlacesEngine.class
 Comunication/Request/SetMaximumFriendsRequest.class
 Comunication/Request/Interfaces/AuthenticatedRequest.class
+User/Voluntary/GetAllowedVisitTypesGUI.class
 Comunication/Request/GetSubscribedEventsRequest.class
 Comunication/Request/SetVisitablePlacesRequest.class
 User/SetNewPasswordGUI.class
@@ -47,6 +49,8 @@ Server/Engine/SetNewPasswordEngine.class
 User/User/UserGUI.class
 Server/Engine/DeleteVisitTypeFromPlaceEngine.class
 Server/Engine/Helper/EventCreator.class
+User/Configurator/SetNewOrganizationGUI.class
+User/User/SetUserSubscriptionToEventGUI.class
 Comunication/ComunicationType/ComunicationTypeStringConverter.class
 Server/ServerAPI.class
 User/Configurator/GetMaximumFriendsGUI.class
@@ -68,6 +72,7 @@ Server/Engine/GetPersonalDataEngine.class
 User/Interfaces/AbstractConfiguratorGUI$ActionConfig.class
 Comunication/Request/GetPersonalDataRequest.class
 Comunication/Request/Interfaces/Request.class
+User/User/DeleteUserSubscriptionToEventGUI.class
 User/Interfaces/AbstractConfiguratorGUI.class
 Comunication/Request/GetVoluntariesRequest.class
 Server/Engine/DeleteVoluntaryEngine.class
