@@ -12,29 +12,66 @@ import Server.Engine.*;
 class ServerAPI extends Thread
 {
     private static final int PORT = 8000;
+    private ServerSocket serverSocket;
+    private volatile boolean running = true;
 
-    public void handleUserRequest() 
+    @Override
+    public void run() 
     {
-        try (ServerSocket serverSocket = new ServerSocket(PORT);
-             Socket socket = serverSocket.accept();
-             DataInputStream dataInputStream = new DataInputStream(
-                 new BufferedInputStream(socket.getInputStream()));
-             DataOutputStream dataOutputStream = new DataOutputStream(
-                 socket.getOutputStream()))
-        {
+        try {
+            serverSocket = new ServerSocket();
+            serverSocket.setReuseAddress(true); // Impostato PRIMA del bind
+            serverSocket.bind(new InetSocketAddress(PORT));
             System.out.println("Server started on port " + PORT);
-            serverSocket.setReuseAddress(true);
-            System.out.println("Connection from device " 
-                + socket.getInetAddress().getHostAddress());
-            String request = dataInputStream.readUTF();
-            System.out.println("Incoming payload: " + request);
-            String response = userResponse(request);
-            dataOutputStream.writeUTF(response);
-            dataOutputStream.flush();
-        }
-        catch(Exception e)
+
+            while (running && !Thread.currentThread().isInterrupted()) 
+            {
+                try (Socket socket = serverSocket.accept();
+                     DataInputStream dataInputStream = new DataInputStream(
+                         new BufferedInputStream(socket.getInputStream()));
+                     DataOutputStream dataOutputStream = new DataOutputStream(
+                         socket.getOutputStream()))
+                {
+                    System.out.println("Connection from device " 
+                        + socket.getInetAddress().getHostAddress());
+                    String request = dataInputStream.readUTF();
+                    System.out.println("Incoming payload: " + request);
+                    String response = userResponse(request);
+                    dataOutputStream.writeUTF(response);
+                    dataOutputStream.flush();
+                } 
+                catch (SocketException e) 
+                {
+                    if (!running) break; // Chiusura intenzionale
+                    System.out.println("Socket error: " + e.getMessage());
+                }
+            }
+        } 
+        catch (IOException e) 
         {
             System.out.println("An error occurred: " + e);
+        } 
+        finally 
+        {
+            closeSocket();
+        }
+    }
+
+    public void stopServer() 
+    {
+        running = false;
+        closeSocket();
+    }
+
+    private void closeSocket() 
+    {
+        try {
+            if (serverSocket != null && !serverSocket.isClosed()) {
+                serverSocket.close();
+                System.out.println("Port " + PORT + " released.");
+            }
+        } catch (IOException e) {
+            System.out.println("Error closing socket: " + e.getMessage());
         }
     }
 
@@ -69,11 +106,5 @@ class ServerAPI extends Thread
         error.put("status", "error");
         error.put("message", message);
         return error.toString();
-    }
-    
-    @Override
-    public void run()
-    {
-        handleUserRequest();
     }
 }

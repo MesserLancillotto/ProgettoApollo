@@ -11,6 +11,7 @@ import org.json.*;
 import Client.Client;
 import User.Interfaces.UserViewInterface;
 import User.Configurator.ConfiguratorGUI;
+import User.Configurator.SetNewOrganizationGUI;
 import User.User.UserGUI;
 import User.Voluntary.VoluntaryGUI;
 
@@ -35,6 +36,7 @@ public static void foo(JFrame loginFrame, String username, char[] password)
     if (!jsonObject.has("loginSuccessful") || !jsonObject.getBoolean("loginSuccessful"))
     {
         JOptionPane.showMessageDialog(null, "Login Fallito", "Errore", JOptionPane.ERROR_MESSAGE);
+        return;
     }  
 
     JOptionPane.showMessageDialog(null, "Login avvenuto con successo", "Successo", JOptionPane.INFORMATION_MESSAGE);
@@ -43,6 +45,7 @@ public static void foo(JFrame loginFrame, String username, char[] password)
     if(user == null)
     {
         JOptionPane.showMessageDialog(null, "Impossibile Creare Oggetto Utente", "Errore", JOptionPane.ERROR_MESSAGE);
+        return;
     }
 
     if(user.optBoolean("changePasswordDue", false)) 
@@ -53,16 +56,19 @@ public static void foo(JFrame loginFrame, String username, char[] password)
         return;
     }
 
-    if(user.optString("organization", ""))
+    if("CONFIGURATOR".equalsIgnoreCase(user.optString("role", "")) && user.optString("organization", "").isEmpty())
     {
         openFirstAccessConfiguratorGUI(user);
+        loginFrame.dispose();
+        return;
     }
     openRoleGUI(loginFrame, jsonObject);
 } 
 
-private static void openFirstAccessGUI(JSONObject userData) 
+public static void openFirstAccessConfiguratorGUI(JSONObject user) 
 {
-    
+    UserViewInterface setNewOrganizationGUI = new SetNewOrganizationGUI();
+    setNewOrganizationGUI.paint(user);
 }
 
 private static void openRoleGUI(JFrame loginFrame, JSONObject jsonObject) {
