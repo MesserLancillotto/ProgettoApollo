@@ -349,12 +349,35 @@ public class Client
 
     public void set_max_people_subscription(int value) 
     {
+        JSONObject maxPeopleSubscription = new JSONObject();
+        maxPeopleSubscription.put("MaxPeople", value);
+
+        if (filePath != null && !filePath.isEmpty()) {
+            try (java.io.FileWriter file = new java.io.FileWriter(filePath)) {
+                file.write(maxPeopleSubscription.toString(4));
+            } catch (IOException e) {
+                System.err.println("Errore durante il salvataggio del file locale: " + e.getMessage());
+            }
+        }
+
         this.request = new SetMaximumFriendsRequest(this.userID, this.userPassword, value);
         makeServerRequest();
     }
 
     public int get_max_people_subscription() 
     {
+        if (filePath != null && Files.exists(Paths.get(filePath))) {
+            try {
+                String contenutoFile = Files.readString(Paths.get(filePath));
+                JSONObject jsonLetto = new JSONObject(contenutoFile);
+                if (jsonLetto.has("MaxPeople")) {
+                    return jsonLetto.getInt("MaxPeople");
+                }
+            } catch (Exception e) {
+                // fall back to server request
+            }
+        }
+
         JSONObject req = new JSONObject();
         req.put("action", "get_max_people_subscription");
         req.put("userID", this.userID);

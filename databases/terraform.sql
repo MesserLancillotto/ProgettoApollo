@@ -1,14 +1,14 @@
-DROP TABLE users; 
-DROP TABLE places;
-DROP TABLE userPermissions;
-DROP TABLE closedDays;
-DROP TABLE organizations;
-DROP TABLE territories;
-DROP TABLE events;
-DROP TABLE eventsData;
-DROP TABLE eventsVoluntaries;
-DROP TABLE voluntaryDisponibilities;
-DROP TABLE subscriptions;CREATE TABLE IF NOT EXISTS users 
+DROP TABLE IF EXISTS users; 
+DROP TABLE IF EXISTS places;
+DROP TABLE IF EXISTS userPermissions;
+DROP TABLE IF EXISTS closedDays;
+DROP TABLE IF EXISTS organizations;
+DROP TABLE IF EXISTS territories;
+DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS eventsData;
+DROP TABLE IF EXISTS eventsVoluntaries;
+DROP TABLE IF EXISTS voluntaryDisponibilities;
+DROP TABLE IF EXISTS subscriptions;CREATE TABLE IF NOT EXISTS users 
     (
         userID VARCHAR(32) UNIQUE,
         password VARCHAR(32),

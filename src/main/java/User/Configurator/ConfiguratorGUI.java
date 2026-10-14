@@ -92,7 +92,12 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
                 "Nuovo volontario", 
                 "Crea ed inserisci i dati di un nuovo volontario", 
                 this::setNewVoluntaryRequest));
-
+        configMap.put(
+            "SetUserPermissions", 
+            new ActionConfig(
+                "Permessi volontario", 
+                "Assegna permessi di visita a un volontario", 
+                this::setUserPermissionsRequest));
     }
 
     private void deletePlaceRequest() 
@@ -198,6 +203,14 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
         System.out.println("setNewVoluntaryRequest()");
         System.out.println("Crea un nuovo volontario dell'organizzazione");
         UserViewInterface userView = new SetNewVoluntaryGUI();
+        userView.paint(new JSONObject());
+    }
+
+    private void setUserPermissionsRequest() 
+    {
+        System.out.println("setUserPermissionsRequest()");
+        System.out.println("Assegna permessi di visita");
+        UserViewInterface userView = new SetUserPermissionsGUI();
         userView.paint(new JSONObject());
     }
 }
