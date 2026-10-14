@@ -22,7 +22,6 @@ public class SetVisitablePlacesGUI extends RequestGUI {
         this.fields.put("Città", false);
         this.fields.put("Indirizzo", false);
         this.fields.put("Descrizione", false);
-        this.fields.put("Organizzazione", false);
         this.fields.put("Tipo Visita", false);
         this.fields.put("Volontario predefinito", false);
     }
@@ -34,12 +33,11 @@ public class SetVisitablePlacesGUI extends RequestGUI {
             String city = inputMap.get("Città").getText().trim();
             String address = inputMap.get("Indirizzo").getText().trim();
             String description = inputMap.get("Descrizione").getText().trim();
-            String organization = inputMap.get("Organizzazione").getText().trim();
             String visitType = inputMap.get("Tipo Visita").getText().trim();
             String defaultVoluntary = inputMap.get("Volontario predefinito").getText().trim();
 
             if (city.isEmpty() || address.isEmpty() || description.isEmpty() 
-                || organization.isEmpty() || visitType.isEmpty() || defaultVoluntary.isEmpty()) 
+                || visitType.isEmpty() || defaultVoluntary.isEmpty()) 
             {
                 JOptionPane.showMessageDialog(
                     frame,
@@ -50,7 +48,7 @@ public class SetVisitablePlacesGUI extends RequestGUI {
                 return;
             }
 
-            Client.getInstance().set_new_place(city, address, description, organization, visitType, defaultVoluntary);
+            Client.getInstance().setNewPlace(city, address, description, visitType, defaultVoluntary);
 
             String response = Client.getInstance().makeServerRequest();
             System.out.println("Risposta dal server: " + response);

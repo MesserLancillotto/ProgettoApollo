@@ -90,3 +90,4 @@ public class Place
         return json.getString("defaultVoluntary");
     }
 }
+

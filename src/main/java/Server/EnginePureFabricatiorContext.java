@@ -35,8 +35,10 @@ class EnginePureFabricatiorContext
         STRATEGY_MAP.put(ComunicationType.SET_NEW_ORGANIZATION, SetNewOrganizationEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_NEW_PASSWORD, SetNewPasswordEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_NEW_USER, SetNewUserEngine::new);
+        STRATEGY_MAP.put(ComunicationType.SET_USER_PERMISSIONS, SetUserPermissionsEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_USER_SUBSCRIPTION_TO_EVENT, SetUserSubscriptionToEventEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_VISITABLE_PLACES, SetVisitablePlacesEngine::new);
+        STRATEGY_MAP.put(ComunicationType.SET_VOLUNTARY_PERMISSIONS, SetUserPermissionsEngine::new);
     }
 
     public static Function<String, EngineInterface> createEngine(ComunicationType comunicationType)

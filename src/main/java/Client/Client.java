@@ -23,6 +23,32 @@ public class Client
     private String filePath = "configurazione.json";
     private JSONObject userData;
     private Boolean triggerPersonalData = false;
+    private String whichFile = "";
+    private boolean isObject = true;
+
+    public static JSONObject readJSONObjectFromFile(String filename) {
+        try {
+            if (!filename.endsWith(".json")) {
+                filename += ".json";
+            }
+            String jsonContent = Files.readString(Paths.get(filename));
+            return new JSONObject(jsonContent);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static JSONArray readJSONArrayFromFile(String filename) {
+        try {
+            if (!filename.endsWith(".json")) {
+                filename += ".json";
+            }
+            String jsonContent = Files.readString(Paths.get(filename));
+            return new JSONArray(jsonContent);
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
     private Client(String userID, String userPassword) 
     {
@@ -98,11 +124,31 @@ public class Client
         this.request = new DeletePlaceRequest(this.userID, this.userPassword, city, address);
     }
 
-    public void set_new_place(String city, String address, String description, String organization, String visitType, String defaultVoluntary) 
+    public void delete_place(String city, String address) 
+    {
+        deletePlace(city, address);
+    }
+
+    public void delete_place(String city, String address, String visitType) 
+    {
+        this.request = new DeletePlaceRequest(this.userID, this.userPassword, city, address, visitType);
+    }
+
+    public void setNewPlace(String city, String address, String description, String visitType, String defaultVoluntary) 
     {
         SetVisitablePlacesRequest req = new SetVisitablePlacesRequest(this.userID, this.userPassword);
-        req.addPlace(city, address, description, organization, visitType, defaultVoluntary);
+        req.addPlace(city, address, description, visitType, defaultVoluntary);
         this.request = req;
+    }
+
+    public void set_new_place(String city, String address, String description, String organization, String visitType, String defaultVoluntary) 
+    {
+        setNewPlace(city, address, description, visitType, defaultVoluntary);
+    }
+
+    public void setUserPermissions(String targetID, List<String> permissions) 
+    {
+        this.request = new SetVoluntaryPermissionsRequest(this.userID, this.userPassword, targetID, permissions);
     }
 
     public void editVisitablePlaces(String city, String address, String visitType, String newDefauldVoluntary) 
@@ -240,6 +286,11 @@ public class Client
         this.triggerPersonalData = true;
     }
 
+    public void get_personal_data(String target) 
+    {
+        getPersonalData(target);
+    }
+
     public void get_subscribed_events(String targetID)
     {
         this.request = new GetSubscribedEventsRequest(this.userID, this.userPassword, targetID);
@@ -340,6 +391,13 @@ public class Client
     public void getEvent(String state) 
     {
         this.request = new GetEventRequest(this.userID, this.userPassword, state);
+    }
+
+    public void get_event(String state) 
+    {
+        this.whichFile = "get_event.json";
+        this.isObject = true;
+        getEvent(state);
     }
 
     public void set_closed_days(long startDate, long endDate) 

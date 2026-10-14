@@ -17,6 +17,7 @@ Comunication/Reply/GetPersonalDataReply.class
 Comunication/Request/EditVisitablePlacesRequest.class
 User/Interfaces/RequestGUI.class
 Comunication/Reply/Interfaces/ReplyInterface.class
+Server/Engine/SetUserPermissionsEngine.class
 Server/Engine/GetPlacesEngine.class
 Comunication/DatabaseObjects/User.class
 Comunication/ComunicationType/ComunicationType.class
@@ -49,6 +50,7 @@ Comunication/Request/SetNewOrganizationRequest.class
 Server/Engine/SetNewPasswordEngine.class
 User/User/UserGUI.class
 Server/Engine/DeleteVisitTypeFromPlaceEngine.class
+Comunication/Reply/SetUserPermissionsReply.class
 Server/Engine/Helper/EventCreator.class
 User/Configurator/SetNewOrganizationGUI.class
 User/User/SetUserSubscriptionToEventGUI.class
@@ -65,6 +67,7 @@ Server/Engine/GetVoluntariesEngine.class
 User/Configurator/EditVisitablesPlacesGUI.class
 Comunication/DatabaseObjects/Event.class
 Server/Engine/SetNewUserEngine.class
+User/Configurator/SetUserPermissionsGUI.class
 Comunication/Reply/GetSubscribedEventsReply.class
 Server/Engine/SetUserSubscriptionToEventEngine.class
 User/Configurator/DeleteVoluntaryGUI.class
@@ -84,6 +87,7 @@ Comunication/Reply/GetAllowedVisitTypesReply.class
 Comunication/Request/GetEventRequest.class
 Comunication/Reply/SetNewOrganizationReply.class
 Comunication/Reply/SetNewPasswordReply.class
+Comunication/Request/SetVoluntaryPermissionsRequest.class
 Comunication/Request/GetAllowedVisitTypesRequest.class
 Comunication/Request/DeletePlaceRequest.class
 Server/Engine/GetPossibleVisitsEngine.class

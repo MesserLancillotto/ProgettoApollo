@@ -79,3 +79,5 @@ CREATE TABLE IF NOT EXISTS subscriptions
         name VARCHAR(32),
         date INT
     );
+
+    

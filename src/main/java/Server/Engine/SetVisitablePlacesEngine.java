@@ -13,9 +13,12 @@ public class SetVisitablePlacesEngine extends AuthenticatedEngine
 {
     private List<Place> places;
 
-    private static String QUERY
-        = "INSERT INTO places VALUES ( ?, ?, ?, ? )";
-
+private static String QUERY
+    = "INSERT INTO places (organization, city, address, visitType, description, userID) "
+    + "SELECT ?, ?, ?, ?, ?, ? "
+    + "WHERE EXISTS (SELECT 1 FROM users WHERE userID = ?) "
+    + "AND EXISTS (SELECT 1 FROM userPermissions WHERE userID = ? AND visitType = ?)";
+    
     public SetVisitablePlacesEngine 
     (
         String data
@@ -34,20 +37,24 @@ public class SetVisitablePlacesEngine extends AuthenticatedEngine
     
     public AuthenticatedReply processWithConnection() throws SQLException
     {
-        int updatedLines = 0;
+int updatedLines = 0;
 
-        for(Place place : places)
-        {
-            PreparedStatement statement 
-                = this.connection.prepareStatement(QUERY);
-
+    for(Place place : places)
+    {
+        PreparedStatement statement 
+            = this.connection.prepareStatement(QUERY);
             statement.setString(1, getOrganization());
             statement.setString(2, place.getCity());
             statement.setString(3, place.getAddress());
-            statement.setString(4, place.getDescription());
+            statement.setString(4, place.getVisitType());
+            statement.setString(5, place.getDescription());
+            statement.setString(6, place.getDefaultVoluntary());
+            statement.setString(7, place.getDefaultVoluntary());
+            statement.setString(8, place.getDefaultVoluntary());
+            statement.setString(9, place.getVisitType());
 
             updatedLines += statement.executeUpdate();
-        }
-        return new SetVisitablePlacesReply(true, updatedLines > 0);
+    }
+    return new SetVisitablePlacesReply(true, updatedLines > 0);
     }
 }

@@ -25,7 +25,6 @@ public class SetVisitablePlacesRequest extends AuthenticatedRequest
         String city,
         String address,
         String description,
-        String organization,
         String visitType,
         String defaultVoluntary
     ) {
@@ -33,7 +32,7 @@ public class SetVisitablePlacesRequest extends AuthenticatedRequest
             city,
             address,
             description,
-            organization,
+            "", // lasciato vuoto, in set ci pensa il server, in get viene compilato
             visitType,
             defaultVoluntary
         );

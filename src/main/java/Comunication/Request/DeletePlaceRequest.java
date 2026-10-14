@@ -21,4 +21,16 @@ public class DeletePlaceRequest extends AuthenticatedRequest
         json.put("address", address);
         jsonString = null;
     }
+
+    public DeletePlaceRequest
+    (
+        String userID,
+        String password,
+        String city,
+        String address,
+        String visitType
+    ) {
+        this(userID, password, city, address);
+        json.put("visitType", visitType);
+    }
 }
