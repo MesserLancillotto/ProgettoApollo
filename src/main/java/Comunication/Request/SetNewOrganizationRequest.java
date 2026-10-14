@@ -18,9 +18,11 @@ public class SetNewOrganizationRequest extends AuthenticatedRequest
         String password,
         String organization,
         List<String> territories
+        Integer maximumFriends
     ) {
         super(ComunicationType.SET_NEW_ORGANIZATION, userID, password);
         json.put("organization", organization);
         json.put("territories", new JSONArray(territories));
+        json.put("maximumFriends", maximumFriends)
     }
 }
