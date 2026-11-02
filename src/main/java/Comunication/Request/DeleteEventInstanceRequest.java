@@ -18,6 +18,19 @@ public class DeleteEventInstanceRequest extends AuthenticatedRequest
         String userID,
         String password,
         String name,
+        Integer startDate
+    ) {
+        this(userID, password, name, "", "", "", "", "", "");
+        if (startDate != null) {
+            addInstance(startDate, 0, "", new ArrayList<>(), new ArrayList<>());
+        }
+    }
+
+    public DeleteEventInstanceRequest
+    (
+        String userID,
+        String password,
+        String name,
         String description,
         String visitType,
         String organization,

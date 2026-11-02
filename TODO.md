@@ -20,6 +20,9 @@ kanban
     SetMaximumFriends
     SetNewPassword
     SetClosedDays
+    DeleteEvent
+    DeleteEventInstance
+    SetNewEvent
 ```
 
 # Voluntary

@@ -104,6 +104,24 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
                 "Permessi volontario", 
                 "Assegna permessi di visita a un volontario", 
                 this::setUserPermissionsRequest));
+        configMap.put(
+            "DeleteEventRequest", 
+            new ActionConfig(
+                "Elimina evento", 
+                "Elimina l'evento specificato e le relative istanze", 
+                this::deleteEventRequest));
+        configMap.put(
+            "DeleteEventInstanceRequest", 
+            new ActionConfig(
+                "Elimina istanza evento", 
+                "Elimina una singola istanza temporale di un evento", 
+                this::deleteEventInstanceRequest));
+        configMap.put(
+            "SetNewEventRequest", 
+            new ActionConfig(
+                "Nuovo evento", 
+                "Crea un nuovo evento per l'organizzazione", 
+                this::setNewEventRequest));
     }
 
     private void deletePlaceRequest() 
@@ -225,6 +243,27 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
         System.out.println("setUserPermissionsRequest()");
         System.out.println("Assegna permessi di visita");
         UserViewInterface userView = new SetUserPermissionsGUI();
+        userView.paint(new JSONObject());
+    }
+
+    private void deleteEventRequest() 
+    {
+        System.out.println("deleteEventRequest()");
+        UserViewInterface userView = new DeleteEventGUI();
+        userView.paint(new JSONObject());
+    }
+
+    private void deleteEventInstanceRequest() 
+    {
+        System.out.println("deleteEventInstanceRequest()");
+        UserViewInterface userView = new DeleteEventInstanceGUI();
+        userView.paint(new JSONObject());
+    }
+
+    private void setNewEventRequest() 
+    {
+        System.out.println("setNewEventRequest()");
+        UserViewInterface userView = new SetNewEventGUI();
         userView.paint(new JSONObject());
     }
 }

@@ -433,6 +433,84 @@ public class Client
         return -1;
     }
 
+    public void setNewEvent(
+        String name,
+        String description,
+        String visitType,
+        String organization,
+        String city,
+        String address,
+        String rendezvous
+    ) {
+        this.request = new SetNewEventRequest(
+            this.userID,
+            this.userPassword,
+            name,
+            description,
+            visitType,
+            organization,
+            city,
+            address,
+            rendezvous
+        );
+    }
+
+    public void setNewEvent(
+        String name,
+        String description,
+        String visitType,
+        String organization,
+        String city,
+        String address,
+        String rendezvous,
+        Integer startDate,
+        Integer endDate,
+        String state,
+        List<String> voluntaries
+    ) {
+        SetNewEventRequest req = new SetNewEventRequest(
+            this.userID,
+            this.userPassword,
+            name,
+            description,
+            visitType,
+            organization,
+            city,
+            address,
+            rendezvous
+        );
+        if (startDate != null && startDate > 0) {
+            req.addInstance(
+                startDate,
+                endDate != null && endDate > 0 ? endDate : startDate,
+                state != null && !state.isEmpty() ? state : "CONFIRMED",
+                voluntaries != null ? voluntaries : new ArrayList<>(),
+                new ArrayList<>()
+            );
+        }
+        this.request = req;
+    }
+
+    public void deleteEvent(String name) 
+    {
+        this.request = new DeleteEventRequest(this.userID, this.userPassword, name);
+    }
+
+    public void delete_event(String name) 
+    {
+        deleteEvent(name);
+    }
+
+    public void deleteEventInstance(String name, Integer startDate) 
+    {
+        this.request = new DeleteEventInstanceRequest(this.userID, this.userPassword, name, startDate);
+    }
+
+    public void delete_event_instance(String name, Integer startDate) 
+    {
+        deleteEventInstance(name, startDate);
+    }
+
     public void set_new_event(
             String eventName, String description, String city, String address,
             String meetingPoint, int startDate, int endDate, String organizationName,
@@ -440,6 +518,19 @@ public class Client
             float price, ArrayList<String> visitDays, ArrayList<Integer> startHour,
             ArrayList<Integer> duration
     ) {
+        setNewEvent(
+            eventName,
+            description,
+            visitType,
+            organizationName,
+            city,
+            address,
+            meetingPoint,
+            startDate,
+            endDate,
+            "CONFIRMED",
+            new ArrayList<>()
+        );
     }
 
     public void getEvent(String state) 

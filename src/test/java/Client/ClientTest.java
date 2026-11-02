@@ -197,4 +197,75 @@ public class ClientTest
         assertTrue(filters.getBoolean("olderThanYear"));
         assertEquals("GUIDATA", filters.getString("visitType"));
     }
+
+    @Test
+    void testRequestCreationSetNewEvent()
+    {
+        client.setUserID("configUser");
+        client.setUserPassword("configPass");
+        client.setNewEvent(
+            "Concerto d'Estate",
+            "Musica classica all'aperto",
+            "GUIDATA",
+            "San Genesio",
+            "Desenzano",
+            "Piazza Garibaldi 1",
+            "Ingresso ovest",
+            1775000000,
+            1775007200,
+            "CONFIRMED",
+            List.of("vol1", "vol2")
+        );
+
+        assertNotNull(client.getCurrentRequest());
+        JSONObject json = new JSONObject(client.getCurrentRequest().toJSONString());
+        assertEquals("SET_NEW_EVENT", json.getString("comunicationType"));
+        assertTrue(json.has("event"));
+        JSONObject event = json.getJSONObject("event");
+        assertEquals("Concerto d'Estate", event.getString("name"));
+        assertEquals("Musica classica all'aperto", event.getString("description"));
+        assertEquals("GUIDATA", event.getString("visitType"));
+        assertEquals("San Genesio", event.getString("organization"));
+        assertEquals("Desenzano", event.getString("city"));
+        assertEquals("Piazza Garibaldi 1", event.getString("address"));
+        assertEquals("Ingresso ovest", event.getString("rendezvous"));
+        JSONArray instances = event.getJSONArray("instances");
+        assertEquals(1, instances.length());
+        JSONObject inst = instances.getJSONObject(0);
+        assertEquals(1775000000, inst.getInt("start_date"));
+        assertEquals(1775007200, inst.getInt("end_date"));
+        assertEquals(2, inst.getJSONArray("voluntaries").length());
+    }
+
+    @Test
+    void testRequestCreationDeleteEvent()
+    {
+        client.setUserID("configUser");
+        client.setUserPassword("configPass");
+        client.deleteEvent("Concerto d'Estate");
+
+        assertNotNull(client.getCurrentRequest());
+        JSONObject json = new JSONObject(client.getCurrentRequest().toJSONString());
+        assertEquals("DELETE_EVENT", json.getString("comunicationType"));
+        assertTrue(json.has("event"));
+        assertEquals("Concerto d'Estate", json.getJSONObject("event").getString("name"));
+    }
+
+    @Test
+    void testRequestCreationDeleteEventInstance()
+    {
+        client.setUserID("configUser");
+        client.setUserPassword("configPass");
+        client.deleteEventInstance("Concerto d'Estate", 1775000000);
+
+        assertNotNull(client.getCurrentRequest());
+        JSONObject json = new JSONObject(client.getCurrentRequest().toJSONString());
+        assertEquals("DELETE_EVENT_INSTANCE", json.getString("comunicationType"));
+        assertTrue(json.has("event"));
+        JSONObject event = json.getJSONObject("event");
+        assertEquals("Concerto d'Estate", event.getString("name"));
+        JSONArray instances = event.getJSONArray("instances");
+        assertEquals(1, instances.length());
+        assertEquals(1775000000, instances.getJSONObject(0).getInt("start_date"));
+    }
 }

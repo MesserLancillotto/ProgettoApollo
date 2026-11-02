@@ -16,6 +16,8 @@ class EnginePureFabricatiorContext
     
     static {
         STRATEGY_MAP = new EnumMap<>(ComunicationType.class);
+        STRATEGY_MAP.put(ComunicationType.DELETE_EVENT, DeleteEventEngine::new);
+        STRATEGY_MAP.put(ComunicationType.DELETE_EVENT_INSTANCE, DeleteEventInstanceEngine::new);
         STRATEGY_MAP.put(ComunicationType.DELETE_PLACE, DeletePlaceEngine::new);
         STRATEGY_MAP.put(ComunicationType.DELETE_USER_SUBSCRIPTION_TO_EVENT, DeleteUserSubscriptionToEventEngine::new);
         // STRATEGY_MAP.put(ComunicationType.DELETE_VISIT, DeleteVisitEngine::new);
@@ -32,6 +34,7 @@ class EnginePureFabricatiorContext
         STRATEGY_MAP.put(ComunicationType.SET_CLOSED_DAYS, SetClosedDaysEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_DISPONIBILITY, SetDisponibilityEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_MAXIMUM_FRIENDS, SetMaximumFriendsEngine::new);
+        STRATEGY_MAP.put(ComunicationType.SET_NEW_EVENT, SetNewEventEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_NEW_ORGANIZATION, SetNewOrganizationEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_NEW_PASSWORD, SetNewPasswordEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_NEW_USER, SetNewUserEngine::new);

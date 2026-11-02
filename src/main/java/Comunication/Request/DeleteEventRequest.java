@@ -17,6 +17,15 @@ public class DeleteEventRequest extends AuthenticatedRequest
     (
         String userID,
         String password,
+        String name
+    ) {
+        this(userID, password, name, "", "", "", "", "", "");
+    }
+
+    public DeleteEventRequest
+    (
+        String userID,
+        String password,
         String name,
         String description,
         String visitType,
