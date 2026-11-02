@@ -3,6 +3,8 @@ package Comunication.ComunicationType;
 public enum ComunicationType
 {
     DELETE_PLACE,
+    DELETE_EVENT, 
+    DELETE_EVENT_INSTANCE,
     DELETE_USER_SUBSCRIPTION_TO_EVENT,
     DELETE_VISIT,
     DELETE_VOLUNTARY,
@@ -18,6 +20,7 @@ public enum ComunicationType
     SET_CLOSED_DAYS,
     SET_DISPONIBILITY,
     SET_MAXIMUM_FRIENDS,
+    SET_NEW_EVENT,
     SET_NEW_ORGANIZATION,
     SET_NEW_PASSWORD,
     SET_NEW_USER,
