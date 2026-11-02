@@ -17,6 +17,7 @@ public class GetVoluntariesRequest extends AuthenticatedRequest
     ) {
         super(ComunicationType.GET_VOLUNTARIES, userID, password);
         this.filters = new JSONObject();
+        this.json.put("filters", this.filters);
     }
 
     public GetVoluntariesRequest withCity(String city)

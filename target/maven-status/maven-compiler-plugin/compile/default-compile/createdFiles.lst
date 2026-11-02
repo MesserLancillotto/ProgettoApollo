@@ -21,6 +21,7 @@ Server/Engine/SetUserPermissionsEngine.class
 Server/Engine/GetPlacesEngine.class
 Comunication/DatabaseObjects/User.class
 Comunication/ComunicationType/ComunicationType.class
+User/Configurator/GetVoluntariesGUI.class
 User/Configurator/DeletePlaceRequestGUI.class
 User/Configurator/GetPossibleVisitsGUI.class
 Comunication/Reply/SetClosedDaysReply.class

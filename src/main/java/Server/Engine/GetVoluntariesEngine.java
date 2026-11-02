@@ -140,6 +140,13 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
             }
             parameters.add(birthYear);
         }
+
+        if(filters.has("visitType")) 
+        {
+            queryBuilder.append(" AND userID IN (SELECT userID FROM userPermissions WHERE visitType LIKE ?)");
+            parameters.add("%" + filters.get("visitType") + "%");
+        }
+
         PreparedStatement statement 
             = connection.prepareStatement(queryBuilder.toString());
             
@@ -152,7 +159,7 @@ public class GetVoluntariesEngine extends AuthenticatedEngine
 
     private List<User> getFilteredVoluntaries() throws SQLException 
     {
-        JSONObject filters = json.getJSONObject("filters");
+        JSONObject filters = json.optJSONObject("filters");
 
         PreparedStatement statement = makeStatement();
 

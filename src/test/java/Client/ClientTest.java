@@ -161,4 +161,40 @@ public class ClientTest
         assertEquals("Via Roma 1", json.getString("address"));
         assertEquals("GUIDATA", json.getString("visitType"));
     }
+
+    @Test
+    void testRequestCreationSetNewOrganization()
+    {
+        client.setUserID("configUser");
+        client.setUserPassword("configPass");
+        client.set_new_organization("Milano Centro", List.of("Zona 1", "Zona 2"), 5);
+
+        assertNotNull(client.getCurrentRequest());
+        JSONObject json = new JSONObject(client.getCurrentRequest().toJSONString());
+        assertEquals("SET_NEW_ORGANIZATION", json.getString("comunicationType"));
+        assertEquals("Milano Centro", json.getString("organization"));
+        assertEquals(5, json.getInt("maximumFriends"));
+        assertEquals(5, json.getInt("maximum_friends"));
+        assertEquals(2, json.getJSONArray("territories").length());
+    }
+
+    @Test
+    void testRequestCreationGetVoluntaries()
+    {
+        client.setUserID("configUser");
+        client.setUserPassword("configPass");
+        client.getVoluntaries("Mario", "Rossi", "Milano", 1990, true, "GUIDATA");
+
+        assertNotNull(client.getCurrentRequest());
+        JSONObject json = new JSONObject(client.getCurrentRequest().toJSONString());
+        assertEquals("GET_VOLUNTARIES", json.getString("comunicationType"));
+        assertTrue(json.has("filters"));
+        JSONObject filters = json.getJSONObject("filters");
+        assertEquals("Mario", filters.getString("name"));
+        assertEquals("Rossi", filters.getString("surname"));
+        assertEquals("Milano", filters.getString("city"));
+        assertEquals(1990, filters.getInt("birthYear"));
+        assertTrue(filters.getBoolean("olderThanYear"));
+        assertEquals("GUIDATA", filters.getString("visitType"));
+    }
 }

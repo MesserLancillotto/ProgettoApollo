@@ -43,6 +43,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/Helper/PlaceCreator.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/DeletePlaceRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/SetNewVoluntaryGUI.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/GetVoluntariesGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetPossibleVisitsEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Voluntary/GetAllowedVisitTypesGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/SetClosedDaysGUI.java

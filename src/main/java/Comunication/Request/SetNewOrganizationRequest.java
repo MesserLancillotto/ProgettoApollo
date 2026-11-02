@@ -11,6 +11,25 @@ public class SetNewOrganizationRequest extends AuthenticatedRequest
 {
     private String organization;
     private ArrayList<String> territories; 
+    private Integer maximumFriends;
+
+    public SetNewOrganizationRequest
+    (
+        String userID, 
+        String password,
+        String organization,
+        List<String> territories,
+        Integer maximumFriends
+    ) {
+        super(ComunicationType.SET_NEW_ORGANIZATION, userID, password);
+        this.organization = organization;
+        this.territories = territories != null ? new ArrayList<>(territories) : new ArrayList<>();
+        this.maximumFriends = maximumFriends;
+        json.put("organization", organization);
+        json.put("territories", new JSONArray(this.territories));
+        json.put("maximumFriends", maximumFriends);
+        json.put("maximum_friends", maximumFriends);
+    }
 
     public SetNewOrganizationRequest
     (
@@ -18,11 +37,11 @@ public class SetNewOrganizationRequest extends AuthenticatedRequest
         String password,
         String organization,
         List<String> territories
-        Integer maximumFriends
     ) {
-        super(ComunicationType.SET_NEW_ORGANIZATION, userID, password);
-        json.put("organization", organization);
-        json.put("territories", new JSONArray(territories));
-        json.put("maximumFriends", maximumFriends)
+        this(userID, password, organization, territories, 0);
+    }
+
+    public Integer getMaximumFriends() {
+        return maximumFriends;
     }
 }

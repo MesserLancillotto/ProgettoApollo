@@ -63,6 +63,12 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
                 "Ottiene i tipi di visita possibili per un'organizzazione", 
                 this::getPossibleVisitsRequest));
         configMap.put(
+            "GetVoluntariesRequest", 
+            new ActionConfig(
+                "Visualizza volontari", 
+                "Visualizza e filtra l'elenco dei volontari", 
+                this::getVoluntariesRequest));
+        configMap.put(
             "SetVisitablePlacesRequest", 
             new ActionConfig(
                 "Aggiungi posto visitabile", 
@@ -163,6 +169,14 @@ public class ConfiguratorGUI extends AbstractConfiguratorGUI {
         System.out.println("getPossibleVisitsRequest()");
         System.out.println("Richiesta tipi di visita possibili");
         UserViewInterface userView = new GetPossibleVisitsGUI();
+        userView.paint(new JSONObject());
+    }
+
+    private void getVoluntariesRequest() 
+    {
+        System.out.println("getVoluntariesRequest()");
+        System.out.println("Visualizza e filtra volontari");
+        UserViewInterface userView = new GetVoluntariesGUI();
         userView.paint(new JSONObject());
     }
 

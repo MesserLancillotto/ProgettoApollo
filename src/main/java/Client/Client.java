@@ -161,6 +161,11 @@ public class Client
         this.request = new SetNewOrganizationRequest(this.userID, this.userPassword, organizationName, territoriesOfCompetence);
     }
 
+    public void set_new_organization(String organizationName, List<String> territoriesOfCompetence, Integer maximumFriends) 
+    {
+        this.request = new SetNewOrganizationRequest(this.userID, this.userPassword, organizationName, territoriesOfCompetence, maximumFriends);
+    }
+
     public void setNewUser(String userName, String newPassword, String cityOfResidence, Integer birthYear) 
     {
         this.request = new SetNewUserRequest(userName, newPassword, cityOfResidence, birthYear);
@@ -252,9 +257,35 @@ public class Client
         this.request = new SetDisponibilityRequest(this.userID, this.userPassword, disponibilities);
     }
 
+    public void getVoluntaries(String name, String surname, String city, Integer birthYear, Boolean olderThanYear, String visitType) 
+    {
+        GetVoluntariesRequest req = new GetVoluntariesRequest(this.userID, this.userPassword);
+        if (name != null && !name.trim().isEmpty()) {
+            req.withName(name.trim());
+        }
+        if (surname != null && !surname.trim().isEmpty()) {
+            req.withSurname(surname.trim());
+        }
+        if (city != null && !city.trim().isEmpty()) {
+            req.withCity(city.trim());
+        }
+        if (birthYear != null) {
+            req.withYear(birthYear, olderThanYear != null ? olderThanYear : false);
+        }
+        if (visitType != null && !visitType.trim().isEmpty()) {
+            req.withAllowedVisits(visitType.trim());
+        }
+        this.request = req;
+    }
+
+    public void getVoluntaries() 
+    {
+        getVoluntaries(null, null, null, null, null, null);
+    }
+
     public void get_voluntaries() 
     {
-        this.request = new GetVoluntariesRequest(this.userID, this.userPassword);
+        getVoluntaries();
     }
 
     public void getPlaces(String city, String address, List<String> visitTypes, List<String> states) 

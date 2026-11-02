@@ -55,10 +55,12 @@ public class SetNewOrganizationEngine extends AuthenticatedEngine
             return new SetNewOrganizationReply(true, false);
         }
 
-        String mergeOrganizationQuery = "MERGE INTO organizations (organization) KEY(organization) VALUES ( ? )";
+        int maximumFriends = json.optInt("maximum_friends", json.optInt("maximumFriends", 0));
+        String mergeOrganizationQuery = "MERGE INTO organizations (organization, maximum_friends) KEY(organization) VALUES ( ?, ? )";
         try (PreparedStatement orgStatement = connection.prepareStatement(mergeOrganizationQuery)) 
         {
             orgStatement.setString(1, newOrganization);
+            orgStatement.setInt(2, maximumFriends);
             orgStatement.executeUpdate();
         }
 
@@ -79,7 +81,8 @@ public class SetNewOrganizationEngine extends AuthenticatedEngine
         
         return new SetNewOrganizationReply(
             true,
-            true
+            true,
+            maximumFriends
         );
     }
 

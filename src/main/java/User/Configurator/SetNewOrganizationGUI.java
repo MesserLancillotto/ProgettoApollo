@@ -24,6 +24,7 @@ public class SetNewOrganizationGUI extends RequestGUI {
     protected void buildFieldsMap() {
         this.fields.put("Nome Organizzazione", false);
         this.fields.put("Territori di Competenza (separati da virgola)", false);
+        this.fields.put("Numero massimo di amici", false);
     }
 
     @Override
@@ -31,6 +32,7 @@ public class SetNewOrganizationGUI extends RequestGUI {
         submitButton.addActionListener(e -> {
             String organization = inputMap.get("Nome Organizzazione").getText().trim();
             String territoriesRaw = inputMap.get("Territori di Competenza (separati da virgola)").getText().trim();
+            String maxFriendsStr = inputMap.get("Numero massimo di amici").getText().trim();
 
             if (organization.isEmpty()) {
                 JOptionPane.showMessageDialog(
@@ -42,10 +44,28 @@ public class SetNewOrganizationGUI extends RequestGUI {
                 return;
             }
 
+            int maxFriends = 0;
+            if (!maxFriendsStr.isEmpty()) {
+                try {
+                    maxFriends = Integer.parseInt(maxFriendsStr);
+                    if (maxFriends < 0) {
+                        throw new NumberFormatException("Il numero non può essere negativo");
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(
+                        frame,
+                        "Inserire un numero intero valido maggiore o uguale a 0 per il numero massimo di amici.",
+                        "Input non valido",
+                        JOptionPane.WARNING_MESSAGE
+                    );
+                    return;
+                }
+            }
+
             List<String> territories = parseList(territoriesRaw);
 
             Client client = Client.getInstance();
-            client.set_new_organization(organization, territories);
+            client.set_new_organization(organization, territories, maxFriends);
 
             String response = client.makeServerRequest();
             System.out.println("Risposta dal server: " + response);
