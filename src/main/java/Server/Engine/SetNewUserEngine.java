@@ -6,6 +6,7 @@ import java.sql.*;
 import Server.Engine.Interfaces.AuthenticatedEngine;
 import Comunication.Reply.SetNewUserReply;
 import Comunication.Reply.Interfaces.AuthenticatedReply;
+import java.time.Instant;
 
 public class SetNewUserEngine extends AuthenticatedEngine
 {
@@ -30,7 +31,7 @@ public class SetNewUserEngine extends AuthenticatedEngine
             .append(".")
             .append(surname)
             .append(".")
-            .append(json.getInt("birth_yy") % 100)
+            .append(String.format("%02d", json.getInt("birth_yy") % 100))
             .toString();
     }
 
@@ -50,10 +51,10 @@ public class SetNewUserEngine extends AuthenticatedEngine
         statement.setInt(6, json.getInt("birth_dd"));
         statement.setInt(7, json.getInt("birth_mm"));
         statement.setInt(8, json.getInt("birth_yy"));
-        statement.setInt(9, json.optInt("user_since", 2026));
+        statement.setInt(9, json.optInt("user_since", (int) Instant.now().getEpochSecond()));
         statement.setString(10, json.optString("organization", ""));
         statement.setString(11, json.optString("role", "VOLUNTARY"));
-        statement.setBoolean(12, false);
+        statement.setBoolean(12, true);
         statement.setString(13, userID);
 
         int linesChanged = statement.executeUpdate();

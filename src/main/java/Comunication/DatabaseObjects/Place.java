@@ -26,14 +26,14 @@ public class Place
         json.put("defaultVoluntary", defaultVoluntary);
     }
 
-    public Place(JSONObject data)
+public Place(JSONObject data)
     {
         this(
             data.getString("city"),
             data.getString("address"),
-            data.getString("visitType"),
             data.getString("description"),
             data.getString("organization"),
+            data.getString("visitType"),
             data.getString("defaultVoluntary")
         );
     }

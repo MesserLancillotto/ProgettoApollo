@@ -94,5 +94,5 @@ CREATE TABLE IF NOT EXISTS subscriptions
 
     
 
-INSERT INTO USERS VALUES ('L', '1234', 'a', 'a', 'a', 1, 1, 1, 0, '', 'CONFIGURATOR', 'true');
+INSERT INTO USERS VALUES ('Magnificus.Administrator.00', '1234', 'Magnificus', 'Administrator', 'Ginnungagap', 1, 1, 2000, 0, '', 'CONFIGURATOR', 'true');
 SELECT * FROM USERS ;

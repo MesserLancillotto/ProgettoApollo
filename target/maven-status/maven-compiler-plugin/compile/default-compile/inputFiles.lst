@@ -1,5 +1,7 @@
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetVoluntarySubscriptionToEventEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Interfaces/AbstractConfiguratorGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetMaximumFriendsRequest.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/User/User/GetMaximumFriendsGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetNewEventRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetSubscribedEventsRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/DeletePlaceRequestGUI.java
@@ -10,6 +12,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/Interfaces/AuthenticatedReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/Interfaces/EngineInterface.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/SetMaximumFriendsReply.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/User/Voluntary/GetEventGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/DeleteVisitTypeFromPlaceGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/Interfaces/ReplyInterface.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/DeleteUserSubscriptionToEventReply.java
@@ -36,6 +39,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetAllowedVisitTypesEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetDisponibilityRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetClosedDaysEngine.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/User/Voluntary/DeleteUserSubscriptionToEventGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/DatabaseObjects/Event.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/Helper/EventCreator.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetSubscribedEventsEngine.java
@@ -43,6 +47,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/SetNewUserReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/SetDisponibilityReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/Helper/PlaceCreator.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/User/Voluntary/GetSubscribedEventsGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/DeletePlaceRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/DeleteEventRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/DeleteEventInstanceRequest.java
@@ -83,6 +88,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetNewPasswordEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetClosedDaysRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetPersonalDataRequest.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/User/User/GetEventGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetEventRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/GetMaximumFriendsGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetNewEventEngine.java
@@ -95,6 +101,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Client/Client.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/ConfiguratorGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/DeleteEventInstanceGUI.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetVoluntarySubscriptionToEventRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/User/UserGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/GetMaximumFriendsReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/SetNewEventGUI.java
@@ -107,6 +114,7 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetVoluntaryPermissionsRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/SetVisitablePlacesReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/DeleteEventEngine.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/User/User/GetPersonalDataGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/GetSubscribedEventsReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Interfaces/UserViewInterface.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/Interfaces/AuthenticatedEngine.java
@@ -114,12 +122,14 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/DeleteVoluntaryEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetAllowedVisitTypesRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/DeleteVoluntaryReply.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/SetVoluntarySubscriptionToEventReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetEventEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/DatabaseObjects/User.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/DatabaseObjects/UserRole.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/GetEventGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Interfaces/RequestGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetPersonalDataEngine.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/User/Voluntary/GetPersonalDataGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/SetNewPasswordGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetNewOrganizationEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/DatabaseObjects/EventInstance.java

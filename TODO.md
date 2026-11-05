@@ -1,58 +1,10 @@
-# Configurator
-
-```mermaid
-kanban
-  todo[Todo]
-
-  halfway[Halfway]
-
-  done[Done]
-    DeletePlace 
-    DeleteVisitTypeFromPlace
-    DeleteVoluntary 
-    EditVisitablePlaces
-    GetMaximumFriends
-    GetPersonalData 
-    GetEvent
-    GetPlaces
-    GetPossibleVisits
-    SetVisitablePlaces
-    SetMaximumFriends
-    SetNewPassword
-    SetClosedDays
-    DeleteEvent
-    DeleteEventInstance
-    SetNewEvent
-```
-
-# Voluntary
-
-```mermaid
-kanban
-  todo[Todo]
-  halfway[Halfway]
-
-  done[Done]
-    GetAllowedVisitTypes
-    GetEvent
-    GetPersonalData
-    GetPlaces
-    GetPossibleVisits
-    SetNewPassword 
-```
-
-# User
-
-```mermaid
-kanban
-  todo[Todo]
-  halfway[Halfway]
-
-  done[Done]
-    DeleteUserSubscriptionToEvent
-    GetEvent
-    GetMaximumFriends
-    GetPersonalData
-    GetSubscribedEvents
-    SetUserSubscriptionToEvent
-```
+[] Numero partecipanti evento
+[] Termine ultimo iscrizione
+[] Data evento come ddmmyy e non UNIX
+[] Visualizza tipi di visita presenti
+[x] Aggiungi posto baggato
+[] Bacheca rotta
+[] Cambio pw primo accesso VOLUNTARY
+[] VOLUNTARY visualizza eventi in base alla categoria
+[] VOLUNTARY no amici per iscrizione evento
+[] Daemon chiusura iscrizioni

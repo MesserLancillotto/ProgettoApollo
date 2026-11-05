@@ -13,16 +13,15 @@ public class SetVisitablePlacesEngine extends AuthenticatedEngine
 {
     private List<Place> places;
 
-private static String QUERY
-    = "INSERT INTO places (organization, city, address, visitType, description, userID) "
-    + "SELECT ?, ?, ?, ?, ?, ? "
-    + "WHERE EXISTS (SELECT 1 FROM users WHERE userID = ?) "
-    + "AND EXISTS (SELECT 1 FROM userPermissions WHERE userID = ? AND visitType = ?)";
+    private static String QUERY
+        = "INSERT INTO places (organization, city, address, visitType, description, userID) "
+        + "SELECT ?, ?, ?, ?, ?, ? "
+        + "FROM DUAL "
+        + "WHERE EXISTS (SELECT 1 FROM users WHERE userID = ?) "
+        + "AND EXISTS (SELECT 1 FROM userPermissions WHERE userID = ? AND visitType = ?)";
     
-    public SetVisitablePlacesEngine 
-    (
-        String data
-    ) {
+    public SetVisitablePlacesEngine(String data) 
+    {
         super(data);
         JSONArray placesData = json.has("places") 
             ? json.getJSONArray("places") 
@@ -35,14 +34,13 @@ private static String QUERY
         }
     }
     
-    public AuthenticatedReply processWithConnection() throws SQLException
+public AuthenticatedReply processWithConnection() throws SQLException
     {
-int updatedLines = 0;
+        int updatedLines = 0;
 
-    for(Place place : places)
-    {
-        PreparedStatement statement 
-            = this.connection.prepareStatement(QUERY);
+        for(Place place : places)
+        {
+            PreparedStatement statement = this.connection.prepareStatement(QUERY);
             statement.setString(1, getOrganization());
             statement.setString(2, place.getCity());
             statement.setString(3, place.getAddress());
@@ -54,7 +52,11 @@ int updatedLines = 0;
             statement.setString(9, place.getVisitType());
 
             updatedLines += statement.executeUpdate();
-    }
-    return new SetVisitablePlacesReply(true, updatedLines > 0);
+        }
+        
+        if (updatedLines > 0) {
+            this.connection.commit();
+        }
+        return new SetVisitablePlacesReply(true, updatedLines > 0);
     }
 }

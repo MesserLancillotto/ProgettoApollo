@@ -3,6 +3,9 @@ package User.Voluntary;
 import User.SetNewPasswordGUI;
 import User.Interfaces.*;
 import User.Configurator.*;
+import User.User.SetUserSubscriptionToEventGUI;
+import User.User.DeleteUserSubscriptionToEventGUI;
+import User.User.GetSubscribedEventsGUI;
 import org.json.JSONObject;
 
 public class VoluntaryGUI extends AbstractConfiguratorGUI {
@@ -41,6 +44,18 @@ public class VoluntaryGUI extends AbstractConfiguratorGUI {
                 "Visualizza le autorizzazioni permesse",
                 this::getPossibleVisits));
 
+        configMap.put("SubscribeEvent", new ActionConfig(
+                "Iscrizione Evento",
+                "Iscriviti a un evento",
+                this::subscribeEventRequest));
+        configMap.put("UnsubscribeEvent", new ActionConfig(
+                "Cancellazione Iscrizione",
+                "Cancella l'iscrizione a un evento",
+                this::unsubscribeEventRequest));
+        configMap.put("GetSubscribedEvents", new ActionConfig(
+                "Eventi Iscritti",
+                "Visualizza gli eventi a cui sei iscritto",
+                this::getSubscribedEvents));
         configMap.put("SetNewPassword", new ActionConfig(
                 "Cambia password",
                 "Cambia la password",
@@ -81,6 +96,24 @@ public class VoluntaryGUI extends AbstractConfiguratorGUI {
         System.out.println("[VoluntaryGUI] getPossibleVisits()");
         UserViewInterface userView = new GetPossibleVisitsGUI();
         userView.paint(new JSONObject());
+    }
+
+    private void subscribeEventRequest() {
+        System.out.println("[VoluntaryGUI] subscribeEventRequest()");
+        UserViewInterface view = new SetUserSubscriptionToEventGUI();
+        view.paint(new JSONObject());
+    }
+
+    private void unsubscribeEventRequest() {
+        System.out.println("[VoluntaryGUI] unsubscribeEventRequest()");
+        UserViewInterface view = new DeleteUserSubscriptionToEventGUI();
+        view.paint(new JSONObject());
+    }
+
+    private void getSubscribedEvents() {
+        System.out.println("[VoluntaryGUI] getSubscribedEvents()");
+        UserViewInterface view = new GetSubscribedEventsGUI();
+        view.paint(new JSONObject());
     }
 
     private void setNewPasswordRequest() {
