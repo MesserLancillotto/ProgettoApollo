@@ -105,13 +105,16 @@ public class Client
             this.triggerPersonalData = false;
             String reply = makeServerRequest(this.request);
             userData = new JSONObject(reply);
+            System.out.println(reply);
             return reply;
         }
     }
 
     public String makeServerRequest(JSONObject jsonRequest)
     {
-        return NetworkClient.makeServerRequest(SERVER_ADDR, PORT, jsonRequest.toString());
+        String r = NetworkClient.makeServerRequest(SERVER_ADDR, PORT, jsonRequest.toString());
+        System.out.println(r);
+        return r; // NetworkClient.makeServerRequest(SERVER_ADDR, PORT, jsonRequest.toString());
     }
 
     public String makeServerRequest(RequestInterface request) 
@@ -564,4 +567,37 @@ public class Client
     {
         this.request = new DeleteUserSubscriptionToEventRequest(this.userID, this.userPassword, eventName, startDate);
     }
+
+    public void set_voluntary_subscription_to_event(List<String> friends, String eventName, int date) 
+    {
+        this.request = new Comunication.Request.Interfaces.RequestInterface() {
+            @Override
+            public String toJSONString() {
+                JSONObject json = new JSONObject();
+                json.put("comunicationType", "SET_VOLUNTARY_SUBSCRIPTION_TO_EVENT");
+                json.put("userID", userID);
+                json.put("password", userPassword);
+                json.put("eventName", eventName);
+                json.put("date", date);
+                json.put("friends", new JSONArray(friends));
+                return json.toString();
+            }
+        };
+    }
+
+    public void delete_voluntary_subscription_to_event(String eventName, int date) 
+    {
+    this.request = new Comunication.Request.Interfaces.RequestInterface() {
+        @Override
+        public String toJSONString() {
+            JSONObject json = new JSONObject();
+            json.put("comunicationType", "DELETE_VOLUNTARY_SUBSCRIPTION_TO_EVENT");
+            json.put("userID", userID);
+            json.put("password", userPassword);
+            json.put("eventName", eventName);
+            json.put("date", date);
+            return json.toString();
+        }
+    };
+}
 }

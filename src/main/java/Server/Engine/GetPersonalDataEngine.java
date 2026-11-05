@@ -21,25 +21,39 @@ public class GetPersonalDataEngine extends AuthenticatedEngine
     
     public AuthenticatedReply processWithConnection() throws SQLException
     {        
-        User user = UserCreator.createUserFromID(connection, getUserID());[cite: 27]   
+        User user = UserCreator.createUserFromID(connection, getUserID());   
+        JSONObject userJson = user.getJSONObject();
         
-        String roleStr = user.getJSONObject().optString("role");
+        // Recupero delle visite autorizzate dalla tabella userPermissions
+        JSONArray allowedVisitsArray = new JSONArray();
+        String permQuery = "SELECT visitType FROM userPermissions WHERE userID = ?";
+        try (PreparedStatement stmtPerm = connection.prepareStatement(permQuery)) {
+            stmtPerm.setString(1, getUserID());
+            try (ResultSet rsPerm = stmtPerm.executeQuery()) {
+                while (rsPerm.next()) {
+                    allowedVisitsArray.put(rsPerm.getString("visitType"));
+                }
+            }
+        }
+        userJson.put("allowedVisits", allowedVisitsArray);
+        
+        String roleStr = userJson.optString("role");
         
         if (UserRole.VOLUNTARY.name().equals(roleStr)) {
             List<Place> assignedPlaces = new ArrayList<>();
-            String query = "SELECT city, address, description, organization, visitType, defaultVoluntary FROM places WHERE defaultVoluntary = ?";
+            String placeQuery = "SELECT city, address, description, organization, visitType, userID FROM places WHERE userID = ?";
             
-            try (PreparedStatement stmt = connection.prepareStatement(query)) {
-                stmt.setString(1, getUserID());
-                try (ResultSet rs = stmt.executeQuery()) {
-                    while (rs.next()) {
+            try (PreparedStatement stmtPlace = connection.prepareStatement(placeQuery)) {
+                stmtPlace.setString(1, getUserID());
+                try (ResultSet rsPlace = stmtPlace.executeQuery()) {
+                    while (rsPlace.next()) {
                         Place place = new Place(
-                            rs.getString("city"),
-                            rs.getString("address"),
-                            rs.getString("description"),
-                            rs.getString("organization"),
-                            rs.getString("visitType"),
-                            rs.getString("defaultVoluntary")
+                            rsPlace.getString("city"),
+                            rsPlace.getString("address"),
+                            rsPlace.getString("description"),
+                            rsPlace.getString("organization"),
+                            rsPlace.getString("visitType"),
+                            rsPlace.getString("userID")
                         );
                         assignedPlaces.add(place);
                     }
@@ -49,6 +63,6 @@ public class GetPersonalDataEngine extends AuthenticatedEngine
             return new GetPersonalDataReply(true, user, assignedPlaces);
         }
         
-        return new GetPersonalDataReply(true, user);[cite: 27]
+        return new GetPersonalDataReply(true, user);
     } 
 }

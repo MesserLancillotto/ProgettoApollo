@@ -42,6 +42,7 @@ class EnginePureFabricatiorContext
         STRATEGY_MAP.put(ComunicationType.SET_USER_SUBSCRIPTION_TO_EVENT, SetUserSubscriptionToEventEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_VISITABLE_PLACES, SetVisitablePlacesEngine::new);
         STRATEGY_MAP.put(ComunicationType.SET_VOLUNTARY_PERMISSIONS, SetUserPermissionsEngine::new);
+        STRATEGY_MAP.put(ComunicationType.SET_VOLUNTARY_SUBSCRIPTION_TO_EVENT, SetVoluntarySubscriptionToEventEngine::new);
     }
 
     public static Function<String, EngineInterface> createEngine(ComunicationType comunicationType)

@@ -11,8 +11,8 @@ public class GetPersonalDataReply extends AuthenticatedReply
 {
     public GetPersonalDataReply(Boolean loginSuccessful, User user) 
     {
-        super(loginSuccessful);[cite: 33]
-        json.put("user", user.getJSONObject());[cite: 33]
+        super(loginSuccessful);
+        json.put("user", user.getJSONObject());
     }
 
     public GetPersonalDataReply(Boolean loginSuccessful, User user, List<Place> assignedPlaces) 
@@ -31,6 +31,6 @@ public class GetPersonalDataReply extends AuthenticatedReply
 
     public GetPersonalDataReply(Boolean loginSuccessful)
     {
-        super(loginSuccessful);[cite: 33]
+        super(loginSuccessful);
     }
 }

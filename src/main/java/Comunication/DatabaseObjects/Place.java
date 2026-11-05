@@ -26,15 +26,15 @@ public class Place
         json.put("defaultVoluntary", defaultVoluntary);
     }
 
-public Place(JSONObject data)
+    public Place(JSONObject data)
     {
         this(
-            data.getString("city"),
-            data.getString("address"),
-            data.getString("description"),
-            data.getString("organization"),
-            data.getString("visitType"),
-            data.getString("defaultVoluntary")
+            data.optString("city", "NONE"),
+            data.optString("address", "NONE"),
+            data.optString("description", "NONE"),
+            data.optString("organization", "NONE"),
+            data.optString("visitType", "NONE"),
+            data.optString("defaultVoluntary", data.optString("userID", "NONE"))
         );
     }
     
@@ -90,4 +90,3 @@ public Place(JSONObject data)
         return json.getString("defaultVoluntary");
     }
 }
-

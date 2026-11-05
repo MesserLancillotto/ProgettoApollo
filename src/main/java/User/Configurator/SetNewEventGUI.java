@@ -5,10 +5,17 @@ import User.Interfaces.RequestGUI;
 import org.json.JSONObject;
 
 import javax.swing.*;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class SetNewEventGUI extends RequestGUI {
+
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+    private static final DateTimeFormatter FORMATTER_DATE_ONLY = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public SetNewEventGUI() {
         this.title = "Crea Nuovo Evento";
@@ -24,8 +31,8 @@ public class SetNewEventGUI extends RequestGUI {
         this.fields.put("Città", false);
         this.fields.put("Indirizzo", false);
         this.fields.put("Punto di ritrovo", false);
-        this.fields.put("Data inizio (timestamp, facoltativo)", false);
-        this.fields.put("Data fine (timestamp, facoltativo)", false);
+        this.fields.put("Data inizio (es. 25/06/2026 15:30, facoltativo)", false);
+        this.fields.put("Data fine (es. 25/06/2026 18:00, facoltativo)", false);
         this.fields.put("Volontari (separati da virgola, facoltativo)", false);
     }
 
@@ -38,8 +45,8 @@ public class SetNewEventGUI extends RequestGUI {
             String city = inputMap.get("Città").getText().trim();
             String address = inputMap.get("Indirizzo").getText().trim();
             String rendezvous = inputMap.get("Punto di ritrovo").getText().trim();
-            String startStr = inputMap.get("Data inizio (timestamp, facoltativo)").getText().trim();
-            String endStr = inputMap.get("Data fine (timestamp, facoltativo)").getText().trim();
+            String startStr = inputMap.get("Data inizio (es. 25/06/2026 15:30, facoltativo)").getText().trim();
+            String endStr = inputMap.get("Data fine (es. 25/06/2026 18:00, facoltativo)").getText().trim();
             String voluntariesRaw = inputMap.get("Volontari (separati da virgola, facoltativo)").getText().trim();
 
             if (name.isEmpty() || visitType.isEmpty() || city.isEmpty() || address.isEmpty()) {
@@ -52,35 +59,26 @@ public class SetNewEventGUI extends RequestGUI {
                 return;
             }
 
-            Integer startDate = null;
-            Integer endDate = null;
-
-            if (!startStr.isEmpty()) {
-                try {
-                    startDate = Integer.parseInt(startStr);
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(
-                        frame,
-                        "La data di inizio deve essere un timestamp numerico valido.",
-                        "Input non valido",
-                        JOptionPane.WARNING_MESSAGE
-                    );
-                    return;
-                }
+            Integer startDate = parseHumanDate(startStr);
+            if (!startStr.isEmpty() && startDate == null) {
+                JOptionPane.showMessageDialog(
+                    frame,
+                    "Formato data inizio non valido. Usa 'dd/MM/yyyy HH:mm' oppure 'dd/MM/yyyy'.",
+                    "Input non valido",
+                    JOptionPane.WARNING_MESSAGE
+                );
+                return;
             }
 
-            if (!endStr.isEmpty()) {
-                try {
-                    endDate = Integer.parseInt(endStr);
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(
-                        frame,
-                        "La data di fine deve essere un timestamp numerico valido.",
-                        "Input non valido",
-                        JOptionPane.WARNING_MESSAGE
-                    );
-                    return;
-                }
+            Integer endDate = parseHumanDate(endStr);
+            if (!endStr.isEmpty() && endDate == null) {
+                JOptionPane.showMessageDialog(
+                    frame,
+                    "Formato data fine non valido. Usa 'dd/MM/yyyy HH:mm' oppure 'dd/MM/yyyy'.",
+                    "Input non valido",
+                    JOptionPane.WARNING_MESSAGE
+                );
+                return;
             }
 
             List<String> voluntaries = parseList(voluntariesRaw);
@@ -148,6 +146,23 @@ public class SetNewEventGUI extends RequestGUI {
                 this.frame.dispose();
             }
         });
+    }
+
+    private Integer parseHumanDate(String dateStr) {
+        if (dateStr == null || dateStr.isEmpty()) {
+            return null;
+        }
+        try {
+            LocalDateTime ldt;
+            if (dateStr.length() <= 10) {
+                ldt = java.time.LocalDate.parse(dateStr, FORMATTER_DATE_ONLY).atStartOfDay();
+            } else {
+                ldt = LocalDateTime.parse(dateStr, FORMATTER);
+            }
+            return (int) ldt.atZone(ZoneId.systemDefault()).toEpochSecond();
+        } catch (DateTimeParseException e) {
+            return null;
+        }
     }
 
     private List<String> parseList(String rawInput) {
