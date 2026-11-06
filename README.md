@@ -54,7 +54,7 @@ dove `login_request.json` è un file con la stringa formata per la richiesta
 # Database
 Nel db è già stato inserito il contenuto di `databases/setup_with_test_users.sql`. Qualora qualcosa sia andato storto avviare l'interfaccia grafica con 
 ```bash
-make h2
+make h2_html_interface
 ```
 e quindi incollare dentro prima `databases/table_drop_all.sql` per eliminare il vecchio e poi aggiungere il nuovo con `databases/setup_with_test_users.sql`. 
 
