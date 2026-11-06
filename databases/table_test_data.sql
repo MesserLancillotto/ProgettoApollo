@@ -312,3 +312,4 @@ INSERT INTO users VALUES (
     'VOLUNTARY',
     false
 );
+

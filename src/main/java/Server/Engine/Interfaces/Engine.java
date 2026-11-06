@@ -11,7 +11,7 @@ abstract class Engine implements EngineInterface
     
     private static String dbUrl = 
     """
-        jdbc:h2:~/documents/IngegneriaDelSoftware2025/databases/MAIN_DB
+        jdbc:h2:~/documents/ProgettoApollo/databases/MAIN_DB
     """;
     private static String user = "sa";
     private static String db_passwd = "";

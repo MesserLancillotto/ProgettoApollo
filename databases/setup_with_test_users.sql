@@ -95,4 +95,56 @@ CREATE TABLE IF NOT EXISTS subscriptions
     
 
 INSERT INTO USERS VALUES ('Magnificus.Administrator.00', '1234', 'Magnificus', 'Administrator', 'Ginnungagap', 1, 1, 2000, 0, '', 'CONFIGURATOR', 'true');
-SELECT * FROM USERS ;
+
+
+INSERT INTO users VALUES (
+    'Paolo.Malatesta.82',
+    'Francesca',
+    'Paolo',
+    'Malatesta',
+    'Ravenna',
+    7, 1, 1982,
+    1768047600, -- 10/01/2026 12:20
+    '',
+    'USER',
+    false
+);
+
+INSERT INTO users VALUES (
+    'Francesca.Polenta.89',
+    'Paolo',
+    'Francesca',
+    'Polenta',
+    'Rimini',
+    19, 8, 1989,
+    1768047300, -- 10/01/2026 12:15
+    '',
+    'USER',
+    false
+);
+
+INSERT INTO users VALUES (
+    'Renzo.Tramaglino.94',
+    'Milano',
+    'Renzo',
+    'Tramaglino',
+    'Milano',
+    28, 11, 1994,
+    1768155600, -- 10/01/2026 18:20
+    '',
+    'USER',
+    false
+);
+
+INSERT INTO users VALUES (
+    'Lucia.Mondella.97',
+    'Monza',
+    'Lucia',
+    'Mondella',
+    'Milano',
+    4, 6, 1997,
+    1768155900, -- 10/01/2026 18:20
+    '',
+    'USER',
+    false
+);

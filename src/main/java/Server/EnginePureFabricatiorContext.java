@@ -20,6 +20,7 @@ class EnginePureFabricatiorContext
         STRATEGY_MAP.put(ComunicationType.DELETE_EVENT_INSTANCE, DeleteEventInstanceEngine::new);
         STRATEGY_MAP.put(ComunicationType.DELETE_PLACE, DeletePlaceEngine::new);
         STRATEGY_MAP.put(ComunicationType.DELETE_USER_SUBSCRIPTION_TO_EVENT, DeleteUserSubscriptionToEventEngine::new);
+        STRATEGY_MAP.put(ComunicationType.DELETE_VOLUNTARY_SUBSCRIPTION_TO_EVENT, DeleteVoluntarySubscriptionToEventEngine::new);
         // STRATEGY_MAP.put(ComunicationType.DELETE_VISIT, DeleteVisitEngine::new);
         STRATEGY_MAP.put(ComunicationType.DELETE_VOLUNTARY, DeleteVoluntaryEngine::new);
         STRATEGY_MAP.put(ComunicationType.EDIT_VISITABLE_PLACES, EditVisitablePlacesEngine::new);

@@ -2,6 +2,7 @@ package User.User;
 
 import Client.Client;
 import User.Interfaces.*;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +22,6 @@ public class GetPersonalDataGUI extends RequestGUI
     @Override
     protected void buildFieldsMap() 
     {
-        // Non serve riempire 'fields' perché non usiamo JTextField di input.
     }
 
     @Override
@@ -46,7 +46,6 @@ public class GetPersonalDataGUI extends RequestGUI
         displayData.put("Nome", user.optString("name", "-"));
         displayData.put("Cognome", user.optString("surname", "-"));
         displayData.put("Ruolo", user.optString("role", "-"));
-        displayData.put("Organizzazione", user.optString("organization", "-"));
         displayData.put("Città", user.optString("city", "-"));
 
         if (user.has("birth_dd") && user.has("birth_mm") && user.has("birth_yy")) 
@@ -72,18 +71,31 @@ public class GetPersonalDataGUI extends RequestGUI
             displayData.put("Utente Dal", "-");
         }
 
+        if (user.has("assignedPlaces")) 
+        {
+            JSONArray places = user.getJSONArray("assignedPlaces");
+            StringBuilder sbPlaces = new StringBuilder();
+            for (int i = 0; i < places.length(); i++) {
+                JSONObject p = places.getJSONObject(i);
+                if (i > 0) sbPlaces.append("; ");
+                sbPlaces.append(p.optString("city", "-"))
+                          .append(" (").append(p.optString("address", "-")).append(" - ")
+                          .append(p.optString("visitType", "-")).append(")");
+            }
+            displayData.put("Posti Assegnati", sbPlaces.length() > 0 ? sbPlaces.toString() : "Nessuno");
+        }
+
         SwingUtilities.invokeLater(() -> {
             frame = new JFrame(title);
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.setLayout(new GridBagLayout());
 
             GridBagConstraints gbc = new GridBagConstraints();
-            gbc.insets = new Insets(8, 8, 8, 8);
+            gbc.insets = new Insets(6, 8, 6, 8);
             gbc.fill = GridBagConstraints.HORIZONTAL;
 
             int row = 0;
 
-            // Titolo
             JLabel titleLabel = new JLabel(title, SwingConstants.CENTER);
             titleLabel.setFont(new Font("Arial", Font.BOLD, 16));
             gbc.gridx = 0;

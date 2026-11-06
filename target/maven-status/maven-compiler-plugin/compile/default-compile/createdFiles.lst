@@ -35,8 +35,8 @@ Server/Engine/EditVisitablePlacesEngine.class
 Comunication/Request/SetMaximumFriendsRequest.class
 Comunication/Request/Interfaces/AuthenticatedRequest.class
 Comunication/Request/GetSubscribedEventsRequest.class
-User/User/GetMaximumFriendsGUI.class
 Comunication/Request/SetVisitablePlacesRequest.class
+Server/Engine/DeleteVoluntarySubscriptionToEventEngine.class
 User/SetNewPasswordGUI.class
 Comunication/Request/GetMaximumFriendsRequest.class
 Comunication/Reply/SetNewEventReply.class

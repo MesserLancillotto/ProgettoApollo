@@ -1,6 +1,6 @@
 # ProgettoApollo
 ## Prerequisiti
-Per limiti di nostra capacità progettuale il progetto dovrebbe essere posto in `~/documents/ProgettoApollo/`, principalmente perché è lì che si trova il database. Avremmo potuto fare in modo che il db si trovasse in qualche cartella locale (come in `.local/share`) ma abbiamo preferito non sporcare al di fuori della cartella di questo progetto, poiché anche per il professore andare a ripulire ogni volta tutti i db di tutti gli studenti (sempre ammesso che mettessero tutti i db nella stessa cartella) sarebbe un lavoro quantomeno tedioso.
+Il progetto necessita che il file del database sia `~/documents/ProgettoApollo/databases/MAIN_DB`. Qualora si volesse modificare questa directory modificare la variabile `dbUrl` in `src/main/java/Server/Engine/EngineInterface.java`. Sarebbe stato possibile fare in modo che il db si trovasse in qualche cartella locale (come in `.local/share`) ma ho preferito non sporcare al di fuori della cartella di questo progetto, poiché anche per il professore andare a ripulire ogni volta tutti i db di tutti gli studenti (sempre ammesso che mettessero tutti i db nella stessa cartella) sarebbe un lavoro quantomeno tedioso.
 ## Compilazione
 Per compilare è necessario aver installato maven. Se si vuole adoperare il makefile basta usare il comando 
 
@@ -50,3 +50,19 @@ printf "$(printf '\\x%02x\\x%02x' $((LEN>>8)) $((LEN&0xff)))" > /tmp/hdr
 cat /tmp/hdr login_request.json | nc localhost 8000 | xxd
 ```
 dove `login_request.json` è un file con la stringa formata per la richiesta
+
+# Database
+Nel db è già stato inserito il contenuto di `databases/setup_with_test_users.sql`. Qualora qualcosa sia andato storto avviare l'interfaccia grafica con 
+```bash
+make h2
+```
+e quindi incollare dentro prima `databases/table_drop_all.sql` per eliminare il vecchio e poi aggiungere il nuovo con `databases/setup_with_test_users.sql`. 
+
+# Primo accesso del configuratore
+L'utente admin di test è `Magnificus.Administrator.00` con password `1234`. 
+## Primo login per funzionamento al meglio
+1. Cambiare la password
+2. Creare l'organizzazione
+3. Creare degli utenti volontari
+4. Creare dei luoghi
+5. Creare degli eventi

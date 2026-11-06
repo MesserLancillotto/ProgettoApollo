@@ -41,7 +41,7 @@ public class DeleteVoluntarySubscriptionToEventGUI extends RequestGUI {
             }
 
             Client client = Client.getInstance();
-            client.delete_user_subscription_to_event(eventName, date);
+            client.delete_voluntary_subscription_to_event(eventName, date);
 
             String response = client.makeServerRequest();
             try {

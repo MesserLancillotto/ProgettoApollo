@@ -1,7 +1,6 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/SetVoluntarySubscriptionToEventEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Interfaces/AbstractConfiguratorGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetMaximumFriendsRequest.java
-/home/lancillotto/documents/ProgettoApollo/src/main/java/User/User/GetMaximumFriendsGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/SetNewEventRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Request/GetSubscribedEventsRequest.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/DeletePlaceRequestGUI.java
@@ -139,5 +138,6 @@
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/SetUserSubscriptionToEventReply.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/SetVisitablePlacesGUI.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Comunication/Reply/EditVisitablePlacesReply.java
+/home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/DeleteVoluntarySubscriptionToEventEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/Server/Engine/GetVoluntariesEngine.java
 /home/lancillotto/documents/ProgettoApollo/src/main/java/User/Configurator/GetPossibleVisitsGUI.java

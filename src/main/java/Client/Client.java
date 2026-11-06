@@ -398,44 +398,6 @@ public class Client
         makeServerRequest();
     }
 
-    public int get_max_people_subscription() 
-    {
-        if (filePath != null && Files.exists(Paths.get(filePath))) {
-            try {
-                String contenutoFile = Files.readString(Paths.get(filePath));
-                JSONObject jsonLetto = new JSONObject(contenutoFile);
-                if (jsonLetto.has("MaxPeople")) {
-                    return jsonLetto.getInt("MaxPeople");
-                }
-            } catch (Exception e) {
-                // fall back to server request
-            }
-        }
-
-        JSONObject req = new JSONObject();
-        req.put("action", "get_max_people_subscription");
-        req.put("userID", this.userID);
-        req.put("userPassword", this.userPassword);
-
-        String jsonResponse = makeServerRequest(req);
-
-        if (jsonResponse == null || jsonResponse.isEmpty()) {
-            System.err.println("❌ Nessuna risposta dal server.");
-            return -1;
-        }
-
-        try {
-            JSONObject responseObj = new JSONObject(jsonResponse);
-            if (responseObj.has("MaxPeople")) {
-                return responseObj.getInt("MaxPeople");
-            }
-        } catch (JSONException e) {
-            System.err.println("❌ Errore nel parsing del JSON di risposta dal server: " + e.getMessage());
-        }
-
-        return -1;
-    }
-
     public void setNewEvent(
         String name,
         String description,

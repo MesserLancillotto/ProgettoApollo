@@ -13,7 +13,7 @@ public class SetUserSubscriptionToEventEngine
 extends AuthenticatedEngine
 {
     private static final String QUERY = """
-        INSERT INTO subscriptions (userID, name, start_date)
+        INSERT INTO subscriptions (userID, name, date)
         SELECT ? , ? , ?
         FROM users
         WHERE userID = ? AND ROLE = 'USER';

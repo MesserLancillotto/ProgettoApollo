@@ -10,30 +10,25 @@ import java.util.Map;
 public class DeleteUserSubscriptionToEventGUI extends RequestGUI {
 
     public DeleteUserSubscriptionToEventGUI() {
-        this.title = "Cancella Iscrizione Evento";
-        this.successMessage = "Iscrizione all'evento cancellata con successo.";
-        this.errorMessage = "Si è verificato un errore durante la cancellazione dell'iscrizione. Si prega di riprovare.";
+        this.title = "Disiscrizione Evento";
+        this.successMessage = "Disiscrizione completata con successo.";
+        this.errorMessage = "Errore durante la disiscrizione.";
     }
 
     @Override
     protected void buildFieldsMap() {
         this.fields.put("Nome Evento", false);
-        this.fields.put("Data Inizio (Timestamp)", false);
+        this.fields.put("Data (Timestamp)", false);
     }
 
     @Override
     protected void requestLogic(JButton submitButton, Map<String, JTextField> inputMap) {
         submitButton.addActionListener(e -> {
             String eventName = inputMap.get("Nome Evento").getText().trim();
-            String dateStr = inputMap.get("Data Inizio (Timestamp)").getText().trim();
+            String dateStr = inputMap.get("Data (Timestamp)").getText().trim();
 
-            if (eventName.isEmpty()) {
-                JOptionPane.showMessageDialog(
-                    frame,
-                    "Inserire il nome dell'evento.",
-                    "Attenzione",
-                    JOptionPane.WARNING_MESSAGE
-                );
+            if (eventName.isEmpty() || dateStr.isEmpty()) {
+                JOptionPane.showMessageDialog(frame, "Nome evento e data sono obbligatori.", "Attenzione", JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
@@ -41,12 +36,7 @@ public class DeleteUserSubscriptionToEventGUI extends RequestGUI {
             try {
                 date = Integer.parseInt(dateStr);
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(
-                    frame,
-                    "La data inizio (timestamp) deve essere un numero intero.",
-                    "Attenzione",
-                    JOptionPane.WARNING_MESSAGE
-                );
+                JOptionPane.showMessageDialog(frame, "La data deve essere un numero intero (timestamp).", "Attenzione", JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
@@ -54,47 +44,18 @@ public class DeleteUserSubscriptionToEventGUI extends RequestGUI {
             client.delete_user_subscription_to_event(eventName, date);
 
             String response = client.makeServerRequest();
-            System.out.println("Risposta dal server: " + response);
-
-            if (response == null || response.isEmpty()) {
-                JOptionPane.showMessageDialog(
-                    frame,
-                    this.errorMessage,
-                    "Errore Rete",
-                    JOptionPane.ERROR_MESSAGE
-                );
-                return;
-            }
-
             try {
                 JSONObject jsonResponse = new JSONObject(response);
                 if (jsonResponse.optBoolean("updateSuccessful", false)) {
-                    JOptionPane.showMessageDialog(
-                        frame,
-                        this.successMessage,
-                        "Risposta dal Server",
-                        JOptionPane.INFORMATION_MESSAGE
-                    );
+                    JOptionPane.showMessageDialog(frame, this.successMessage, "Successo", JOptionPane.INFORMATION_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(
-                        frame,
-                        this.errorMessage,
-                        "Errore",
-                        JOptionPane.ERROR_MESSAGE
-                    );
+                    JOptionPane.showMessageDialog(frame, this.errorMessage, "Errore", JOptionPane.ERROR_MESSAGE);
                 }
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(
-                    frame,
-                    "Errore nel parsing della risposta del server.",
-                    "Errore Formato JSON",
-                    JOptionPane.ERROR_MESSAGE
-                );
+                JOptionPane.showMessageDialog(frame, "Errore nel parsing della risposta.", "Errore", JOptionPane.ERROR_MESSAGE);
             }
 
-            if (this.frame != null) {
-                this.frame.dispose();
-            }
+            if (this.frame != null) this.frame.dispose();
         });
     }
 }
